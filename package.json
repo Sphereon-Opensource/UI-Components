@@ -1,0 +1,50 @@
+{
+  "name": "@sphereon/ui-components.workspace",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Sphereon UI Components (Workspace)",
+  "repository": "git@github.com:Sphereon-Opensource/UI-Components.git",
+  "author": "Sphereon <dev@sphereon.com>",
+  "license": "Apache-2.0",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "build": "pnpm -r --stream build",
+    "bootstrap": "lerna bootstrap",
+    "test:lint": "eslint . --ext .ts",
+    "fix:prettier": "prettier --write \"{packages,!dist}/**/*.{ts,tsx,json,md}\"",
+    "build-clean": "rimraf --glob ./packages/*/dist ./packages/*/api ./packages/*/node_modules ./packages/*/tsconfig.tsbuildinfo ./node_modules && jest --clearCache",
+    "publish:latest": "lerna publish --conventional-commits --force-publish --include-merged-tags --create-release github --yes --dist-tag latest --registry https://registry.npmjs.org",
+    "publish:next": "lerna publish --conventional-prerelease --force-publish --canary --no-git-tag-version --include-merged-tags --preid next --pre-dist-tag next --yes --registry https://registry.npmjs.org",
+    "publish:unstable": "lerna publish --conventional-prerelease --force-publish --canary --no-git-tag-version --include-merged-tags --preid unstable --pre-dist-tag unstable --yes --registry https://registry.npmjs.org"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "branches": [
+      "master",
+      {
+        "name": "beta",
+        "prerelease": true
+      }
+    ]
+  },
+  "devDependencies": {
+    "lerna": "^6.6.1",
+    "lerna-changelog": "^2.2.0",
+    "prettier": "^2.8.8",
+    "rimraf": "^4.4.0",
+    "semantic-release": "^19.0.5",
+    "typescript": "4.9.5"
+  },
+  "engines": {
+    "node": ">= 16.0.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react-native": "0.71.3",
+      "@types/react": "~18.0.28",
+      "typescript": "4.9.5"
+    }
+  }
+}

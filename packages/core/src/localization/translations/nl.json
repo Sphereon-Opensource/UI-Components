@@ -1,0 +1,10 @@
+{
+  "credential_card_expires_message": "Verloopt:",
+  "credential_status_never_expires_date_label": "Verloopt nooit",
+  "issuer_status_verified": "Geverifieerd",
+  "issuer_status_unverified": "Ongeverifieerd",
+  "credential_status_valid": "Geldig",
+  "credential_status_expired": "Verlopen",
+  "credential_status_revoked": "Ingetrokken",
+  "status_missing": "Onbekent"
+}

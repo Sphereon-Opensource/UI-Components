@@ -1,0 +1,51 @@
+{
+  "name": "@sphereon/ui-components.ssi-react-native",
+  "private": true,
+  "version": "0.1.0",
+  "description": "SSI UI components for React-Native",
+  "repository": "git@github.com:Sphereon-Opensource/UI-Components.git",
+  "author": "Sphereon <dev@sphereon.com>",
+  "license": "Apache-2.0",
+  "keywords": [
+    "Frontend",
+    "User interface",
+    "React-Native",
+    "Self-sovereign identity (SSI)"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:clean": "tsc --build --clean && tsc --build"
+  },
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@react-native-community/blur": "^4.3.0",
+    "@sphereon/ui-components.core": "workspace:*",
+    "react-native-fast-image": "^8.6.3",
+    "react-native-size-matters": "^0.4.0",
+    "react-native-svg": "13.4.0",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/react": "~18.0.14",
+    "@types/react-native": "0.71.3",
+    "@types/styled-components": "^5.1.15",
+    "@types/styled-components-react-native": "^5.1.2",
+    "react": "18.2.0",
+    "react-native": "0.71.7",
+    "typescript": "4.9.5"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  }
+}

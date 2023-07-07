@@ -1,0 +1,10 @@
+{
+  "credential_card_expires_message": "Expires:",
+  "credential_status_never_expires_date_label": "Never expires",
+  "issuer_status_verified": "Verified",
+  "issuer_status_unverified": "Unverified",
+  "credential_status_valid": "Valid",
+  "credential_status_expired": "Expired",
+  "credential_status_revoked": "Revoked",
+  "status_missing": "Unknown"
+}
