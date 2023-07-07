@@ -1,7 +1,5 @@
 import {LabelStatus} from '../../types'
 
-// TODO rename everything with Colors
-
 type BackgroundColor = 'primaryDark' | 'secondaryDark' | 'primaryLight' | 'secondaryLight'
 
 export const backgroundColors: Record<BackgroundColor, string> = {

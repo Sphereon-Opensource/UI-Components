@@ -43,7 +43,6 @@ const isEpochMilli = (date: number): boolean => {
 
 const removeFractionalPart = (date: number): number => {
   if (date.toString().includes('.')) {
-    // indexOf('.') !== -1
     return Number(date.toString().split('.')[0])
   }
 

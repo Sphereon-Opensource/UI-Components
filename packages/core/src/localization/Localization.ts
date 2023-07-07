@@ -12,9 +12,7 @@ class Localization {
     [Localization.supportedLanguages.DUTCH]: () => require('./translations/nl.json'),
   }
 
-  public static translate: any = memoize(
-    // TODO any
-    (key: Scope, config?: TranslateOptions) => {
+  public static translate = memoize((key: Scope, config?: TranslateOptions) => {
       // If no LocaleProvider is used we need to load the default locale as the translations will be empty
       if (Object.keys(i18n.translations).length === 0) {
         i18n.translations = {
