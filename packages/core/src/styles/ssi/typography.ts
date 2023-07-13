@@ -4,11 +4,11 @@ export const fontSize: Record<FontSize, number> = {
   100: 9,
   200: 10,
   300: 11,
-  400: 14,
-  500: 16,
-  600: 24,
-  700: 36, // TODO fix order
-  800: 12, // TODO fix order
+  400: 12,
+  500: 14,
+  600: 16,
+  700: 24,
+  800: 36,
 }
 
 export type LineHeight = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800
@@ -17,11 +17,11 @@ export const lineHeight: Record<LineHeight, number> = {
   100: 13.5,
   200: 15,
   300: 16.5,
-  400: 21,
-  500: 24,
-  600: 34, // TODO design says 36 which makes a part of the line disappear
-  700: 54,
-  800: 18, // TODO fix the order
+  400: 18,
+  500: 21,
+  600: 24, // TODO design says 36 which makes a part of the line disappear
+  700: 34,
+  800: 54,
 }
 
 export type FontWeight = 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900'

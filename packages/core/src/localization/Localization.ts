@@ -1,24 +1,21 @@
 import i18n, {Scope, TranslateOptions} from 'i18n-js'
 import memoize from 'lodash.memoize'
+import {SupportedLanguage} from '../types/localization'
 
 class Localization {
-  public static supportedLanguages = {
-    ENGLISH: 'en',
-    DUTCH: 'nl',
-  }
-
   private static translationGetters: {[locale: string]: () => object} = {
-    [Localization.supportedLanguages.ENGLISH]: () => require('./translations/en.json'),
-    [Localization.supportedLanguages.DUTCH]: () => require('./translations/nl.json'),
+    [SupportedLanguage.ENGLISH]: () => require('./translations/en.json'),
+    [SupportedLanguage.DUTCH]: () => require('./translations/nl.json'),
   }
 
-  public static translate: any = memoize((key: Scope, config?: TranslateOptions) => {
+  public static translate: any = memoize(
+    (key: Scope, config?: TranslateOptions) => {
       // If no LocaleProvider is used we need to load the default locale as the translations will be empty
       if (Object.keys(i18n.translations).length === 0) {
         i18n.translations = {
-          [Localization.supportedLanguages.ENGLISH]: Localization.translationGetters[Localization.supportedLanguages.ENGLISH](),
+          [SupportedLanguage.ENGLISH]: Localization.translationGetters[SupportedLanguage.ENGLISH](),
         }
-        i18n.locale = Localization.supportedLanguages.ENGLISH
+        i18n.locale = SupportedLanguage.ENGLISH
       }
 
       return i18n.t(key, config)
@@ -26,7 +23,7 @@ class Localization {
     (key: Scope, config?: TranslateOptions) => (config ? key + JSON.stringify(config) : key),
   )
 
-  public static switchToLanguage = (languageTag: string = Localization.supportedLanguages.ENGLISH): void => {
+  public static switchToLanguage = (languageTag: string = SupportedLanguage.ENGLISH): void => {
     if (Localization.translate.cache.clear) {
       Localization.translate.cache.clear()
     }

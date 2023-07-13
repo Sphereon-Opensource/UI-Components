@@ -5,11 +5,4 @@ import SSIExclamationMarkBadge from './components/assets/badges/SSIExclamationMa
 import SSIPlaceholderLogo from './components/assets/logos/SSIPlaceholderLogo'
 import SSILogo from './components/assets/logos/SSILogo'
 
-export {
-    SSICardView,
-    SSIStatusLabel,
-    SSICheckmarkBadge,
-    SSIExclamationMarkBadge,
-    SSIPlaceholderLogo,
-    SSILogo
-}
+export {SSICardView, SSIStatusLabel, SSICheckmarkBadge, SSIExclamationMarkBadge, SSIPlaceholderLogo, SSILogo}

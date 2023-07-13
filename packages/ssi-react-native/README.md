@@ -15,8 +15,9 @@ A React-Native package containing UI components for SSI
 
 ### Localization
 
-To provide localization, you can wrap your app with a locale provider and expose the locale to the UI components. 
-* Currently only the English and Dutch locales are supported.
+To provide localization, you can wrap your app with a locale provider and expose the locale to the UI components.
+
+- Currently only the English and Dutch locales are supported.
 
 #### Adding a locale provider
 

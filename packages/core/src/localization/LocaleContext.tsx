@@ -1,13 +1,13 @@
 import {Context, createContext, Dispatch, SetStateAction} from 'react'
-import Localization from './Localization'
+import {SupportedLanguage} from '../types/localization'
 
 type LocaleContextType = {
-  locale: string
-  setLocale: Dispatch<SetStateAction<string>>
+  locale: SupportedLanguage
+  setLocale: Dispatch<SetStateAction<SupportedLanguage>>
 }
 
 const LocaleContext: Context<LocaleContextType> = createContext<LocaleContextType>({
-  locale: Localization.supportedLanguages.ENGLISH,
+  locale: SupportedLanguage.ENGLISH,
   setLocale: () => {},
 })
 
