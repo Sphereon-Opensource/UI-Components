@@ -43,5 +43,5 @@ class Localization {
   }
 }
 
-export default Localization;
-
+export const translate = Localization.translate
+export default Localization
