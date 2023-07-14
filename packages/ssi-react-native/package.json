@@ -1,6 +1,6 @@
 {
   "name": "@sphereon/ui-components.ssi-react-native",
-  "private": true,
+  "private": false,
   "version": "0.1.0",
   "description": "SSI UI components for React-Native",
   "repository": "git@github.com:Sphereon-Opensource/UI-Components.git",
