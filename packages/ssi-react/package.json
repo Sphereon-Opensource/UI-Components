@@ -1,6 +1,6 @@
 {
   "name": "@sphereon/ui-components.ssi-react",
-  "private": true,
+  "private": false,
   "version": "0.1.0",
   "description": "SSI UI components for React",
   "repository": "git@github.com:Sphereon-Opensource/UI-Components.git",
