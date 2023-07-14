@@ -1,6 +1,6 @@
 import i18n, {Scope, TranslateOptions} from 'i18n-js'
 import memoize from 'lodash.memoize'
-import {SupportedLanguage} from '../types/localization'
+import {SupportedLanguage} from '../types'
 
 class Localization {
   private static translationGetters: {[locale: string]: () => object} = {
@@ -16,6 +16,13 @@ class Localization {
           [SupportedLanguage.ENGLISH]: Localization.translationGetters[SupportedLanguage.ENGLISH](),
         }
         i18n.locale = SupportedLanguage.ENGLISH
+      } else {
+        i18n.translations = {
+          [i18n.locale]: {
+            ...i18n.translations[i18n.locale],
+            ...Localization.translationGetters[this.findSupportedLanguage(i18n.locale) || SupportedLanguage.ENGLISH]()
+          },
+        }
       }
 
       return i18n.t(key, config)
@@ -23,18 +30,16 @@ class Localization {
     (key: Scope, config?: TranslateOptions) => (config ? key + JSON.stringify(config) : key),
   )
 
-  public static switchToLanguage = (languageTag: string = SupportedLanguage.ENGLISH): void => {
-    if (Localization.translate.cache.clear) {
-      Localization.translate.cache.clear()
+  private static findSupportedLanguage = (locale: string): string | undefined => {
+    for (const language of Object.values(SupportedLanguage)) {
+      if (language === locale) {
+        return language;
+      }
     }
-    i18n.translations = {
-      [languageTag]: Localization.translationGetters[languageTag](),
-    }
-    i18n.locale = languageTag
-  }
+  };
 
   public static getLocale = (): string => {
-    return i18n.locale
+    return i18n.locale || SupportedLanguage.ENGLISH
   }
 }
 
