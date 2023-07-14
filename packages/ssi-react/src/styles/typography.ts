@@ -4,39 +4,39 @@ import {CSSProperties} from 'react'
 export const fontStyle: Record<FontStyle, CSSProperties> = {
   h0SemiBold: {
     fontFamily: 'Poppins',
+    fontSize: fontSize[800],
+    fontWeight: fontWeight[600],
+    lineHeight: lineHeight[800],
+  },
+  h1SemiBold: {
+    fontFamily: 'Poppins',
     fontSize: fontSize[700],
     fontWeight: fontWeight[600],
     lineHeight: lineHeight[700],
   },
-  h1SemiBold: {
+  h2Regular: {
+    fontFamily: 'Poppins',
+    fontSize: fontSize[600],
+    fontWeight: fontWeight[400],
+    lineHeight: lineHeight[600],
+  },
+  h2SemiBold: {
     fontFamily: 'Poppins',
     fontSize: fontSize[600],
     fontWeight: fontWeight[600],
     lineHeight: lineHeight[600],
   },
-  h2Regular: {
-    fontFamily: 'Poppins',
-    fontSize: fontSize[500],
-    fontWeight: fontWeight[400],
-    lineHeight: lineHeight[500],
-  },
-  h2SemiBold: {
-    fontFamily: 'Poppins',
-    fontSize: fontSize[500],
-    fontWeight: fontWeight[600],
-    lineHeight: lineHeight[500],
-  },
   h3Regular: {
     fontFamily: 'Poppins',
-    fontSize: fontSize[400],
+    fontSize: fontSize[500],
     fontWeight: fontWeight[400],
-    lineHeight: lineHeight[400],
+    lineHeight: lineHeight[500],
   },
   h3SemiBold: {
     fontFamily: 'Poppins',
-    fontSize: fontSize[400],
+    fontSize: fontSize[500],
     fontWeight: fontWeight[600],
-    lineHeight: lineHeight[400],
+    lineHeight: lineHeight[500],
   },
   h4Regular: {
     fontFamily: 'Poppins',
@@ -71,8 +71,8 @@ export const fontStyle: Record<FontStyle, CSSProperties> = {
   h7SemiBold: {
     // TODO fix the order
     fontFamily: 'Poppins',
-    fontSize: fontSize[800],
+    fontSize: fontSize[400],
     fontWeight: fontWeight[600],
-    lineHeight: lineHeight[800],
+    lineHeight: lineHeight[400],
   },
 }

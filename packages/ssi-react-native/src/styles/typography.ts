@@ -9,46 +9,46 @@ export const fontSize: Record<FontSize, number> = {
   400: moderateScale(fontSizes['400']),
   500: moderateScale(fontSizes['500']),
   600: moderateScale(fontSizes['600']),
-  700: moderateScale(fontSizes['700']), // TODO fix order
-  800: moderateScale(fontSizes['800']), // TODO fix order
+  700: moderateScale(fontSizes['700']),
+  800: moderateScale(fontSizes['800']),
 }
 
 export const fontStyle: Record<FontStyle, TextStyle> = {
   h0SemiBold: {
     fontFamily: 'Poppins-SemiBold', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
+    fontSize: fontSize[800],
+    fontWeight: fontWeight[600],
+    lineHeight: lineHeight[800],
+  },
+  h1SemiBold: {
+    fontFamily: 'Poppins-SemiBold', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
     fontSize: fontSize[700],
     fontWeight: fontWeight[600],
     lineHeight: lineHeight[700],
   },
-  h1SemiBold: {
+  h2Regular: {
+    fontFamily: 'Poppins-Regular', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
+    fontSize: fontSize[600],
+    fontWeight: fontWeight[400],
+    lineHeight: lineHeight[600],
+  },
+  h2SemiBold: {
     fontFamily: 'Poppins-SemiBold', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
     fontSize: fontSize[600],
     fontWeight: fontWeight[600],
     lineHeight: lineHeight[600],
   },
-  h2Regular: {
-    fontFamily: 'Poppins-Regular', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
-    fontSize: fontSize[500],
-    fontWeight: fontWeight[400],
-    lineHeight: lineHeight[500],
-  },
-  h2SemiBold: {
-    fontFamily: 'Poppins-SemiBold', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
-    fontSize: fontSize[500],
-    fontWeight: fontWeight[600],
-    lineHeight: lineHeight[500],
-  },
   h3Regular: {
     fontFamily: 'Poppins-Regular', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
-    fontSize: fontSize[400],
+    fontSize: fontSize[500],
     fontWeight: fontWeight[400],
-    lineHeight: lineHeight[400],
+    lineHeight: lineHeight[500],
   },
   h3SemiBold: {
     fontFamily: 'Poppins-SemiBold', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
-    fontSize: fontSize[400],
+    fontSize: fontSize[500],
     fontWeight: fontWeight[600],
-    lineHeight: lineHeight[400],
+    lineHeight: lineHeight[500],
   },
   h4Regular: {
     fontFamily: 'Poppins-Regular', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
@@ -83,8 +83,8 @@ export const fontStyle: Record<FontStyle, TextStyle> = {
   h7SemiBold: {
     // TODO fix the order
     fontFamily: 'Poppins-SemiBold', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
-    fontSize: fontSize[800],
+    fontSize: fontSize[400],
     fontWeight: fontWeight[600],
-    lineHeight: lineHeight[800],
+    lineHeight: lineHeight[400],
   },
 }

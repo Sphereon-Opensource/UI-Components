@@ -16,28 +16,7 @@ A React package containing UI components for SSI
 
 ### Localization
 
-To provide localization, you can wrap your app with a locale provider and expose the locale to the UI components.
-
-- Currently only the English and Dutch locales are supported.
-
-#### Adding a locale provider
-
-```shell
-import {LocaleProvider} from "@sphereon/ui-components.core";
-
-<LocaleProvider>
-  <App/>
-</LocaleProvider>
-```
-
-#### Exposing the locale
-
-```shell
-import {LocaleContext} from "@sphereon/ui-components.core";
-
-const { locale, setLocale } = useContext(LocaleContext)
-setLocale('en')
-```
+i18n is used for localization. Currently only the English and Dutch locales are supported.
 
 ### Build
 
