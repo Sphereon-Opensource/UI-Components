@@ -1,0 +1,42 @@
+{
+  "name": "@sphereon/ui-components.ssi-react",
+  "private": true,
+  "version": "0.1.0",
+  "description": "SSI UI components for React",
+  "repository": "git@github.com:Sphereon-Opensource/UI-Components.git",
+  "author": "Sphereon <dev@sphereon.com>",
+  "license": "Apache-2.0",
+  "keywords": [
+    "Frontend",
+    "User interface",
+    "React",
+    "Self-sovereign identity (SSI)"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:clean": "tsc --build --clean && tsc --build"
+  },
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@sphereon/ui-components.core": "workspace:*",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/react": "~18.0.14",
+    "@types/styled-components": "^5.1.15",
+    "typescript": "4.9.5"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.0"
+  }
+}
