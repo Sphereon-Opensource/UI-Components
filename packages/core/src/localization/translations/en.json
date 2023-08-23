@@ -6,5 +6,7 @@
   "credential_status_valid": "Valid",
   "credential_status_expired": "Expired",
   "credential_status_revoked": "Revoked",
-  "status_missing": "Unknown"
+  "status_missing": "Unknown",
+  "action_filter_caption": "Filter",
+  "action_show_caption": "Show:"
 }

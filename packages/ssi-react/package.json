@@ -28,7 +28,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@sphereon/ui-components.core": "workspace:*",
+    "@sphereon/ui-components.core": "file://C:\\Git\\Sphereon-Opensource\\UI-Components\\packages\\core\\sphereon-ui-components.core-0.1.1-dpp8-06.tgz",
+    "@tanstack/react-table": "^8.9.3",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {

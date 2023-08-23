@@ -1,0 +1,48 @@
+import React, {ReactElement, ReactNode} from 'react'
+import SSITabViewHeader from './SSITabViewHeader'
+import {TabViewRoute} from '../../../types'
+
+export type Props = {
+  routes: Array<TabViewRoute>
+}
+
+type TabProps = {
+  children: ReactNode
+}
+
+const Tab: React.FC<TabProps> = (props: TabProps) => {
+  return <React.Fragment>{props.children}</React.Fragment>
+}
+
+const SSITabView: React.FC<Props> = (props: Props): ReactElement => {
+  const {routes = []} = props
+  const [activeTabIndex, setActiveTabIndex] = React.useState<number>(1)
+  const [content, setContent] = React.useState<any>()
+
+  React.useEffect((): void => {
+    routes.forEach((route: TabViewRoute, index: number): void => {
+      if (index + 1 === activeTabIndex) {
+        setContent(route.content)
+      }
+    })
+  }, [routes, activeTabIndex])
+
+  const onTabChange = async (tabIndex: number): Promise<void> => {
+    setActiveTabIndex(tabIndex)
+  }
+
+  return (
+    <div>
+      <SSITabViewHeader
+        navigationState={{
+          routes: routes,
+          index: activeTabIndex,
+        }}
+        onIndexChange={onTabChange}
+      />
+      <Tab>{content}</Tab>
+    </div>
+  )
+}
+
+export default SSITabView
