@@ -31,9 +31,7 @@ export const SSITableViewHeaderFilterCaptionStyled = styled.div`
   color: ${fontColors.dark};
 `
 
-// TODO remove heights
 export const SSITableViewHeaderShowOptionContainerStyled = styled.div`
-  height: 32px;
   display: flex;
   text-align: left;
   align-items: center;
