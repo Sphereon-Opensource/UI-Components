@@ -1,22 +1,30 @@
 import styled from 'styled-components'
 
 import {fontColors} from '@sphereon/ui-components.core'
-import {fontStyle} from '../../typography'
+import {SSITextH1Css, SSITextH2Css, SSITextH3Css, SSITextH4Css, SSITextH4SemiBoldCss, SSITextH5Css, SSITextH6Css} from '../../css'
+
+export const SSITextH1Styled = styled.span`
+  ${SSITextH1Css}
+`
+
+export const SSITextH2Styled = styled.span`
+  ${SSITextH2Css}
+`
+
+export const SSITextH3Styled = styled.span`
+  ${SSITextH3Css}
+`
+
+export const SSITextH3LightStyled = styled(SSITextH3Styled)`
+  color: ${fontColors.light};
+`
 
 export const SSITextH4Styled = styled.span`
-  font-family: ${fontStyle.h4Regular.fontFamily};
-  font-size: ${fontStyle.h4Regular.fontSize}px;
-  font-weight: ${fontStyle.h4Regular.fontWeight};
-  line-height: ${fontStyle.h4Regular.lineHeight}px;
-  height: auto;
+  ${SSITextH4Css}
 `
 
 export const SSITextH4SemiBoldStyled = styled.span`
-  font-family: ${fontStyle.h4SemiBold.fontFamily};
-  font-size: ${fontStyle.h4SemiBold.fontSize}px;
-  font-weight: ${fontStyle.h4SemiBold.fontWeight};
-  line-height: ${fontStyle.h4SemiBold.lineHeight}px;
-  height: auto;
+  ${SSITextH4SemiBoldCss}
 `
 
 export const SSITextH4LightStyled = styled(SSITextH4Styled)`
@@ -28,11 +36,7 @@ export const SSITextH4SemiBoldLightStyled = styled(SSITextH4SemiBoldStyled)`
 `
 
 export const SSITextH5Styled = styled.span`
-  font-family: ${fontStyle.h5Regular.fontFamily};
-  font-size: ${fontStyle.h5Regular.fontSize}px;
-  font-weight: ${fontStyle.h5Regular.fontWeight};
-  line-height: ${fontStyle.h5Regular.lineHeight}px;
-  height: auto;
+  ${SSITextH5Css}
 `
 
 export const SSITextH5LightStyled = styled(SSITextH5Styled)`
@@ -40,11 +44,7 @@ export const SSITextH5LightStyled = styled(SSITextH5Styled)`
 `
 
 export const SSITextH6Styled = styled.span`
-  font-family: ${fontStyle.h6.fontFamily};
-  font-size: ${fontStyle.h6.fontSize}px;
-  font-weight: ${fontStyle.h6.fontWeight};
-  line-height: ${fontStyle.h6.lineHeight}px;
-  height: auto;
+  ${SSITextH6Css}
 `
 
 export const SSITextH6LightStyled = styled(SSITextH6Styled)`

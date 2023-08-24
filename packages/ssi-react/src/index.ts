@@ -34,5 +34,5 @@ export {
   SSITableView,
   SSITableViewHeader,
   SSITabView,
-  SSITabViewHeader
+  SSITabViewHeader,
 }

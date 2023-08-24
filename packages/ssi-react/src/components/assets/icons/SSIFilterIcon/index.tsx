@@ -1,4 +1,5 @@
 import React, {FC, ReactElement} from 'react'
+import {fontColors} from '@sphereon/ui-components.core'
 
 export interface IProps {
   width?: number
@@ -7,7 +8,7 @@ export interface IProps {
 }
 
 const SSIFilterIcon: FC<IProps> = (props: IProps): ReactElement => {
-  const {height = 16, width = 18, color = '#303030'} = props // TODO color
+  const {height = 16, width = 18, color = fontColors.dark} = props
 
   return (
     <div style={{width, height, display: 'flex'}}>

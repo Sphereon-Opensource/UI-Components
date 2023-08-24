@@ -3,7 +3,8 @@ import {TabNavigationState, TabViewRoute} from '../../../../types'
 import {
   SSITabViewHeaderContainerStyled as Container,
   SSITabViewHeaderTitleContainerStyled as TitleContainer,
-} from "../../../../styles/components";
+  SSITextH3Styled as TitleCaption,
+} from '../../../../styles/components'
 
 export type Props = {
   navigationState: TabNavigationState
@@ -22,14 +23,16 @@ const SSITabViewHeader: React.FC<Props> = (props: Props): ReactElement => {
         return (
           <TitleContainer
             key={tabIndex}
-            // TODO move these to the styling component using props
+            onClick={() => onIndexChange(tabIndex)}
             style={{
-              fontWeight: !isActiveTab ? '400' : '600',
               // TODO we need a linear gradient here
-              ...(isActiveTab && {borderBottom: '2px solid #7276F7', alignSelf: 'stretch'}),
-            }}
-            onClick={() => onIndexChange(tabIndex)}>
-            {value.title}
+              ...(isActiveTab && {borderBottom: `2px solid #7276F7`, alignSelf: 'stretch'}),
+            }}>
+            <TitleCaption
+              // TODO move these to the styling component using props
+              style={{fontWeight: !isActiveTab ? '400' : '600'}}>
+              {value.title}
+            </TitleCaption>
           </TitleContainer>
         )
       })}

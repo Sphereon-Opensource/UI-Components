@@ -1,11 +1,12 @@
 import styled from 'styled-components'
-import {backgroundColors, borderColors, fontColors} from "@sphereon/ui-components.core";
+import {backgroundColors, borderColors, fontColors} from '@sphereon/ui-components.core'
+import {SSITextH2Css, SSITextH3Css} from '../../../css'
 
 export const SSITableViewContainerStyled = styled.div`
   background-color: ${backgroundColors.lightGrey};
   display: flex;
   flex-grow: 1;
-  flex-direction: column
+  flex-direction: column;
 `
 
 export const SSITableViewLabelCellStyled = styled.div`
@@ -25,6 +26,7 @@ export const SSITableViewRowContainerStyled = styled.tr`
 `
 
 export const SSITableViewCellContainerStyled = styled.td`
+  ${SSITextH3Css};
   color: ${fontColors.dark};
   background-color: ${backgroundColors.primaryLight};
   padding: 20px 16px 20px 16px;
@@ -32,14 +34,15 @@ export const SSITableViewCellContainerStyled = styled.td`
 `
 
 export const SSITableViewHeaderCellContainerStyled = styled.th`
+  ${SSITextH2Css};
   position: relative;
   padding: 20px 16px 20px 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
   background-color: ${backgroundColors.primaryLight};
   color: ${fontColors.lightGrey};
 `
+// font-style: normal;
+// font-weight: 500;
+// line-height: normal;
 
 // TODO implement the resizer for column resizing
 // .resizer {

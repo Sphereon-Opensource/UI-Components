@@ -7,7 +7,7 @@ export const backgroundColors: Record<BackgroundColor, string> = {
   secondaryDark: '#2C334B',
   primaryLight: '#FBFBFB',
   secondaryLight: '#E3E3FF',
-  lightGrey: '#E3E3E3'
+  lightGrey: '#E3E3E3',
 }
 
 // TODO WAL-303 add support for randomized colors to avoid getting the same color multiple times
@@ -39,20 +39,20 @@ export const fontColors: Record<FontColor, string> = {
   light: '#FBFBFB',
   secondaryButton: '#7664F2',
   greyedOut: '#8F8F8F',
-  lightGrey: '#8D9099'
+  lightGrey: '#8D9099',
 }
 
-type Gradient = 100 | 200;
+type Gradient = 100 | 200
 
 export const gradientColors: Record<Gradient, string> = {
   100: 'linear-gradient(135deg, #7276f7 0%, #7c40e8 100%)', // purple
-  200: 'linear-gradient(135deg, #F90 0%, #EE5309 100%)' // orange
+  200: 'linear-gradient(135deg, #F90 0%, #EE5309 100%)', // orange
 }
 
-type Border = 'dark' | 'light' | 'lightGrey';
+type Border = 'dark' | 'light' | 'lightGrey'
 
 export const borderColors: Record<Border, string> = {
   dark: '#404D7A',
   light: '#E3E3E3',
-  lightGrey: '#ACACAC'
-};
+  lightGrey: '#ACACAC',
+}

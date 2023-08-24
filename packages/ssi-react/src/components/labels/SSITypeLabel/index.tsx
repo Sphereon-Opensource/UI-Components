@@ -1,7 +1,7 @@
 import {FC, ReactElement} from 'react'
 import {LabelTypeEnum} from '../../../types'
 import {SSITypeLabelContainerStyled as Container} from '../../../styles/components'
-import {backgroundColors, gradientColors} from "@sphereon/ui-components.core";
+import {backgroundColors, gradientColors} from '@sphereon/ui-components.core'
 
 export type Props = {
   type: LabelTypeEnum

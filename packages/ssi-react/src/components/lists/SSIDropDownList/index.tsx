@@ -1,7 +1,11 @@
 import React, {FC, ReactElement} from 'react'
 import SSIIconButton from '../../buttons/SSIIconButton'
 import {ButtonIconsEnum} from '../../../types'
-import {SSIDropDownListContainerStyled as Container, SSIDropDownListSelectedValueStyled as SelectedValue} from '../../../styles/components'
+import {
+  SSIDropDownListContainerStyled as Container,
+  SSITextH3Styled as LabelCaption,
+  SSIDropDownListSelectedValueStyled as SelectedValue,
+} from '../../../styles/components'
 
 // TODO extend with selectable values and an actual dropdown element
 
@@ -16,7 +20,7 @@ const SSIDropDownList: FC<Props> = (props: Props): ReactElement => {
 
   return (
     <Container>
-      {label && <span>{label}</span>}
+      {label && <LabelCaption>{label}</LabelCaption>}
       <SelectedValue>{value}</SelectedValue>
       <SSIIconButton icon={ButtonIconsEnum.ARROW_DOWN} onClick={async (): Promise<void> => console.log('drop down clicked')} />
     </Container>

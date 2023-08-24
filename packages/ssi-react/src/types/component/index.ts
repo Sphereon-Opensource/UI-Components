@@ -31,7 +31,7 @@ export type ColumnHeader<T> = {
 export type Button = {
   caption: string
   onClick: () => Promise<void>
-  icon?: string
+  icon?: ButtonIconsEnum
   disabled?: boolean
 }
 

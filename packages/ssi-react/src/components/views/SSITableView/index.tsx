@@ -21,8 +21,9 @@ import {
   SSITableViewContainerStyled,
   SSITableViewHeaderCellContainerStyled,
   SSITableViewLabelCellStyled,
-  SSITableViewRowContainerStyled, SSITableViewTableContainerStyled
-} from "../../../styles/components";
+  SSITableViewRowContainerStyled,
+  SSITableViewTableContainerStyled,
+} from '../../../styles/components'
 
 export type Props<T> = {
   data: Array<T>
@@ -124,7 +125,6 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     // }
   })
 
-
   return (
     <SSITableViewContainerStyled>
       <div className="overflow-x-auto">
@@ -135,21 +135,21 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
               <SSITableViewRowContainerStyled key={headerGroup.id}>
                 {headerGroup.headers.map((header: Header<T, any>) => (
                   <SSITableViewHeaderCellContainerStyled
-                      key={header.id}
-                      // @ts-ignore
-                      colSpan={header.colSpan}
-                      style={{width: header.getSize()}}
-                    >
+                    key={header.id}
+                    // @ts-ignore
+                    colSpan={header.colSpan}
+                    style={{width: header.getSize()}}>
                     {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                    <div className={`resizer ${header.column.getIsResizing() ? 'isResizing' : ''}`}
-                         onMouseDown={header.getResizeHandler()}
-                         onTouchStart={header.getResizeHandler()}
-                         style={{
-                           transform:
-                             columnResizeMode === 'onEnd' && header.column.getIsResizing()
-                               ? `translateX(${table.getState().columnSizingInfo.deltaOffset}px)`
-                               : '',
-                         }}
+                    <div
+                      className={`resizer ${header.column.getIsResizing() ? 'isResizing' : ''}`}
+                      onMouseDown={header.getResizeHandler()}
+                      onTouchStart={header.getResizeHandler()}
+                      style={{
+                        transform:
+                          columnResizeMode === 'onEnd' && header.column.getIsResizing()
+                            ? `translateX(${table.getState().columnSizingInfo.deltaOffset}px)`
+                            : '',
+                      }}
                     />
                   </SSITableViewHeaderCellContainerStyled>
                 ))}
@@ -160,10 +160,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
             {table.getRowModel().rows.map((row: Row<T>) => (
               <SSITableViewRowContainerStyled key={row.id}>
                 {row.getVisibleCells().map((cell: Cell<T, any>) => (
-                  <SSITableViewCellContainerStyled
-                      key={cell.id}
-                      style={{width: cell.column.getSize()}}
-                    >
+                  <SSITableViewCellContainerStyled key={cell.id} style={{width: cell.column.getSize()}}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </SSITableViewCellContainerStyled>
                 ))}

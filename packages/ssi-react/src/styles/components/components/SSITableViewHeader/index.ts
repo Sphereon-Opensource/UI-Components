@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {SSIFlexDirectionRowViewStyled} from '../../containers'
-import {backgroundColors, fontColors} from "@sphereon/ui-components.core";
+import {backgroundColors, fontColors} from '@sphereon/ui-components.core'
 
 export const SSITableViewHeaderContainerStyled = styled.div`
   background-color: ${backgroundColors.primaryLight};
@@ -25,10 +25,6 @@ export const SSITableViewHeaderFilterContainerStyled = styled(SSIFlexDirectionRo
   height: 32px;
   align-items: center;
   gap: 8px;
-`
-
-export const SSITableViewHeaderFilterCaptionStyled = styled.div`
-  color: ${fontColors.dark};
 `
 
 export const SSITableViewHeaderShowOptionContainerStyled = styled.div`

@@ -8,7 +8,7 @@ import {
   SSITableViewHeaderActionsContainerStyled as ActionsContainer,
   SSITableViewHeaderContainerStyled as Container,
   SSITableViewHeaderContentContainerStyled as ContentContainer,
-  SSITableViewHeaderFilterCaptionStyled as FilterCaption,
+  SSITextH3Styled as FilterCaption,
   SSITableViewHeaderFilterContainerStyled as FilterContainer,
   SSITableViewHeaderShowOptionContainerStyled as ShowOptionContainer,
 } from '../../../../styles/components'
