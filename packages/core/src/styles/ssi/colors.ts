@@ -56,3 +56,13 @@ export const borderColors: Record<Border, string> = {
   light: '#E3E3E3',
   lightGrey: '#ACACAC',
 }
+
+type Profile = 100 | 200 | 300 | 400 | 500
+
+export const profileColors: Record<Profile, string> = {
+  100: '#EE5209',
+  200: '#FF9900',
+  300: '#5BDED3',
+  400: '#0B81FF',
+  500: '#BD2DFF',
+}
