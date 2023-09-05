@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@sphereon/ui-components.core": "workspace:*",
+    "@tanstack/react-table": "^8.9.3",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
