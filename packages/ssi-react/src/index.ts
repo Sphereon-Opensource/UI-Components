@@ -15,8 +15,10 @@ import SSITableView from './components/views/SSITableView'
 import SSITableViewHeader from './components/views/SSITableView/SSITableViewHeader'
 import SSITabView from './components/views/SSITabView'
 import SSITabViewHeader from './components/views/SSITabView/SSITabViewHeader'
+import SSIProfileIcon from './components/assets/icons/SSIProfileIcon'
 
 export * from './types'
+export * from './styles/components/fonts'
 export {
   SSICardView,
   SSIStatusLabel,
@@ -35,4 +37,5 @@ export {
   SSITableViewHeader,
   SSITabView,
   SSITabViewHeader,
+  SSIProfileIcon,
 }
