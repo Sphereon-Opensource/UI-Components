@@ -6,7 +6,5 @@
   "credential_status_valid": "Geldig",
   "credential_status_expired": "Verlopen",
   "credential_status_revoked": "Ingetrokken",
-  "status_missing": "Onbekent",
-  "action_filter_caption": "Filter",
-  "action_show_caption": "Toon:"
+  "status_missing": "Onbekent"
 }

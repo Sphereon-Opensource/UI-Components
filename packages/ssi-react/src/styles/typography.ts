@@ -8,12 +8,6 @@ export const fontStyle: Record<FontStyle, CSSProperties> = {
     fontWeight: fontWeight[600],
     lineHeight: lineHeight[800],
   },
-  h1Regular: {
-    fontFamily: 'Poppins',
-    fontSize: fontSize[700],
-    fontWeight: fontWeight[400],
-    lineHeight: lineHeight[700],
-  },
   h1SemiBold: {
     fontFamily: 'Poppins',
     fontSize: fontSize[700],
