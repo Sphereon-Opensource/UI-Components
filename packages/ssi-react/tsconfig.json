@@ -4,11 +4,11 @@
     "rootDir": "src",
     "outDir": "dist",
     "declarationDir": "dist",
-    "target": "esnext",
+    "target": "es5",
     "module": "esnext",
     "lib": ["esnext", "dom"],
     "jsx": "react-jsx",
-    "moduleResolution": "nodenext"
+    "moduleResolution": "node"
   },
   "references": [
     {
