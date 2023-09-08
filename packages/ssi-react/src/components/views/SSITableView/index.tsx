@@ -28,6 +28,7 @@ import {
 export type Props<T> = {
   data: Array<T>
   columns: Array<ColumnHeader<T>>
+  onRowClick?: (data: Row<T>) => Promise<void>
   enableRowSelection?: boolean
   enableFiltering?: boolean
   columnResizeMode?: ColumnResizeMode
@@ -61,7 +62,15 @@ const getCellFormatting = (type: TableCellTypeEnum, value: any): ReactElement =>
 }
 
 const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
-  const {columns, data, enableRowSelection = false, enableFiltering = false, columnResizeMode = 'onChange', actions = []} = props
+  const {
+    columns,
+    data,
+    enableRowSelection = false,
+    enableFiltering = false,
+    columnResizeMode = 'onChange',
+    actions = [],
+    onRowClick
+  } = props
   const [rowSelection, setRowSelection] = React.useState({})
   const columnHelper = createColumnHelper<T>()
 
@@ -125,6 +134,13 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     // }
   })
 
+  const onRowClicked = async (row: Row<T>): Promise<void> => {
+    if (onRowClick) {
+      await onRowClick(row)
+    }
+  }
+
+
   return (
     <SSITableViewContainerStyled>
       <div className="overflow-x-auto">
@@ -158,7 +174,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
           </thead>
           <tbody>
             {table.getRowModel().rows.map((row: Row<T>) => (
-              <SSITableViewRowContainerStyled key={row.id}>
+              <SSITableViewRowContainerStyled key={row.id} onClick={() => onRowClicked(row)}>
                 {row.getVisibleCells().map((cell: Cell<T, any>) => (
                   <SSITableViewCellContainerStyled key={cell.id} style={{width: cell.column.getSize()}}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
