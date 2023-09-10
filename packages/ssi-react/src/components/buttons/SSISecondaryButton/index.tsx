@@ -1,7 +1,10 @@
 import React, {CSSProperties, FC, ReactElement} from 'react'
-import {fontColors} from '@sphereon/ui-components.core'
+import {gradientColors} from '@sphereon/ui-components.core'
 import SSIAddIcon from '../../assets/icons/SSIAddIcon'
-import {SSIPrimaryButtonContainerStyled as Container, SSITextH3LightStyled as Caption} from '../../../styles/components'
+import {
+  SSISecondaryButtonCaptionStyled as Caption,
+  SSISecondaryButtonContainerStyled as Container,
+} from '../../../styles/components'
 import {ButtonIconsEnum} from '../../../types'
 
 export type Props = {
@@ -12,7 +15,7 @@ export type Props = {
   style?: CSSProperties
 }
 
-const SSIPrimaryButton: FC<Props> = (props: Props): ReactElement => {
+const SSISecondaryButton: FC<Props> = (props: Props): ReactElement => {
   const {caption, icon, onClick, disabled = false, style = {}} = props
 
   const getIcon = (icon: ButtonIconsEnum, color: string): JSX.Element => {
@@ -32,7 +35,7 @@ const SSIPrimaryButton: FC<Props> = (props: Props): ReactElement => {
 
   return (
     <Container style={{...style, ...(disabled && { opacity: 0.5 })}} onClick={onClicked}>
-      {icon && getIcon(icon, fontColors.light)}
+      {icon && getIcon(icon, gradientColors['100'])}
       <Caption style={{...(disabled && { opacity: 0.5 })}}>{caption}</Caption>
     </Container>
   )
@@ -40,4 +43,4 @@ const SSIPrimaryButton: FC<Props> = (props: Props): ReactElement => {
 
 
 
-export default SSIPrimaryButton
+export default SSISecondaryButton
