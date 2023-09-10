@@ -38,10 +38,3 @@ export const SSISecondaryButtonCaptionStyled = styled(SSITextH3Styled)`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `
-
-//     .gradientText {
-//     background: linear-gradient(135deg, #7276F7 0%, #7C40E8 100%);
-//     background-clip: text;
-//     -webkit-background-clip: text;
-//     -webkit-text-fill-color: transparent;
-// }
