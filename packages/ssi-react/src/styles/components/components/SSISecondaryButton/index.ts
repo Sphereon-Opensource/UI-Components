@@ -5,7 +5,6 @@ import {SSITextH3Styled} from "../../fonts";
 
 export const SSISecondaryButtonContainerStyled = styled(SSIRoundedContainerStyled)`
   position: relative;
-  // border: 1px solid ${gradientColors['100']};
   display: flex;
   flex-direction: row;
   justify-content: center;
