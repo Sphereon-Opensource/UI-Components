@@ -1,6 +1,7 @@
 export * from './SSICardView'
 export * from './SSIStatusLabel'
 export * from './SSIPrimaryButton'
+export * from './SSISecondaryButton'
 export * from './SSIIconButton'
 export * from './SSIDropDownList'
 export * from './SSITypeLabel'

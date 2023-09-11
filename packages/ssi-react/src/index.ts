@@ -16,6 +16,7 @@ import SSITableViewHeader from './components/views/SSITableView/SSITableViewHead
 import SSITabView from './components/views/SSITabView'
 import SSITabViewHeader from './components/views/SSITabView/SSITabViewHeader'
 import SSIProfileIcon from './components/assets/icons/SSIProfileIcon'
+import SSISecondaryButton from './components/buttons/SSISecondaryButton'
 
 export * from './types'
 export * from './styles/components/fonts'
@@ -32,6 +33,7 @@ export {
   SSITypeLabel,
   SSIIconButton,
   SSIPrimaryButton,
+  SSISecondaryButton,
   SSIDropDownList,
   SSITableView,
   SSITableViewHeader,

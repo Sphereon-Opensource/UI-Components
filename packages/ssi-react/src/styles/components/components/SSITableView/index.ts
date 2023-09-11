@@ -39,10 +39,8 @@ export const SSITableViewHeaderCellContainerStyled = styled.th`
   padding: 20px 16px 20px 16px;
   background-color: ${backgroundColors.primaryLight};
   color: ${fontColors.lightGrey};
+  text-align: left;
 `
-// font-style: normal;
-// font-weight: 500;
-// line-height: normal;
 
 // TODO implement the resizer for column resizing
 // .resizer {
