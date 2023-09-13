@@ -10,7 +10,7 @@ export const SSISecondaryButtonContainerStyled = styled(SSIRoundedContainerStyle
   justify-content: center;
   align-items: center;
   gap: 8px;
-  padding: 6px 8px 6px 8px;
+  padding: 9px 6px 9px 6px;
   cursor: pointer;
 
   &::before {
