@@ -1,5 +1,6 @@
 import React, {ReactElement, ReactNode} from 'react'
 import SSITabViewHeader from './SSITabViewHeader'
+import {SSITabViewContainerStyled as Container} from '../../../styles/components';
 import {TabViewRoute} from '../../../types'
 
 export type Props = {
@@ -32,7 +33,7 @@ const SSITabView: React.FC<Props> = (props: Props): ReactElement => {
   }
 
   return (
-    <div>
+    <Container>
       <SSITabViewHeader
         navigationState={{
           routes: routes,
@@ -41,7 +42,7 @@ const SSITabView: React.FC<Props> = (props: Props): ReactElement => {
         onIndexChange={onTabChange}
       />
       <Tab>{content}</Tab>
-    </div>
+    </Container>
   )
 }
 
