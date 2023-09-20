@@ -145,7 +145,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     <SSITableViewContainerStyled>
       <div className="overflow-x-auto">
         <SSITableViewHeader actions={actions} enableFiltering={enableFiltering} />
-        <SSITableViewTableContainerStyled style={{width: table.getCenterTotalSize()}}>
+        <SSITableViewTableContainerStyled>
           <thead>
             {table.getHeaderGroups().map((headerGroup: HeaderGroup<T>) => (
               <SSITableViewRowContainerStyled key={headerGroup.id}>
