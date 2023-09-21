@@ -25,6 +25,7 @@ export type ColumnHeader<T> = {
   accessor: AccessorFn<T> | DeepKeys<T>
   type: TableCellTypeEnum
   label?: string
+  truncationLength?: number
   // TODO extent this with more options to override
 }
 

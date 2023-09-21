@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SSIUUIDFullText = styled.span`
+export const SSITruncatedFullTextStyled = styled.span`
   display: none;
   position: absolute;
   top: 100%;
@@ -11,14 +11,14 @@ export const SSIUUIDFullText = styled.span`
   z-index: 1;
 `
 
-export const SSIUUIDContainer = styled.div`
+export const SSITruncatedContainerStyled = styled.div`
   position: relative;
 
-  &:hover ${SSIUUIDFullText} {
-    display: block;  // or display: inline;
+  &:hover ${SSITruncatedFullTextStyled} {
+    display: block;
   }
 `
 
-export const SSIDUUIDText = styled.span`
+export const SSITruncatedTextStyled = styled.span`
   display: 'inline';
 `

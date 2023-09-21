@@ -16,7 +16,7 @@ import {
 import {Button, ColumnHeader, LabelTypeEnum, TableCellTypeEnum} from '../../../types'
 import SSITableViewHeader from './SSITableViewHeader'
 import SSITypeLabel from '../../labels/SSITypeLabel'
-import SSITruncatedUUID from '../../labels/SSIUUIDLabel'
+import SSITruncatedText from '../../labels/SSITruncatedText'
 import {
   SSITableViewCellContainerStyled,
   SSITableViewContainerStyled,
@@ -48,16 +48,14 @@ function IndeterminateCheckbox({indeterminate, className = '', ...rest}: {indete
   return <input type="checkbox" ref={ref} className={className + ' cursor-pointer'} {...rest} />
 }
 
-const getCellFormatting = (type: TableCellTypeEnum, value: any): ReactElement => {
+const getCellFormatting = (type: TableCellTypeEnum, value: any, truncationLength?: number): ReactElement => {
   switch (type) {
     case TableCellTypeEnum.TEXT:
-      return <p>{value}</p>
+      return <SSITruncatedText value={value} {...(truncationLength && { truncationLength })}/>
     case TableCellTypeEnum.LABEL: {
       const labels = Array.isArray(value) ? value.map((label: LabelTypeEnum) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
       return <SSITableViewLabelCellStyled>{labels}</SSITableViewLabelCellStyled>
     }
-    case TableCellTypeEnum.UUID:
-      return <SSITruncatedUUID uuid={value} />
     default:
       return <div />
   }
@@ -73,7 +71,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     columnHelper.accessor(header.accessor, {
       id: header.accessor as string,
       header: header.label,
-      cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue()),
+      cell: (info: CellContext<T, any>) => getCellFormatting(header.type,info.getValue(), header.truncationLength),
     }),
   )
   if (enableRowSelection) {
