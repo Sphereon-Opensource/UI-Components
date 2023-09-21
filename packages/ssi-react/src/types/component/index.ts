@@ -43,4 +43,5 @@ export enum LabelTypeEnum {
 export enum TableCellTypeEnum {
   TEXT = 'text',
   LABEL = 'label',
+  UUID = 'uuid'
 }

@@ -16,6 +16,7 @@ import {
 import {Button, ColumnHeader, LabelTypeEnum, TableCellTypeEnum} from '../../../types'
 import SSITableViewHeader from './SSITableViewHeader'
 import SSITypeLabel from '../../labels/SSITypeLabel'
+import SSITruncatedUUID from '../../labels/SSIUUIDLabel'
 import {
   SSITableViewCellContainerStyled,
   SSITableViewContainerStyled,
@@ -55,6 +56,8 @@ const getCellFormatting = (type: TableCellTypeEnum, value: any): ReactElement =>
       const labels = Array.isArray(value) ? value.map((label: LabelTypeEnum) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
       return <SSITableViewLabelCellStyled>{labels}</SSITableViewLabelCellStyled>
     }
+    case TableCellTypeEnum.UUID:
+      return <SSITruncatedUUID uuid={value} />
     default:
       return <div />
   }
