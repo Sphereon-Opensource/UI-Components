@@ -24,6 +24,7 @@ import {
   SSITableViewRowContainerStyled,
   SSITableViewTableContainerStyled,
 } from '../../../styles/components'
+import SSIGenericStatusLabel, {StatusLabelProps} from "../../labels/SSIGenericStatusLabel";
 
 export type Props<T> = {
   data: Array<T>
@@ -48,13 +49,29 @@ function IndeterminateCheckbox({indeterminate, className = '', ...rest}: {indete
   return <input type="checkbox" ref={ref} className={className + ' cursor-pointer'} {...rest} />
 }
 
-const getCellFormatting = (type: TableCellTypeEnum, value: any): ReactElement => {
+interface CellFormattingProps {
+  type: TableCellTypeEnum
+  value: any,
+  statusLabel?: Omit<StatusLabelProps, 'status'>
+}
+
+const getCellFormatting = (props: CellFormattingProps): ReactElement => {
+  const { type, value, statusLabel } = props
   switch (type) {
     case TableCellTypeEnum.TEXT:
       return <p>{value}</p>
     case TableCellTypeEnum.LABEL: {
       const labels = Array.isArray(value) ? value.map((label: LabelTypeEnum) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
       return <SSITableViewLabelCellStyled>{labels}</SSITableViewLabelCellStyled>
+    }
+    case TableCellTypeEnum.STATUS: {
+      return <SSIGenericStatusLabel
+          status={value}
+          textColorMapping={statusLabel!.textColorMapping}
+          showIcon={statusLabel?.showIcon}
+          style={statusLabel?.style}
+          getStatusBadge={statusLabel?.getStatusBadge}
+          getStatusTranslation={statusLabel?.getStatusTranslation}/>
     }
     default:
       return <div />
@@ -79,7 +96,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     columnHelper.accessor(header.accessor, {
       id: header.accessor as string,
       header: header.label,
-      cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue()),
+      cell: (info: CellContext<T, any>) => getCellFormatting({ type: header.type, value: info.getValue(), statusLabel: header.statusLabel} ),
     }),
   )
   if (enableRowSelection) {
