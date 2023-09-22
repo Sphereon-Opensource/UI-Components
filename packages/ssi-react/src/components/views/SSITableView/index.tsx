@@ -16,7 +16,7 @@ import {
 import {Button, ColumnHeader, LabelTypeEnum, TableCellTypeEnum} from '../../../types'
 import SSITableViewHeader from './SSITableViewHeader'
 import SSITypeLabel from '../../labels/SSITypeLabel'
-import SSITruncatedText from '../../labels/SSITruncatedText'
+import SSIText from '../../labels/SSIText'
 import {
   SSITableViewCellContainerStyled,
   SSITableViewContainerStyled,
@@ -51,7 +51,7 @@ function IndeterminateCheckbox({indeterminate, className = '', ...rest}: {indete
 const getCellFormatting = (type: TableCellTypeEnum, value: any, truncationLength?: number): ReactElement => {
   switch (type) {
     case TableCellTypeEnum.TEXT:
-      return <SSITruncatedText value={value} {...(truncationLength && { truncationLength })}/>
+      return <SSIText value={value} {...(truncationLength && { truncationLength })}/>
     case TableCellTypeEnum.LABEL: {
       const labels = Array.isArray(value) ? value.map((label: LabelTypeEnum) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
       return <SSITableViewLabelCellStyled>{labels}</SSITableViewLabelCellStyled>

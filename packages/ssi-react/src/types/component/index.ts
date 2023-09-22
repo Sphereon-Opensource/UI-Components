@@ -25,6 +25,10 @@ export type ColumnHeader<T> = {
   accessor: AccessorFn<T> | DeepKeys<T>
   type: TableCellTypeEnum
   label?: string
+  /**
+   * if populated, will truncate the text received in the value to this length.
+   * Showing the full text in the event of hover.
+   */
   truncationLength?: number
   // TODO extent this with more options to override
 }
@@ -44,5 +48,4 @@ export enum LabelTypeEnum {
 export enum TableCellTypeEnum {
   TEXT = 'text',
   LABEL = 'label',
-  UUID = 'uuid'
 }

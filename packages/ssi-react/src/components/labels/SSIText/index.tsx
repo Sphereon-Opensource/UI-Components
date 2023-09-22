@@ -1,12 +1,12 @@
 import { FC, ReactElement } from 'react'
-import { SSITruncatedTextStyled, SSITruncatedContainerStyled, SSITruncatedFullTextStyled } from '../../../styles/components/components/SSITruncatedText'
+import { SSITruncatedTextStyled, SSITruncatedContainerStyled, SSITruncatedFullTextStyled } from '../../../styles/components/components/SSIText'
 
 export type Props = {
   truncationLength?: number
   value: string
 }
 
-const SSITruncatedText: FC<Props> = (props: Props): ReactElement => {
+const SSIText: FC<Props> = (props: Props): ReactElement => {
   const { value, truncationLength } = props;
 
   if (truncationLength && value.length > truncationLength) {
@@ -23,4 +23,4 @@ const SSITruncatedText: FC<Props> = (props: Props): ReactElement => {
   }
 }
 
-export default SSITruncatedText
+export default SSIText
