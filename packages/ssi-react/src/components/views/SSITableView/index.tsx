@@ -98,7 +98,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     columnHelper.accessor(header.accessor, {
       id: header.accessor as string,
       header: header.label,
-      cell: (info: CellContext<T, any>) => getCellFormatting({ type: header.type, value: info.getValue(), statusLabel: header.statusLabel truncationLength: , header.truncationLength} ),
+      cell: (info: CellContext<T, any>) => getCellFormatting({ type: header.type, value: info.getValue(), statusLabel: header.statusLabel, truncationLength: header.truncationLength }),
     }),
   )
   if (enableRowSelection) {

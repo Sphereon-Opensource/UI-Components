@@ -16,7 +16,7 @@ export type StatusLabelProps = {
 
 const SSIGenericStatusLabel: FC<StatusLabelProps> = (props: StatusLabelProps): ReactElement => {
   const {getStatusBadge, getStatusTranslation, status, textColorMapping, style, showIcon = false} = props
-  const color: string = textColorMapping?.has(status) ? textColorMapping.get(status) : 'black'
+  const color = textColorMapping?.has(status) ? textColorMapping.get(status) : 'black'
   return (
       <Container style={{...style, borderColor: color }}>
         {showIcon && getStatusBadge && <BadgeContainer>{getStatusBadge(status, color)}</BadgeContainer>}
