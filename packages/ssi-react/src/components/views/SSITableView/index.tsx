@@ -16,6 +16,7 @@ import {
 import {Button, ColumnHeader, LabelTypeEnum, TableCellTypeEnum} from '../../../types'
 import SSITableViewHeader from './SSITableViewHeader'
 import SSITypeLabel from '../../labels/SSITypeLabel'
+import SSIText from '../../labels/SSIText'
 import {
   SSITableViewCellContainerStyled,
   SSITableViewContainerStyled,
@@ -52,14 +53,15 @@ function IndeterminateCheckbox({indeterminate, className = '', ...rest}: {indete
 interface CellFormattingProps {
   type: TableCellTypeEnum
   value: any,
+  truncationLength?: number
   statusLabel?: Omit<StatusLabelProps, 'status'>
 }
 
 const getCellFormatting = (props: CellFormattingProps): ReactElement => {
-  const { type, value, statusLabel } = props
+  const { type, value, truncationLength, statusLabel } = props
   switch (type) {
     case TableCellTypeEnum.TEXT:
-      return <p>{value}</p>
+      return <SSIText value={value} {...(truncationLength && { truncationLength })}/>
     case TableCellTypeEnum.LABEL: {
       const labels = Array.isArray(value) ? value.map((label: LabelTypeEnum) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
       return <SSITableViewLabelCellStyled>{labels}</SSITableViewLabelCellStyled>
@@ -96,7 +98,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     columnHelper.accessor(header.accessor, {
       id: header.accessor as string,
       header: header.label,
-      cell: (info: CellContext<T, any>) => getCellFormatting({ type: header.type, value: info.getValue(), statusLabel: header.statusLabel} ),
+      cell: (info: CellContext<T, any>) => getCellFormatting({ type: header.type, value: info.getValue(), statusLabel: header.statusLabel truncationLength: , header.truncationLength} ),
     }),
   )
   if (enableRowSelection) {
@@ -162,7 +164,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     <SSITableViewContainerStyled>
       <div className="overflow-x-auto">
         <SSITableViewHeader actions={actions} enableFiltering={enableFiltering} />
-        <SSITableViewTableContainerStyled style={{width: table.getCenterTotalSize()}}>
+        <SSITableViewTableContainerStyled>
           <thead>
             {table.getHeaderGroups().map((headerGroup: HeaderGroup<T>) => (
               <SSITableViewRowContainerStyled key={headerGroup.id}>

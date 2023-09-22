@@ -17,7 +17,7 @@ export const SSITableViewLabelCellStyled = styled.div`
 
 export const SSITableViewTableContainerStyled = styled.table`
   user-select: text;
-  width: fit-content;
+  width: 100%;
   border-collapse: collapse;
 `
 
