@@ -32,6 +32,7 @@ export type Props<T> = {
   onRowClick?: (data: Row<T>) => Promise<void>
   enableRowSelection?: boolean
   enableFiltering?: boolean
+  enableMostRecent?: boolean
   columnResizeMode?: ColumnResizeMode
   actions?: Array<Button>
 }
@@ -68,6 +69,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     data,
     enableRowSelection = false,
     enableFiltering = false,
+    enableMostRecent = false,
     columnResizeMode = 'onChange',
     actions = [],
     onRowClick
@@ -145,7 +147,9 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
   return (
     <SSITableViewContainerStyled>
       <div className="overflow-x-auto">
-        <SSITableViewHeader actions={actions} enableFiltering={enableFiltering} />
+        {(enableFiltering || enableMostRecent || actions.length > 0) &&
+            <SSITableViewHeader actions={actions} enableFiltering={enableFiltering} enableMostRecent={enableMostRecent} />
+        }
         <SSITableViewTableContainerStyled>
           <thead>
             {table.getHeaderGroups().map((headerGroup: HeaderGroup<T>) => (
