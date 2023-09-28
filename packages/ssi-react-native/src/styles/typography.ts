@@ -26,6 +26,12 @@ export const fontStyle: Record<FontStyle, TextStyle> = {
     fontWeight: fontWeight[600],
     lineHeight: lineHeight[700],
   },
+  h1Regular: {
+    fontFamily: 'Poppins-Regular',
+    fontSize: fontSize[700],
+    fontWeight: fontWeight[400],
+    lineHeight: lineHeight[700],
+  },
   h2Regular: {
     fontFamily: 'Poppins-Regular', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
     fontSize: fontSize[600],

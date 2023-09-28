@@ -42,6 +42,7 @@ export const fontWeight: Record<FontWeight, FontWeight> = {
 
 export type FontStyle =
   | 'h0SemiBold'
+  | 'h1Regular'
   | 'h1SemiBold'
   | 'h2Regular'
   | 'h2SemiBold'

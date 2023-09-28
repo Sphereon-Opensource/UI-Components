@@ -20,7 +20,7 @@ class Localization {
         i18n.translations = {
           [i18n.locale]: {
             ...i18n.translations[i18n.locale],
-            ...Localization.translationGetters[this.findSupportedLanguage(i18n.locale) || SupportedLanguage.ENGLISH]()
+            ...Localization.translationGetters[this.findSupportedLanguage(i18n.locale) || SupportedLanguage.ENGLISH](),
           },
         }
       }
@@ -33,10 +33,10 @@ class Localization {
   private static findSupportedLanguage = (locale: string): string | undefined => {
     for (const language of Object.values(SupportedLanguage)) {
       if (language === locale) {
-        return language;
+        return language
       }
     }
-  };
+  }
 
   public static getLocale = (): string => {
     return i18n.locale || SupportedLanguage.ENGLISH
