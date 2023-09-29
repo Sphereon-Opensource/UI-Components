@@ -8,5 +8,6 @@
   "credential_status_revoked": "Revoked",
   "status_missing": "Unknown",
   "action_filter_caption": "Filter",
-  "action_show_caption": "Show:"
+  "action_show_caption": "Show:",
+  "result_count_label": "Showing {{count}} from {{maxCount}} results"
 }
