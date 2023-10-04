@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {SSIFlexDirectionColumnViewStyled} from "../../containers";
 
 export const SSIMiniCardViewContainerStyled = styled.div`
   width: 75px;
@@ -8,4 +9,10 @@ export const SSIMiniCardViewContainerStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
 `
+
+export const SSIMiniCardViewBackgroundImageStyled = styled(SSIFlexDirectionColumnViewStyled)`
+  flex-grow: 1;
+`
+
