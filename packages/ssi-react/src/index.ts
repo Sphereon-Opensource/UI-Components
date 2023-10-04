@@ -1,5 +1,6 @@
 import SSIStatusLabel from './components/labels/SSIStatusLabel'
 import SSICardView from './components/views/SSICardView'
+import SSIMiniCardView from './components/views/SSIMiniCardView'
 import SSICheckmarkBadge from './components/assets/badges/SSICheckmarkBadge'
 import SSIExclamationMarkBadge from './components/assets/badges/SSIExclamationMarkBadge'
 import SSIPlaceholderLogo from './components/assets/logos/SSIPlaceholderLogo'
@@ -22,6 +23,7 @@ export * from './types'
 export * from './styles/components/fonts'
 export {
   SSICardView,
+  SSIMiniCardView,
   SSIStatusLabel,
   SSICheckmarkBadge,
   SSIExclamationMarkBadge,
