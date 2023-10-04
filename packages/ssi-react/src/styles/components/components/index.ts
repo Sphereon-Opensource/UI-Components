@@ -1,4 +1,5 @@
 export * from './SSICardView'
+export * from './SSIMiniCardView'
 export * from './SSIStatusLabel'
 export * from './SSIPrimaryButton'
 export * from './SSISecondaryButton'
