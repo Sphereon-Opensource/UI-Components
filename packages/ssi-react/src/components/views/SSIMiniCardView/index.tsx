@@ -18,7 +18,7 @@ const SSIMiniCardView: FC<Props> = (props: Props): ReactElement => {
         logo,
         logoColor,
         style
-    } = props; //credentialCards.default
+    } = props;
 
     return (
         <Container style={{...style, backgroundColor}}>
