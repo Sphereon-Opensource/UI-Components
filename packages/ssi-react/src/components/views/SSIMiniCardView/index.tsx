@@ -1,6 +1,9 @@
 import React, {CSSProperties, FC, ReactElement} from 'react';
 import {credentialCardColors, ImageAttributes} from '@sphereon/ui-components.core';
-import {SSIMiniCardViewContainerStyled as Container} from '../../../styles/components';
+import {
+    SSIMiniCardViewContainerStyled as Container,
+    SSIMiniCardViewBackgroundImageStyled as BackgroundImage,
+} from '../../../styles/components';
 import SSILogo from '../../assets/logos/SSILogo';
 
 type Props = {
@@ -22,14 +25,14 @@ const SSIMiniCardView: FC<Props> = (props: Props): ReactElement => {
 
     return (
         <Container style={{...style, backgroundColor}}>
-            <div
+            <BackgroundImage
                 style={{
                     // FIXME Putting backgroundSize here as for some reason putting this on the styled component does not work
                     ...(backgroundImage?.uri && {background: `url(${backgroundImage.uri})`, backgroundSize: 'cover'}),
                 }}
             >
                 <SSILogo logo={logo} color={logoColor} />
-            </div>
+            </BackgroundImage>
         </Container>
     );
 };
