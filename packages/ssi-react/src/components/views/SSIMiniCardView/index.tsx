@@ -2,7 +2,7 @@ import React, {CSSProperties, FC, ReactElement} from 'react';
 import {credentialCardColors, ImageAttributes} from '@sphereon/ui-components.core';
 import {
     SSIMiniCardViewContainerStyled as Container,
-    SSICardViewBackgroundImageStyled as BackgroundImage,
+    SSIMiniCardViewBackgroundImageStyled as BackgroundImage,
 } from '../../../styles/components';
 import SSILogo from '../../assets/logos/SSILogo';
 
