@@ -7,12 +7,11 @@ export const SSIMiniCardViewContainerStyled = styled.div`
   border-radius: 4.6px;
   overflow: hidden;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  user-select: none;
 `
 
 export const SSIMiniCardViewBackgroundImageStyled = styled(SSIFlexDirectionColumnViewStyled)`
   flex-grow: 1;
+  align-items: center;
+  justify-content: center;
 `
 
