@@ -1,20 +1,20 @@
-import React, {CSSProperties, FC, ReactElement} from 'react';
-import {credentialCardColors, ImageAttributes} from '@sphereon/ui-components.core';
-import {
-    SSIMiniCardViewContainerStyled as Container,
-    SSIMiniCardViewBackgroundImageStyled as BackgroundImage,
-} from '../../../styles/components';
+import React, { CSSProperties, FC, ReactElement } from 'react';
+import { credentialCardColors, ImageAttributes } from '@sphereon/ui-components.core';
 import SSILogo from '../../assets/logos/SSILogo';
+import {
+    SSICredentialMiniCardViewContainerStyled as Container,
+    SSICredentialMiniCardViewBackgroundImageStyled as BackgroundImage,
+} from '../../../styles/components';
 
 type Props = {
-    backgroundImage?: ImageAttributes // TODO WAL-302 Support passing in storage location
+    backgroundImage?: ImageAttributes
     backgroundColor?: string;
     logo?: ImageAttributes
     logoColor?: string
     style?: CSSProperties;
 }
 
-const SSIMiniCardView: FC<Props> = (props: Props): ReactElement => {
+const SSICredentialMiniCardView: FC<Props> = (props: Props): ReactElement => {
     const {
         backgroundColor = credentialCardColors.default,
         backgroundImage,
@@ -37,4 +37,4 @@ const SSIMiniCardView: FC<Props> = (props: Props): ReactElement => {
     );
 };
 
-export default SSIMiniCardView;
+export default SSICredentialMiniCardView;
