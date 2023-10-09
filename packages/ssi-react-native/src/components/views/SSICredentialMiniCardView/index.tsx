@@ -18,7 +18,7 @@ type Props = {
 const SSICredentialMiniCardView: FC<Props> = (props: Props): JSX.Element => {
     const {
         backgroundColor = credentialCardColors.default,
-        backgroundImage = {uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='},
+        backgroundImage,
         logo,
         logoColor,
         style
@@ -27,7 +27,9 @@ const SSICredentialMiniCardView: FC<Props> = (props: Props): JSX.Element => {
     return (
         <Container style={[style, { backgroundColor }]}>
             <BackgroundImage source={backgroundImage}>
-                <SSILogo logo={logo} color={logoColor} />
+                {(!backgroundImage || logo) &&
+                    <SSILogo logo={logo} color={logoColor} />
+                }
             </BackgroundImage>
         </Container>
     );

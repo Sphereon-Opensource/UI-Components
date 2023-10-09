@@ -96,9 +96,11 @@ const SSICredentialCardView: FC<Props> = (props: Props): ReactElement => {
         <AlphaContainer>
           {header && (
             <HeaderContainer>
-              <LogoContainer>
-                <SSILogo logo={logo} color={textColor} />
-              </LogoContainer>
+              {(!backgroundImage || logo) &&
+                  <LogoContainer>
+                    <SSILogo logo={logo} color={textColor} />
+                  </LogoContainer>
+              }
               {credentialTitle && (
                 <TitleContainer>
                   <CredentialTitleText style={{color: textColor}}>{credentialTitle}</CredentialTitleText>

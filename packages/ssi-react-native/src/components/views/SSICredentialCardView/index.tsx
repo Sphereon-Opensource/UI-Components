@@ -73,7 +73,7 @@ const SSICredentialCardView: FC<Props> = (props: Props): ReactElement => {
   const {credentialStatus, expirationDate} = props.footer ?? {}
   const {
     backgroundColor = credentialCardColors.default,
-    backgroundImage = {uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='},
+    backgroundImage,
     textColor = backgroundColors.primaryLight,
   } = props.display ?? {}
 
@@ -98,9 +98,11 @@ const SSICredentialCardView: FC<Props> = (props: Props): ReactElement => {
         <AlphaContainer>
           {header && (
             <HeaderContainer>
-              <LogoContainer>
-                <SSILogo logo={logo} color={textColor} />
-              </LogoContainer>
+              {(!backgroundImage || logo) &&
+                  <LogoContainer>
+                    <SSILogo logo={logo} color={textColor} />
+                  </LogoContainer>
+              }
               {credentialTitle && (
                 <TitleContainer>
                   <CredentialTitleText style={{color: textColor}} numberOfLines={2}>

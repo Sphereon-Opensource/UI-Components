@@ -31,7 +31,9 @@ const SSICredentialMiniCardView: FC<Props> = (props: Props): ReactElement => {
                     ...(backgroundImage?.uri && {background: `url(${backgroundImage.uri})`, backgroundSize: 'cover'}),
                 }}
             >
-                <SSILogo logo={logo} color={logoColor} />
+                {(!backgroundImage || logo) &&
+                    <SSILogo logo={logo} color={logoColor} />
+                }
             </BackgroundImage>
         </Container>
     );
