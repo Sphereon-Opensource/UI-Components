@@ -1,5 +1,5 @@
-export * from './SSICardView'
-export * from './SSIMiniCardView'
+export * from './SSICredentialCardView'
+export * from './SSICredentialMiniCardView'
 export * from './SSIStatusLabel'
 export * from './SSIPrimaryButton'
 export * from './SSISecondaryButton'

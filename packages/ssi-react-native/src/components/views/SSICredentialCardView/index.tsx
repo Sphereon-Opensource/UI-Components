@@ -1,35 +1,36 @@
-import React, {FC, ReactElement} from 'react'
-
+import React, { FC, ReactElement } from 'react'
+import { ColorValue, View } from 'react-native'
 import {
   CredentialStatus,
   ImageAttributes,
   backgroundColors,
   credentialCardColors,
   Localization,
-  toLocalDateString,
+  toLocalDateString
 } from '@sphereon/ui-components.core'
-import {
-  SSIAlphaContainerStyled as AlphaContainer,
-  SSICardViewContainerStyled as Container,
-  SSICardViewBackgroundImageStyled as BackgroundImage,
-  SSICardViewContentMainContainerStyled as ContentMainContainer,
-  SSICardViewContentSubContainerStyled as ContentSubContainer,
-  SSICardViewSSICredentialStatusStyled as CredentialStatusContainer,
-  SSICardViewCredentialSubtitleTextStyled as CredentialSubtitleText,
-  SSICardViewCredentialTitleTextStyled as CredentialTitleText,
-  SSITextH5LightStyled as ExpirationDateText,
-  SSICardViewFooterContainerStyled as FooterContainer,
-  SSITextH4LightStyled as H4Text,
-  SSICardViewHeaderContainerStyled as HeaderContainer,
-  SSICardViewContentIssueNameContainerStyled as IssueNameContainer,
-  SSICardViewHeaderLogoContainerStyled as LogoContainer,
-  SSICardViewContentPropertiesContainerStyled as PropertiesContainer,
-  SSITextH6LightStyled as PropertyValueText,
-  SSICardViewHeaderTitleContainerStyled as TitleContainer,
-  SSIFlexDirectionColumnViewStyled as PropertyContainer,
-} from '../../../styles/components'
 import SSILogo from '../../assets/logos/SSILogo'
 import SSIStatusLabel from '../../labels/SSIStatusLabel'
+import {
+  SSIAlphaContainerStyled as AlphaContainer,
+  SSICredentialCardViewBackgroundImageStyled as BackgroundImage,
+  SSIBlurredContainerStyled as BlurredView,
+  SSICredentialCardViewContainerStyled as Container,
+  SSICredentialCardViewContentMainContainerStyled as ContentMainContainer,
+  SSICredentialCardViewContentSubContainerStyled as ContentSubContainer,
+  SSICredentialCardViewStatusContainerStyled as StatusContainer,
+  SSICredentialCardViewCredentialSubtitleTextStyled as CredentialSubtitleText,
+  SSICredentialCardViewCredentialTitleTextStyled as CredentialTitleText,
+  SSITextH5LightStyled as ExpirationDateText,
+  SSICredentialCardViewFooterContainerStyled as FooterContainer,
+  SSICredentialCardViewFooterContentContainerStyled as FooterContentContainer,
+  SSITextH4LightStyled as H4Text,
+  SSICredentialCardViewHeaderContainerStyled as HeaderContainer,
+  SSICredentialCardViewContentIssueNameContainerStyled as IssueNameContainer,
+  SSICredentialCardViewHeaderLogoContainerStyled as LogoContainer,
+  SSICredentialCardViewContentPropertiesContainerStyled as PropertiesContainer,
+  SSITextH6LightStyled as PropertyValueText,
+  SSICredentialCardViewHeaderTitleContainerStyled as TitleContainer,
+} from '../../../styles/components'
 
 type CardProperty = {
   name: string
@@ -53,9 +54,9 @@ type CardFooter = {
 }
 
 type CardDisplay = {
-  backgroundColor?: string
+  backgroundColor?: ColorValue
   backgroundImage?: ImageAttributes
-  textColor?: string
+  textColor?: ColorValue
 }
 
 type Props = {
@@ -65,17 +66,21 @@ type Props = {
   display?: CardDisplay
 }
 
-const SSICardView: FC<Props> = (props: Props): ReactElement => {
+const SSICredentialCardView: FC<Props> = (props: Props): ReactElement => {
   const {header, body, footer} = props
   const {credentialTitle, credentialSubtitle, logo} = props.header ?? {}
   const {issuerName, properties} = props.body ?? {}
   const {credentialStatus, expirationDate} = props.footer ?? {}
-  const {backgroundColor = credentialCardColors.default, backgroundImage, textColor = backgroundColors.primaryLight} = props.display ?? {}
+  const {
+    backgroundColor = credentialCardColors.default,
+    backgroundImage,
+    textColor = backgroundColors.primaryLight,
+  } = props.display ?? {}
 
   const getPropertyElementsFrom = (properties: Array<CardProperty>): Array<ReactElement> => {
     // We currently only support two properties on the card, this might change in the future
     return properties.slice(0, 2).map((property: CardProperty, index: number) => (
-      <PropertyContainer
+      <View
         key={index}
         style={{
           ...(properties.length > 1 && {width: 140}),
@@ -83,26 +88,26 @@ const SSICardView: FC<Props> = (props: Props): ReactElement => {
         }}>
         <H4Text style={{color: textColor}}>{property.name}</H4Text>
         <PropertyValueText style={{color: textColor}}>{property.value}</PropertyValueText>
-      </PropertyContainer>
+      </View>
     ))
   }
 
   return (
     <Container style={{backgroundColor}}>
-      <BackgroundImage
-        style={{
-          // FIXME Putting backgroundSize here as for some reason putting this on the styled component does not work
-          ...(backgroundImage?.uri && {background: `url(${backgroundImage.uri})`, backgroundSize: 'cover'}),
-        }}>
+      <BackgroundImage source={backgroundImage}>
         <AlphaContainer>
           {header && (
             <HeaderContainer>
-              <LogoContainer>
-                <SSILogo logo={logo} color={textColor} />
-              </LogoContainer>
+              {(!backgroundImage || logo) &&
+                  <LogoContainer>
+                    <SSILogo logo={logo} color={textColor} />
+                  </LogoContainer>
+              }
               {credentialTitle && (
                 <TitleContainer>
-                  <CredentialTitleText style={{color: textColor}}>{credentialTitle}</CredentialTitleText>
+                  <CredentialTitleText style={{color: textColor}} numberOfLines={2}>
+                    {credentialTitle}
+                  </CredentialTitleText>
                   {credentialSubtitle && <CredentialSubtitleText style={{color: textColor}}>{credentialSubtitle}</CredentialSubtitleText>}
                 </TitleContainer>
               )}
@@ -122,16 +127,20 @@ const SSICardView: FC<Props> = (props: Props): ReactElement => {
           )}
           {footer && (
             <FooterContainer>
-              <ExpirationDateText style={{color: textColor}}>
-                {expirationDate
-                  ? `${Localization.translate('credential_card_expires_message')} ${toLocalDateString(expirationDate)}`
-                  : Localization.translate('credential_status_never_expires_date_label')}
-              </ExpirationDateText>
-              {credentialStatus && (
-                <CredentialStatusContainer>
-                  {credentialStatus && <SSIStatusLabel status={credentialStatus} color={textColor} />}
-                </CredentialStatusContainer>
-              )}
+              <BlurredView>
+                <FooterContentContainer>
+                  <ExpirationDateText style={{color: textColor}}>
+                    {expirationDate
+                      ? `${Localization.translate('credential_card_expires_message')} ${toLocalDateString(expirationDate)}`
+                      : Localization.translate('credential_status_never_expires_date_label')}
+                  </ExpirationDateText>
+                  {credentialStatus && (
+                    <StatusContainer>
+                      {credentialStatus && <SSIStatusLabel status={credentialStatus} color={textColor} />}
+                    </StatusContainer>
+                  )}
+                </FooterContentContainer>
+              </BlurredView>
             </FooterContainer>
           )}
         </AlphaContainer>
@@ -140,4 +149,4 @@ const SSICardView: FC<Props> = (props: Props): ReactElement => {
   )
 }
 
-export default SSICardView
+export default SSICredentialCardView
