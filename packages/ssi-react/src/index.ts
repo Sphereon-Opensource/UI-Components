@@ -1,6 +1,6 @@
 import SSIStatusLabel from './components/labels/SSIStatusLabel'
-import SSICardView from './components/views/SSICardView'
-import SSIMiniCardView from './components/views/SSIMiniCardView'
+import SSICredentialCardView from './components/views/SSICredentialCardView'
+import SSICredentialMiniCardView from './components/views/SSICredentialMiniCardView'
 import SSICheckmarkBadge from './components/assets/badges/SSICheckmarkBadge'
 import SSIExclamationMarkBadge from './components/assets/badges/SSIExclamationMarkBadge'
 import SSIPlaceholderLogo from './components/assets/logos/SSIPlaceholderLogo'
@@ -22,8 +22,8 @@ import SSISecondaryButton from './components/buttons/SSISecondaryButton'
 export * from './types'
 export * from './styles/components/fonts'
 export {
-  SSICardView,
-  SSIMiniCardView,
+  SSICredentialCardView,
+  SSICredentialMiniCardView,
   SSIStatusLabel,
   SSICheckmarkBadge,
   SSIExclamationMarkBadge,

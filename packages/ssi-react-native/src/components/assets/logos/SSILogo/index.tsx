@@ -1,7 +1,7 @@
-import {calculateAspectRatio, ImageAttributes, logoColors} from '@sphereon/ui-components.core'
 import React, {FC, ReactElement} from 'react'
 import {ColorValue, ImageRequireSource, ViewStyle} from 'react-native'
-import FastImage, {FastImageProps, ImageStyle, Source} from 'react-native-fast-image'
+import FastImage, {ImageStyle, Source} from 'react-native-fast-image'
+import {calculateAspectRatio, ImageAttributes, logoColors} from '@sphereon/ui-components.core'
 import SSIPlaceholderLogo from '../SSIPlaceholderLogo'
 
 type Props = {
@@ -19,7 +19,6 @@ const SSILogo: FC<Props> = (props: Props): ReactElement => {
         <FastImage
             style={{
                 ...(style as ImageStyle),
-
                 ...(logo?.dimensions && {aspectRatio: calculateAspectRatio(logo?.dimensions.width, logo?.dimensions.height)}),
                 height: size,
             }}
