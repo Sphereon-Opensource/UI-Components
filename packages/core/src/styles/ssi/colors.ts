@@ -66,3 +66,10 @@ export const profileColors: Record<Profile, string> = {
   400: '#0B81FF',
   500: '#BD2DFF',
 }
+
+type SelectionElement = 'primaryDark' | 'primaryBorderDark';
+
+export const selectionElements: Record<SelectionElement, string> = {
+  primaryDark: '#0B81FF',
+  primaryBorderDark: '#FBFBFB',
+};
