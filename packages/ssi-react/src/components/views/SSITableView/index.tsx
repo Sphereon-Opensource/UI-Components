@@ -17,7 +17,7 @@ import { Localization } from '@sphereon/ui-components.core'
 import {Button, ColumnHeader, LabelTypeEnum, TableCellTypeEnum} from '../../../types'
 import SSITableViewHeader from './SSITableViewHeader'
 import SSITypeLabel from '../../labels/SSITypeLabel'
-import SSIText from '../../labels/SSIText'
+import SSIHoverText from '../../labels/SSIHoverText'
 import {
   SSITableViewCellContainerStyled as CellContainer,
   SSITableViewContainerStyled as Container,
@@ -56,7 +56,7 @@ function IndeterminateCheckbox({indeterminate, className = '', ...rest}: {indete
 const getCellFormatting = (type: TableCellTypeEnum, value: any, truncationLength?: number): ReactElement => {
   switch (type) {
     case TableCellTypeEnum.TEXT:
-      return <SSIText value={value} {...(truncationLength && { truncationLength })}/>
+      return <SSIHoverText text={value} {...(truncationLength && { truncationLength })}/>
     case TableCellTypeEnum.LABEL: {
       const labels = Array.isArray(value) ? value.map((label: LabelTypeEnum) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
       return <LabelCell>{labels}</LabelCell>
