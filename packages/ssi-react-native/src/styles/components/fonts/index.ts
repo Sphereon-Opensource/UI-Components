@@ -50,3 +50,14 @@ export const SSITextH6Styled = styled.Text`
 export const SSITextH6LightStyled = styled(SSITextH6Styled)`
   color: ${fontColors.light};
 `
+export const SSITextH2SemiBoldStyled = styled.Text`
+  font-family: ${fontStyle.h2SemiBold.fontFamily};
+  font-size: ${fontStyle.h2SemiBold.fontSize}px;
+  font-weight: ${fontStyle.h2SemiBold.fontWeight};
+  line-height: ${fontStyle.h2SemiBold.lineHeight}px;
+  height: auto;
+`;
+
+export const SSITextH2SemiBoldLightStyled = styled(SSITextH2SemiBoldStyled)`
+  color: ${fontColors.light};
+`;
