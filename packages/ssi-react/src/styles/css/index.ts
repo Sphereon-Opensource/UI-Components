@@ -1,5 +1,7 @@
-import {css} from 'styled-components'
+import styled, {css} from 'styled-components'
 import {fontStyle} from '../typography'
+
+// TODO move all this to the core ??
 
 export const SSITextH1Css = css`
   font-family: ${fontStyle.h1Regular.fontFamily};
@@ -14,6 +16,13 @@ export const SSITextH2Css = css`
   font-size: ${fontStyle.h2Regular.fontSize}px;
   font-weight: ${fontStyle.h2Regular.fontWeight};
   line-height: ${fontStyle.h2Regular.lineHeight}px;
+  height: auto;
+`
+export const SSITextH2SemiBoldStyledCss = css`
+  font-family: ${fontStyle.h2SemiBold.fontFamily};
+  font-size: ${fontStyle.h2SemiBold.fontSize}px;
+  font-weight: ${fontStyle.h2SemiBold.fontWeight};
+  line-height: ${fontStyle.h2SemiBold.lineHeight}px;
   height: auto;
 `
 

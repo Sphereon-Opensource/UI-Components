@@ -1,9 +1,9 @@
 import React, {ReactElement, ReactNode} from 'react'
+import {TabViewRoute} from '@sphereon/ui-components.core'
 import SSITabViewHeader from './SSITabViewHeader'
-import {SSITabViewContainerStyled as Container} from '../../../styles/components';
-import {TabViewRoute} from '../../../types'
+import {SSITabViewContainerStyled as Container} from '../../../styles'
 
-export type Props = {
+type Props = {
   routes: Array<TabViewRoute>
 }
 

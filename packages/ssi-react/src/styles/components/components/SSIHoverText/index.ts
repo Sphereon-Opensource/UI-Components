@@ -20,5 +20,5 @@ export const SSIHoverTextContainerStyled = styled.div`
 `
 
 export const SSIHoverTextTextStyled = styled.span`
-  display: 'inline';
+  display: inline;
 `

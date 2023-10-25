@@ -1,3 +1,4 @@
+import SSIToastContainer from './components/messageBoxes/toasts/SSIToastContainer'
 import SSIStatusLabel from './components/labels/SSIStatusLabel'
 import SSICredentialCardView from './components/views/SSICredentialCardView'
 import SSICredentialMiniCardView from './components/views/SSICredentialMiniCardView'
@@ -18,32 +19,35 @@ import SSITabView from './components/views/SSITabView'
 import SSITabViewHeader from './components/views/SSITabView/SSITabViewHeader'
 import SSIProfileIcon from './components/assets/icons/SSIProfileIcon'
 import SSISecondaryButton from './components/buttons/SSISecondaryButton'
-import showToast from './components/toast/showToast'
-import ToastContainerComponent from './components/toast/ToastContainerComponent'
+import SSICheckbox from './components/fields/SSICheckbox'
+import SSIHoverText from './components/fields/SSIHoverText'
 
-export * from './types'
 export * from './styles/components/fonts'
+export * from './types'
+export * from './helpers'
+
 export {
-  SSICredentialCardView,
-  SSICredentialMiniCardView,
-  SSIStatusLabel,
-  SSICheckmarkBadge,
-  SSIExclamationMarkBadge,
-  SSIPlaceholderLogo,
-  SSILogo,
-  SSIAddIcon,
-  SSIFilterIcon,
-  SSIArrowDownIcon,
-  SSITypeLabel,
-  SSIIconButton,
-  SSIPrimaryButton,
-  SSISecondaryButton,
-  SSIDropDownList,
-  SSITableView,
-  SSITableViewHeader,
-  SSITabView,
-  SSITabViewHeader,
-  SSIProfileIcon,
-  showToast,
-  ToastContainerComponent
+    SSICredentialCardView,
+    SSICredentialMiniCardView,
+    SSIStatusLabel,
+    SSICheckmarkBadge,
+    SSIExclamationMarkBadge,
+    SSIPlaceholderLogo,
+    SSILogo,
+    SSIAddIcon,
+    SSIFilterIcon,
+    SSIArrowDownIcon,
+    SSITypeLabel,
+    SSIIconButton,
+    SSIPrimaryButton,
+    SSISecondaryButton,
+    SSIDropDownList,
+    SSITableView,
+    SSITableViewHeader,
+    SSITabView,
+    SSITabViewHeader,
+    SSIProfileIcon,
+    SSIToastContainer,
+    SSICheckbox,
+    SSIHoverText
 }

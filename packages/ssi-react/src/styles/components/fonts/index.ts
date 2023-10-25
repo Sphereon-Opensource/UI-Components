@@ -1,7 +1,15 @@
 import styled from 'styled-components'
-
 import {fontColors} from '@sphereon/ui-components.core'
-import {SSITextH1Css, SSITextH2Css, SSITextH3Css, SSITextH4Css, SSITextH4SemiBoldCss, SSITextH5Css, SSITextH6Css} from '../../css'
+import {
+  SSITextH1Css,
+  SSITextH2Css,
+  SSITextH2SemiBoldStyledCss,
+  SSITextH3Css,
+  SSITextH4Css,
+  SSITextH4SemiBoldCss,
+  SSITextH5Css,
+  SSITextH6Css
+} from '../../css'
 
 export const SSITextH1Styled = styled.span`
   ${SSITextH1Css}
@@ -9,6 +17,10 @@ export const SSITextH1Styled = styled.span`
 
 export const SSITextH2Styled = styled.span`
   ${SSITextH2Css}
+`
+
+export const SSITextH2SemiBoldStyled = styled.span`
+  ${SSITextH2SemiBoldStyledCss}
 `
 
 export const SSITextH3Styled = styled.span`
@@ -29,6 +41,10 @@ export const SSITextH4SemiBoldStyled = styled.span`
 
 export const SSITextH4LightStyled = styled(SSITextH4Styled)`
   color: ${fontColors.light};
+`
+
+export const SSITextH4DarkStyled = styled(SSITextH4Styled)`
+  color: ${fontColors.dark};
 `
 
 export const SSITextH4SemiBoldLightStyled = styled(SSITextH4SemiBoldStyled)`

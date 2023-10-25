@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
-import FastImage from 'react-native-fast-image';
-import { SSIFlexDirectionRowViewStyled, SSIRoundedContainerStyled } from '../../containers'
-import { SSITextH4SemiBoldLightStyled, SSITextH5LightStyled } from '../../fonts'
+import FastImage from 'react-native-fast-image'
+import {SSIFlexDirectionRowViewStyled, SSIRoundedContainerStyled} from '../../containers'
+import {SSITextH4SemiBoldLightStyled, SSITextH5LightStyled} from '../../fonts'
 
 export const SSICredentialCardViewContainerStyled = styled(SSIRoundedContainerStyled)`
   width: 327px;
@@ -68,7 +68,7 @@ export const SSICredentialCardViewStatusContainerStyled = styled.View`
 `
 
 export const SSICredentialCardViewBackgroundImageStyled = styled(FastImage).attrs({
-    resizeMode: 'cover',
+  resizeMode: 'cover',
 })`
   flex: 1;
-`;
+`

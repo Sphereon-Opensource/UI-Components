@@ -1,12 +1,12 @@
-import React, { FC, ReactElement } from 'react'
-import { ColorValue, View } from 'react-native'
+import React, {FC, ReactElement} from 'react'
+import {ColorValue, View} from 'react-native'
 import {
   CredentialStatus,
   ImageAttributes,
   backgroundColors,
   credentialCardColors,
   Localization,
-  toLocalDateString
+  toLocalDateString,
 } from '@sphereon/ui-components.core'
 import SSILogo from '../../assets/logos/SSILogo'
 import SSIStatusLabel from '../../labels/SSIStatusLabel'
@@ -30,7 +30,7 @@ import {
   SSICredentialCardViewContentPropertiesContainerStyled as PropertiesContainer,
   SSITextH6LightStyled as PropertyValueText,
   SSICredentialCardViewHeaderTitleContainerStyled as TitleContainer,
-} from '../../../styles/components'
+} from '@styles'
 
 type CardProperty = {
   name: string
@@ -71,11 +71,7 @@ const SSICredentialCardView: FC<Props> = (props: Props): ReactElement => {
   const {credentialTitle, credentialSubtitle, logo} = props.header ?? {}
   const {issuerName, properties} = props.body ?? {}
   const {credentialStatus, expirationDate} = props.footer ?? {}
-  const {
-    backgroundColor = credentialCardColors.default,
-    backgroundImage,
-    textColor = backgroundColors.primaryLight,
-  } = props.display ?? {}
+  const {backgroundColor = credentialCardColors.default, backgroundImage, textColor = backgroundColors.primaryLight} = props.display ?? {}
 
   const getPropertyElementsFrom = (properties: Array<CardProperty>): Array<ReactElement> => {
     // We currently only support two properties on the card, this might change in the future
@@ -98,11 +94,11 @@ const SSICredentialCardView: FC<Props> = (props: Props): ReactElement => {
         <AlphaContainer>
           {header && (
             <HeaderContainer>
-              {(!backgroundImage || logo) &&
-                  <LogoContainer>
-                    <SSILogo logo={logo} color={textColor} />
-                  </LogoContainer>
-              }
+              {(!backgroundImage || logo) && (
+                <LogoContainer>
+                  <SSILogo logo={logo} color={textColor} />
+                </LogoContainer>
+              )}
               {credentialTitle && (
                 <TitleContainer>
                   <CredentialTitleText style={{color: textColor}} numberOfLines={2}>
@@ -135,9 +131,7 @@ const SSICredentialCardView: FC<Props> = (props: Props): ReactElement => {
                       : Localization.translate('credential_status_never_expires_date_label')}
                   </ExpirationDateText>
                   {credentialStatus && (
-                    <StatusContainer>
-                      {credentialStatus && <SSIStatusLabel status={credentialStatus} color={textColor} />}
-                    </StatusContainer>
+                    <StatusContainer>{credentialStatus && <SSIStatusLabel status={credentialStatus} color={textColor} />}</StatusContainer>
                   )}
                 </FooterContentContainer>
               </BlurredView>

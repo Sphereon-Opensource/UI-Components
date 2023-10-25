@@ -1,5 +1,4 @@
 import React, {FC, ReactElement} from 'react'
-
 import {fontColors, statusColors} from '@sphereon/ui-components.core'
 
 type Props = {
@@ -12,7 +11,7 @@ const SSICheckmarkBadge: FC<Props> = (props: Props): ReactElement => {
   const {size = 15, color = fontColors.light, backgroundColor = statusColors.valid} = props
 
   return (
-    <div style={{width: size, aspectRatio: 1}}>
+    <div style={{width: size, height: size}}>
       <svg width="100%" height="100%" viewBox="0 0 15 15" fill="none">
         <circle cx="7.5" cy="7.5" r="7.5" fill={backgroundColor} />
         <path
