@@ -1,10 +1,7 @@
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {PureComponent} from 'react';
-import {ActivityIndicator, BackHandler, NativeEventSubscription, StyleProp, ViewStyle} from 'react-native';
+import {ActivityIndicator, BackHandler, ColorValue, NativeEventSubscription, StyleProp, ViewStyle} from 'react-native';
 
-import {ScreenRoutesEnum, StackParamList} from '../../../../types';
-
-type Props = NativeStackScreenProps<StackParamList, ScreenRoutesEnum.LOADING> & { style?: StyleProp<ViewStyle> };
+type Props = { size: number | 'small' | 'large'; color?: ColorValue; style?: StyleProp<ViewStyle> }
 
 export default class SSILoader extends PureComponent<Props> {
   hardwareBackPressListener: NativeEventSubscription;
@@ -20,7 +17,11 @@ export default class SSILoader extends PureComponent<Props> {
 
   render() {
     return (
-      <ActivityIndicator />
+      <ActivityIndicator
+          style={this.props.style}
+          size={this.props.size}
+          color={this.props.color}
+      />
     );
   }
 }
