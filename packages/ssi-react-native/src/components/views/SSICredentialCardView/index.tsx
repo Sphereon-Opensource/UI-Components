@@ -30,7 +30,7 @@ import {
   SSICredentialCardViewContentPropertiesContainerStyled as PropertiesContainer,
   SSITextH6LightStyled as PropertyValueText,
   SSICredentialCardViewHeaderTitleContainerStyled as TitleContainer,
-} from '@styles'
+} from '../../../styles'
 
 type CardProperty = {
   name: string

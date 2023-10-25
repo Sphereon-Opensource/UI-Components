@@ -2,7 +2,10 @@ import React, {FC} from 'react'
 import {ColorValue, ViewStyle} from 'react-native'
 import {credentialCardColors, ImageAttributes} from '@sphereon/ui-components.core'
 import SSILogo from '../../assets/logos/SSILogo'
-import {SSICredentialMiniCardViewBackgroundImageStyled as BackgroundImage, SSICredentialMiniCardViewContainerStyled as Container} from '@styles'
+import {
+  SSICredentialMiniCardViewBackgroundImageStyled as BackgroundImage,
+  SSICredentialMiniCardViewContainerStyled as Container
+} from '../../../styles'
 
 type Props = {
   backgroundImage?: ImageAttributes

@@ -7,7 +7,7 @@ import {
   SSIStatusLabelBadgeContainer as BadgeContainer,
   SSIStatusLabelContainerStyled as Container,
   SSIStatusLabelStatusCaptionStyled as StatusCaption,
-} from '@styles'
+} from '../../../styles'
 
 type Props = {
   status: LabelStatus
