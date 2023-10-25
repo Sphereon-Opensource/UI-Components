@@ -2,35 +2,36 @@ import styled from 'styled-components'
 import {ToastContainer} from 'react-toastify'
 
 export const SSIToastContainerContainerStyled = styled(ToastContainer)`
-  &&&.Toastify__toast-container {
+  &.Toastify__toast-container {
     z-index: 9999;
     -webkit-transform: translate3d(0, 0, 9999);
     position: fixed;
     box-sizing: border-box;
   }
-  &&&.Toastify__toast-container--top-left {
+  
+  &.Toastify__toast-container--top-left {
     top: 1em;
     left: 1em;
   }
-  &&&.Toastify__toast-container--top-center {
+  &.Toastify__toast-container--top-center {
     top: 1em;
     left: 50%;
     transform: translateX(-50%);
   }
-  &&&.Toastify__toast-container--top-right {
+  &.Toastify__toast-container--top-right {
     top: 1em;
     right: 1em;
   }
-  &&&.Toastify__toast-container--bottom-left {
+  &.Toastify__toast-container--bottom-left {
     bottom: 1em;
     left: 1em;
   }
-  &&&.Toastify__toast-container--bottom-center {
+  &.Toastify__toast-container--bottom-center {
     bottom: 1em;
     left: 50%;
     transform: translateX(-50%);
   }
-  &&&.Toastify__toast-container--bottom-right {
+  &.Toastify__toast-container--bottom-right {
     bottom: 1em;
     right: 1em;
   }
@@ -55,6 +56,7 @@ export const SSIToastContainerContainerStyled = styled(ToastContainer)`
       left: initial;
     }
   }
+  
   .Toastify__toast {
     position: relative;
     box-sizing: border-box;
@@ -67,12 +69,15 @@ export const SSIToastContainerContainerStyled = styled(ToastContainer)`
     direction: ltr;
     z-index: 0;
   }
+  
   .Toastify__toast--rtl {
     direction: rtl;
   }
+
   .Toastify__toast--close-on-click {
     cursor: pointer;
   }
+
   .Toastify__toast-body {
     margin: auto 0;
     -ms-flex: 1 1 auto;
