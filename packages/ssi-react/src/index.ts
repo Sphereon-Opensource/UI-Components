@@ -50,5 +50,4 @@ export {
     SSIToastContainer,
     SSICheckbox,
     SSIHoverText
-  SSICheckbox
 }
