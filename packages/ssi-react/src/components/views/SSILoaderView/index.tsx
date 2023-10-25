@@ -1,16 +1,16 @@
-import {FC, useEffect} from "react";
+import React from "react";
 
 import {
   SSIBasicHorizontalCenterContainerStyled as Container,
   SSILoadingScreenActivityCaptionStyled as ActivityCaption,
-  SSILoadingScreenActivityIndicatorContainerStyled as ActivityIndicatorContainer,
+  SSILoadingScreenActivityIndicatorContainerStyled as ActivityIndicatorContainer
 } from '../../../styles/components';
 import {Oval} from "react-loader-spinner";
 
 interface SSILoaderScreenProps {
   ariaLabel?: string
   height?: number
-  primaryColor?: string
+  color?: string
   secondaryColor?: string
   strokeWidth?: number
   strokeWidthSecondary?: number
@@ -23,21 +23,24 @@ interface SSILoaderScreenProps {
   callback: (state?: any) => Promise<void>
 }
 
-export const SSILoaderView = (props: SSILoaderScreenProps): JSX.Element => {
-  useEffect(() => {
+export default class SSILoaderView extends React.Component<SSILoaderScreenProps, any> {
+
+  componentDidMount() {
     setTimeout(async (state?: any): Promise<void> => {
-      await props.callback(state)
-    }, props.timeout ?? 0)
-  })
+      await this.props.callback(state)
+    }, this.props.timeout ?? 0)
+  }
 
-  return (
-      <Container>
-        <ActivityIndicatorContainer>
-          <Oval {...props}/>
-        </ActivityIndicatorContainer>
-        <ActivityCaption>{props.message}</ActivityCaption>
-      </Container>
-  )
+  render() {
+    return (
+        <>
+        <Container>
+          <ActivityIndicatorContainer>
+            <Oval {...this.props} />
+          </ActivityIndicatorContainer>
+          <ActivityCaption>{this.props.message}</ActivityCaption>
+        </Container>
+        </>
+    )
+  }
 }
-
-export default SSILoaderView
