@@ -56,7 +56,7 @@ function IndeterminateCheckbox({indeterminate, className = '', ...rest}: {indete
 const getCellFormatting = (type: TableCellType, value: any, truncationLength?: number): ReactElement => {
   switch (type) {
     case TableCellType.TEXT:
-      return <SSIHoverText value={value} {...(truncationLength && {truncationLength})} />
+      return <SSIHoverText text={value} {...(truncationLength && {truncationLength})} />
     case TableCellType.LABEL: {
       const labels = Array.isArray(value) ? value.map((label: LabelType) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
       return <LabelCell>{labels}</LabelCell>
