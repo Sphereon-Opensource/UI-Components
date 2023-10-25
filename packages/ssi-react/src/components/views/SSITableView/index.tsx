@@ -16,7 +16,7 @@ import {
 import {LabelType, Localization} from '@sphereon/ui-components.core'
 import SSITableViewHeader from './SSITableViewHeader'
 import SSITypeLabel from '../../labels/SSITypeLabel'
-import SSIHoverText from '../../labels/SSIHoverText'
+import SSIHoverText from '../../fields/SSIHoverText'
 import {
   SSITableViewCellContainerStyled as CellContainer,
   SSITableViewContainerStyled as Container,
