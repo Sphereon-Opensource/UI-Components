@@ -8,5 +8,6 @@
   "credential_status_revoked": "Ingetrokken",
   "status_missing": "Onbekent",
   "action_filter_caption": "Filter",
-  "action_show_caption": "Toon:"
+  "action_show_caption": "Toon:",
+  "result_count_label": "Toon {{count}} van {{maxCount}} resultaten"
 }

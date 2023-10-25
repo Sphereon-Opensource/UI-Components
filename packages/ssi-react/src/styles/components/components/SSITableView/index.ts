@@ -3,7 +3,6 @@ import {backgroundColors, borderColors, fontColors} from '@sphereon/ui-component
 import {SSITextH2Css, SSITextH3Css} from '../../../css'
 
 export const SSITableViewContainerStyled = styled.div`
-  background-color: ${backgroundColors.lightGrey};
   display: flex;
   flex-grow: 1;
   flex-direction: column;
@@ -19,6 +18,7 @@ export const SSITableViewTableContainerStyled = styled.table`
   user-select: text;
   width: 100%;
   border-collapse: collapse;
+  background-color: ${backgroundColors.lightGrey};
 `
 
 export const SSITableViewRowContainerStyled = styled.tr`
@@ -41,6 +41,12 @@ export const SSITableViewHeaderCellContainerStyled = styled.th`
   color: ${fontColors.lightGrey};
   text-align: left;
 `
+
+export const SSITableViewResultCountCaptionStyled = styled.div`
+  ${SSITextH3Css};
+  margin-left: 24px;
+`;
+
 
 // TODO implement the resizer for column resizing
 // .resizer {

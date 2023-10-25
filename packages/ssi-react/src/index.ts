@@ -1,5 +1,6 @@
 import SSIStatusLabel from './components/labels/SSIStatusLabel'
-import SSICardView from './components/views/SSICardView'
+import SSICredentialCardView from './components/views/SSICredentialCardView'
+import SSICredentialMiniCardView from './components/views/SSICredentialMiniCardView'
 import SSICheckmarkBadge from './components/assets/badges/SSICheckmarkBadge'
 import SSIExclamationMarkBadge from './components/assets/badges/SSIExclamationMarkBadge'
 import SSIPlaceholderLogo from './components/assets/logos/SSIPlaceholderLogo'
@@ -17,11 +18,13 @@ import SSITabView from './components/views/SSITabView'
 import SSITabViewHeader from './components/views/SSITabView/SSITabViewHeader'
 import SSIProfileIcon from './components/assets/icons/SSIProfileIcon'
 import SSISecondaryButton from './components/buttons/SSISecondaryButton'
+import SSICheckbox from './components/fields/SSICheckbox';
 
 export * from './types'
 export * from './styles/components/fonts'
 export {
-  SSICardView,
+  SSICredentialCardView,
+  SSICredentialMiniCardView,
   SSIStatusLabel,
   SSICheckmarkBadge,
   SSIExclamationMarkBadge,
@@ -40,4 +43,5 @@ export {
   SSITabView,
   SSITabViewHeader,
   SSIProfileIcon,
+  SSICheckbox
 }

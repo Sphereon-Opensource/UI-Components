@@ -13,17 +13,19 @@ import {
   Table,
   useReactTable,
 } from '@tanstack/react-table'
+import { Localization } from '@sphereon/ui-components.core'
 import {Button, ColumnHeader, LabelTypeEnum, TableCellTypeEnum} from '../../../types'
 import SSITableViewHeader from './SSITableViewHeader'
 import SSITypeLabel from '../../labels/SSITypeLabel'
 import SSIText from '../../labels/SSIText'
 import {
-  SSITableViewCellContainerStyled,
-  SSITableViewContainerStyled,
-  SSITableViewHeaderCellContainerStyled,
-  SSITableViewLabelCellStyled,
-  SSITableViewRowContainerStyled,
-  SSITableViewTableContainerStyled,
+  SSITableViewCellContainerStyled as CellContainer,
+  SSITableViewContainerStyled as Container,
+  SSITableViewHeaderCellContainerStyled as HeaderCellContainer,
+  SSITableViewLabelCellStyled as LabelCell,
+  SSITableViewResultCountCaptionStyled as ResultCountCaption,
+  SSITableViewRowContainerStyled as RowContainer,
+  SSITableViewTableContainerStyled as TableContainer,
 } from '../../../styles/components'
 import SSIGenericStatusLabel, {StatusLabelProps} from "../../labels/SSIGenericStatusLabel";
 
@@ -33,6 +35,8 @@ export type Props<T> = {
   onRowClick?: (data: Row<T>) => Promise<void>
   enableRowSelection?: boolean
   enableFiltering?: boolean
+  enableMostRecent?: boolean
+  enableResultCount?: boolean
   columnResizeMode?: ColumnResizeMode
   actions?: Array<Button>
 }
@@ -64,7 +68,7 @@ const getCellFormatting = (props: CellFormattingProps): ReactElement => {
       return <SSIText value={value} {...(truncationLength && { truncationLength })}/>
     case TableCellTypeEnum.LABEL: {
       const labels = Array.isArray(value) ? value.map((label: LabelTypeEnum) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
-      return <SSITableViewLabelCellStyled>{labels}</SSITableViewLabelCellStyled>
+      return <LabelCell>{labels}</LabelCell>
     }
     case TableCellTypeEnum.STATUS: {
       return <SSIGenericStatusLabel
@@ -86,6 +90,8 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     data,
     enableRowSelection = false,
     enableFiltering = false,
+    enableMostRecent = false,
+    enableResultCount = false,
     columnResizeMode = 'onChange',
     actions = [],
     onRowClick
@@ -159,17 +165,28 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     }
   }
 
-
   return (
-    <SSITableViewContainerStyled>
+    <Container>
       <div className="overflow-x-auto">
-        <SSITableViewHeader actions={actions} enableFiltering={enableFiltering} />
-        <SSITableViewTableContainerStyled>
+        {enableResultCount &&
+            <ResultCountCaption>
+              {/* TODO this needs to look at pagination */}
+              {/* TODO the values need a different styling */}
+              {Localization.translate('result_count_label', {
+                count: data.length,
+                maxCount: data.length,
+              })}
+            </ResultCountCaption>
+        }
+        {(enableFiltering || enableMostRecent || actions.length > 0) &&
+            <SSITableViewHeader actions={actions} enableFiltering={enableFiltering} enableMostRecent={enableMostRecent} />
+        }
+        <TableContainer>
           <thead>
             {table.getHeaderGroups().map((headerGroup: HeaderGroup<T>) => (
-              <SSITableViewRowContainerStyled key={headerGroup.id}>
+              <RowContainer key={headerGroup.id}>
                 {headerGroup.headers.map((header: Header<T, any>) => (
-                  <SSITableViewHeaderCellContainerStyled
+                  <HeaderCellContainer
                     key={header.id}
                     // @ts-ignore
                     colSpan={header.colSpan}
@@ -186,25 +203,25 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
                             : '',
                       }}
                     />
-                  </SSITableViewHeaderCellContainerStyled>
+                  </HeaderCellContainer>
                 ))}
-              </SSITableViewRowContainerStyled>
+              </RowContainer>
             ))}
           </thead>
           <tbody>
             {table.getRowModel().rows.map((row: Row<T>) => (
-              <SSITableViewRowContainerStyled key={row.id} onClick={() => onRowClicked(row)}>
+              <RowContainer key={row.id} onClick={() => onRowClicked(row)}>
                 {row.getVisibleCells().map((cell: Cell<T, any>) => (
-                  <SSITableViewCellContainerStyled key={cell.id} style={{width: cell.column.getSize()}}>
+                  <CellContainer key={cell.id} style={{width: cell.column.getSize()}}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </SSITableViewCellContainerStyled>
+                  </CellContainer>
                 ))}
-              </SSITableViewRowContainerStyled>
+              </RowContainer>
             ))}
           </tbody>
-        </SSITableViewTableContainerStyled>
+        </TableContainer>
       </div>
-    </SSITableViewContainerStyled>
+    </Container>
   )
 }
 
