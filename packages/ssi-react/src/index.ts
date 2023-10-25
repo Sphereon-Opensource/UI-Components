@@ -19,7 +19,7 @@ import SSITabViewHeader from './components/views/SSITabView/SSITabViewHeader'
 import SSIProfileIcon from './components/assets/icons/SSIProfileIcon'
 import SSISecondaryButton from './components/buttons/SSISecondaryButton'
 import SSICheckbox from './components/fields/SSICheckbox';
-import SSILoaderView from "./components/views/SSILoaderView";
+import SSILoader from "./components/assets/loaders/SSILoader";
 
 export * from './types'
 export * from './styles/components/fonts'
@@ -45,5 +45,5 @@ export {
   SSITabViewHeader,
   SSIProfileIcon,
   SSICheckbox,
-  SSILoaderView
+  SSILoader
 }

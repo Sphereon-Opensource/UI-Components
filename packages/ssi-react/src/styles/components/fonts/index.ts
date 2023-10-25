@@ -11,11 +11,6 @@ export const SSITextH2Styled = styled.span`
   ${SSITextH2Css}
 `
 
-export const SSITextH2SemiBoldLightStyled = styled(SSITextH2Styled)`
-  font-weight: 600;
-  color: ${fontColors.light}
-`
-
 export const SSITextH3Styled = styled.span`
   ${SSITextH3Css}
 `

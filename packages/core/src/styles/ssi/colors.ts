@@ -32,12 +32,6 @@ export const statusColors: Record<LabelStatus | 'error', string> = {
   error: '#D74500',
 }
 
-type Element = 'blue';
-
-export const elements: Record<Element, string> = {
-  blue: '#0B81FF',
-};
-
 type FontColor = 'dark' | 'light' | 'secondaryButton' | 'greyedOut' | 'lightGrey'
 
 export const fontColors: Record<FontColor, string> = {
