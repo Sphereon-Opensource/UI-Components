@@ -30,6 +30,12 @@ export const statusColors: Record<LabelStatus | 'error', string> = {
   verified: '#00C249',
   unverified: '#FF9900',
   error: '#D74500',
+  New: '#7276F7',
+  Approved: '#00C249',
+  Pending: '#0B81FF',
+  Archived: '#B3B3B3',
+  Declined: '#D74500',
+  Done: '#000' // TODO I see it in the UI but not in the design, need to update it with the correct color
 }
 
 type FontColor = 'dark' | 'light' | 'secondaryButton' | 'greyedOut' | 'lightGrey'

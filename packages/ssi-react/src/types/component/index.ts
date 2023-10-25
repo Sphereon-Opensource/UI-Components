@@ -1,6 +1,5 @@
 import {ComponentType} from 'react'
 import {AccessorFn, DeepKeys} from '@tanstack/react-table'
-import {StatusLabelProps} from "../../components/labels/SSIGenericStatusLabel";
 
 export type TabRoute = {
   key: string
@@ -26,7 +25,6 @@ export type ColumnHeader<T> = {
   accessor: AccessorFn<T> | DeepKeys<T>
   type: TableCellTypeEnum
   label?: string
-  statusLabel?: Omit<StatusLabelProps, 'status'>
   /**
    * if populated, will truncate the text received in the value to this length.
    * Showing the full text in the event of hover.
@@ -50,5 +48,5 @@ export enum LabelTypeEnum {
 export enum TableCellTypeEnum {
   TEXT = 'text',
   LABEL = 'label',
-  STATUS = 'status',
+  STATUS = 'status'
 }

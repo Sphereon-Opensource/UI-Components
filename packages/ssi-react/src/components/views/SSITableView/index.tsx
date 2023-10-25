@@ -13,7 +13,7 @@ import {
   Table,
   useReactTable,
 } from '@tanstack/react-table'
-import { Localization } from '@sphereon/ui-components.core'
+import {LabelStatus, Localization} from '@sphereon/ui-components.core'
 import {Button, ColumnHeader, LabelTypeEnum, TableCellTypeEnum} from '../../../types'
 import SSITableViewHeader from './SSITableViewHeader'
 import SSITypeLabel from '../../labels/SSITypeLabel'
@@ -27,7 +27,7 @@ import {
   SSITableViewRowContainerStyled as RowContainer,
   SSITableViewTableContainerStyled as TableContainer,
 } from '../../../styles/components'
-import SSIGenericStatusLabel, {StatusLabelProps} from "../../labels/SSIGenericStatusLabel";
+import {SSIStatusLabel} from "../../../index";
 
 export type Props<T> = {
   data: Array<T>
@@ -54,15 +54,7 @@ function IndeterminateCheckbox({indeterminate, className = '', ...rest}: {indete
   return <input type="checkbox" ref={ref} className={className + ' cursor-pointer'} {...rest} />
 }
 
-interface CellFormattingProps {
-  type: TableCellTypeEnum
-  value: any,
-  truncationLength?: number
-  statusLabel?: Omit<StatusLabelProps, 'status'>
-}
-
-const getCellFormatting = (props: CellFormattingProps): ReactElement => {
-  const { type, value, truncationLength, statusLabel } = props
+const getCellFormatting = (type: TableCellTypeEnum, value: any, truncationLength?: number): ReactElement => {
   switch (type) {
     case TableCellTypeEnum.TEXT:
       return <SSIText value={value} {...(truncationLength && { truncationLength })}/>
@@ -71,13 +63,7 @@ const getCellFormatting = (props: CellFormattingProps): ReactElement => {
       return <LabelCell>{labels}</LabelCell>
     }
     case TableCellTypeEnum.STATUS: {
-      return <SSIGenericStatusLabel
-          status={value}
-          textColorMapping={statusLabel!.textColorMapping}
-          showIcon={statusLabel?.showIcon}
-          style={statusLabel?.style}
-          getStatusBadge={statusLabel?.getStatusBadge}
-          getStatusTranslation={statusLabel?.getStatusTranslation}/>
+      return <SSIStatusLabel status={value as LabelStatus}/>
     }
     default:
       return <div />
@@ -104,7 +90,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     columnHelper.accessor(header.accessor, {
       id: header.accessor as string,
       header: header.label,
-      cell: (info: CellContext<T, any>) => getCellFormatting({ type: header.type, value: info.getValue(), statusLabel: header.statusLabel, truncationLength: header.truncationLength }),
+      cell: (info: CellContext<T, any>) => getCellFormatting(header.type,info.getValue(), header.truncationLength),
     }),
   )
   if (enableRowSelection) {
