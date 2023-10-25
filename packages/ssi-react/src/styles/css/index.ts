@@ -1,7 +1,5 @@
-import styled, {css} from 'styled-components'
+import {css} from 'styled-components'
 import {fontStyle} from '../typography'
-
-// TODO move all this to the core ??
 
 export const SSITextH1Css = css`
   font-family: ${fontStyle.h1Regular.fontFamily};
