@@ -63,7 +63,11 @@ const getCellFormatting = (type: TableCellTypeEnum, value: any, truncationLength
       return <LabelCell>{labels}</LabelCell>
     }
     case TableCellTypeEnum.STATUS: {
-      return <SSIStatusLabel status={value as LabelStatus}/>
+      return <SSIStatusLabel style={{
+        width: '60px',
+        height: '15px',
+        justifyContent: 'center'
+      }} status={value as LabelStatus}/>
     }
     default:
       return <div />
