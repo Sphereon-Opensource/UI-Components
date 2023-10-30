@@ -1,13 +1,12 @@
 import React, {FC, ReactElement} from 'react'
+import {ButtonIcon, fontColors} from '@sphereon/ui-components.core'
 import SSIAddIcon from '../../assets/icons/SSIAddIcon'
 import SSIFilterIcon from '../../assets/icons/SSIFilterIcon'
 import SSIArrowDownIcon from '../../assets/icons/SSIArrowDownIcon'
-import {ButtonIconsEnum} from '../../../types'
-import {SSIIconButtonContainerStyled as Container} from '../../../styles/components'
-import {fontColors} from '@sphereon/ui-components.core'
+import {SSIIconButtonContainerStyled as Container} from '../../../styles'
 
-export type Props = {
-  icon: ButtonIconsEnum
+type Props = {
+  icon: ButtonIcon
   onClick: () => Promise<void>
   disabled?: boolean // TODO implement styling
   color?: string
@@ -19,13 +18,13 @@ const SSIIconButton: FC<Props> = (props: Props): ReactElement => {
   return <Container onClick={onClick}>{getIcon(icon, color)}</Container>
 }
 
-const getIcon = (icon: ButtonIconsEnum, color: string): JSX.Element => {
+const getIcon = (icon: ButtonIcon, color: string): JSX.Element => {
   switch (icon) {
-    case ButtonIconsEnum.ADD:
+    case ButtonIcon.ADD:
       return <SSIAddIcon color={color} />
-    case ButtonIconsEnum.FILTER:
+    case ButtonIcon.FILTER:
       return <SSIFilterIcon color={color} />
-    case ButtonIconsEnum.ARROW_DOWN:
+    case ButtonIcon.ARROW_DOWN:
       return <SSIArrowDownIcon color={color} />
     default:
       return <div />

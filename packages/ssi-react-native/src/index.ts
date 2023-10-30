@@ -5,7 +5,8 @@ import SSICheckmarkBadge from './components/assets/badges/SSICheckmarkBadge'
 import SSIExclamationMarkBadge from './components/assets/badges/SSIExclamationMarkBadge'
 import SSIPlaceholderLogo from './components/assets/logos/SSIPlaceholderLogo'
 import SSILogo from './components/assets/logos/SSILogo'
-import SSILoader from "./components/assets/loaders/SSILoader";
+import SSILoader from "./components/assets/loaders/SSILoader"
+export * from './styles/components/fonts'
 
 export {
     SSICredentialCardView,
