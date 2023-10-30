@@ -1,13 +1,13 @@
 import React, {CSSProperties, FC, ReactElement} from 'react'
 import {fontColors} from '@sphereon/ui-components.core'
 
-export interface IProps {
+type Props = {
   size?: number
   color?: string
   style?: CSSProperties
 }
 
-const SSIAddIcon: FC<IProps> = (props: IProps): ReactElement => {
+const SSIAddIcon: FC<Props> = (props: Props): ReactElement => {
   const {size = 16, color = fontColors.dark, style} = props
 
   return (

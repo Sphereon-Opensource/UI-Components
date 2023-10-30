@@ -1,7 +1,6 @@
 import React, {FC, ReactElement} from 'react'
 import {ColorValue, View} from 'react-native'
 import Svg, {Circle, Path} from 'react-native-svg'
-
 import {fontColors, statusColors} from '@sphereon/ui-components.core'
 
 type Props = {

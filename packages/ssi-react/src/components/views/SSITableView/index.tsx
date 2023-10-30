@@ -13,11 +13,10 @@ import {
   Table,
   useReactTable,
 } from '@tanstack/react-table'
-import { Localization } from '@sphereon/ui-components.core'
-import {Button, ColumnHeader, LabelTypeEnum, TableCellTypeEnum} from '../../../types'
+import {LabelType, Localization} from '@sphereon/ui-components.core'
 import SSITableViewHeader from './SSITableViewHeader'
 import SSITypeLabel from '../../labels/SSITypeLabel'
-import SSIText from '../../labels/SSIText'
+import SSIHoverText from '../../fields/SSIHoverText'
 import {
   SSITableViewCellContainerStyled as CellContainer,
   SSITableViewContainerStyled as Container,
@@ -26,9 +25,10 @@ import {
   SSITableViewResultCountCaptionStyled as ResultCountCaption,
   SSITableViewRowContainerStyled as RowContainer,
   SSITableViewTableContainerStyled as TableContainer,
-} from '../../../styles/components'
+} from '../../../styles'
+import {Button, ColumnHeader, TableCellType} from '../../../types'
 
-export type Props<T> = {
+type Props<T> = {
   data: Array<T>
   columns: Array<ColumnHeader<T>>
   onRowClick?: (data: Row<T>) => Promise<void>
@@ -53,12 +53,12 @@ function IndeterminateCheckbox({indeterminate, className = '', ...rest}: {indete
   return <input type="checkbox" ref={ref} className={className + ' cursor-pointer'} {...rest} />
 }
 
-const getCellFormatting = (type: TableCellTypeEnum, value: any, truncationLength?: number): ReactElement => {
+const getCellFormatting = (type: TableCellType, value: any, truncationLength?: number): ReactElement => {
   switch (type) {
-    case TableCellTypeEnum.TEXT:
-      return <SSIText value={value} {...(truncationLength && { truncationLength })}/>
-    case TableCellTypeEnum.LABEL: {
-      const labels = Array.isArray(value) ? value.map((label: LabelTypeEnum) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
+    case TableCellType.TEXT:
+      return <SSIHoverText text={value} {...(truncationLength && {truncationLength})} />
+    case TableCellType.LABEL: {
+      const labels = Array.isArray(value) ? value.map((label: LabelType) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
       return <LabelCell>{labels}</LabelCell>
     }
     default:
@@ -76,7 +76,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     enableResultCount = false,
     columnResizeMode = 'onChange',
     actions = [],
-    onRowClick
+    onRowClick,
   } = props
   const [rowSelection, setRowSelection] = React.useState({})
   const columnHelper = createColumnHelper<T>()
@@ -86,7 +86,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     columnHelper.accessor(header.accessor, {
       id: header.accessor as string,
       header: header.label,
-      cell: (info: CellContext<T, any>) => getCellFormatting(header.type,info.getValue(), header.truncationLength),
+      cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue(), header.truncationLength),
     }),
   )
   if (enableRowSelection) {
@@ -150,19 +150,19 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
   return (
     <Container>
       <div className="overflow-x-auto">
-        {enableResultCount &&
-            <ResultCountCaption>
-              {/* TODO this needs to look at pagination */}
-              {/* TODO the values need a different styling */}
-              {Localization.translate('result_count_label', {
-                count: data.length,
-                maxCount: data.length,
-              })}
-            </ResultCountCaption>
-        }
-        {(enableFiltering || enableMostRecent || actions.length > 0) &&
-            <SSITableViewHeader actions={actions} enableFiltering={enableFiltering} enableMostRecent={enableMostRecent} />
-        }
+        {enableResultCount && (
+          <ResultCountCaption>
+            {/* TODO this needs to look at pagination */}
+            {/* TODO the values need a different styling */}
+            {Localization.translate('result_count_label', {
+              count: data.length,
+              maxCount: data.length,
+            })}
+          </ResultCountCaption>
+        )}
+        {(enableFiltering || enableMostRecent || actions.length > 0) && (
+          <SSITableViewHeader actions={actions} enableFiltering={enableFiltering} enableMostRecent={enableMostRecent} />
+        )}
         <TableContainer>
           <thead>
             {table.getHeaderGroups().map((headerGroup: HeaderGroup<T>) => (
