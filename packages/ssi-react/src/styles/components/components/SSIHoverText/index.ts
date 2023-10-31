@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SSITruncatedFullTextStyled = styled.span`
+export const SSIHoverTextTextHoverStyled = styled.span`
   display: none;
   position: absolute;
   top: 100%;
@@ -11,14 +11,14 @@ export const SSITruncatedFullTextStyled = styled.span`
   z-index: 1;
 `
 
-export const SSITruncatedContainerStyled = styled.div`
+export const SSIHoverTextContainerStyled = styled.div`
   position: relative;
 
-  &:hover ${SSITruncatedFullTextStyled} {
+  &:hover ${SSIHoverTextTextHoverStyled} {
     display: block;
   }
 `
 
-export const SSITruncatedTextStyled = styled.span`
-  display: 'inline';
+export const SSIHoverTextTextStyled = styled.span`
+  display: inline;
 `

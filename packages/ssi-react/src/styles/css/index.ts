@@ -16,6 +16,13 @@ export const SSITextH2Css = css`
   line-height: ${fontStyle.h2Regular.lineHeight}px;
   height: auto;
 `
+export const SSITextH2SemiBoldStyledCss = css`
+  font-family: ${fontStyle.h2SemiBold.fontFamily};
+  font-size: ${fontStyle.h2SemiBold.fontSize}px;
+  font-weight: ${fontStyle.h2SemiBold.fontWeight};
+  line-height: ${fontStyle.h2SemiBold.lineHeight}px;
+  height: auto;
+`
 
 export const SSITextH3Css = css`
   font-family: ${fontStyle.h3Regular.fontFamily};

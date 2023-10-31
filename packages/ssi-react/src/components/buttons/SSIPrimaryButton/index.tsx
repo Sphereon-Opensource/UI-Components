@@ -1,13 +1,12 @@
 import React, {CSSProperties, FC, ReactElement} from 'react'
-import {fontColors} from '@sphereon/ui-components.core'
+import {ButtonIcon, fontColors} from '@sphereon/ui-components.core'
 import SSIAddIcon from '../../assets/icons/SSIAddIcon'
-import {SSIPrimaryButtonContainerStyled as Container, SSITextH3LightStyled as Caption} from '../../../styles/components'
-import {ButtonIconsEnum} from '../../../types'
+import {SSIPrimaryButtonContainerStyled as Container, SSITextH3LightStyled as Caption} from '../../../styles'
 
-export type Props = {
+type Props = {
   caption: string
   onClick: () => Promise<void>
-  icon?: ButtonIconsEnum
+  icon?: ButtonIcon
   disabled?: boolean
   style?: CSSProperties
 }
@@ -15,10 +14,10 @@ export type Props = {
 const SSIPrimaryButton: FC<Props> = (props: Props): ReactElement => {
   const {caption, icon, onClick, disabled = false, style = {}} = props
 
-  const getIcon = (icon: ButtonIconsEnum, color: string): JSX.Element => {
+  const getIcon = (icon: ButtonIcon, color: string): JSX.Element => {
     switch (icon) {
-      case ButtonIconsEnum.ADD:
-        return <SSIAddIcon style={{...(disabled && { opacity: 0.5 })}} color={color} />
+      case ButtonIcon.ADD:
+        return <SSIAddIcon style={{...(disabled && {opacity: 0.5})}} color={color} />
       default:
         return <div />
     }
@@ -31,13 +30,11 @@ const SSIPrimaryButton: FC<Props> = (props: Props): ReactElement => {
   }
 
   return (
-    <Container style={{...style, ...(disabled && { opacity: 0.5 })}} onClick={onClicked}>
+    <Container style={{...style, ...(disabled && {opacity: 0.5})}} onClick={onClicked}>
       {icon && getIcon(icon, fontColors.light)}
-      <Caption style={{...(disabled && { opacity: 0.5 })}}>{caption}</Caption>
+      <Caption style={{...(disabled && {opacity: 0.5})}}>{caption}</Caption>
     </Container>
   )
 }
-
-
 
 export default SSIPrimaryButton

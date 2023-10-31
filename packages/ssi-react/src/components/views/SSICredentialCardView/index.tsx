@@ -1,11 +1,11 @@
-import React, { FC, ReactElement } from 'react'
+import React, {FC, ReactElement} from 'react'
 import {
   CredentialStatus,
   ImageAttributes,
   backgroundColors,
   credentialCardColors,
   Localization,
-  toLocalDateString
+  toLocalDateString,
 } from '@sphereon/ui-components.core'
 import SSILogo from '../../assets/logos/SSILogo'
 import SSIStatusLabel from '../../labels/SSIStatusLabel'
@@ -28,7 +28,7 @@ import {
   SSITextH6LightStyled as PropertyValueText,
   SSICredentialCardViewHeaderTitleContainerStyled as TitleContainer,
   SSIFlexDirectionColumnViewStyled as PropertyContainer,
-} from '../../../styles/components'
+} from '../../../styles'
 
 type CardProperty = {
   name: string
@@ -96,11 +96,11 @@ const SSICredentialCardView: FC<Props> = (props: Props): ReactElement => {
         <AlphaContainer>
           {header && (
             <HeaderContainer>
-              {(!backgroundImage || logo) &&
-                  <LogoContainer>
-                    <SSILogo logo={logo} color={textColor} />
-                  </LogoContainer>
-              }
+              {(!backgroundImage || logo) && (
+                <LogoContainer>
+                  <SSILogo logo={logo} color={textColor} />
+                </LogoContainer>
+              )}
               {credentialTitle && (
                 <TitleContainer>
                   <CredentialTitleText style={{color: textColor}}>{credentialTitle}</CredentialTitleText>
@@ -129,9 +129,7 @@ const SSICredentialCardView: FC<Props> = (props: Props): ReactElement => {
                   : Localization.translate('credential_status_never_expires_date_label')}
               </ExpirationDateText>
               {credentialStatus && (
-                <StatusContainer>
-                  {credentialStatus && <SSIStatusLabel status={credentialStatus} color={textColor} />}
-                </StatusContainer>
+                <StatusContainer>{credentialStatus && <SSIStatusLabel status={credentialStatus} color={textColor} />}</StatusContainer>
               )}
             </FooterContainer>
           )}

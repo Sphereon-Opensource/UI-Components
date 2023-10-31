@@ -73,6 +73,13 @@ export const profileColors: Record<Profile, string> = {
   500: '#BD2DFF',
 }
 
+type Alerts = 'primaryLight' | 'secondaryLight'
+
+export const alertColors: Record<Alerts, string> = {
+  primaryLight: '#FBFBFB',
+  secondaryLight: '#EBEBEB',
+}
+
 type SelectionElement = 'primaryDark' | 'primaryBorderDark';
 
 export const selectionElements: Record<SelectionElement, string> = {

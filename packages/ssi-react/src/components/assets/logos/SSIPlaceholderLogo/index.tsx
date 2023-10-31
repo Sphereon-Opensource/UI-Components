@@ -1,5 +1,4 @@
 import React, {CSSProperties, FC, ReactElement} from 'react'
-
 import {logoColors} from '@sphereon/ui-components.core'
 
 type Props = {

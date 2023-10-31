@@ -45,8 +45,7 @@ export const SSITableViewHeaderCellContainerStyled = styled.th`
 export const SSITableViewResultCountCaptionStyled = styled.div`
   ${SSITextH3Css};
   margin-left: 24px;
-`;
-
+`
 
 // TODO implement the resizer for column resizing
 // .resizer {

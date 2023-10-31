@@ -1,7 +1,6 @@
-import {Localization} from '@sphereon/ui-components.core'
+import {ButtonIcon, Localization} from '@sphereon/ui-components.core'
 import React, {ReactElement} from 'react'
 import SSIIconButton from '../../../buttons/SSIIconButton'
-import {Button, ButtonIconsEnum} from '../../../../types'
 import SSIDropDownList from '../../../lists/SSIDropDownList'
 import SSIPrimaryButton from '../../../buttons/SSIPrimaryButton'
 import {
@@ -11,36 +10,33 @@ import {
   SSITextH3Styled as FilterCaption,
   SSITableViewHeaderFilterContainerStyled as FilterContainer,
   SSITableViewHeaderShowOptionContainerStyled as ShowOptionContainer,
-} from '../../../../styles/components'
+} from '../../../../styles'
+import {Button} from '../../../../types'
 
-export type Props = {
+type Props = {
   enableFiltering?: boolean
   enableMostRecent?: boolean
   actions?: Array<Button>
 }
 
 const SSITableViewHeader: React.FC<Props> = (props: Props): ReactElement => {
-  const {
-    enableFiltering = false,
-    enableMostRecent = false,
-    actions = []
-  } = props
+  const {enableFiltering = false, enableMostRecent = false, actions = []} = props
 
   return (
     <Container>
       <ContentContainer>
         <ActionsContainer>
           {enableFiltering && (
-              <FilterContainer>
-                <SSIIconButton icon={ButtonIconsEnum.FILTER} onClick={async (): Promise<void> => console.log('add filter clicked')} />
-                <FilterCaption>{Localization.translate('action_filter_caption')}</FilterCaption>
-              </FilterContainer>
+            <FilterContainer>
+              <SSIIconButton icon={ButtonIcon.FILTER} onClick={async (): Promise<void> => console.log('add filter clicked')} />
+              <FilterCaption>{Localization.translate('action_filter_caption')}</FilterCaption>
+            </FilterContainer>
           )}
-          {enableMostRecent &&
-              <ShowOptionContainer>
-                <SSIDropDownList label={Localization.translate('action_show_caption')} initialValue={'Most recent'} />
-              </ShowOptionContainer>
-          }
+          {enableMostRecent && (
+            <ShowOptionContainer>
+              <SSIDropDownList label={Localization.translate('action_show_caption')} initialValue={'Most recent'} />
+            </ShowOptionContainer>
+          )}
           {actions.map((action: Button, index: number) => (
             <SSIPrimaryButton key={index} caption={action.caption} onClick={action.onClick} icon={action.icon} />
           ))}

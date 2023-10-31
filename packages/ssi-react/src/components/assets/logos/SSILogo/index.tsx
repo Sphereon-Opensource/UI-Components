@@ -16,7 +16,7 @@ const SSILogo: FC<Props> = (props: Props): ReactElement => {
     <div
       style={{
         ...style,
-        ...(logo?.dimensions && { aspectRatio: calculateAspectRatio(logo?.dimensions.width, logo?.dimensions.height) }),
+        ...(logo?.dimensions && {aspectRatio: calculateAspectRatio(logo?.dimensions.width, logo?.dimensions.height)}),
         height: size,
         background: `url(${logo.uri})`,
         backgroundSize: 'cover',
