@@ -8,7 +8,7 @@ export const SSIToastContainerContainerStyled = styled(ToastContainer)`
     position: fixed;
     box-sizing: border-box;
   }
-  
+
   &.Toastify__toast-container--top-left {
     top: 1em;
     left: 1em;
@@ -36,18 +36,22 @@ export const SSIToastContainerContainerStyled = styled(ToastContainer)`
     right: 1em;
   }
 
-  @media only screen and (max-width : 480px) {
+  @media only screen and (max-width: 480px) {
     .Toastify__toast-container {
       width: 100vw;
       padding: 0;
       left: 0;
       margin: 0;
     }
-    .Toastify__toast-container--top-left, .Toastify__toast-container--top-center, .Toastify__toast-container--top-right {
+    .Toastify__toast-container--top-left,
+    .Toastify__toast-container--top-center,
+    .Toastify__toast-container--top-right {
       top: 0;
       transform: translateX(0);
     }
-    .Toastify__toast-container--bottom-left, .Toastify__toast-container--bottom-center, .Toastify__toast-container--bottom-right {
+    .Toastify__toast-container--bottom-left,
+    .Toastify__toast-container--bottom-center,
+    .Toastify__toast-container--bottom-right {
       bottom: 0;
       transform: translateX(0);
     }
@@ -56,7 +60,7 @@ export const SSIToastContainerContainerStyled = styled(ToastContainer)`
       left: initial;
     }
   }
-  
+
   .Toastify__toast {
     position: relative;
     box-sizing: border-box;
@@ -69,7 +73,7 @@ export const SSIToastContainerContainerStyled = styled(ToastContainer)`
     direction: ltr;
     z-index: 0;
   }
-  
+
   .Toastify__toast--rtl {
     direction: rtl;
   }
@@ -99,7 +103,7 @@ export const SSIToastContainerContainerStyled = styled(ToastContainer)`
     animation-duration: 0.7s;
   }
 
-  @media only screen and (max-width : 480px) {
+  @media only screen and (max-width: 480px) {
     .Toastify__toast {
       margin-bottom: 0;
       border-radius: 0;
@@ -128,7 +132,11 @@ export const SSIToastContainerContainerStyled = styled(ToastContainer)`
   }
 
   @keyframes Toastify__bounceInRight {
-    from, 60%, 75%, 90%, to {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
       animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     }
     from {
@@ -160,7 +168,11 @@ export const SSIToastContainerContainerStyled = styled(ToastContainer)`
     }
   }
   @keyframes Toastify__bounceInLeft {
-    from, 60%, 75%, 90%, to {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
       animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     }
     0% {
@@ -192,7 +204,11 @@ export const SSIToastContainerContainerStyled = styled(ToastContainer)`
     }
   }
   @keyframes Toastify__bounceInUp {
-    from, 60%, 75%, 90%, to {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
       animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     }
     from {
@@ -217,7 +233,8 @@ export const SSIToastContainerContainerStyled = styled(ToastContainer)`
     20% {
       transform: translate3d(0, -10px, 0);
     }
-    40%, 45% {
+    40%,
+    45% {
       opacity: 1;
       transform: translate3d(0, 20px, 0);
     }
@@ -227,7 +244,11 @@ export const SSIToastContainerContainerStyled = styled(ToastContainer)`
     }
   }
   @keyframes Toastify__bounceInDown {
-    from, 60%, 75%, 90%, to {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
       animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     }
     0% {
@@ -252,7 +273,8 @@ export const SSIToastContainerContainerStyled = styled(ToastContainer)`
     20% {
       transform: translate3d(0, 10px, 0);
     }
-    40%, 45% {
+    40%,
+    45% {
       opacity: 1;
       transform: translate3d(0, -20px, 0);
     }
@@ -261,10 +283,12 @@ export const SSIToastContainerContainerStyled = styled(ToastContainer)`
       transform: translate3d(0, 2000px, 0);
     }
   }
-  .Toastify__bounce-enter--top-left, .Toastify__bounce-enter--bottom-left {
+  .Toastify__bounce-enter--top-left,
+  .Toastify__bounce-enter--bottom-left {
     animation-name: Toastify__bounceInLeft;
   }
-  .Toastify__bounce-enter--top-right, .Toastify__bounce-enter--bottom-right {
+  .Toastify__bounce-enter--top-right,
+  .Toastify__bounce-enter--bottom-right {
     animation-name: Toastify__bounceInRight;
   }
   .Toastify__bounce-enter--top-center {
@@ -274,10 +298,12 @@ export const SSIToastContainerContainerStyled = styled(ToastContainer)`
     animation-name: Toastify__bounceInUp;
   }
 
-  .Toastify__bounce-exit--top-left, .Toastify__bounce-exit--bottom-left {
+  .Toastify__bounce-exit--top-left,
+  .Toastify__bounce-exit--bottom-left {
     animation-name: Toastify__bounceOutLeft;
   }
-  .Toastify__bounce-exit--top-right, .Toastify__bounce-exit--bottom-right {
+  .Toastify__bounce-exit--top-right,
+  .Toastify__bounce-exit--bottom-right {
     animation-name: Toastify__bounceOutRight;
   }
   .Toastify__bounce-exit--top-center {

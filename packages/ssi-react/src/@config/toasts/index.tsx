@@ -11,5 +11,5 @@ export const toastConfig = {
   ssiToastError: (params: ToastConfigParams<ToastCustomProps>) => {
     const {title, message, onClick, props} = params
     return <SSIToast type={ToastType.ERROR} title={title} message={message} showBadge={props?.showBadge} onClick={onClick} />
-  }
+  },
 }

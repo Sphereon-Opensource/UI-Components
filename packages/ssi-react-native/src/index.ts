@@ -7,12 +7,4 @@ import SSIPlaceholderLogo from './components/assets/logos/SSIPlaceholderLogo'
 import SSILogo from './components/assets/logos/SSILogo'
 export * from './styles/components/fonts'
 
-export {
-    SSICredentialCardView,
-    SSICredentialMiniCardView,
-    SSIStatusLabel,
-    SSICheckmarkBadge,
-    SSIExclamationMarkBadge,
-    SSIPlaceholderLogo,
-    SSILogo
-}
+export {SSICredentialCardView, SSICredentialMiniCardView, SSIStatusLabel, SSICheckmarkBadge, SSIExclamationMarkBadge, SSIPlaceholderLogo, SSILogo}

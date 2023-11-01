@@ -3,7 +3,7 @@ import {AccessorFn, DeepKeys} from '@tanstack/react-table'
 export enum TableCellType {
   TEXT = 'text',
   LABEL = 'label',
-  STATUS = 'status'
+  STATUS = 'status',
 }
 
 export type ColumnHeader<T> = {

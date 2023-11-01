@@ -27,7 +27,7 @@ import {
   SSITableViewTableContainerStyled as TableContainer,
 } from '../../../styles'
 import {Button, ColumnHeader, TableCellType} from '../../../types'
-import {SSIStatusLabel} from "../../../index";
+import {SSIStatusLabel} from '../../../index'
 
 type Props<T> = {
   data: Array<T>

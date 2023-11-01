@@ -15,7 +15,7 @@ export enum WorkflowStatus {
   DECLINED = 'Declined',
   PENDING = 'Pending',
   DONE = 'Done',
-  ARCHIVED = 'Archived'
+  ARCHIVED = 'Archived',
 }
 
 export type LabelStatus = CredentialStatus | IssuerStatus | WorkflowStatus
