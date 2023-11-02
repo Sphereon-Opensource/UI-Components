@@ -20,6 +20,7 @@ import SSITabViewHeader from './components/views/SSITabView/SSITabViewHeader'
 import SSIProfileIcon from './components/assets/icons/SSIProfileIcon'
 import SSISecondaryButton from './components/buttons/SSISecondaryButton'
 import SSICheckbox from './components/fields/SSICheckbox'
+import SSIActivityIndicator from './components/indicators/SSIActivityIndicator'
 import SSIHoverText from './components/fields/SSIHoverText'
 
 export * from './styles/components/fonts'
@@ -49,5 +50,6 @@ export {
   SSIProfileIcon,
   SSIToastContainer,
   SSICheckbox,
+  SSIActivityIndicator,
   SSIHoverText,
 }
