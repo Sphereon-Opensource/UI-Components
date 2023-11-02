@@ -9,4 +9,13 @@ export enum IssuerStatus {
   UNVERIFIED = 'unverified',
 }
 
-export type LabelStatus = CredentialStatus | IssuerStatus
+export enum WorkflowStatus {
+  NEW = 'New',
+  APPROVED = 'Approved',
+  DECLINED = 'Declined',
+  PENDING = 'Pending',
+  DONE = 'Done',
+  ARCHIVED = 'Archived',
+}
+
+export type LabelStatus = CredentialStatus | IssuerStatus | WorkflowStatus

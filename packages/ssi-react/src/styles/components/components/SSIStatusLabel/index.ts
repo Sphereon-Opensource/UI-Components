@@ -6,6 +6,7 @@ import {SSITextH5LightStyled} from '../../fonts'
 export const SSIStatusLabelContainerStyled = styled(SSIFlexDirectionRowViewStyled)`
   border-radius: 9px;
   border: 1px solid #000;
+  width: fit-content;
 `
 
 export const SSIStatusLabelStatusCaptionStyled = styled(SSITextH5LightStyled)`

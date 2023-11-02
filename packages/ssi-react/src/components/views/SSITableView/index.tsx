@@ -13,7 +13,7 @@ import {
   Table,
   useReactTable,
 } from '@tanstack/react-table'
-import {LabelType, Localization} from '@sphereon/ui-components.core'
+import {LabelStatus, LabelType, Localization} from '@sphereon/ui-components.core'
 import SSITableViewHeader from './SSITableViewHeader'
 import SSITypeLabel from '../../labels/SSITypeLabel'
 import SSIHoverText from '../../fields/SSIHoverText'
@@ -27,6 +27,7 @@ import {
   SSITableViewTableContainerStyled as TableContainer,
 } from '../../../styles'
 import {Button, ColumnHeader, TableCellType} from '../../../types'
+import {SSIStatusLabel} from '../../../index'
 
 type Props<T> = {
   data: Array<T>
@@ -60,6 +61,9 @@ const getCellFormatting = (type: TableCellType, value: any, truncationLength?: n
     case TableCellType.LABEL: {
       const labels = Array.isArray(value) ? value.map((label: LabelType) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
       return <LabelCell>{labels}</LabelCell>
+    }
+    case TableCellType.STATUS: {
+      return <SSIStatusLabel status={value as LabelStatus} />
     }
     default:
       return <div />
