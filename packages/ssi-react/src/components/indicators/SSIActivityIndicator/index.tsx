@@ -3,31 +3,24 @@ import {Oval} from 'react-loader-spinner'
 import {elements} from "@sphereon/ui-components.core";
 
 interface Props {
-  ariaLabel?: string
-  width?: string | number
-  height?: string | number
+  size?: string | number
   color?: string
-  secondaryColor?: string
-  strokeWidth?: string | number
-  strokeWidthSecondary?: string | number
-  visible?: boolean
-  wrapperStyle?: {[key: string]: string}
-  wrapperClass?: string
+  style?: {[key: string]: string}
 }
 
 const SSIActivityIndicator: FC<Props> = (props: Props): React.ReactElement => {
-  const defaultProps = {
-    ...props,
-    width: 80,
-    height:80,
-    color:elements.blue,
-    secondaryColor: elements.blue,
-    strokeWidth:5,
-    strokeWidthSecondary:5,
-    visible:true
-  }
+  const {size= 80, color = elements.blue, style} = props
   return (
-    <Oval {...defaultProps} />
+    <Oval
+      width={size}
+      height={size}
+      color={color}
+      secondaryColor={color}
+      strokeWidth={5}
+      strokeWidthSecondary={5}
+      visible={true}
+      wrapperStyle={style}
+    />
   )
 }
 
