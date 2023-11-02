@@ -15,7 +15,7 @@ interface Props {
   wrapperClass?: string
 }
 
-const SSILoader: FC<Props> = (props: Props): React.ReactElement => {
+const SSIActivityIndicator: FC<Props> = (props: Props): React.ReactElement => {
   const defaultProps = {
     ...props,
     width: 80,
@@ -31,4 +31,4 @@ const SSILoader: FC<Props> = (props: Props): React.ReactElement => {
   )
 }
 
-export default SSILoader
+export default SSIActivityIndicator
