@@ -8,7 +8,7 @@ import {
   SSITextH4Css,
   SSITextH4SemiBoldCss,
   SSITextH5Css,
-  SSITextH6Css
+  SSITextH6Css,
 } from '../../css'
 
 export const SSITextH1Styled = styled.span`

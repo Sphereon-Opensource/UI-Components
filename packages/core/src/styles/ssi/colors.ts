@@ -74,9 +74,9 @@ export const alertColors: Record<Alerts, string> = {
   secondaryLight: '#EBEBEB',
 }
 
-type SelectionElement = 'primaryDark' | 'primaryBorderDark';
+type SelectionElement = 'primaryDark' | 'primaryBorderDark'
 
 export const selectionElements: Record<SelectionElement, string> = {
   primaryDark: '#0B81FF',
   primaryBorderDark: '#FBFBFB',
-};
+}

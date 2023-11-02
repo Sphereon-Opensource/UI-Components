@@ -20,7 +20,7 @@ import SSITabViewHeader from './components/views/SSITabView/SSITabViewHeader'
 import SSIProfileIcon from './components/assets/icons/SSIProfileIcon'
 import SSISecondaryButton from './components/buttons/SSISecondaryButton'
 import SSICheckbox from './components/fields/SSICheckbox'
-import SSILoader from "./components/assets/loaders/SSILoader"
+import SSILoader from './components/assets/loaders/SSILoader'
 import SSIHoverText from './components/fields/SSIHoverText'
 
 export * from './styles/components/fonts'
@@ -28,28 +28,28 @@ export * from './types'
 export * from './helpers'
 
 export {
-    SSICredentialCardView,
-    SSICredentialMiniCardView,
-    SSIStatusLabel,
-    SSICheckmarkBadge,
-    SSIExclamationMarkBadge,
-    SSIPlaceholderLogo,
-    SSILogo,
-    SSIAddIcon,
-    SSIFilterIcon,
-    SSIArrowDownIcon,
-    SSITypeLabel,
-    SSIIconButton,
-    SSIPrimaryButton,
-    SSISecondaryButton,
-    SSIDropDownList,
-    SSITableView,
-    SSITableViewHeader,
-    SSITabView,
-    SSITabViewHeader,
-    SSIProfileIcon,
-    SSIToastContainer,
-    SSICheckbox,
-    SSILoader,
-    SSIHoverText
+  SSICredentialCardView,
+  SSICredentialMiniCardView,
+  SSIStatusLabel,
+  SSICheckmarkBadge,
+  SSIExclamationMarkBadge,
+  SSIPlaceholderLogo,
+  SSILogo,
+  SSIAddIcon,
+  SSIFilterIcon,
+  SSIArrowDownIcon,
+  SSITypeLabel,
+  SSIIconButton,
+  SSIPrimaryButton,
+  SSISecondaryButton,
+  SSIDropDownList,
+  SSITableView,
+  SSITableViewHeader,
+  SSITabView,
+  SSITabViewHeader,
+  SSIProfileIcon,
+  SSIToastContainer,
+  SSICheckbox,
+  SSILoader,
+  SSIHoverText,
 }

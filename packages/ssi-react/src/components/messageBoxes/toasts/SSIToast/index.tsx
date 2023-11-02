@@ -8,7 +8,7 @@ import {
   SSIFlexDirectionRowViewStyled as MessageContainer,
   SSITextH2SemiBoldStyled as TitleText,
   SSIToastTitleContainerStyled as TitleContainer,
-  SSIToastBadgeContainerStyled as ToastBadgeContainer
+  SSIToastBadgeContainerStyled as ToastBadgeContainer,
 } from '../../../../styles'
 
 type Props = {
@@ -31,13 +31,7 @@ const getBadge = (type: ToastType): ReactElement => {
 }
 
 const SSIToast: FC<Props> = (props: Props): ReactElement => {
-  const {
-      type,
-      title,
-      message,
-      showBadge = true,
-      onClick
-  } = props
+  const {type, title, message, showBadge = true, onClick} = props
 
   return (
     <Container onClick={onClick}>
@@ -48,7 +42,7 @@ const SSIToast: FC<Props> = (props: Props): ReactElement => {
         </TitleContainer>
       )}
       <MessageContainer>
-        {(!title && showBadge) && <ToastBadgeContainer>{getBadge(type)}</ToastBadgeContainer>}
+        {!title && showBadge && <ToastBadgeContainer>{getBadge(type)}</ToastBadgeContainer>}
         {message && <MessageText style={{...(showBadge && {textAlign: 'center'})}}>{message}</MessageText>}
       </MessageContainer>
     </Container>
