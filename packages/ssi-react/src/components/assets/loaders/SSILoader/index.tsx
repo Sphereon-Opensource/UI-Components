@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {FC} from 'react'
 import {Oval} from 'react-loader-spinner'
+import {elements} from "@sphereon/ui-components.core";
 
-interface SSILoaderProps {
+interface Props {
   ariaLabel?: string
   width?: string | number
   height?: string | number
@@ -12,18 +13,22 @@ interface SSILoaderProps {
   visible?: boolean
   wrapperStyle?: {[key: string]: string}
   wrapperClass?: string
-  timeout?: number
-  callback: (state?: any) => Promise<void>
 }
 
-export default class SSILoader extends React.Component<SSILoaderProps, any> {
-  componentDidMount() {
-    setTimeout(async (state?: any): Promise<void> => {
-      await this.props.callback(state)
-    }, this.props.timeout ?? 0)
+const SSILoader: FC<Props> = (props: Props): React.ReactElement => {
+  const defaultProps = {
+    ...props,
+    width: 80,
+    height:80,
+    color:elements.blue,
+    secondaryColor: elements.blue,
+    strokeWidth:5,
+    strokeWidthSecondary:5,
+    visible:true
   }
-
-  render() {
-    return <Oval {...this.props} />
-  }
+  return (
+    <Oval {...defaultProps} />
+  )
 }
+
+export default SSILoader
