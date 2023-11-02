@@ -3,7 +3,7 @@ import {ActivityIndicator, BackHandler, ColorValue, NativeEventSubscription, Sty
 
 type Props = {size: number | 'small' | 'large'; color?: ColorValue; style?: StyleProp<ViewStyle>}
 
-export default class SSILoader extends PureComponent<Props> {
+export default class SSIActivityIndicator extends PureComponent<Props> {
   hardwareBackPressListener: NativeEventSubscription
 
   componentDidMount = (): void => {
