@@ -3,12 +3,12 @@ import {Oval} from 'react-loader-spinner'
 
 interface SSILoaderProps {
   ariaLabel?: string
-  width?: string
-  height?: string
+  width?: string | number
+  height?: string | number
   color?: string
   secondaryColor?: string
-  strokeWidth?: number
-  strokeWidthSecondary?: number
+  strokeWidth?: string | number
+  strokeWidthSecondary?: string | number
   visible?: boolean
   wrapperStyle?: {[key: string]: string}
   wrapperClass?: string
