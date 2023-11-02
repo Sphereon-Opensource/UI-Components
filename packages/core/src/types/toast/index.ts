@@ -1,6 +1,6 @@
 export enum ToastType {
   SUCCESS = 'ssiToastSuccess',
-  ERROR = 'ssiToastError'
+  ERROR = 'ssiToastError',
 }
 
 export type ToastCustomProps = {

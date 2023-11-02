@@ -4,7 +4,7 @@ import {credentialCardColors, ImageAttributes} from '@sphereon/ui-components.cor
 import SSILogo from '../../assets/logos/SSILogo'
 import {
   SSICredentialMiniCardViewBackgroundImageStyled as BackgroundImage,
-  SSICredentialMiniCardViewContainerStyled as Container
+  SSICredentialMiniCardViewContainerStyled as Container,
 } from '../../../styles'
 
 type Props = {

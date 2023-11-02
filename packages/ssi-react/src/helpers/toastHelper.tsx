@@ -4,18 +4,18 @@ import {toastConfig} from '../@config/toasts'
 import {ToastConfigParams} from '../types'
 
 export const showToast = async (type: ToastType, params: ToastConfigParams<ToastCustomProps>): Promise<void> => {
-    const {title, message, onClick, props} = params
+  const {title, message, onClick, props} = params
 
-    if (!toastConfig.hasOwnProperty(type)) {
-        return Promise.reject('Unknown toast type')
-    }
+  if (!toastConfig.hasOwnProperty(type)) {
+    return Promise.reject('Unknown toast type')
+  }
 
-    toast(
-        toastConfig[type]({
-            title,
-            message,
-            onClick,
-            props,
-        })
-    )
+  toast(
+    toastConfig[type]({
+      title,
+      message,
+      onClick,
+      props,
+    }),
+  )
 }
