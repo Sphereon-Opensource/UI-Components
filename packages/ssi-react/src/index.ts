@@ -23,6 +23,8 @@ import SSICheckbox from './components/fields/SSICheckbox'
 import SSIActivityIndicator from './components/indicators/SSIActivityIndicator'
 import SSIHoverText from './components/fields/SSIHoverText'
 
+import {Row} from '@tanstack/react-table'
+
 export * from './styles/components/fonts'
 export * from './types'
 export * from './helpers'
@@ -52,4 +54,5 @@ export {
   SSICheckbox,
   SSIActivityIndicator,
   SSIHoverText,
+  Row
 }
