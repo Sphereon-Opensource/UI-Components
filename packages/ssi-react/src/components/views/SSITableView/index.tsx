@@ -54,10 +54,10 @@ function IndeterminateCheckbox({indeterminate, className = '', ...rest}: {indete
   return <input type="checkbox" ref={ref} className={className + ' cursor-pointer'} {...rest} />
 }
 
-const getCellFormatting = (type: TableCellType, value: any, truncationLength?: number): ReactElement => {
+const getCellFormatting = (type: TableCellType, value: any, truncationLength?: number, enableHover?: boolean): ReactElement => {
   switch (type) {
     case TableCellType.TEXT:
-      return <SSIHoverText text={value} {...(truncationLength && {truncationLength})} />
+      return <SSIHoverText text={value} {...(truncationLength && {truncationLength})} {...(enableHover && {enableHover})} />
     case TableCellType.LABEL: {
       const labels = Array.isArray(value) ? value.map((label: LabelType) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
       return <LabelCell>{labels}</LabelCell>
@@ -90,7 +90,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     columnHelper.accessor(header.accessor, {
       id: header.accessor as string,
       header: header.label,
-      cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue(), header.truncationLength),
+      cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue(), header.truncationLength, header.enableHover),
     }),
   )
   if (enableRowSelection) {
