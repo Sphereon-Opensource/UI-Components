@@ -4,20 +4,20 @@ import {
   SSIHoverTextContainerStyled as Container,
   SSIHoverTextTextHoverStyled as TextHover,
 } from '../../../styles/components'
+import {ColumnHeaderTextOptions} from '../../../types'
 
 export type Props = {
   text: string
-  truncationLength?: number
-  enableHover?: boolean
+  opts?: ColumnHeaderTextOptions
 }
 
 const SSIHoverText: FC<Props> = (props: Props): ReactElement => {
-  const {text, truncationLength, enableHover = false} = props
-  const value = truncationLength ? text.substring(0, truncationLength) : text
+  const {text, opts } = props
+  const value = opts?.truncationLength ? text.substring(0, opts.truncationLength) : text
   return (
     <Container>
       <Text>{value}</Text>
-      {enableHover && <TextHover>{text}</TextHover>}
+      {opts?.enableHover && <TextHover>{text}</TextHover>}
     </Container>
   )
 }
