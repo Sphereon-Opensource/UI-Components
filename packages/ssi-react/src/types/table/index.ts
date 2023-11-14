@@ -10,10 +10,10 @@ export type ColumnHeader<T> = {
   accessor: AccessorFn<T> | DeepKeys<T>
   type: TableCellType
   label?: string
-  opts?: ColumnHeaderTextOptions
+  opts?: ColumnHeaderOptions
 }
 
-export interface ColumnHeaderTextOptions {
+export interface ColumnHeaderOptions {
   /**
    * if populated, will truncate the text received in the value to this length.
    * Showing the full text in the event of hover.
