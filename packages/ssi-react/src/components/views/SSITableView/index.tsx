@@ -26,7 +26,7 @@ import {
   SSITableViewRowContainerStyled as RowContainer,
   SSITableViewTableContainerStyled as TableContainer,
 } from '../../../styles'
-import {Button, ColumnHeader, TableCellType} from '../../../types'
+import {Button, ColumnHeader, TableCellOptions, TableCellType} from '../../../types'
 import {SSIStatusLabel} from '../../../index'
 
 type Props<T> = {
@@ -54,12 +54,16 @@ function IndeterminateCheckbox({indeterminate, className = '', ...rest}: {indete
   return <input type="checkbox" ref={ref} className={className + ' cursor-pointer'} {...rest} />
 }
 
-const getCellFormatting = (type: TableCellType, value: any, truncationLength?: number): ReactElement => {
+const getCellFormatting = (type: TableCellType, value: any, opts?: TableCellOptions): ReactElement => {
   switch (type) {
     case TableCellType.TEXT:
-      return <SSIHoverText text={value} {...(truncationLength && {truncationLength})} />
+      const {truncationLength, enableHover = false} = opts ?? {}
+      return <SSIHoverText
+        text={value}
+        truncationLength={truncationLength}
+        enableHover={enableHover} />
     case TableCellType.LABEL: {
-      const labels = Array.isArray(value) ? value.map((label: LabelType) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
+      const labels= Array.isArray(value) ? value.map((label: LabelType) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
       return <LabelCell>{labels}</LabelCell>
     }
     case TableCellType.STATUS: {
@@ -90,7 +94,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     columnHelper.accessor(header.accessor, {
       id: header.accessor as string,
       header: header.label,
-      cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue(), header.truncationLength),
+      cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue(), header.opts),
     }),
   )
   if (enableRowSelection) {
