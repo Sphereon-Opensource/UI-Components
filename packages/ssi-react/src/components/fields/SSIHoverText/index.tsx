@@ -7,8 +7,8 @@ import {
 
 export type Props = {
   text: string
-  truncationLength?: number | undefined
-  enableHover?: boolean | undefined
+  truncationLength?: number
+  enableHover?: boolean
 }
 
 const SSIHoverText: FC<Props> = (props: Props): ReactElement => {
