@@ -12,7 +12,7 @@ export type Props = {
 }
 
 const SSIHoverText: FC<Props> = (props: Props): ReactElement => {
-  const {text, truncationLength, enableHover = false} = props
+  const {text, truncationLength, enableHover = true} = props
   const value = truncationLength ? text.substring(0, truncationLength) : text
   return (
     <Container>
