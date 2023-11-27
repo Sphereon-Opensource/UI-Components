@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import {SSIFlexDirectionRowViewStyled} from '../../containers'
 import {gradientColors} from '@sphereon/ui-components.core'
 import {SSITextH3Styled} from '../../fonts'
+import {gradient100TextCss} from "../../../css";
 
 export const SSIDropDownListContainerStyled = styled(SSIFlexDirectionRowViewStyled)`
   text-align: left;
@@ -10,8 +11,5 @@ export const SSIDropDownListContainerStyled = styled(SSIFlexDirectionRowViewStyl
 `
 
 export const SSIDropDownListSelectedValueStyled = styled(SSITextH3Styled)`
-  background: ${gradientColors['100']};
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  ${gradient100TextCss}
 `
