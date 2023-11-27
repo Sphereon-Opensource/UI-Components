@@ -20,6 +20,10 @@ export const SSITextH1SemiBoldStyled = styled.div`
   ${SSITextH1SemiBoldCss}
 `
 
+export const SSITextH1SemiBoldLightStyled = styled(SSITextH1SemiBoldStyled)`
+  color: ${fontColors.light}
+`
+
 export const SSITextH2Styled = styled.div`
   ${SSITextH2Css}
 `

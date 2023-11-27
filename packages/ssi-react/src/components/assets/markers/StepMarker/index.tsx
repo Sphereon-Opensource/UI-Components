@@ -3,7 +3,7 @@ import {
     StepMarkerActiveContainerStyled as ActiveContainer,
     StepMarkerActiveOuterContainerStyled as ActiveOuterContainer,
     StepMarkerGradientContainerStyled as GradientContainer,
-    SSITextH1SemiBoldStyled as StepNumberText,
+    SSITextH1SemiBoldLightStyled as StepNumberText,
     StepMarkerInactiveContainerStyled as InactiveContainer,
 } from '../../../../styles';
 import {StepStatus} from '../../../../types';
