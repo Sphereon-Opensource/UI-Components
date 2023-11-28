@@ -10,6 +10,7 @@ export const ProgressStepIndicatorContainerStyled = styled.div`
   overflow: hidden;
   padding: 48px 24px;
   cursor: default;
+  min-width: 325px;
 `
 
 export const ProgressStepIndicatorContentGridContainerStyled = styled.div`
