@@ -1,4 +1,5 @@
 import {css} from 'styled-components'
+import {gradientColors} from '@sphereon/ui-components.core';
 import {fontStyle} from '../typography'
 
 export const SSITextH1Css = css`
@@ -6,6 +7,14 @@ export const SSITextH1Css = css`
   font-size: ${fontStyle.h1Regular.fontSize}px;
   font-weight: ${fontStyle.h1Regular.fontWeight};
   line-height: ${fontStyle.h1Regular.lineHeight}px;
+  height: auto;
+`
+
+export const SSITextH1SemiBoldCss = css`
+  font-family: ${fontStyle.h1SemiBold.fontFamily};
+  font-size: ${fontStyle.h1SemiBold.fontSize}px;
+  font-weight: ${fontStyle.h1SemiBold.fontWeight};
+  line-height: ${fontStyle.h1SemiBold.lineHeight}px;
   height: auto;
 `
 
@@ -62,4 +71,11 @@ export const SSITextH6Css = css`
   font-weight: ${fontStyle.h6.fontWeight};
   line-height: ${fontStyle.h6.lineHeight}px;
   height: auto;
+`
+
+export const gradient100TextCss = css`
+  background: ${gradientColors['100']};
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `

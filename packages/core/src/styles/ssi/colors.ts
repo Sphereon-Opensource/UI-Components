@@ -87,8 +87,10 @@ export const selectionElements: Record<SelectionElement, string> = {
   primaryBorderDark: '#FBFBFB',
 }
 
-type Element = 'blue'
+type Element = 'blue' | 'lightGrey' | 'purple'
 
 export const elements: Record<Element, string> = {
   blue: '#0B81FF',
+  lightGrey: '#C4C4C4',
+  purple: '#7276F7'
 }

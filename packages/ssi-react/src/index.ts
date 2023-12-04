@@ -22,6 +22,8 @@ import SSISecondaryButton from './components/buttons/SSISecondaryButton'
 import SSICheckbox from './components/fields/SSICheckbox'
 import SSIActivityIndicator from './components/indicators/SSIActivityIndicator'
 import SSIHoverText from './components/fields/SSIHoverText'
+import ProgressStepIndicator from './components/indicators/ProgressStepIndicator'
+import StepMarker from './components/assets/markers/StepMarker'
 
 import {Row} from '@tanstack/react-table'
 
@@ -54,5 +56,7 @@ export {
   SSICheckbox,
   SSIActivityIndicator,
   SSIHoverText,
+  StepMarker,
+  ProgressStepIndicator,
   Row
 }
