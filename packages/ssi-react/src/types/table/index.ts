@@ -20,5 +20,8 @@ export type TableCellOptions = {
    */
   truncationLength?: number
   enableHover?: boolean
+  columnMinWidth?: number
+  columnMaxWidth?: number
+  columnWidth?: number
   // TODO extent this with more options to override
 }
