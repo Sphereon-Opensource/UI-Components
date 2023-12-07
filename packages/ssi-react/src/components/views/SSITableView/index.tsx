@@ -189,8 +189,6 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
                     // @ts-ignore
                     colSpan={header.colSpan}
                     style={{
-                      // setting border-box makes padding be included in the width, otherwise content-box is used and then padding is excluded from the width
-                      boxSizing: 'border-box',
                       ...(header.column.columnDef.minSize && {minWidth: header.column.columnDef.minSize }),
                       ...(header.column.columnDef.maxSize && {maxWidth: header.column.columnDef.maxSize }),
                       ...(header.column.columnDef.size !== 0 && {width: header.column.columnDef.size }),
@@ -219,8 +217,6 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
                   <CellContainer
                       key={cell.id}
                       style={{
-                        // setting border-box makes padding be included in the width, otherwise content-box is used and then padding is excluded from the width
-                        boxSizing: 'border-box',
                         ...(cell.column.columnDef.minSize && {minWidth: cell.column.columnDef.minSize }),
                         ...(cell.column.columnDef.maxSize && {maxWidth: cell.column.columnDef.maxSize }),
                         ...(cell.column.columnDef.size !== 0 && {width: cell.column.columnDef.size }),

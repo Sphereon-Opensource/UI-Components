@@ -31,6 +31,8 @@ export const SSITableViewCellContainerStyled = styled.td`
   background-color: ${backgroundColors.primaryLight};
   padding: 20px 16px 20px 16px;
   text-align: left;
+  //setting border-box makes padding be included in the width, otherwise content-box is used and then padding is excluded from the width
+  box-sizing: border-box;
 `
 
 export const SSITableViewHeaderCellContainerStyled = styled.th`
@@ -40,6 +42,8 @@ export const SSITableViewHeaderCellContainerStyled = styled.th`
   background-color: ${backgroundColors.primaryLight};
   color: ${fontColors.lightGrey};
   text-align: left;
+  //setting border-box makes padding be included in the width, otherwise content-box is used and then padding is excluded from the width
+  box-sizing: border-box;
 `
 
 export const SSITableViewResultCountCaptionStyled = styled.div`
