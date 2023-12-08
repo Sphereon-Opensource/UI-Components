@@ -95,6 +95,9 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
       id: header.accessor as string,
       header: header.label,
       cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue(), header.opts),
+      minSize: header.opts?.columnMinWidth,
+      maxSize: header.opts?.columnMaxWidth,
+      size: header.opts?.columnWidth,
     }),
   )
   if (enableRowSelection) {
@@ -130,6 +133,11 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
   }
 
   const table: Table<T> = useReactTable({
+    // https://tanstack.com/table/v8/docs/api/core/table#defaultcolumn
+    // Setting it to 0 as the default is 150. We need to check if a value has been provided, which could be 150
+    defaultColumn: {
+      size: 0
+    },
     state: {
       rowSelection,
     },
@@ -180,7 +188,11 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
                     key={header.id}
                     // @ts-ignore
                     colSpan={header.colSpan}
-                    style={{width: header.getSize()}}>
+                    style={{
+                      ...(header.column.columnDef.minSize && {minWidth: header.column.columnDef.minSize }),
+                      ...(header.column.columnDef.maxSize && {maxWidth: header.column.columnDef.maxSize }),
+                      ...(header.column.columnDef.size !== 0 && {width: header.column.columnDef.size }),
+                    }}>
                     {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                     <div
                       className={`resizer ${header.column.getIsResizing() ? 'isResizing' : ''}`}
@@ -202,7 +214,14 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
             {table.getRowModel().rows.map((row: Row<T>) => (
               <RowContainer key={row.id} onClick={() => onRowClicked(row)}>
                 {row.getVisibleCells().map((cell: Cell<T, any>) => (
-                  <CellContainer key={cell.id} style={{width: cell.column.getSize()}}>
+                  <CellContainer
+                      key={cell.id}
+                      style={{
+                        ...(cell.column.columnDef.minSize && {minWidth: cell.column.columnDef.minSize }),
+                        ...(cell.column.columnDef.maxSize && {maxWidth: cell.column.columnDef.maxSize }),
+                        ...(cell.column.columnDef.size !== 0 && {width: cell.column.columnDef.size }),
+                      }}
+                  >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </CellContainer>
                 ))}
