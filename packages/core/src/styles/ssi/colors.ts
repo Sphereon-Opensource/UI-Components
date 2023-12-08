@@ -35,7 +35,7 @@ export const statusColors: Record<LabelStatus | 'error', string> = {
   Pending: '#0B81FF',
   Archived: '#B3B3B3',
   Declined: '#D74500',
-  Done: '#000', // TODO I see it in the UI but not in the design. Follow up ticket created: https://sphereon.atlassian.net/browse/DPP-87
+  Done: '#00C249'
 }
 
 type FontColor = 'dark' | 'light' | 'secondaryButton' | 'greyedOut' | 'lightGrey'
@@ -87,8 +87,10 @@ export const selectionElements: Record<SelectionElement, string> = {
   primaryBorderDark: '#FBFBFB',
 }
 
-type Element = 'blue'
+type Element = 'blue' | 'lightGrey' | 'purple'
 
 export const elements: Record<Element, string> = {
   blue: '#0B81FF',
+  lightGrey: '#C4C4C4',
+  purple: '#7276F7'
 }

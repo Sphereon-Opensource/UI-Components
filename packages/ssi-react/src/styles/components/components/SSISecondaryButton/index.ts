@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import {SSIRoundedContainerStyled} from '../../containers'
-import {gradientColors} from '@sphereon/ui-components.core'
 import {SSITextH3Styled} from '../../fonts'
+import {gradient100TextCss} from '../../../css';
 
 export const SSISecondaryButtonContainerStyled = styled(SSIRoundedContainerStyled)`
   position: relative;
@@ -30,8 +30,5 @@ export const SSISecondaryButtonContainerStyled = styled(SSIRoundedContainerStyle
 `
 
 export const SSISecondaryButtonCaptionStyled = styled(SSITextH3Styled)`
-  background: ${gradientColors['100']};
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  ${gradient100TextCss}
 `
