@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import {backgroundColors, borderColors, elements, fontColors} from '@sphereon/ui-components.core';
-import {SSITextH1SemiBoldStyled, SSITextH3Styled} from '../../fonts';
+import {backgroundColors, borderColors, elements, fontColors} from '@sphereon/ui-components.core'
+import {SSITextH1SemiBoldStyled, SSITextH3Styled} from '../../../fonts'
 
 export const ProgressStepIndicatorContainerStyled = styled.div`
   background-color: ${backgroundColors.primaryLight};

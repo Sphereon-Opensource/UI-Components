@@ -1,4 +1,4 @@
-import {LabelStatus} from '../../types'
+import {GradientProperties, LabelStatus} from '../../types'
 
 type BackgroundColor = 'primaryDark' | 'secondaryDark' | 'primaryLight' | 'secondaryLight' | 'lightGrey'
 
@@ -35,7 +35,7 @@ export const statusColors: Record<LabelStatus | 'error', string> = {
   Pending: '#0B81FF',
   Archived: '#B3B3B3',
   Declined: '#D74500',
-  Done: '#00C249'
+  Done: '#00C249',
 }
 
 type FontColor = 'dark' | 'light' | 'secondaryButton' | 'greyedOut' | 'lightGrey'
@@ -48,11 +48,17 @@ export const fontColors: Record<FontColor, string> = {
   lightGrey: '#8D9099',
 }
 
-type Gradient = 100 | 200
+type HighLightGradient = 100 | 200
 
-export const gradientColors: Record<Gradient, string> = {
-  100: 'linear-gradient(135deg, #7276f7 0%, #7c40e8 100%)', // purple
-  200: 'linear-gradient(135deg, #F90 0%, #EE5309 100%)', // orange
+export const gradientsColors: Record<HighLightGradient, GradientProperties> = {
+  100: {
+    primaryColor: '#7276F7',
+    secondaryColor: '#7C40E8',
+  },
+  200: {
+    primaryColor: '#FF9900',
+    secondaryColor: '#EE5309',
+  },
 }
 
 type Border = 'dark' | 'light' | 'lightGrey'
@@ -92,5 +98,5 @@ type Element = 'blue' | 'lightGrey' | 'purple'
 export const elements: Record<Element, string> = {
   blue: '#0B81FF',
   lightGrey: '#C4C4C4',
-  purple: '#7276F7'
+  purple: '#7276F7',
 }

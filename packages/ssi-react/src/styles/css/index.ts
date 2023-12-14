@@ -1,6 +1,6 @@
 import {css} from 'styled-components'
-import {gradientColors} from '@sphereon/ui-components.core';
 import {fontStyle} from '../typography'
+import {gradientColors} from '../colors'
 
 export const SSITextH1Css = css`
   font-family: ${fontStyle.h1Regular.fontFamily};

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import {backgroundColors, elements, gradientColors} from '@sphereon/ui-components.core';
+import {backgroundColors, elements} from '@sphereon/ui-components.core'
+import {gradientColors} from '../../../colors'
 
 export const StepMarkerActiveContainerStyled = styled.div`
   width: 50px;
@@ -24,7 +25,7 @@ export const StepMarkerActiveOuterContainerStyled = styled.div`
 export const StepMarkerGradientContainerStyled = styled.div`
   width: 42px;
   height: 42px;
-  background: ${gradientColors["100"]};
+  background: ${gradientColors['100']};
   border-radius: 21px;
   display: flex;
   align-items: center;
@@ -40,4 +41,3 @@ export const StepMarkerInactiveContainerStyled = styled.div`
   align-items: center;
   justify-content: center;
 `
-

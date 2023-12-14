@@ -1,10 +1,10 @@
 export type ProgressIndicatorStep = {
-    title?: string
-    description?: string
+  title?: string
+  description?: string
 }
 
 export enum StepStatus {
-    CURRENT = 'current',
-    COMPLETED = 'completed',
-    NEXT = 'next',
+  CURRENT = 'current',
+  COMPLETED = 'completed',
+  NEXT = 'next',
 }
