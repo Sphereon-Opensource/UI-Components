@@ -1,6 +1,6 @@
 import React, {FC} from 'react'
 import {ColorValue, PressableProps, ViewStyle} from 'react-native'
-import {fontColors, highLightGradientsColors, OpacityStyleEnum} from '@sphereon/ui-components.core'
+import {fontColors, gradientsColors, OpacityStyleEnum} from '@sphereon/ui-components.core'
 import {
   SSITouchableOpacityButtonFlexRowStyled as Button,
   SSITextH2LightStyled as ButtonCaption,
@@ -19,7 +19,7 @@ export interface Props extends Omit<PressableProps, 'disabled'> {
 const PrimaryButton: FC<Props> = (props: Props): JSX.Element => {
   const {
     captionColor = fontColors.light,
-    backgroundColors = [highLightGradientsColors['100'].secondaryColor, highLightGradientsColors['100'].primaryColor],
+    backgroundColors = [gradientsColors['100'].secondaryColor, gradientsColors['100'].primaryColor],
     onPress,
     style,
     caption,
