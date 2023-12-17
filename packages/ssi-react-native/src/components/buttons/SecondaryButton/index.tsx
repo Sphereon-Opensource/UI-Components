@@ -1,12 +1,12 @@
 import React, {FC} from 'react'
 import {ColorValue, PressableProps, ViewStyle} from 'react-native'
+import MaskedView from '@react-native-masked-view/masked-view';
 import {fontColors, gradientsColors, OpacityStyleEnum} from '@sphereon/ui-components.core'
 import {
   SSITouchableOpacityButtonFlexRowStyled as Button,
   SSITextH2SecondaryButtonStyled as ButtonCaption,
   SecondaryButtonLinearGradientStyled as LinearGradient,
-  SecondaryButtonMaskContainerStyled as MaskContainer,
-  SecondaryButtonMaskedViewStyled as MaskedView,
+  SecondaryButtonMaskContainerStyled as MaskContainer
 } from '../../../styles'
 
 export interface Props extends Omit<PressableProps, 'disabled'> {
@@ -39,7 +39,6 @@ const SecondaryButton: FC<Props> = (props: Props): JSX.Element => {
       disabled={disabled}
       activeOpacity={OpacityStyleEnum.DISABLED}
       style={{
-        ...style,
         ...(disabled && {opacity: OpacityStyleEnum.DISABLED}),
       }}>
       <MaskedView
@@ -48,7 +47,7 @@ const SecondaryButton: FC<Props> = (props: Props): JSX.Element => {
             <ButtonCaption>{caption}</ButtonCaption>
           </MaskContainer>
         }>
-        <LinearGradient colors={borderColors}>
+        <LinearGradient style={style} colors={borderColors}>
           <ButtonCaption style={{color: captionColor}}>{caption}</ButtonCaption>
         </LinearGradient>
       </MaskedView>

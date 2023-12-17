@@ -4,7 +4,7 @@ import {fontColors, gradientsColors, OpacityStyleEnum} from '@sphereon/ui-compon
 import {
   SSITouchableOpacityButtonFlexRowStyled as Button,
   SSITextH2LightStyled as ButtonCaption,
-  PrimaryButtonLinearGradientStyled as LinearGradient,
+  SSIRoundedCenteredLinearGradientStyled as LinearGradient,
 } from '../../../styles'
 
 export interface Props extends Omit<PressableProps, 'disabled'> {
@@ -37,10 +37,9 @@ const PrimaryButton: FC<Props> = (props: Props): JSX.Element => {
       disabled={disabled}
       activeOpacity={OpacityStyleEnum.DISABLED}
       style={{
-        ...style,
         ...(disabled && {opacity: OpacityStyleEnum.DISABLED}),
       }}>
-      <LinearGradient colors={backgroundColors}>
+      <LinearGradient style={{...style}} colors={backgroundColors}>
         <ButtonCaption style={{color: captionColor}}>{caption}</ButtonCaption>
       </LinearGradient>
     </Button>

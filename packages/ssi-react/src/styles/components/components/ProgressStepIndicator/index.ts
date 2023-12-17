@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {backgroundColors, borderColors, elements, fontColors} from '@sphereon/ui-components.core'
+import {backgroundColors, borderColors, elementColors, fontColors} from '@sphereon/ui-components.core'
 import {SSITextH1SemiBoldStyled, SSITextH3Styled} from '../../../fonts'
 
 export const ProgressStepIndicatorContainerStyled = styled.div`
@@ -53,5 +53,5 @@ export const ProgressStepIndicatorStepLineStyled = styled.div`
   width: 4px;
   display: flex;
   flex-grow: 1;
-  background-color: ${elements.lightGrey};
+  background-color: ${elementColors.lightGrey};
 `

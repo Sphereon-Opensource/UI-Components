@@ -1,6 +1,6 @@
 import {GradientProperties, LabelStatus} from '../../types'
 
-type BackgroundColor = 'primaryDark' | 'secondaryDark' | 'primaryLight' | 'secondaryLight' | 'lightGrey'
+type BackgroundColor = 'primaryDark' | 'secondaryDark' | 'primaryLight' | 'secondaryLight' | 'lightGrey' | 'orange'
 
 export const backgroundColors: Record<BackgroundColor, string> = {
   primaryDark: '#202537',
@@ -8,6 +8,7 @@ export const backgroundColors: Record<BackgroundColor, string> = {
   primaryLight: '#FBFBFB',
   secondaryLight: '#E3E3FF',
   lightGrey: '#E3E3E3',
+  orange: '#D74500'
 }
 
 // TODO WAL-303 add support for randomized colors to avoid getting the same color multiple times
@@ -88,15 +89,24 @@ export const alertColors: Record<Alerts, string> = {
 
 type SelectionElement = 'primaryDark' | 'primaryBorderDark'
 
-export const selectionElements: Record<SelectionElement, string> = {
+export const selectionElementColors: Record<SelectionElement, string> = {
   primaryDark: '#0B81FF',
   primaryBorderDark: '#FBFBFB',
 }
 
-type Element = 'blue' | 'lightGrey' | 'purple'
+// FIXME all numbers
+type Element = 'blue' | 'lightGrey' | 'purple' | 100 | 200
 
-export const elements: Record<Element, string> = {
+export const elementColors: Record<Element, string> = {
   blue: '#0B81FF',
   lightGrey: '#C4C4C4',
   purple: '#7276F7',
+  100: '#F25409',
+  200: '#f78854'
+}
+
+type Button = 100
+
+export const buttonColors: Record<Button, string> = {
+  100: '#8B1900'
 }

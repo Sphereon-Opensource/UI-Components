@@ -1,5 +1,5 @@
 import React, {CSSProperties, FC, ReactElement} from 'react'
-import {elements, fontColors} from '@sphereon/ui-components.core'
+import {elementColors, fontColors} from '@sphereon/ui-components.core'
 import StepMarker from '../../assets/markers/StepMarker'
 import {gradientColors} from '../../../styles/colors'
 import {
@@ -33,7 +33,7 @@ const getStepRowElement = (stepNumber: number, status: StepStatus, step: Progres
             style={{
               ...(status === StepStatus.COMPLETED && {
                 // FIXME in the design this is a linear gradient but because of the grid it interrupts the gradient in the line
-                backgroundColor: elements.purple,
+                backgroundColor: elementColors.purple,
               }),
             }}
           />
@@ -68,7 +68,7 @@ const getStepRowElement = (stepNumber: number, status: StepStatus, step: Progres
             style={{
               ...(status === StepStatus.COMPLETED && {
                 // FIXME in the design this is a linear gradient but because of the grid it interrupts the gradient in the line
-                backgroundColor: elements.purple,
+                backgroundColor: elementColors.purple,
               }),
             }}
           />

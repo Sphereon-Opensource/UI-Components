@@ -65,3 +65,11 @@ export const SSITextH6Styled = styled.Text`
 export const SSITextH6LightStyled = styled(SSITextH6Styled)`
   color: ${fontColors.light};
 `
+
+export const Text64Styled = styled.Text`
+  font-family: ${fontStyle.Regular64.fontFamily};
+  font-size: ${fontStyle.Regular64.fontSize}px;
+  font-weight: ${fontStyle.Regular64.fontWeight};
+  line-height: ${fontStyle.Regular64.lineHeight}px;
+  height: auto;
+`
