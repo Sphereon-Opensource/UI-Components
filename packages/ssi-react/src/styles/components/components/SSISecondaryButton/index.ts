@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import {SSIRoundedContainerStyled} from '../../containers'
-import {SSITextH3Styled} from '../../fonts'
-import {gradient100TextCss} from '../../../css';
+import {SSITextH3Styled} from '../../../fonts'
+import {gradient100TextCss} from '../../../css'
 
 export const SSISecondaryButtonContainerStyled = styled(SSIRoundedContainerStyled)`
   position: relative;

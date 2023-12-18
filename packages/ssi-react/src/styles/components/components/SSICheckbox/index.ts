@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {SSITextH4LightStyled} from '../../fonts'
+import {SSITextH4LightStyled} from '../../../fonts'
 import {SSIFlexDirectionRowViewStyled} from '../../containers'
 
 export const SSICheckboxContainerStyled = styled(SSIFlexDirectionRowViewStyled)`

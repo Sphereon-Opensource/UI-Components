@@ -58,12 +58,9 @@ const getCellFormatting = (type: TableCellType, value: any, opts?: TableCellOpti
   switch (type) {
     case TableCellType.TEXT:
       const {truncationLength, enableHover = false} = opts ?? {}
-      return <SSIHoverText
-        text={value}
-        truncationLength={truncationLength}
-        enableHover={enableHover} />
+      return <SSIHoverText text={value} truncationLength={truncationLength} enableHover={enableHover} />
     case TableCellType.LABEL: {
-      const labels= Array.isArray(value) ? value.map((label: LabelType) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
+      const labels = Array.isArray(value) ? value.map((label: LabelType) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
       return <LabelCell>{labels}</LabelCell>
     }
     case TableCellType.STATUS: {
@@ -136,7 +133,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     // https://tanstack.com/table/v8/docs/api/core/table#defaultcolumn
     // Setting it to 0 as the default is 150. We need to check if a value has been provided, which could be 150
     defaultColumn: {
-      size: 0
+      size: 0,
     },
     state: {
       rowSelection,
@@ -189,9 +186,9 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
                     // @ts-ignore
                     colSpan={header.colSpan}
                     style={{
-                      ...(header.column.columnDef.minSize && {minWidth: header.column.columnDef.minSize }),
-                      ...(header.column.columnDef.maxSize && {maxWidth: header.column.columnDef.maxSize }),
-                      ...(header.column.columnDef.size !== 0 && {width: header.column.columnDef.size }),
+                      ...(header.column.columnDef.minSize && {minWidth: header.column.columnDef.minSize}),
+                      ...(header.column.columnDef.maxSize && {maxWidth: header.column.columnDef.maxSize}),
+                      ...(header.column.columnDef.size !== 0 && {width: header.column.columnDef.size}),
                     }}>
                     {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                     <div
@@ -215,13 +212,12 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
               <RowContainer key={row.id} onClick={() => onRowClicked(row)}>
                 {row.getVisibleCells().map((cell: Cell<T, any>) => (
                   <CellContainer
-                      key={cell.id}
-                      style={{
-                        ...(cell.column.columnDef.minSize && {minWidth: cell.column.columnDef.minSize }),
-                        ...(cell.column.columnDef.maxSize && {maxWidth: cell.column.columnDef.maxSize }),
-                        ...(cell.column.columnDef.size !== 0 && {width: cell.column.columnDef.size }),
-                      }}
-                  >
+                    key={cell.id}
+                    style={{
+                      ...(cell.column.columnDef.minSize && {minWidth: cell.column.columnDef.minSize}),
+                      ...(cell.column.columnDef.maxSize && {maxWidth: cell.column.columnDef.maxSize}),
+                      ...(cell.column.columnDef.size !== 0 && {width: cell.column.columnDef.size}),
+                    }}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </CellContainer>
                 ))}

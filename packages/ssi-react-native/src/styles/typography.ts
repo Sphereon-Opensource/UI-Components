@@ -11,6 +11,7 @@ export const fontSize: Record<FontSize, number> = {
   600: moderateScale(fontSizes['600']),
   700: moderateScale(fontSizes['700']),
   800: moderateScale(fontSizes['800']),
+  64: moderateScale(fontSizes['64']),
 }
 
 export const fontStyle: Record<FontStyle, TextStyle> = {
@@ -92,5 +93,12 @@ export const fontStyle: Record<FontStyle, TextStyle> = {
     fontSize: fontSize[400],
     fontWeight: fontWeight[600],
     lineHeight: lineHeight[400],
+  },
+  Regular64: {
+    // TODO fix the order
+    fontFamily: 'Poppins', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
+    fontSize: fontSize[64],
+    fontWeight: fontWeight[600],
+    lineHeight: lineHeight[64],
   },
 }

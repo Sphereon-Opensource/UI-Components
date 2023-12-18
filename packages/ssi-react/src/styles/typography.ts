@@ -81,4 +81,11 @@ export const fontStyle: Record<FontStyle, CSSProperties> = {
     fontWeight: fontWeight[600],
     lineHeight: lineHeight[400],
   },
+  Regular64: {
+    // TODO fix the order
+    fontFamily: 'Poppins', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
+    fontSize: fontSize[64],
+    fontWeight: fontWeight[600],
+    lineHeight: lineHeight[64],
+  },
 }

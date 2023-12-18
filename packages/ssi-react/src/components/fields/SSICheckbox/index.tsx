@@ -1,5 +1,5 @@
 import React, {FC, ReactNode} from 'react'
-import {OpacityStyleEnum, fontColors, selectionElements} from '@sphereon/ui-components.core'
+import {OpacityStyleEnum, fontColors, selectionElementColors} from '@sphereon/ui-components.core'
 import {
   SSICheckboxContainerStyled as Container,
   SSICheckboxLabelContainerStyled as LabelCaption,
@@ -24,11 +24,11 @@ export interface IProps {
 const SSICheckbox: FC<IProps> = (props: IProps): JSX.Element => {
   const {
     backgroundColor,
-    borderColor = selectionElements.primaryBorderDark,
+    borderColor = selectionElementColors.primaryBorderDark,
     disabled = false,
     initialValue = false,
     label,
-    selectedColor = selectionElements.primaryDark,
+    selectedColor = selectionElementColors.primaryDark,
     labelColor = fontColors.light,
     checkmarkColor = fontColors.dark,
   } = props

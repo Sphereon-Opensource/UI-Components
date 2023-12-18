@@ -1,7 +1,22 @@
 import styled from 'styled-components/native'
-
 import {fontColors} from '@sphereon/ui-components.core'
-import {fontStyle} from '../../typography'
+import {fontStyle} from '../typography'
+
+export const SSITextH2Styled = styled.Text`
+  font-family: ${fontStyle.h2Regular.fontFamily};
+  font-size: ${fontStyle.h2Regular.fontSize}px;
+  font-weight: ${fontStyle.h2Regular.fontWeight};
+  line-height: ${fontStyle.h2Regular.lineHeight}px;
+  height: auto;
+`
+
+export const SSITextH2LightStyled = styled(SSITextH2Styled)`
+  color: ${fontColors.light};
+`
+
+export const SSITextH2SecondaryButtonStyled = styled(SSITextH2Styled)`
+  color: ${fontColors.secondaryButton};
+`
 
 export const SSITextH4Styled = styled.Text`
   font-family: ${fontStyle.h4Regular.fontFamily};
@@ -49,4 +64,12 @@ export const SSITextH6Styled = styled.Text`
 
 export const SSITextH6LightStyled = styled(SSITextH6Styled)`
   color: ${fontColors.light};
+`
+
+export const Text64Styled = styled.Text`
+  font-family: ${fontStyle.Regular64.fontFamily};
+  font-size: ${fontStyle.Regular64.fontSize}px;
+  font-weight: ${fontStyle.Regular64.fontWeight};
+  line-height: ${fontStyle.Regular64.lineHeight}px;
+  height: auto;
 `

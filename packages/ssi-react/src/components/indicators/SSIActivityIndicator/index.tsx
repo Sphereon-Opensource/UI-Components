@@ -1,6 +1,6 @@
 import React, {FC} from 'react'
 import {Oval} from 'react-loader-spinner'
-import {elements} from '@sphereon/ui-components.core'
+import {elementColors} from '@sphereon/ui-components.core'
 
 interface Props {
   size?: string | number
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const SSIActivityIndicator: FC<Props> = (props: Props): React.ReactElement => {
-  const {size = 80, color = elements.blue, style} = props
+  const {size = 80, color = elementColors.blue, style} = props
   return (
     <Oval
       width={size}

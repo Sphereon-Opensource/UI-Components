@@ -27,7 +27,7 @@ import StepMarker from './components/assets/markers/StepMarker'
 
 import {Row} from '@tanstack/react-table'
 
-export * from './styles/components/fonts'
+export * from './styles/fonts'
 export * from './types'
 export * from './helpers'
 
@@ -58,5 +58,5 @@ export {
   SSIHoverText,
   StepMarker,
   ProgressStepIndicator,
-  Row
+  Row,
 }

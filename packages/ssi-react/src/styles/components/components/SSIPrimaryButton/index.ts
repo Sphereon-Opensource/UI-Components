@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {SSIRoundedContainerStyled} from '../../containers'
-import {gradientColors} from '@sphereon/ui-components.core'
+import {gradientColors} from '../../../colors'
 
 export const SSIPrimaryButtonContainerStyled = styled(SSIRoundedContainerStyled)`
   background: ${gradientColors['100']};

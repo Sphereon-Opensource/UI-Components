@@ -1,6 +1,7 @@
 import {FC, ReactElement} from 'react'
-import {backgroundColors, gradientColors, LabelType} from '@sphereon/ui-components.core'
+import {backgroundColors, LabelType} from '@sphereon/ui-components.core'
 import {SSITypeLabelContainerStyled as Container} from '../../../styles'
+import {gradientColors} from '../../../styles/colors'
 
 type Props = {
   type: LabelType

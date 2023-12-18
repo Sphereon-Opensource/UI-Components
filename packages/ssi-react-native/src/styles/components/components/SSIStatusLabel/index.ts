@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
 
 import {SSIFlexDirectionRowViewStyled} from '../../containers'
-import {SSITextH5LightStyled} from '../../fonts'
+import {SSITextH5LightStyled} from '../../../fonts'
 
 export const SSIStatusLabelContainerStyled = styled(SSIFlexDirectionRowViewStyled)`
   border-radius: 9px;
@@ -11,7 +11,7 @@ export const SSIStatusLabelContainerStyled = styled(SSIFlexDirectionRowViewStyle
     so we need to set align-self to something other than stretch to make the container fit the content
     when the parent has a flex-grow: 1 CSS property set  
    */
-  align-self: baseline;  
+  align-self: baseline;
 `
 
 export const SSIStatusLabelStatusCaptionStyled = styled(SSITextH5LightStyled)`

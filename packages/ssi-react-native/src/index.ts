@@ -6,7 +6,9 @@ import SSIExclamationMarkBadge from './components/assets/badges/SSIExclamationMa
 import SSIPlaceholderLogo from './components/assets/logos/SSIPlaceholderLogo'
 import SSILogo from './components/assets/logos/SSILogo'
 import SSIActivityIndicator from './components/indicators/SSIActivityIndicator'
-export * from './styles/components/fonts'
+import PrimaryButton from './components/buttons/PrimaryButton/index'
+import SecondaryButton from './components/buttons/SecondaryButton/index'
+export * from './styles/fonts'
 
 export {
   SSICredentialCardView,
@@ -17,4 +19,6 @@ export {
   SSIPlaceholderLogo,
   SSILogo,
   SSIActivityIndicator,
+  PrimaryButton,
+  SecondaryButton,
 }

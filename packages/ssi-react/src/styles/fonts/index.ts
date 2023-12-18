@@ -10,7 +10,7 @@ import {
   SSITextH4SemiBoldCss,
   SSITextH5Css,
   SSITextH6Css,
-} from '../../css'
+} from '../css'
 
 export const SSITextH1Styled = styled.div`
   ${SSITextH1Css}
@@ -21,7 +21,7 @@ export const SSITextH1SemiBoldStyled = styled.div`
 `
 
 export const SSITextH1SemiBoldLightStyled = styled(SSITextH1SemiBoldStyled)`
-  color: ${fontColors.light}
+  color: ${fontColors.light};
 `
 
 export const SSITextH2Styled = styled.div`
