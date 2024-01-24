@@ -66,6 +66,9 @@ const getCellFormatting = (type: TableCellType, value: any, opts?: TableCellOpti
     case TableCellType.STATUS: {
       return <SSIStatusLabel status={value as LabelStatus} />
     }
+    case TableCellType.REACT_ELEMENT: {
+      return value
+    }
     default:
       return <div />
   }

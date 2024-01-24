@@ -4,6 +4,7 @@ export enum TableCellType {
   TEXT = 'text',
   LABEL = 'label',
   STATUS = 'status',
+  REACT_ELEMENT = 'reactElement'
 }
 
 export type ColumnHeader<T> = {
