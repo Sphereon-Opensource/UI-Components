@@ -27,7 +27,7 @@ import {
   SSITableViewTableContainerStyled as TableContainer,
 } from '../../../styles'
 import {Button, ColumnHeader, TableCellOptions, TableCellType} from '../../../types'
-import {SSICredentialMiniCardView, SSIStatusLabel} from '../../../index'
+import {CredentialMiniCardView, SSIStatusLabel} from '../../../index'
 
 type Props<T> = {
   data: Array<T>
@@ -67,7 +67,7 @@ const getCellFormatting = (type: TableCellType, value: any, opts?: TableCellOpti
       return <SSIStatusLabel status={value as LabelStatus} />
     }
     case TableCellType.CREDENTIAL_CARD: {
-      return <SSICredentialMiniCardView {...value}/>
+      return <CredentialMiniCardView {...value}/>
     }
     default:
       return <div />

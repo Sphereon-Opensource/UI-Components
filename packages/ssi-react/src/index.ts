@@ -1,8 +1,8 @@
 import SSIToastContainer from './components/messageBoxes/toasts/SSIToastContainer'
 import SSIStatusLabel from './components/labels/SSIStatusLabel'
 import SSICredentialCardView from './components/views/SSICredentialCardView'
-import SSICredentialMiniCardView from './components/views/SSICredentialMiniCardView'
-import {SSICredentialMiniCardViewProps} from './components/views/SSICredentialMiniCardView'
+import CredentialMiniCardView from './components/views/CredentialMiniCardView'
+import {CredentialMiniCardViewProps} from './components/views/CredentialMiniCardView'
 import SSICheckmarkBadge from './components/assets/badges/SSICheckmarkBadge'
 import SSIExclamationMarkBadge from './components/assets/badges/SSIExclamationMarkBadge'
 import SSIPlaceholderLogo from './components/assets/logos/SSIPlaceholderLogo'
@@ -34,8 +34,8 @@ export * from './helpers'
 
 export {
   SSICredentialCardView,
-  SSICredentialMiniCardView,
-  SSICredentialMiniCardViewProps,
+  CredentialMiniCardView,
+  CredentialMiniCardViewProps,
   SSIStatusLabel,
   SSICheckmarkBadge,
   SSIExclamationMarkBadge,

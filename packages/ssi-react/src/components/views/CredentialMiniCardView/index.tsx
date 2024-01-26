@@ -6,7 +6,7 @@ import {
   SSICredentialMiniCardViewBackgroundImageStyled as BackgroundImage,
 } from '../../../styles'
 
-export type SSICredentialMiniCardViewProps = {
+export type CredentialMiniCardViewProps = {
   backgroundImage?: ImageAttributes
   backgroundColor?: string
   logo?: ImageAttributes
@@ -14,7 +14,7 @@ export type SSICredentialMiniCardViewProps = {
   style?: CSSProperties
 }
 
-const SSICredentialMiniCardView: FC<SSICredentialMiniCardViewProps> = (props: SSICredentialMiniCardViewProps): ReactElement => {
+const CredentialMiniCardView: FC<CredentialMiniCardViewProps> = (props: CredentialMiniCardViewProps): ReactElement => {
   const {backgroundColor = credentialCardColors.default, backgroundImage, logo, logoColor, style} = props
 
   return (
@@ -30,4 +30,4 @@ const SSICredentialMiniCardView: FC<SSICredentialMiniCardViewProps> = (props: SS
   )
 }
 
-export default SSICredentialMiniCardView
+export default CredentialMiniCardView
