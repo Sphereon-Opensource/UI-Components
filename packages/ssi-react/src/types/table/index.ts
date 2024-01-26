@@ -4,6 +4,7 @@ export enum TableCellType {
   TEXT = 'text',
   LABEL = 'label',
   STATUS = 'status',
+  CREDENTIAL_CARD = 'credentialCard',
 }
 
 export type ColumnHeader<T> = {
