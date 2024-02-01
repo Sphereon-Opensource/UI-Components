@@ -40,7 +40,7 @@ type Props<T> = {
   enableResultCount?: boolean
   columnResizeMode?: ColumnResizeMode
   actions?: Array<Button>
-  actionGroup?: ActionGroup
+  actionGroup?: ActionGroup<T>
 }
 
 // TODO implement correct checkboxes from design

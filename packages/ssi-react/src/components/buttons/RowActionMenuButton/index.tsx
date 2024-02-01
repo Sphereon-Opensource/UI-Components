@@ -9,16 +9,15 @@ import {
   ActionItemCaptionStyled as ItemCaption,
 } from '../../../styles'
 
-type Props = {
-  actions: ActionButton[]
+type Props<T> = {
+  actions: ActionButton<T>[]
   icon: ButtonIcon
   color?: string
   style?: CSSProperties
-  rowData?: Row<any>
+  rowData: Row<T>
 }
 
-const RowActionMenuButton: FC<Props> = ({actions, icon, color, style = {}, rowData}: Props): ReactElement => {
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false)
+const RowActionMenuButton = <T,>({ actions, icon, color, style = {}, rowData }: Props<T>): ReactElement => {  const [isDropdownVisible, setIsDropdownVisible] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -46,6 +45,7 @@ const RowActionMenuButton: FC<Props> = ({actions, icon, color, style = {}, rowDa
             <ItemCaption>{action.caption}</ItemCaption>
             {action.icon && <SSIIconButton onClick={() => action.onClick(rowData)} icon={action.icon} />}
           </ActionItemContainer>
+
         ))}
       </DropdownContainer>
     )
