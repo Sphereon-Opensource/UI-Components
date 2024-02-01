@@ -13,7 +13,7 @@ import {
   Table,
   useReactTable,
 } from '@tanstack/react-table'
-import {LabelStatus, LabelType, Localization} from '@sphereon/ui-components.core'
+import {ButtonIcon, LabelStatus, LabelType, Localization} from '@sphereon/ui-components.core'
 import SSITableViewHeader from './SSITableViewHeader'
 import SSITypeLabel from '../../labels/SSITypeLabel'
 import SSIHoverText from '../../fields/SSIHoverText'
@@ -26,8 +26,9 @@ import {
   SSITableViewRowContainerStyled as RowContainer,
   SSITableViewTableContainerStyled as TableContainer,
 } from '../../../styles'
-import {Button, ColumnHeader, TableCellOptions, TableCellType} from '../../../types'
+import {ActionGroup, Button, ColumnHeader, TableCellOptions, TableCellType} from '../../../types'
 import {CredentialMiniCardView, SSIStatusLabel} from '../../../index'
+import RowActionMenuButton from '../../buttons/RowActionMenuButton'
 
 type Props<T> = {
   data: Array<T>
@@ -39,6 +40,7 @@ type Props<T> = {
   enableResultCount?: boolean
   columnResizeMode?: ColumnResizeMode
   actions?: Array<Button>
+  actionGroup?: ActionGroup
 }
 
 // TODO implement correct checkboxes from design
@@ -67,7 +69,7 @@ const getCellFormatting = (type: TableCellType, value: any, opts?: TableCellOpti
       return <SSIStatusLabel status={value as LabelStatus} />
     }
     case TableCellType.CREDENTIAL_CARD: {
-      return <CredentialMiniCardView {...value}/>
+      return <CredentialMiniCardView {...value} />
     }
     default:
       return <div />
@@ -84,6 +86,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     enableResultCount = false,
     columnResizeMode = 'onChange',
     actions = [],
+    actionGroup,
     onRowClick,
   } = props
   const [rowSelection, setRowSelection] = React.useState({})
@@ -131,7 +134,22 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
       ...availableColumns,
     ]
   }
-
+  if (actionGroup) {
+    availableColumns = [
+      ...availableColumns,
+      {
+        id: 'actions',
+        // @ts-ignore
+        header: actionGroup.caption,
+        // @ts-ignore
+        cell: ({row}) => (
+          <div className="px-1">
+            <RowActionMenuButton actions={actionGroup.actions} icon={ButtonIcon.BITTERBALLEN} rowData={row} />
+          </div>
+        ),
+      },
+    ]
+  }
   const table: Table<T> = useReactTable({
     // https://tanstack.com/table/v8/docs/api/core/table#defaultcolumn
     // Setting it to 0 as the default is 150. We need to check if a value has been provided, which could be 150

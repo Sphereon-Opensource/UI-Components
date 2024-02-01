@@ -4,6 +4,8 @@ import SSIAddIcon from '../../assets/icons/SSIAddIcon'
 import SSIFilterIcon from '../../assets/icons/SSIFilterIcon'
 import SSIArrowDownIcon from '../../assets/icons/SSIArrowDownIcon'
 import {SSIIconButtonContainerStyled as Container} from '../../../styles'
+import BitterballenIcon from '../../assets/icons/BitterballenIcon'
+import DeleteIcon from '../../assets/icons/DeleteIcon'
 
 type Props = {
   icon: ButtonIcon
@@ -22,10 +24,14 @@ const getIcon = (icon: ButtonIcon, color: string): JSX.Element => {
   switch (icon) {
     case ButtonIcon.ADD:
       return <SSIAddIcon color={color} />
-    case ButtonIcon.FILTER:
-      return <SSIFilterIcon color={color} />
     case ButtonIcon.ARROW_DOWN:
       return <SSIArrowDownIcon color={color} />
+    case ButtonIcon.BITTERBALLEN:
+      return <BitterballenIcon color={color} />
+    case ButtonIcon.DELETE:
+      return <DeleteIcon color={color} />
+    case ButtonIcon.FILTER:
+      return <SSIFilterIcon color={color} />
     default:
       return <div />
   }

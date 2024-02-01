@@ -1,4 +1,5 @@
 import {AccessorFn, DeepKeys} from '@tanstack/react-table'
+import {ButtonIcon} from '@sphereon/ui-components.core'
 
 export enum TableCellType {
   TEXT = 'text',
@@ -25,4 +26,16 @@ export type TableCellOptions = {
   columnMaxWidth?: number
   columnWidth?: number
   // TODO extent this with more options to override
+}
+
+export type ActionGroup = {
+  caption: string
+  actions: ActionButton[]
+}
+
+export type ActionButton = {
+  caption: string
+  onClick: (rowData: any) => Promise<void>
+  icon?: ButtonIcon
+  disabled?: boolean
 }
