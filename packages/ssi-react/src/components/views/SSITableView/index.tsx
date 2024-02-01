@@ -139,9 +139,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
       ...availableColumns,
       {
         id: 'actions',
-        // @ts-ignore
         header: actionGroup.caption,
-        // @ts-ignore
         cell: ({row}) => (
           <div className="px-1">
             <RowActionMenuButton actions={actionGroup.actions} icon={ButtonIcon.BITTERBALLEN} rowData={row} />

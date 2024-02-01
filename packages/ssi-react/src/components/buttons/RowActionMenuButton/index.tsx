@@ -43,7 +43,7 @@ const RowActionMenuButton: FC<Props> = ({actions, icon, color, style = {}, rowDa
       <DropdownContainer ref={dropdownRef} style={{display: isDropdownVisible ? 'block' : 'none'}}>
         {actions.map((action, index) => (
           <ActionItemContainer key={index} onClick={() => action.onClick(rowData)}>
-            <ItemCaption style={{marginLeft: '10px'}}>{action.caption}</ItemCaption>
+            <ItemCaption>{action.caption}</ItemCaption>
             {action.icon && <SSIIconButton onClick={() => action.onClick(rowData)} icon={action.icon} />}
           </ActionItemContainer>
         ))}
