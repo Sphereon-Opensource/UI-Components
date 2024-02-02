@@ -17,7 +17,8 @@ type Props<T> = {
   rowData: Row<T>
 }
 
-const RowActionMenuButton = <T,>({ actions, icon, color, style = {}, rowData }: Props<T>): ReactElement => {  const [isDropdownVisible, setIsDropdownVisible] = useState(false)
+const RowActionMenuButton = <T,>({actions, icon, color, style = {}, rowData}: Props<T>): ReactElement => {
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -33,19 +34,25 @@ const RowActionMenuButton = <T,>({ actions, icon, color, style = {}, rowData }: 
     }
   }, [dropdownRef])
 
-  const toggleDropdown = async () => {
+  const toggleDropdown = (event?: React.MouseEvent) => {
+    event?.stopPropagation()
     setIsDropdownVisible(!isDropdownVisible)
+  }
+
+  const handleActionClick = (action: ActionButton<T>, rowData: Row<T>) => async (event: React.MouseEvent) => {
+    event.stopPropagation()
+    await action.onClick(rowData)
+    setIsDropdownVisible(false)
   }
 
   const renderDropdown = (): ReactElement => {
     return (
       <DropdownContainer ref={dropdownRef} style={{display: isDropdownVisible ? 'block' : 'none'}}>
         {actions.map((action, index) => (
-          <ActionItemContainer key={index} onClick={() => action.onClick(rowData)}>
+          <ActionItemContainer key={index} onClick={handleActionClick(action, rowData)}>
             <ItemCaption>{action.caption}</ItemCaption>
-            {action.icon && <SSIIconButton onClick={() => action.onClick(rowData)} icon={action.icon} />}
+            {action.icon && <SSIIconButton onClick={handleActionClick(action, rowData)} icon={action.icon} />}
           </ActionItemContainer>
-
         ))}
       </DropdownContainer>
     )

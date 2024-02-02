@@ -28,4 +28,6 @@ export const RowActionDropdownContainerStyled = styled.div`
   background-color: #fff;
   width: auto;
   padding: 10px;
+  background: #fbfbfb;
+  border-radius: 0px 0px 6px 6px;
 `

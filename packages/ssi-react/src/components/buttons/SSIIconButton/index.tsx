@@ -1,4 +1,4 @@
-import React, {FC, ReactElement} from 'react'
+import React, {FC, MouseEventHandler, ReactElement} from 'react'
 import {ButtonIcon, fontColors} from '@sphereon/ui-components.core'
 import SSIAddIcon from '../../assets/icons/SSIAddIcon'
 import SSIFilterIcon from '../../assets/icons/SSIFilterIcon'
@@ -9,7 +9,7 @@ import DeleteIcon from '../../assets/icons/DeleteIcon'
 
 type Props = {
   icon: ButtonIcon
-  onClick: () => Promise<void>
+  onClick: MouseEventHandler
   disabled?: boolean // TODO implement styling
   color?: string
 }
