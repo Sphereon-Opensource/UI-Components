@@ -1,7 +1,7 @@
 export enum ButtonIcon {
   ADD = 'add',
   ARROW_DOWN = 'arrowDown',
-  BITTERBALLEN = 'bitterballen',
+  MEATBALLS = 'meatballs',
   DELETE = 'delete',
   FILTER = 'filter',
 }

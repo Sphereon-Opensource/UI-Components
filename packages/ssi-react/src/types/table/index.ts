@@ -6,6 +6,7 @@ export enum TableCellType {
   LABEL = 'label',
   STATUS = 'status',
   CREDENTIAL_CARD = 'credentialCard',
+  ACTION_GROUP = 'actionGroup',
 }
 
 export type ColumnHeader<T> = {
@@ -25,17 +26,20 @@ export type TableCellOptions = {
   columnMinWidth?: number
   columnMaxWidth?: number
   columnWidth?: number
+  actionGroup?: TableColumnActionGroup
   // TODO extent this with more options to override
 }
 
-export type ActionGroup<T> = {
+export type TableColumnActionGroup = {
   caption: string
-  actions: ActionButton<T>[]
+  icon?: ButtonIcon
+  actions: Array<TableColumnActionButton>
 }
 
-export type ActionButton<T> = {
+export type TableColumnActionButton = {
   caption: string
-  onClick: (rowData: Row<T>) => Promise<void>
+  onClick: (rowData: Row<any>) => Promise<void>
   icon?: ButtonIcon
+  fontColor?: string
   disabled?: boolean
 }

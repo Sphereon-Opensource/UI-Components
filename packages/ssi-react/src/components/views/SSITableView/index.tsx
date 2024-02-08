@@ -13,7 +13,7 @@ import {
   Table,
   useReactTable,
 } from '@tanstack/react-table'
-import {ButtonIcon, LabelStatus, LabelType, Localization} from '@sphereon/ui-components.core'
+import {LabelStatus, LabelType, Localization} from '@sphereon/ui-components.core'
 import SSITableViewHeader from './SSITableViewHeader'
 import SSITypeLabel from '../../labels/SSITypeLabel'
 import SSIHoverText from '../../fields/SSIHoverText'
@@ -26,7 +26,7 @@ import {
   SSITableViewRowContainerStyled as RowContainer,
   SSITableViewTableContainerStyled as TableContainer,
 } from '../../../styles'
-import {ActionGroup, Button, ColumnHeader, TableCellOptions, TableCellType} from '../../../types'
+import {Button, ColumnHeader, TableCellOptions, TableCellType} from '../../../types'
 import {CredentialMiniCardView, SSIStatusLabel} from '../../../index'
 import RowActionMenuButton from '../../buttons/RowActionMenuButton'
 
@@ -40,7 +40,6 @@ type Props<T> = {
   enableResultCount?: boolean
   columnResizeMode?: ColumnResizeMode
   actions?: Array<Button>
-  actionGroup?: ActionGroup<T>
 }
 
 // TODO implement correct checkboxes from design
@@ -56,7 +55,7 @@ function IndeterminateCheckbox({indeterminate, className = '', ...rest}: {indete
   return <input type="checkbox" ref={ref} className={className + ' cursor-pointer'} {...rest} />
 }
 
-const getCellFormatting = (type: TableCellType, value: any, opts?: TableCellOptions): ReactElement => {
+const getCellFormatting = (type: TableCellType, value: any, row: Row<any>, opts?: TableCellOptions): ReactElement => {
   switch (type) {
     case TableCellType.TEXT:
       const {truncationLength, enableHover = false} = opts ?? {}
@@ -70,6 +69,13 @@ const getCellFormatting = (type: TableCellType, value: any, opts?: TableCellOpti
     }
     case TableCellType.CREDENTIAL_CARD: {
       return <CredentialMiniCardView {...value} />
+    }
+    case TableCellType.ACTION_GROUP: {
+      const {actionGroup} = opts ?? {}
+      if (actionGroup) {
+        return <RowActionMenuButton icon={actionGroup.icon} actions={actionGroup.actions} rowData={row} />
+      }
+      return <div />
     }
     default:
       return <div />
@@ -86,7 +92,6 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     enableResultCount = false,
     columnResizeMode = 'onChange',
     actions = [],
-    actionGroup,
     onRowClick,
   } = props
   const [rowSelection, setRowSelection] = React.useState({})
@@ -97,7 +102,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     columnHelper.accessor(header.accessor, {
       id: header.accessor as string,
       header: header.label,
-      cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue(), header.opts),
+      cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue(), info.row, header.opts),
       minSize: header.opts?.columnMinWidth,
       maxSize: header.opts?.columnMaxWidth,
       size: header.opts?.columnWidth,
@@ -132,20 +137,6 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
         ),
       },
       ...availableColumns,
-    ]
-  }
-  if (actionGroup) {
-    availableColumns = [
-      ...availableColumns,
-      {
-        id: 'actions',
-        header: actionGroup.caption,
-        cell: ({row}) => (
-          <div className="px-1">
-            <RowActionMenuButton actions={actionGroup.actions} icon={ButtonIcon.BITTERBALLEN} rowData={row} />
-          </div>
-        ),
-      },
     ]
   }
   const table: Table<T> = useReactTable({
