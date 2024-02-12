@@ -28,6 +28,9 @@
     "access": "public"
   },
   "dependencies": {
+    "@mui/icons-material": "^5.15.9",
+    "@mui/material": "^5.15.9",
+    "@mui/styled-engine-sc": "6.0.0-alpha.16",
     "@sphereon/ui-components.core": "workspace:*",
     "@tanstack/react-table": "^8.9.3",
     "react-loader-spinner": "^5.4.5",

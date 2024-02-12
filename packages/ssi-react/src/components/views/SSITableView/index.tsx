@@ -28,6 +28,7 @@ import {
 } from '../../../styles'
 import {Button, ColumnHeader, TableCellOptions, TableCellType} from '../../../types'
 import {CredentialMiniCardView, SSIStatusLabel} from '../../../index'
+import PaginationControls, {PaginationControlsProps} from './PaginationControls'
 
 type Props<T> = {
   data: Array<T>
@@ -39,6 +40,7 @@ type Props<T> = {
   enableResultCount?: boolean
   columnResizeMode?: ColumnResizeMode
   actions?: Array<Button>
+  paginationControlsProps?: PaginationControlsProps
 }
 
 // TODO implement correct checkboxes from design
@@ -85,6 +87,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     columnResizeMode = 'onChange',
     actions = [],
     onRowClick,
+    paginationControlsProps
   } = props
   const [rowSelection, setRowSelection] = React.useState({})
   const columnHelper = createColumnHelper<T>()
@@ -229,6 +232,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
           </tbody>
         </TableContainer>
       </div>
+      {paginationControlsProps && <PaginationControls {...paginationControlsProps} />}
     </Container>
   )
 }
