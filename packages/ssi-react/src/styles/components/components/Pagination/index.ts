@@ -1,14 +1,14 @@
-import styled from 'styled-components'
+import { styled } from '@mui/material/styles'
 import { Pagination, paginationItemClasses } from '@mui/material';
 
-export const PaginationContainerStyled = styled.div`
+export const PaginationContainerStyled = styled('div')`
     display: flex;
     justify-content: center; 
     align-items: center;
     gap: 32px;
 `
 
-export const GoToInputStyled = styled.input`
+export const GoToInputStyled = styled('input')`
     height: 28px;
     width: 44px; 
     background-color: #FBFBFB; 
@@ -24,7 +24,7 @@ export const GoToInputStyled = styled.input`
     }
 `
 
-export const GoToInputContainer = styled.div`
+export const GoToInputContainer = styled('div')`
     display: inline-flex; 
     gap: 10px; 
     align-items: center;
@@ -49,12 +49,8 @@ export const PaginationStyled = styled(Pagination)`
     }
 
     & .${paginationItemClasses.selected} {
-        background-color: #FBFBFB;
         border: 1px #7276F7 solid;
         color: #7276F7;
-        &:hover {
-            background-color: #FBFBFB;
-        }
     },
 
     & .${paginationItemClasses.previousNext} {
