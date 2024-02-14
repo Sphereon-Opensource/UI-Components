@@ -19,6 +19,9 @@ export const GoToInputStyled = styled.input`
     border-radius: 6px;
     border: 1px #C4C5CA solid;
     text-align: center;
+    &:focus {
+        border: 1px #7276F7 solid;
+    }
 `
 
 export const GoToInputContainer = styled.div`

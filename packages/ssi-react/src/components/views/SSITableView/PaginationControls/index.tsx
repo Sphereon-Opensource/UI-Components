@@ -1,4 +1,4 @@
-import {CSSProperties, FC} from 'react'
+import {CSSProperties, FC, ReactElement} from 'react'
 import {PaginationProps, Stack} from '@mui/material'
 import {GoToInputContainer, GoToInputStyled, PaginationContainerStyled, PaginationStyled} from '../../../../styles'
 
@@ -7,7 +7,7 @@ export type PaginationControlsProps = PaginationProps & {
   containerStyle?: CSSProperties
 }
 
-const PaginationControls: FC<PaginationControlsProps> = (props: PaginationControlsProps) => {
+const PaginationControls: FC<PaginationControlsProps> = (props: PaginationControlsProps): ReactElement => {
   const { onKeyDown, containerStyle, goToInputId = 'goTo' } = props
     return (
         <PaginationContainerStyled style={containerStyle}>
