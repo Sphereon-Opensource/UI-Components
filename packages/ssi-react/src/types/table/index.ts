@@ -31,7 +31,7 @@ export type TableCellOptions = {
 }
 
 export type TableColumnActionGroup = {
-  caption: string
+  label?: string
   icon?: ButtonIcon
   actions: Array<TableColumnActionButton>
 }

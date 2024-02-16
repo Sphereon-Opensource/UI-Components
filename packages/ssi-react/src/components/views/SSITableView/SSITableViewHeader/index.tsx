@@ -32,7 +32,6 @@ const SSITableViewHeader: React.FC<Props> = (props: Props): ReactElement => {
               <FilterCaption>{Localization.translate('action_filter_caption')}</FilterCaption>
             </FilterContainer>
           )}
-          //todo: revisit this part when we have the most recent functionality
           {/*{enableMostRecent && (
             <ShowOptionContainer>
               <DropDownList label={Localization.translate('action_show_caption')} initialValue={'Most recent'} />

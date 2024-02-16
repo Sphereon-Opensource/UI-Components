@@ -13,7 +13,7 @@ import {
   Table,
   useReactTable,
 } from '@tanstack/react-table'
-import {LabelStatus, LabelType, Localization} from '@sphereon/ui-components.core'
+import {ButtonIcon, LabelStatus, LabelType, Localization} from '@sphereon/ui-components.core'
 import SSITableViewHeader from './SSITableViewHeader'
 import SSITypeLabel from '../../labels/SSITypeLabel'
 import SSIHoverText from '../../fields/SSIHoverText'
@@ -27,8 +27,7 @@ import {
   SSITableViewTableContainerStyled as TableContainer,
 } from '../../../styles'
 import {Button, ColumnHeader, TableCellOptions, TableCellType} from '../../../types'
-import {CredentialMiniCardView, SSIStatusLabel} from '../../../index'
-import RowActionMenuButton from '../../buttons/RowActionMenuButton'
+import {CredentialMiniCardView, DropDownList, SSIStatusLabel} from '../../../index'
 
 type Props<T> = {
   data: Array<T>
@@ -73,7 +72,7 @@ const getCellFormatting = (type: TableCellType, value: any, row: Row<any>, opts?
     case TableCellType.ACTION_GROUP: {
       const {actionGroup} = opts ?? {}
       if (actionGroup) {
-        return <RowActionMenuButton icon={actionGroup.icon} actions={actionGroup.actions} rowData={row} />
+        return <DropDownList icon={actionGroup.icon ?? ButtonIcon.MEATBALLS} buttons={actionGroup.actions} opts={{rowData: row}} />
       }
       return <div />
     }

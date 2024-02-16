@@ -9,14 +9,14 @@ type Props = {
 }
 
 const MeatBallsIcon: FC<Props> = (props: Props): ReactElement => {
-  const {width = 20, height = 4, color = fontColors.dark, style} = props
+  const {width = 20, height = 20, color = fontColors.dark, style} = props
 
   return (
     <div style={{...style, width, height, display: 'flex'}}>
-      <svg width="20" height="4" viewBox="0 0 20 4" fill={color} xmlns="http://www.w3.org/2000/svg">
-        <circle cx="13" cy="21.5" r="2" fill={color} />
-        <circle cx="21" cy="21.5" r="2" fill={color} />
-        <circle cx="29" cy="21.5" r="2" fill={color} />
+      <svg width="20" height="20" viewBox="0 0 32 32" fill={color} xmlns="http://www.w3.org/2000/svg">
+        <circle cx="8" cy="16" r="2" fill={color} />
+        <circle cx="16" cy="16" r="2" fill={color} />
+        <circle cx="24" cy="16" r="2" fill={color} />
       </svg>
     </div>
   )
