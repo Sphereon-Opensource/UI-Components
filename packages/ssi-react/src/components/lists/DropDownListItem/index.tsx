@@ -36,7 +36,7 @@ const DropDownListItem: FC<Props> = (props: Props): JSX.Element => {
 
   const onContainerClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (onClick) {
-      onClick(opts)
+      onClick(opts?.rowData)
     }
   }
 
