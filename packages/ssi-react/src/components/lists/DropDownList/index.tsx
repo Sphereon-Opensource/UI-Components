@@ -1,6 +1,6 @@
 import React, {FC, useState, useRef, useEffect} from 'react'
 import {
-  SSIDropDownListContainerStyled as Container,
+  DropDownListContainerStyled as Container,
   DropDownContainerStyled as DropDownContainer,
   DropDownListButtonStyled as ListButton,
 } from '../../../styles/components'

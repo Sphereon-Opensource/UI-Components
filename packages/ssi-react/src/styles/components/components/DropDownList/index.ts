@@ -4,7 +4,7 @@ import {SSITextH3Styled} from '../../../fonts'
 import {gradient100TextCss} from '../../../css'
 import {backgroundColors} from '@sphereon/ui-components.core'
 
-export const SSIDropDownListContainerStyled = styled(SSIFlexDirectionRowViewStyled)`
+export const DropDownListContainerStyled = styled(SSIFlexDirectionRowViewStyled)`
   position: relative;
   display: inline-block;
   text-align: left;
