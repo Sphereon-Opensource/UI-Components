@@ -31,14 +31,14 @@ const DropDownList: FC<Props> = (props: Props): JSX.Element => {
   }
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const onClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setShowActionsMenu(false)
       }
     }
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('mousedown', onClickOutside)
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('mousedown', onClickOutside)
     }
   }, [showActionsMenu])
 
