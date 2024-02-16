@@ -1,6 +1,5 @@
 export * from './buttons'
 export * from './DropDownListItem'
-export * from './RowActionMenuButton'
 export * from './SSICredentialCardView'
 export * from './SSICredentialMiniCardView'
 export * from './SSIStatusLabel'
