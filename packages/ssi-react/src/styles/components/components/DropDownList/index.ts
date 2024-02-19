@@ -23,9 +23,8 @@ export const DropDownListButtonStyled = styled.div`
 export const DropDownContainerStyled = styled.div`
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
   width: 250px;
   background-color: ${backgroundColors.primaryLight};
-  border-radius: 8px;
   z-index: 1000;
 `

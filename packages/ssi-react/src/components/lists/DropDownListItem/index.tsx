@@ -5,7 +5,7 @@ import {
   DropDownListItemCaptionContainerStyled as ListItemCaption,
 } from '../../../styles/components'
 import DeleteIcon from '../../assets/icons/DeleteIcon'
-import {ButtonIcon, fontColors} from '@sphereon/ui-components.core'
+import {borderColors, ButtonIcon, fontColors} from '@sphereon/ui-components.core'
 import {Row} from '@tanstack/react-table'
 
 type Props = {
@@ -24,7 +24,7 @@ export type DropDownListItemOpts = {
 }
 
 const DropDownListItem: FC<Props> = (props: Props): JSX.Element => {
-  const {disabled, label, icon, showBorder = false, fontColor = fontColors.dark, borderColor = fontColors.dark, opts, onClick} = props
+  const {disabled, label, icon, showBorder = false, fontColor = fontColors.dark, borderColor = borderColors.light, opts, onClick} = props
   const getIcon = (icon: ButtonIcon): JSX.Element => {
     switch (icon) {
       case ButtonIcon.DELETE:

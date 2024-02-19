@@ -7,12 +7,13 @@ import {
 import {GeneralButton} from '../../../types'
 import DropDownListItem from '../DropDownListItem'
 import {SSIIconButton} from '../../../index'
-import {ButtonIcon} from '@sphereon/ui-components.core'
+import {borderColors, ButtonIcon} from '@sphereon/ui-components.core'
 import {Row} from '@tanstack/react-table'
 
 export type Props = {
   icon: ButtonIcon
   buttons: Array<GeneralButton>
+  showBorder?: boolean
   opts?: DropDownListOpts
 }
 
@@ -21,7 +22,7 @@ export type DropDownListOpts = {
 }
 
 const DropDownList: FC<Props> = (props: Props): JSX.Element => {
-  const {icon, buttons, opts} = props
+  const {icon, buttons, showBorder = false, opts} = props
   const [showActionsMenu, setShowActionsMenu] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -64,7 +65,7 @@ const DropDownList: FC<Props> = (props: Props): JSX.Element => {
       <ListButton>
         <SSIIconButton icon={icon} color={'black'} onClick={onMore} />
       </ListButton>
-      {showActionsMenu && <DropDownContainer>{getItems()}</DropDownContainer>}
+      {showActionsMenu && <DropDownContainer style={{...(showBorder && {borderWidth: 2, borderColor: borderColors.silverGrey, borderStyle: 'solid' })}}>{getItems()}</DropDownContainer>}
     </Container>
   )
 }
