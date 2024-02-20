@@ -63,7 +63,7 @@ const DropDownList: FC<Props> = (props: Props): JSX.Element => {
   return (
     <Container ref={dropdownRef}>
       <ListButton>
-        <SSIIconButton icon={icon} color={'black'} onClick={onMore} />
+        <SSIIconButton icon={icon} onClick={onMore} />
       </ListButton>
       {showActionsMenu && <DropDownContainer style={{...(showBorder && {borderWidth: 2, borderColor: borderColors.silverGrey, borderStyle: 'solid' })}}>{getItems()}</DropDownContainer>}
     </Container>
