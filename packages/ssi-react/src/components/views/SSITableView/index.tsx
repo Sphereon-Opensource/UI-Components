@@ -13,7 +13,7 @@ import {
   Table,
   useReactTable,
 } from '@tanstack/react-table'
-import {LabelStatus, LabelType, Localization} from '@sphereon/ui-components.core'
+import {ButtonIcon, LabelStatus, LabelType, Localization} from '@sphereon/ui-components.core'
 import SSITableViewHeader from './SSITableViewHeader'
 import SSITypeLabel from '../../labels/SSITypeLabel'
 import SSIHoverText from '../../fields/SSIHoverText'
@@ -27,7 +27,7 @@ import {
   SSITableViewTableContainerStyled as TableContainer,
 } from '../../../styles'
 import {Button, ColumnHeader, TableCellOptions, TableCellType} from '../../../types'
-import {CredentialMiniCardView, SSIStatusLabel} from '../../../index'
+import {CredentialMiniCardView, DropDownList, SSIStatusLabel} from '../../../index'
 
 type Props<T> = {
   data: Array<T>
@@ -54,7 +54,7 @@ function IndeterminateCheckbox({indeterminate, className = '', ...rest}: {indete
   return <input type="checkbox" ref={ref} className={className + ' cursor-pointer'} {...rest} />
 }
 
-const getCellFormatting = (type: TableCellType, value: any, opts?: TableCellOptions): ReactElement => {
+const getCellFormatting = (type: TableCellType, value: any, row: Row<any>, opts?: TableCellOptions): ReactElement => {
   switch (type) {
     case TableCellType.TEXT:
       const {truncationLength, enableHover = false} = opts ?? {}
@@ -67,7 +67,18 @@ const getCellFormatting = (type: TableCellType, value: any, opts?: TableCellOpti
       return <SSIStatusLabel status={value as LabelStatus} />
     }
     case TableCellType.CREDENTIAL_CARD: {
-      return <CredentialMiniCardView {...value}/>
+      return <CredentialMiniCardView {...value} />
+    }
+    case TableCellType.ACTION_GROUP: {
+      const {actionGroup} = opts ?? {}
+      if (actionGroup) {
+        const actions = actionGroup.actions.map(action => ({
+          ...action,
+          onClick: () => action.onClick(row),
+        }));
+        return <DropDownList icon={ButtonIcon.MEATBALLS} buttons={actions} showBorder={true} />
+      }
+      return <div />
     }
     default:
       return <div />
@@ -94,7 +105,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     columnHelper.accessor(header.accessor, {
       id: header.accessor as string,
       header: header.label,
-      cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue(), header.opts),
+      cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue(), info.row, header.opts),
       minSize: header.opts?.columnMinWidth,
       maxSize: header.opts?.columnMaxWidth,
       size: header.opts?.columnWidth,
@@ -131,7 +142,6 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
       ...availableColumns,
     ]
   }
-
   const table: Table<T> = useReactTable({
     // https://tanstack.com/table/v8/docs/api/core/table#defaultcolumn
     // Setting it to 0 as the default is 150. We need to check if a value has been provided, which could be 150

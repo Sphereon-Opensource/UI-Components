@@ -1,7 +1,7 @@
 import {ButtonIcon, Localization} from '@sphereon/ui-components.core'
 import React, {ReactElement} from 'react'
 import SSIIconButton from '../../../buttons/SSIIconButton'
-import SSIDropDownList from '../../../lists/SSIDropDownList'
+import DropDownList from '../../../lists/DropDownList'
 import SSIPrimaryButton from '../../../buttons/SSIPrimaryButton'
 import {
   SSITableViewHeaderActionsContainerStyled as ActionsContainer,
@@ -32,11 +32,11 @@ const SSITableViewHeader: React.FC<Props> = (props: Props): ReactElement => {
               <FilterCaption>{Localization.translate('action_filter_caption')}</FilterCaption>
             </FilterContainer>
           )}
-          {enableMostRecent && (
+          {/*{enableMostRecent && (
             <ShowOptionContainer>
-              <SSIDropDownList label={Localization.translate('action_show_caption')} initialValue={'Most recent'} />
+              <DropDownList label={Localization.translate('action_show_caption')} initialValue={'Most recent'} />
             </ShowOptionContainer>
-          )}
+          )}*/}
           {actions.map((action: Button, index: number) => (
             <SSIPrimaryButton key={index} caption={action.caption} onClick={action.onClick} icon={action.icon} />
           ))}

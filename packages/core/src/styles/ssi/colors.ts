@@ -8,7 +8,7 @@ export const backgroundColors: Record<BackgroundColor, string> = {
   primaryLight: '#FBFBFB',
   secondaryLight: '#E3E3FF',
   lightGrey: '#E3E3E3',
-  orange: '#D74500'
+  orange: '#D74500',
 }
 
 // TODO WAL-303 add support for randomized colors to avoid getting the same color multiple times
@@ -67,7 +67,7 @@ type Border = 'dark' | 'light' | 'lightGrey'
 export const borderColors: Record<Border, string> = {
   dark: '#404D7A',
   light: '#E3E3E3',
-  lightGrey: '#ACACAC',
+  lightGrey: '#ACACAC'
 }
 
 type Profile = 100 | 200 | 300 | 400 | 500
@@ -102,11 +102,11 @@ export const elementColors: Record<Element, string> = {
   lightGrey: '#C4C4C4',
   purple: '#7276F7',
   100: '#F25409',
-  200: '#f78854'
+  200: '#f78854',
 }
 
 type Button = 100
 
 export const buttonColors: Record<Button, string> = {
-  100: '#8B1900'
+  100: '#8B1900',
 }
