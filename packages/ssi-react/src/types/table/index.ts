@@ -1,5 +1,5 @@
-import {AccessorFn, DeepKeys, Row} from '@tanstack/react-table'
-import {ButtonIcon} from '@sphereon/ui-components.core'
+import {AccessorFn, DeepKeys} from '@tanstack/react-table'
+import {Button} from '../button'
 
 export enum TableCellType {
   TEXT = 'text',
@@ -32,13 +32,5 @@ export type TableCellOptions = {
 
 export type TableColumnActionGroup = {
   label?: string
-  actions: Array<TableColumnActionButton>
-}
-
-export type TableColumnActionButton = {
-  caption: string
-  onClick: (rowData: Row<any>) => Promise<void>
-  icon?: ButtonIcon
-  fontColor?: string
-  disabled?: boolean
+  actions: Array<Button>
 }

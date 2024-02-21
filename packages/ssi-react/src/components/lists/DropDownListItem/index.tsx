@@ -6,7 +6,6 @@ import {
 } from '../../../styles/components'
 import DeleteIcon from '../../assets/icons/DeleteIcon'
 import {borderColors, ButtonIcon, fontColors} from '@sphereon/ui-components.core'
-import {Row} from '@tanstack/react-table'
 
 type Props = {
   label: string
@@ -16,15 +15,10 @@ type Props = {
   fontColor?: string
   showBorder?: boolean
   borderColor?: string
-  opts?: DropDownListItemOpts
-}
-
-export type DropDownListItemOpts = {
-  rowData?: Row<any>
 }
 
 const DropDownListItem: FC<Props> = (props: Props): JSX.Element => {
-  const {disabled, label, icon, showBorder = false, fontColor = fontColors.dark, borderColor = borderColors.light, opts, onClick} = props
+  const {disabled, label, icon, showBorder = false, fontColor = fontColors.dark, borderColor = borderColors.light, onClick} = props
   const getIcon = (icon: ButtonIcon): JSX.Element => {
     switch (icon) {
       case ButtonIcon.DELETE:
@@ -34,10 +28,10 @@ const DropDownListItem: FC<Props> = (props: Props): JSX.Element => {
     }
   }
 
-  const onContainerClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const onContainerClick = async (event: React.MouseEvent<HTMLDivElement, MouseEvent>): Promise<void> => {
     event.stopPropagation()
     if (onClick) {
-      onClick(opts?.rowData)
+      await onClick()
     }
   }
 

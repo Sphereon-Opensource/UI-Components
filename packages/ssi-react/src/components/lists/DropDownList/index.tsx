@@ -4,25 +4,19 @@ import {
   DropDownContainerStyled as DropDownContainer,
   DropDownListButtonStyled as ListButton,
 } from '../../../styles/components'
-import {GeneralButton} from '../../../types'
+import {Button} from '../../../types'
 import DropDownListItem from '../DropDownListItem'
 import {SSIIconButton} from '../../../index'
 import {borderColors, ButtonIcon} from '@sphereon/ui-components.core'
-import {Row} from '@tanstack/react-table'
 
 export type Props = {
   icon: ButtonIcon
-  buttons: Array<GeneralButton>
+  buttons: Array<Button>
   showBorder?: boolean
-  opts?: DropDownListOpts
-}
-
-export type DropDownListOpts = {
-  rowData?: Row<any>
 }
 
 const DropDownList: FC<Props> = (props: Props): JSX.Element => {
-  const {icon, buttons, showBorder = false, opts} = props
+  const {icon, buttons, showBorder = false} = props
   const [showActionsMenu, setShowActionsMenu] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -44,7 +38,7 @@ const DropDownList: FC<Props> = (props: Props): JSX.Element => {
   }, [showActionsMenu])
 
   const getItems = () => {
-    return buttons.map((item: GeneralButton, index: number) => {
+    return buttons.map((item: Button, index: number) => {
       const showBorder = buttons.length > 1 && index !== buttons.length - 1
       return (
         <DropDownListItem
@@ -54,7 +48,6 @@ const DropDownList: FC<Props> = (props: Props): JSX.Element => {
           onClick={item.onClick}
           icon={item.icon}
           fontColor={item.fontColor}
-          opts={opts}
         />
       )
     })
@@ -65,7 +58,7 @@ const DropDownList: FC<Props> = (props: Props): JSX.Element => {
       <ListButton>
         <SSIIconButton icon={icon} onClick={onMore} />
       </ListButton>
-      {showActionsMenu && <DropDownContainer style={{...(showBorder && {borderWidth: 2, borderColor: borderColors.silverGrey, borderStyle: 'solid' })}}>{getItems()}</DropDownContainer>}
+      {showActionsMenu && <DropDownContainer style={{...(showBorder && {borderWidth: 2, borderColor: borderColors.lightGrey, borderStyle: 'solid' })}}>{getItems()}</DropDownContainer>}
     </Container>
   )
 }

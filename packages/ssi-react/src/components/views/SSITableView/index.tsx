@@ -72,7 +72,11 @@ const getCellFormatting = (type: TableCellType, value: any, row: Row<any>, opts?
     case TableCellType.ACTION_GROUP: {
       const {actionGroup} = opts ?? {}
       if (actionGroup) {
-        return <DropDownList icon={ButtonIcon.MEATBALLS} buttons={actionGroup.actions} opts={{rowData: row}} showBorder={true}/>
+        const actions = actionGroup.actions.map(action => ({
+          ...action,
+          onClick: () => action.onClick(row),
+        }));
+        return <DropDownList icon={ButtonIcon.MEATBALLS} buttons={actions} showBorder={true} />
       }
       return <div />
     }
