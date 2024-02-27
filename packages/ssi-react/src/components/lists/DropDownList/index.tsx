@@ -1,13 +1,13 @@
 import React, {FC, useState, useRef, useEffect} from 'react'
+import {borderColors, ButtonIcon} from '@sphereon/ui-components.core'
+import DropDownListItem from '../DropDownListItem'
+import SSIIconButton from '../../buttons/SSIIconButton'
 import {
   DropDownListContainerStyled as Container,
   DropDownContainerStyled as DropDownContainer,
   DropDownListButtonStyled as ListButton,
 } from '../../../styles/components'
 import {Button} from '../../../types'
-import DropDownListItem from '../DropDownListItem'
-import {SSIIconButton} from '../../../index'
-import {borderColors, ButtonIcon} from '@sphereon/ui-components.core'
 
 export type Props = {
   icon: ButtonIcon
