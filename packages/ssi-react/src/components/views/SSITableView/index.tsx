@@ -163,6 +163,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
   }
 
   const onRowSelectionChange: OnChangeFn<RowSelectionState> = (updatedRowSelection: Updater<RowSelectionState>): void => {
+    // FIXME added ignore to stop it from complaining that updatedRowSelection is not callable. should be fixed at some point
     // @ts-ignore
     const currentRowSelection = updatedRowSelection(toRowSelectionObject(rowSelection))
 
