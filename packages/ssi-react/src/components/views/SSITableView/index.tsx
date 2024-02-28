@@ -167,14 +167,12 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     // @ts-ignore
     const currentRowSelection = updatedRowSelection(toRowSelectionObject(rowSelection))
 
-    const selection: Array<TableRowSelection> = []
-    for (const key in currentRowSelection) {
-      const row: TableRowSelection = {
+    const selection: Array<TableRowSelection> = Object.keys(currentRowSelection).map((key: string): TableRowSelection => {
+      return {
         rowId: key,
         rowData: data[Number(key)]
       }
-      selection.push(row)
-    }
+    })
 
     setRowSelection(selection)
   };
