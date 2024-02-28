@@ -13,7 +13,8 @@ import {
   Table,
   useReactTable,
   OnChangeFn,
-  RowSelectionState
+  RowSelectionState,
+  Updater
 } from '@tanstack/react-table'
 import {ButtonIcon, LabelStatus, LabelType, Localization, selectionElementColors} from '@sphereon/ui-components.core'
 import SSITableViewHeader from './SSITableViewHeader'
@@ -161,7 +162,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     setFocusedRowId(rowId)
   }
 
-  const onRowSelectionChange: OnChangeFn<RowSelectionState> = (updatedRowSelection): void => {
+  const onRowSelectionChange: OnChangeFn<RowSelectionState> = (updatedRowSelection: Updater<RowSelectionState>): void => {
     // @ts-ignore
     const currentRowSelection = updatedRowSelection(toRowSelectionObject(rowSelection))
 
