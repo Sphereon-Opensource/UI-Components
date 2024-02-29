@@ -34,3 +34,8 @@ export type TableColumnActionGroup = {
   label?: string
   actions: Array<Button>
 }
+
+export type TableRowSelection = {
+  rowId: string
+  rowData: any
+}

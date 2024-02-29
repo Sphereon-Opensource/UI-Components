@@ -15,5 +15,6 @@
   "status_missing": "Onbekent",
   "action_filter_caption": "Filter",
   "action_show_caption": "Toon:",
-  "result_count_label": "Toon {{count}} van {{maxCount}} resultaten"
+  "result_count_label": "Toon {{count}} van {{maxCount}} resultaten",
+  "action_delete_label": "Verwijder"
 }
