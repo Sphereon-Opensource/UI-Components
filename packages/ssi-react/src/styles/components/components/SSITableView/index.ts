@@ -23,12 +23,16 @@ export const SSITableViewTableContainerStyled = styled.table`
 
 export const SSITableViewRowContainerStyled = styled.tr`
   border-bottom: 1px solid ${borderColors.lightGrey};
+  background-color: ${backgroundColors.primaryLight};
+
+  &:hover {
+    background-color: #ECECEC;
+  }
 `
 
 export const SSITableViewCellContainerStyled = styled.td`
   ${SSITextH3Css};
   color: ${fontColors.dark};
-  background-color: ${backgroundColors.primaryLight};
   padding: 20px 16px 20px 16px;
   text-align: left;
   //setting border-box makes padding be included in the width, otherwise content-box is used and then padding is excluded from the width
@@ -49,6 +53,11 @@ export const SSITableViewHeaderCellContainerStyled = styled.th`
 export const SSITableViewResultCountCaptionStyled = styled.div`
   ${SSITextH3Css};
   margin-left: 24px;
+`
+
+export const TableViewRowSelectionCheckboxContainerStyled = styled.div`
+  width: 20px; 
+  height: 20px;
 `
 
 // TODO implement the resizer for column resizing

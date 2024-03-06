@@ -13,7 +13,7 @@ import SSIArrowDownIcon from './components/assets/icons/SSIArrowDownIcon'
 import SSITypeLabel from './components/labels/SSITypeLabel'
 import SSIIconButton from './components/buttons/SSIIconButton'
 import SSIPrimaryButton from './components/buttons/SSIPrimaryButton'
-import SSIDropDownList from './components/lists/SSIDropDownList'
+import DropDownList from './components/lists/DropDownList'
 import SSITableView from './components/views/SSITableView'
 import SSITableViewHeader from './components/views/SSITableView/SSITableViewHeader'
 import SSITabView from './components/views/SSITabView'
@@ -49,7 +49,7 @@ export {
   SSIIconButton,
   SSIPrimaryButton,
   SSISecondaryButton,
-  SSIDropDownList,
+  DropDownList,
   SSITableView,
   SSITableViewHeader,
   SSITabView,

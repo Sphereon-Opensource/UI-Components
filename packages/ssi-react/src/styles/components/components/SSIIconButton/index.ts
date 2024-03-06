@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
 export const SSIIconButtonContainerStyled = styled.div`
-  width: 32px;
-  aspect-ratio: 1;
+  gap: 8px;
+  height: 32px;
+  min-width: 32px;
+  flex-direction: row;
   display: flex;
   justify-content: center;
   align-items: center;

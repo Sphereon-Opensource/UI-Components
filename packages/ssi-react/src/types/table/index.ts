@@ -1,10 +1,12 @@
 import {AccessorFn, DeepKeys} from '@tanstack/react-table'
+import {Button} from '../button'
 
 export enum TableCellType {
   TEXT = 'text',
   LABEL = 'label',
   STATUS = 'status',
   CREDENTIAL_CARD = 'credentialCard',
+  ACTION_GROUP = 'actionGroup',
 }
 
 export type ColumnHeader<T> = {
@@ -24,5 +26,16 @@ export type TableCellOptions = {
   columnMinWidth?: number
   columnMaxWidth?: number
   columnWidth?: number
+  actionGroup?: TableColumnActionGroup
   // TODO extent this with more options to override
+}
+
+export type TableColumnActionGroup = {
+  label?: string
+  actions: Array<Button>
+}
+
+export type TableRowSelection = {
+  rowId: string
+  rowData: any
 }

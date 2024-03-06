@@ -28,12 +28,18 @@ export const SSITextH2Styled = styled.div`
   ${SSITextH2Css}
 `
 
+export const SSITextH2DarkStyled = styled(SSITextH2Styled)`
+  color: ${fontColors.dark};
+`
+
 export const SSITextH2SemiBoldStyled = styled.div`
   ${SSITextH2SemiBoldStyledCss}
 `
 
+// FIXME just make all fonts default dark
 export const SSITextH3Styled = styled.div`
-  ${SSITextH3Css}
+  ${SSITextH3Css};
+  color: ${fontColors.dark};
 `
 
 export const SSITextH3LightStyled = styled(SSITextH3Styled)`

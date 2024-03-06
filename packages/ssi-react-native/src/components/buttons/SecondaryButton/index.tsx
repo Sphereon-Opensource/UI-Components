@@ -1,12 +1,12 @@
 import React, {FC} from 'react'
 import {ColorValue, PressableProps, ViewStyle} from 'react-native'
-import MaskedView from '@react-native-masked-view/masked-view';
+import MaskedView from '@react-native-masked-view/masked-view'
 import {fontColors, gradientsColors, OpacityStyleEnum} from '@sphereon/ui-components.core'
 import {
   SSITouchableOpacityButtonFlexRowStyled as Button,
   SSITextH2SecondaryButtonStyled as ButtonCaption,
   SecondaryButtonLinearGradientStyled as LinearGradient,
-  SecondaryButtonMaskContainerStyled as MaskContainer
+  SecondaryButtonMaskContainerStyled as MaskContainer,
 } from '../../../styles'
 
 export interface Props extends Omit<PressableProps, 'disabled'> {

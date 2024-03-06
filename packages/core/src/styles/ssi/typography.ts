@@ -25,7 +25,7 @@ export const lineHeight: Record<LineHeight, number> = {
   600: 24, // TODO design says 36 which makes a part of the line disappear
   700: 34,
   800: 54,
-  64: 64
+  64: 64,
 }
 
 export type FontWeight = 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900'

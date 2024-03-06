@@ -12,11 +12,17 @@ import {
   Row,
   Table,
   useReactTable,
+  OnChangeFn,
+  RowSelectionState,
+  Updater
 } from '@tanstack/react-table'
-import {LabelStatus, LabelType, Localization} from '@sphereon/ui-components.core'
+import {ButtonIcon, LabelStatus, LabelType, Localization, selectionElementColors} from '@sphereon/ui-components.core'
 import SSITableViewHeader from './SSITableViewHeader'
 import SSITypeLabel from '../../labels/SSITypeLabel'
 import SSIHoverText from '../../fields/SSIHoverText'
+import SSIStatusLabel from '../../labels/SSIStatusLabel'
+import CredentialMiniCardView from '../CredentialMiniCardView'
+import DropDownList from '../../lists/DropDownList'
 import {
   SSITableViewCellContainerStyled as CellContainer,
   SSITableViewContainerStyled as Container,
@@ -25,15 +31,16 @@ import {
   SSITableViewResultCountCaptionStyled as ResultCountCaption,
   SSITableViewRowContainerStyled as RowContainer,
   SSITableViewTableContainerStyled as TableContainer,
+  TableViewRowSelectionCheckboxContainerStyled as RowSelectionCheckboxContainer
 } from '../../../styles'
-import {Button, ColumnHeader, TableCellOptions, TableCellType} from '../../../types'
-import {CredentialMiniCardView, SSIStatusLabel} from '../../../index'
+import {Button, ColumnHeader, TableCellOptions, TableCellType, TableRowSelection} from '../../../types'
 import PaginationControls, {PaginationControlsProps} from './PaginationControls'
 
 type Props<T> = {
   data: Array<T>
   columns: Array<ColumnHeader<T>>
   onRowClick?: (data: Row<T>) => Promise<void>
+  onDelete?: (rows: Array<T>) => Promise<void>
   enableRowSelection?: boolean
   enableFiltering?: boolean
   enableMostRecent?: boolean
@@ -56,7 +63,7 @@ function IndeterminateCheckbox({indeterminate, className = '', ...rest}: {indete
   return <input type="checkbox" ref={ref} className={className + ' cursor-pointer'} {...rest} />
 }
 
-const getCellFormatting = (type: TableCellType, value: any, opts?: TableCellOptions): ReactElement => {
+const getCellFormatting = (type: TableCellType, value: any, row: Row<any>, opts?: TableCellOptions): ReactElement => {
   switch (type) {
     case TableCellType.TEXT:
       const {truncationLength, enableHover = false} = opts ?? {}
@@ -69,11 +76,28 @@ const getCellFormatting = (type: TableCellType, value: any, opts?: TableCellOpti
       return <SSIStatusLabel status={value as LabelStatus} />
     }
     case TableCellType.CREDENTIAL_CARD: {
-      return <CredentialMiniCardView {...value}/>
+      return <CredentialMiniCardView {...value} />
+    }
+    case TableCellType.ACTION_GROUP: {
+      const {actionGroup = { actions: [] }} = opts ?? { actions: [] } // TODO shortcut this, just look for actions and use default in deconstruction
+      const actions = actionGroup.actions.map((action: Button) => ({
+        ...action,
+        onClick: () => action.onClick(row),
+      }));
+      return <DropDownList icon={ButtonIcon.MEATBALLS} buttons={actions} showBorder={true} />
     }
     default:
       return <div />
   }
+}
+
+const toRowSelectionObject = (rows: Array<TableRowSelection>): { [key: string]: boolean } => {
+  const rowSelectionObject: { [key: string]: boolean } = {}
+  rows.forEach((row: TableRowSelection): void => {
+    rowSelectionObject[row.rowId] = true
+  })
+
+  return rowSelectionObject
 }
 
 const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
@@ -87,9 +111,11 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     columnResizeMode = 'onChange',
     actions = [],
     onRowClick,
-    paginationControlsProps
+    onDelete,
+    paginationControlsProps,
   } = props
-  const [rowSelection, setRowSelection] = React.useState({})
+  const [rowSelection, setRowSelection] = React.useState<Array<TableRowSelection>>([])
+  const [focusedRowId, setFocusedRowId] = React.useState<string | undefined>()
   const columnHelper = createColumnHelper<T>()
 
   // TODO improve this
@@ -97,7 +123,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     columnHelper.accessor(header.accessor, {
       id: header.accessor as string,
       header: header.label,
-      cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue(), header.opts),
+      cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue(), info.row, header.opts),
       minSize: header.opts?.columnMinWidth,
       maxSize: header.opts?.columnMaxWidth,
       size: header.opts?.columnWidth,
@@ -107,7 +133,6 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     availableColumns = [
       {
         id: 'select',
-        // @ts-ignore
         header: ({table}) => (
           <IndeterminateCheckbox
             {...{
@@ -117,23 +142,43 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
             }}
           />
         ),
-        // @ts-ignore
         cell: ({row}) => (
-          <div className="px-1">
-            <IndeterminateCheckbox
-              {...{
-                checked: row.getIsSelected(),
-                disabled: !row.getCanSelect(),
-                indeterminate: row.getIsSomeSelected(),
-                onChange: row.getToggleSelectedHandler(),
-              }}
-            />
-          </div>
+          <RowSelectionCheckboxContainer>
+            { (row.id === focusedRowId  || rowSelection.length > 0)
+              && <IndeterminateCheckbox
+                {...{
+                  checked: row.getIsSelected(),
+                  disabled: !row.getCanSelect(),
+                  indeterminate: row.getIsSomeSelected(),
+                  onChange: row.getToggleSelectedHandler(),
+                }}
+                />
+            }
+          </RowSelectionCheckboxContainer>
         ),
       },
       ...availableColumns,
     ]
   }
+
+  const onFocusRow = (rowId?: string): void => {
+    setFocusedRowId(rowId)
+  }
+
+  const onRowSelectionChange: OnChangeFn<RowSelectionState> = (updatedRowSelection: Updater<RowSelectionState>): void => {
+    // FIXME added ignore to stop it from complaining that updatedRowSelection is not callable. should be fixed at some point
+    // @ts-ignore
+    const currentRowSelection = updatedRowSelection(toRowSelectionObject(rowSelection))
+
+    const selection: Array<TableRowSelection> = Object.keys(currentRowSelection).map((key: string): TableRowSelection => {
+      return {
+        rowId: key,
+        rowData: data[Number(key)]
+      }
+    })
+
+    setRowSelection(selection)
+  };
 
   const table: Table<T> = useReactTable({
     // https://tanstack.com/table/v8/docs/api/core/table#defaultcolumn
@@ -142,10 +187,10 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
       size: 0,
     },
     state: {
-      rowSelection,
+      rowSelection: toRowSelectionObject(rowSelection)
     },
     enableRowSelection,
-    onRowSelectionChange: setRowSelection,
+    onRowSelectionChange: onRowSelectionChange,
     data,
     columns: availableColumns,
     columnResizeMode,
@@ -161,9 +206,11 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
   })
 
   const onRowClicked = async (row: Row<T>): Promise<void> => {
-    if (onRowClick) {
-      await onRowClick(row)
-    }
+    await onRowClick?.(row)
+  }
+
+  const onDeleteClicked = async (): Promise<void> => {
+    await onDelete?.(rowSelection.map((row: TableRowSelection) => row.rowData))
   }
 
   return (
@@ -180,55 +227,63 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
           </ResultCountCaption>
         )}
         {(enableFiltering || enableMostRecent || actions.length > 0) && (
-          <SSITableViewHeader actions={actions} enableFiltering={enableFiltering} enableMostRecent={enableMostRecent} />
+          <SSITableViewHeader
+            actions={actions}
+            enableFiltering={enableFiltering}
+            enableMostRecent={enableMostRecent}
+            {...(onDelete && { onDelete: onDeleteClicked })}
+          />
         )}
         <TableContainer>
           <thead>
-            {table.getHeaderGroups().map((headerGroup: HeaderGroup<T>) => (
-              <RowContainer key={headerGroup.id}>
-                {headerGroup.headers.map((header: Header<T, any>) => (
-                  <HeaderCellContainer
-                    key={header.id}
-                    // @ts-ignore
-                    colSpan={header.colSpan}
+          {table.getHeaderGroups().map((headerGroup: HeaderGroup<T>) => (
+            <RowContainer key={headerGroup.id}>
+              {headerGroup.headers.map((header: Header<T, any>) => (
+                <HeaderCellContainer
+                  key={header.id}
+                  colSpan={header.colSpan}
+                  style={{
+                    ...(header.column.columnDef.minSize && {minWidth: header.column.columnDef.minSize}),
+                    ...(header.column.columnDef.maxSize && {maxWidth: header.column.columnDef.maxSize}),
+                    ...(header.column.columnDef.size !== 0 && {width: header.column.columnDef.size}),
+                  }}>
+                  {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                  <div
+                    className={`resizer ${header.column.getIsResizing() ? 'isResizing' : ''}`}
+                    onMouseDown={header.getResizeHandler()}
+                    onTouchStart={header.getResizeHandler()}
                     style={{
-                      ...(header.column.columnDef.minSize && {minWidth: header.column.columnDef.minSize}),
-                      ...(header.column.columnDef.maxSize && {maxWidth: header.column.columnDef.maxSize}),
-                      ...(header.column.columnDef.size !== 0 && {width: header.column.columnDef.size}),
-                    }}>
-                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                    <div
-                      className={`resizer ${header.column.getIsResizing() ? 'isResizing' : ''}`}
-                      onMouseDown={header.getResizeHandler()}
-                      onTouchStart={header.getResizeHandler()}
-                      style={{
-                        transform:
-                          columnResizeMode === 'onEnd' && header.column.getIsResizing()
-                            ? `translateX(${table.getState().columnSizingInfo.deltaOffset}px)`
-                            : '',
-                      }}
-                    />
-                  </HeaderCellContainer>
-                ))}
-              </RowContainer>
-            ))}
+                      transform:
+                        columnResizeMode === 'onEnd' && header.column.getIsResizing()
+                          ? `translateX(${table.getState().columnSizingInfo.deltaOffset}px)`
+                          : '',
+                    }}
+                  />
+                </HeaderCellContainer>
+              ))}
+            </RowContainer>
+          ))}
           </thead>
           <tbody>
-            {table.getRowModel().rows.map((row: Row<T>) => (
-              <RowContainer key={row.id} onClick={() => onRowClicked(row)}>
-                {row.getVisibleCells().map((cell: Cell<T, any>) => (
-                  <CellContainer
-                    key={cell.id}
-                    style={{
-                      ...(cell.column.columnDef.minSize && {minWidth: cell.column.columnDef.minSize}),
-                      ...(cell.column.columnDef.maxSize && {maxWidth: cell.column.columnDef.maxSize}),
-                      ...(cell.column.columnDef.size !== 0 && {width: cell.column.columnDef.size}),
-                    }}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </CellContainer>
-                ))}
-              </RowContainer>
-            ))}
+          {table.getRowModel().rows.map((row: Row<T>) => (
+            <RowContainer key={row.id} onClick={() => onRowClicked(row)}
+                          onMouseEnter={() => onFocusRow(row.id)}
+                          onMouseLeave={() => onFocusRow()}
+                          style={{...(row.getIsSelected() && { backgroundColor: selectionElementColors.selectedRow })}}
+            >
+              {row.getVisibleCells().map((cell: Cell<T, any>) => (
+                <CellContainer
+                  key={cell.id}
+                  style={{
+                    ...(cell.column.columnDef.minSize && {minWidth: cell.column.columnDef.minSize}),
+                    ...(cell.column.columnDef.maxSize && {maxWidth: cell.column.columnDef.maxSize}),
+                    ...(cell.column.columnDef.size !== 0 && {width: cell.column.columnDef.size}),
+                  }}>
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </CellContainer>
+              ))}
+            </RowContainer>
+          ))}
           </tbody>
         </TableContainer>
       </div>
