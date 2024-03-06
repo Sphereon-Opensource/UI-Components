@@ -1,35 +1,35 @@
-import { styled } from '@mui/material/styles'
-import { Pagination, paginationItemClasses } from '@mui/material';
+import {styled} from '@mui/material/styles'
+import {Pagination, paginationItemClasses} from '@mui/material'
 
 export const PaginationContainerStyled = styled('div')`
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    gap: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
 `
 
 export const GoToInputStyled = styled('input')`
-    height: 28px;
-    width: 44px; 
-    background-color: #FBFBFB; 
-    outline: none;
-    color: #303030;
-    font-weight: 500;
-    font-size: 14px;
-    border-radius: 6px;
-    border: 1px #C4C5CA solid;
-    text-align: center;
-    &:focus {
-        border: 1px #7276F7 solid;
-    }
+  height: 28px;
+  width: 44px;
+  background-color: #fbfbfb;
+  outline: none;
+  color: #303030;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px #c4c5ca solid;
+  text-align: center;
+  &:focus {
+    border: 1px #7276f7 solid;
+  }
 `
 
 export const GoToInputContainer = styled('div')`
-    display: inline-flex; 
-    gap: 10px; 
-    align-items: center;
-    font-weight: 500;
-    font-size: 14px;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
 `
 
 export const PaginationStyled = styled(Pagination)`

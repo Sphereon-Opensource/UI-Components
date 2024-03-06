@@ -67,7 +67,7 @@ type Border = 'dark' | 'light' | 'lightGrey'
 export const borderColors: Record<Border, string> = {
   dark: '#404D7A',
   light: '#E3E3E3',
-  lightGrey: '#ACACAC'
+  lightGrey: '#ACACAC',
 }
 
 type Profile = 100 | 200 | 300 | 400 | 500
@@ -92,7 +92,7 @@ type SelectionElement = 'primaryDark' | 'primaryBorderDark' | 'selectedRow'
 export const selectionElementColors: Record<SelectionElement, string> = {
   primaryDark: '#0B81FF',
   primaryBorderDark: '#FBFBFB',
-  selectedRow: '#B7B8D9'
+  selectedRow: '#B7B8D9',
 }
 
 // FIXME all numbers

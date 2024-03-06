@@ -8,20 +8,17 @@ export type PaginationControlsProps = PaginationProps & {
 }
 
 const PaginationControls: FC<PaginationControlsProps> = (props: PaginationControlsProps): ReactElement => {
-  const { onKeyDown, containerStyle, goToInputId = 'goTo' } = props
-    return (
-        <PaginationContainerStyled style={containerStyle}>
-            <Stack>
-                <PaginationStyled {...props} />
-            </Stack>
-            <GoToInputContainer>
-                Go to <GoToInputStyled
-              id={goToInputId}
-              onKeyDown={onKeyDown}
-            /> page
-            </GoToInputContainer>
-        </PaginationContainerStyled>
-    )
+  const {onKeyDown, containerStyle, goToInputId = 'goTo'} = props
+  return (
+    <PaginationContainerStyled style={containerStyle}>
+      <Stack>
+        <PaginationStyled {...props} />
+      </Stack>
+      <GoToInputContainer>
+        Go to <GoToInputStyled id={goToInputId} onKeyDown={onKeyDown} /> page
+      </GoToInputContainer>
+    </PaginationContainerStyled>
+  )
 }
 
 export default PaginationControls

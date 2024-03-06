@@ -26,7 +26,7 @@ export const SSITableViewRowContainerStyled = styled.tr`
   background-color: ${backgroundColors.primaryLight};
 
   &:hover {
-    background-color: #ECECEC;
+    background-color: #ececec;
   }
 `
 
@@ -56,7 +56,7 @@ export const SSITableViewResultCountCaptionStyled = styled.div`
 `
 
 export const TableViewRowSelectionCheckboxContainerStyled = styled.div`
-  width: 20px; 
+  width: 20px;
   height: 20px;
 `
 
