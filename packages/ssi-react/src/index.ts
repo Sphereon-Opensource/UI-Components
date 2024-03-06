@@ -26,6 +26,7 @@ import SSIHoverText from './components/fields/SSIHoverText'
 import ProgressStepIndicator from './components/indicators/ProgressStepIndicator'
 import StepMarker from './components/assets/markers/StepMarker'
 import PaginationControls from './components/views/SSITableView/PaginationControls'
+import PaginationControlsProps from './components/views/SSITableView/PaginationControls'
 
 import {Row} from '@tanstack/react-table'
 
@@ -62,5 +63,6 @@ export {
   StepMarker,
   ProgressStepIndicator,
   PaginationControls,
+  PaginationControlsProps,
   Row,
 }
