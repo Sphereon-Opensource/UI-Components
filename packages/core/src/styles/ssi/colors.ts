@@ -62,12 +62,13 @@ export const gradientsColors: Record<HighLightGradient, GradientProperties> = {
   },
 }
 
-type Border = 'dark' | 'light' | 'lightGrey'
+type Border = 'dark' | 'light' | 'lightGrey' | 'darkGrey'
 
 export const borderColors: Record<Border, string> = {
   dark: '#404D7A',
   light: '#E3E3E3',
-  lightGrey: '#ACACAC'
+  lightGrey: '#ACACAC',
+  darkGrey: '#303030',
 }
 
 type Profile = 100 | 200 | 300 | 400 | 500
@@ -96,14 +97,15 @@ export const selectionElementColors: Record<SelectionElement, string> = {
 }
 
 // FIXME all numbers
-type Element = 'blue' | 'lightGrey' | 'purple' | 100 | 200
+type Element = 'blue' | 'lightGrey' | 'purple' | 100 | 200 | 300
 
 export const elementColors: Record<Element, string> = {
   blue: '#0B81FF',
   lightGrey: '#C4C4C4',
   purple: '#7276F7',
   100: '#F25409',
-  200: '#f78854',
+  200: '#F78854',
+  300: '#8D9099'
 }
 
 type Button = 100

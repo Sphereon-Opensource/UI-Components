@@ -10,6 +10,7 @@ import {
   SSITextH4SemiBoldCss,
   SSITextH5Css,
   SSITextH6Css,
+  SSITextH7RegularCss,
 } from '../css'
 
 export const SSITextH1Styled = styled.div`
@@ -18,6 +19,10 @@ export const SSITextH1Styled = styled.div`
 
 export const SSITextH1SemiBoldStyled = styled.div`
   ${SSITextH1SemiBoldCss}
+`
+
+export const SSITextH1SemiBoldDarkStyled = styled(SSITextH1SemiBoldStyled)`
+  color: ${fontColors.dark};
 `
 
 export const SSITextH1SemiBoldLightStyled = styled(SSITextH1SemiBoldStyled)`
@@ -34,6 +39,10 @@ export const SSITextH2DarkStyled = styled(SSITextH2Styled)`
 
 export const SSITextH2SemiBoldStyled = styled.div`
   ${SSITextH2SemiBoldStyledCss}
+`
+
+export const SSITextH2SemiBoldDarkStyled = styled(SSITextH2SemiBoldStyled)`
+  color: ${fontColors.dark};
 `
 
 // FIXME just make all fonts default dark
@@ -80,4 +89,8 @@ export const SSITextH6Styled = styled.div`
 
 export const SSITextH6LightStyled = styled(SSITextH6Styled)`
   color: ${fontColors.light};
+`
+
+export const SSITextH7RegularStyled = styled.div`
+  ${SSITextH7RegularCss}
 `
