@@ -99,8 +99,8 @@ importers:
         specifier: ^6.19.5
         version: 6.19.5(@emotion/react@11.11.4)(@emotion/styled@11.11.0)(@mui/material@5.15.11)(@mui/system@5.15.12)(@types/react@18.0.28)(dayjs@1.10.7)(react-dom@18.2.0)(react@18.2.0)
       '@sphereon/ui-components.core':
-        specifier: file://C:\Git\Sphereon-Opensource\UI-Components\packages\core\sphereon-ui-components.core-0.148.10.tgz
-        version: file:packages/core/sphereon-ui-components.core-0.148.10.tgz(@babel/core@7.22.5)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: workspace:*
+        version: link:../core
       '@tanstack/react-table':
         specifier: ^8.9.3
         version: 8.9.3(react-dom@18.2.0)(react@18.2.0)
@@ -12740,21 +12740,3 @@ packages:
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
-
-  file:packages/core/sphereon-ui-components.core-0.148.10.tgz(@babel/core@7.22.5)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-yL/jDsXSk8n/hnLN7ip42KTRQYGDTH4Xst9Z5flhlzEZoMo2tGaQ1ZiwjKv+NkWDsfXtOZlIdztOV7rczl6bSA==, tarball: file:packages/core/sphereon-ui-components.core-0.148.10.tgz}
-    id: file:packages/core/sphereon-ui-components.core-0.148.10.tgz
-    name: '@sphereon/ui-components.core'
-    version: 0.148.10
-    peerDependencies:
-      react: '>= 16.8.0'
-    dependencies:
-      i18n-js: 3.8.0
-      lodash.memoize: 4.1.2
-      react: 18.2.0
-      styled-components: 5.3.11(@babel/core@7.22.5)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - react-dom
-      - react-is
-    dev: false
