@@ -1,26 +1,28 @@
 import {styled} from '@mui/material/styles'
 import {Pagination, paginationItemClasses} from '@mui/material'
+import {backgroundColors, borderColors, elementColors, fontColors} from '@sphereon/ui-components.core'
 
 export const PaginationContainerStyled = styled('div')`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 32px;
+  margin-top: 16px;
 `
 
 export const GoToInputStyled = styled('input')`
   height: 28px;
   width: 44px;
-  background-color: #fbfbfb;
+  background-color: ${backgroundColors.primaryLight};
   outline: none;
-  color: #303030;
+  color: ${fontColors.dark};
   font-weight: 500;
   font-size: 14px;
   border-radius: 6px;
-  border: 1px #c4c5ca solid;
+  border: 1px ${borderColors.lightGrey} solid;
   text-align: center;
   &:focus {
-    border: 1px #7276f7 solid;
+    border: 1px ${elementColors.purple} solid;
   }
 `
 
@@ -33,38 +35,41 @@ export const GoToInputContainer = styled('div')`
 `
 
 export const PaginationStyled = styled(Pagination)`
-    & .${paginationItemClasses.root} {
-      color: #303030;
-      background-color: #FBFBFB;
-      border: 1px #C4C5CA solid;
-      border-radius: 6px;
-      font-size: 14px;
-      min-width: 32px;
-      min-height: 32px;
-      width: 32px;
-      height: 32px;
-      &:hover {
-        background-color: #FBFBFB;
-      },
-    }
-
-    & .${paginationItemClasses.selected} {
-        border: 1px #7276F7 solid;
-        color: #7276F7;
+  & .${paginationItemClasses.root} {
+    color: ${fontColors.dark};
+    background-color: ${backgroundColors.primaryLight};
+    border: 1px ${borderColors.lightGrey} solid;
+    border-radius: 6px;
+    font-size: 14px;
+    min-width: 32px;
+    min-height: 32px;
+    width: 32px;
+    height: 32px;
+    &:hover {
+      background-color: ${backgroundColors.primaryLight};
     },
+  }
 
-    & .${paginationItemClasses.previousNext} {
-        color: #C4C5CA;
-    },
+  & .${paginationItemClasses.selected} {
+    background-color: transparent !important;
+    border: 1px ${elementColors.purple} solid;
+    color: ${elementColors.purple};
+  },
 
-    & .${paginationItemClasses.disabled} {
-        color: #C4C5CA;
-        background-color: #8D9099;
-    },
+  & .${paginationItemClasses.previousNext} {
+    color: ${borderColors.lightGrey};
+  },
 
-    & .${paginationItemClasses.ellipsis} {
-        user-select: none;
-        display: flex;
-        align-items: end;
-    }
+  & .${paginationItemClasses.disabled} {
+    color: ${borderColors.lightGrey};
+    background-color: ${backgroundColors.lightGrey};
+  },
+
+  & .${paginationItemClasses.ellipsis} {
+    font-size: 20px;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `
