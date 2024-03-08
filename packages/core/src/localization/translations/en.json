@@ -17,6 +17,8 @@
   "action_show_caption": "Show:",
   "result_count_label": "Showing {{count}} from {{maxCount}} results",
   "action_delete_label": "Delete",
+  "table_pagination_input_caption_go_to": "Go to",
+  "table_pagination_input_caption_page": "page",
   "drag_and_drop_upload_image_caption": "Click or drag to upload an image",
   "drag_and_drop_upload_evidence_caption": "Click or drag to upload an evidence document",
   "credential_attach_image_description": "This image will be attached to the credential.",

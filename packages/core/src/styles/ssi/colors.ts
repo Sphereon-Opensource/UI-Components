@@ -93,7 +93,7 @@ type SelectionElement = 'primaryDark' | 'primaryBorderDark' | 'selectedRow'
 export const selectionElementColors: Record<SelectionElement, string> = {
   primaryDark: '#0B81FF',
   primaryBorderDark: '#FBFBFB',
-  selectedRow: '#B7B8D9'
+  selectedRow: '#B7B8D9',
 }
 
 // FIXME all numbers

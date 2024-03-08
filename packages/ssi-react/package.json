@@ -39,6 +39,7 @@
     "@mui/icons-material": "^5.15.11",
     "@mui/material": "^5.15.11",
     "@mui/x-date-pickers": "^6.19.5",
+    "@mui/styled-engine-sc": "^5.14.12",
     "@sphereon/ui-components.core": "workspace:*",
     "@tanstack/react-table": "^8.9.3",
     "react-loader-spinner": "^5.4.5",

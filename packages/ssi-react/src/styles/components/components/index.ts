@@ -23,3 +23,5 @@ export * from './FileSelectionField'
 export * from './DragAndDropBox'
 export * from './PassportPhotoControl'
 export * from './CredentialIssuanceWizardView'
+export * from './Pagination'
+

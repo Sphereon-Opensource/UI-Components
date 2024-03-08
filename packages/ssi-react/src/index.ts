@@ -34,6 +34,8 @@ import DragAndDropBox from './components/fields/DragAndDropBox'
 import PersonPlaceholder from './components/assets/placeholders/PersonPlaceholder'
 import PassportPhotoControl, { passportPhotoControlTester } from './components/fields/JSONForms/PassportPhotoControl'
 import CredentialIssuanceWizardView from './components/views/CredentialIssuanceWizardView'
+import PaginationControls from './components/views/SSITableView/PaginationControls'
+import PaginationControlsProps from './components/views/SSITableView/PaginationControls'
 
 import {Row} from '@tanstack/react-table'
 
@@ -69,6 +71,8 @@ export {
   SSIHoverText,
   StepMarker,
   ProgressStepIndicator,
+  PaginationControls,
+  PaginationControlsProps,
   Row,
   DocumentIcon,
   CrossIcon,
