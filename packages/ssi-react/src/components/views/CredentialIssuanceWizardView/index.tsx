@@ -6,7 +6,6 @@ import {JsonForms} from '@jsonforms/react';
 import {Localization} from '@sphereon/ui-components.core';
 import FileSelection from '../../fields/FileSelection';
 import DragAndDropBox from '../../fields/DragAndDropBox';
-import SSIPrimaryButton from '../../buttons/SSIPrimaryButton';
 import {jsonFormsMaterialRenderers} from '../../../renders/jsonFormsRenders';
 import {
     CredentialIssuanceWizardViewContainerStyled as Container,
@@ -21,40 +20,47 @@ import {
     SSITextH2DarkStyled as EvidenceDescription,
     CredentialIssuanceWizardViewEvidenceFilesContainerStyled as EvidenceFilesContainer
 } from '../../../styles';
-import './styles.css';
+
 import {CredentialFormData, CredentialFormInput, CredentialFormSelectionType} from '../../../types';
 
 type Props = {
     credentialTypes: Array<CredentialFormSelectionType>
-    onIssueCredential: (credentialFormData: CredentialFormData) =>  Promise<void>
+    onSelectCredentialTypeChange?: (credentialType: CredentialFormSelectionType) => Promise<void>
+    onCredentialFormDataChange?: (credentialFormData: CredentialFormData) => Promise<void>
     credentialData?: Record<any, any>
 }
 
 const CredentialIssuanceWizardView: FC<Props> = (props: Props): ReactElement => {
-    const { credentialData, credentialTypes } = props
+    const { credentialData, credentialTypes, onSelectCredentialTypeChange, onCredentialFormDataChange } = props
     const [selectedCredentialType, setSelectedCredentialType] = useState<CredentialFormSelectionType | null>(null);
-    const [credentialInput, setCredentialInput] = useState<CredentialFormInput | null>(null);
+    const [credentialInput, setCredentialInput] = useState<CredentialFormInput | null>(null); // TODO rename
     const [evidence, setEvidence] = useState<Array<File>>([]);
 
     const onCredentialTypeChange = (event: SyntheticEvent, value: AutocompleteValue<any, any, any, any>): void => {
         setCredentialInput(null)
         setEvidence([]);
         setSelectedCredentialType(value);
+        onSelectCredentialTypeChange?.(value)
     };
 
     const onCredentialFormInputChange = (state: CredentialFormInput): void => {
         setCredentialInput(state)
+        onCredentialFormDataChange?.({ ...state, evidence })
     };
 
     const onAddEvidence = async (file: File): Promise<void> => {
         // Cloning array to force rerender
-        setEvidence([...evidence, file])
+        const evidenceFiles = [...evidence, file]
+        setEvidence(evidenceFiles)
+        onCredentialFormDataChange?.({ ...credentialInput, evidence: evidenceFiles })
     }
 
-    const onIssueCredential = async (): Promise<void> => {
-        if (credentialInput?.errors?.length === 0) {
-            await props.onIssueCredential(credentialInput.data)
-        }
+    const onRemoveEvidence = async (index: number): Promise<void> => {
+        evidence.splice(index, 1)
+        // Cloning array to force rerender
+        const evidenceFiles = [...evidence]
+        setEvidence(evidenceFiles)
+        onCredentialFormDataChange?.({ ...credentialInput, evidence: evidenceFiles })
     }
 
     const getEvidenceElements = (): Array<ReactElement> => {
@@ -62,11 +68,7 @@ const CredentialIssuanceWizardView: FC<Props> = (props: Props): ReactElement => 
             <FileSelection
                 key={index}
                 file={file}
-                onRemove={async (): Promise<void> => {
-                    evidence.splice(index, 1)
-                    // Cloning array to force rerender
-                    setEvidence([...evidence])
-                }}
+                onRemove={async (): Promise<void> => onRemoveEvidence(index)}
             />
         )
     }
@@ -118,11 +120,6 @@ const CredentialIssuanceWizardView: FC<Props> = (props: Props): ReactElement => 
                             </EvidenceFilesContainer>
                         </EvidenceContentContainer>
                     </EvidenceContainer>
-                    <SSIPrimaryButton
-                        style={{width: 180, marginLeft: 'auto'}}
-                        caption={Localization.translate('action_issue_credential_caption')}
-                        onClick={onIssueCredential}
-                    />
                 </>
             }
         </Container>

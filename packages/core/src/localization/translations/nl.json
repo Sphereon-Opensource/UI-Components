@@ -26,6 +26,5 @@
   "credential_issuance_wizard_credential_type_label": "Credential type",
   "credential_issuance_wizard_evidence_title": "Bewijs",
   "credential_issuance_wizard_evidence_optional_title": "(optioneel)",
-  "credential_issuance_wizard_evidence_description": "Optioneel kunt u een of meer documenten of bestanden uploaden die u aan deze credential wilt toevoegen.",
-  "action_issue_credential_caption": "Credential uitgeven"
+  "credential_issuance_wizard_evidence_description": "Optioneel kunt u een of meer documenten of bestanden uploaden die u aan deze credential wilt toevoegen."
 }

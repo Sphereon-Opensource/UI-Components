@@ -7,6 +7,7 @@ export const CredentialIssuanceWizardViewContainerStyled = styled.div`
   flex-direction: column;
   gap: 42px;
   width: 560px;
+  height: fit-content;
 `
 
 export const CredentialIssuanceWizardViewCredentialTypeContainerStyled = styled.div`
@@ -17,7 +18,7 @@ export const CredentialIssuanceWizardViewCredentialTypeContainerStyled = styled.
   display: flex;
   flex-direction: column;
   gap: 24px;
-  flex-grow: 1
+  flex-grow: 1;
 `
 
 export const CredentialIssuanceWizardViewCredentialTypeTitleStyled = styled(SSITextH1SemiBoldDarkStyled)`
