@@ -16,5 +16,7 @@
   "action_filter_caption": "Filter",
   "action_show_caption": "Toon:",
   "result_count_label": "Toon {{count}} van {{maxCount}} resultaten",
-  "action_delete_label": "Verwijder"
+  "action_delete_label": "Verwijder",
+  "table_pagination_input_caption_go_to": "Ga naar ",
+  "table_pagination_input_caption_page": " pagina"
 }

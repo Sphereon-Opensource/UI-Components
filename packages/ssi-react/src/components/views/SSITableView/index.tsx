@@ -14,7 +14,7 @@ import {
   useReactTable,
   OnChangeFn,
   RowSelectionState,
-  Updater
+  Updater,
 } from '@tanstack/react-table'
 import {ButtonIcon, LabelStatus, LabelType, Localization, selectionElementColors} from '@sphereon/ui-components.core'
 import SSITableViewHeader from './SSITableViewHeader'
@@ -31,9 +31,10 @@ import {
   SSITableViewResultCountCaptionStyled as ResultCountCaption,
   SSITableViewRowContainerStyled as RowContainer,
   SSITableViewTableContainerStyled as TableContainer,
-  TableViewRowSelectionCheckboxContainerStyled as RowSelectionCheckboxContainer
+  TableViewRowSelectionCheckboxContainerStyled as RowSelectionCheckboxContainer,
 } from '../../../styles'
 import {Button, ColumnHeader, TableCellOptions, TableCellType, TableRowSelection} from '../../../types'
+import PaginationControls, {PaginationControlsProps} from './PaginationControls'
 
 type Props<T> = {
   data: Array<T>
@@ -46,6 +47,7 @@ type Props<T> = {
   enableResultCount?: boolean
   columnResizeMode?: ColumnResizeMode
   actions?: Array<Button>
+  pagination?: PaginationControlsProps
 }
 
 // TODO implement correct checkboxes from design
@@ -77,11 +79,11 @@ const getCellFormatting = (type: TableCellType, value: any, row: Row<any>, opts?
       return <CredentialMiniCardView {...value} />
     }
     case TableCellType.ACTION_GROUP: {
-      const {actionGroup = { actions: [] }} = opts ?? { actions: [] } // TODO shortcut this, just look for actions and use default in deconstruction
+      const {actionGroup = {actions: []}} = opts ?? {actions: []} // TODO shortcut this, just look for actions and use default in deconstruction
       const actions = actionGroup.actions.map((action: Button) => ({
         ...action,
         onClick: () => action.onClick(row),
-      }));
+      }))
       return <DropDownList icon={ButtonIcon.MEATBALLS} buttons={actions} showBorder={true} />
     }
     default:
@@ -89,8 +91,8 @@ const getCellFormatting = (type: TableCellType, value: any, row: Row<any>, opts?
   }
 }
 
-const toRowSelectionObject = (rows: Array<TableRowSelection>): { [key: string]: boolean } => {
-  const rowSelectionObject: { [key: string]: boolean } = {}
+const toRowSelectionObject = (rows: Array<TableRowSelection>): {[key: string]: boolean} => {
+  const rowSelectionObject: {[key: string]: boolean} = {}
   rows.forEach((row: TableRowSelection): void => {
     rowSelectionObject[row.rowId] = true
   })
@@ -109,7 +111,8 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     columnResizeMode = 'onChange',
     actions = [],
     onRowClick,
-    onDelete
+    onDelete,
+    pagination,
   } = props
   const [rowSelection, setRowSelection] = React.useState<Array<TableRowSelection>>([])
   const [focusedRowId, setFocusedRowId] = React.useState<string | undefined>()
@@ -117,41 +120,41 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
 
   // TODO improve this
   let availableColumns: Array<ColumnDef<T, any>> = columns.map((header: ColumnHeader<T>) =>
-      columnHelper.accessor(header.accessor, {
-        id: header.accessor as string,
-        header: header.label,
-        cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue(), info.row, header.opts),
-        minSize: header.opts?.columnMinWidth,
-        maxSize: header.opts?.columnMaxWidth,
-        size: header.opts?.columnWidth,
-      }),
+    columnHelper.accessor(header.accessor, {
+      id: header.accessor as string,
+      header: header.label,
+      cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue(), info.row, header.opts),
+      minSize: header.opts?.columnMinWidth,
+      maxSize: header.opts?.columnMaxWidth,
+      size: header.opts?.columnWidth,
+    }),
   )
   if (enableRowSelection) {
     availableColumns = [
       {
         id: 'select',
         header: ({table}) => (
-            <IndeterminateCheckbox
-                {...{
-                  checked: table.getIsAllRowsSelected(),
-                  indeterminate: table.getIsSomeRowsSelected(),
-                  onChange: table.getToggleAllRowsSelectedHandler(),
-                }}
-            />
+          <IndeterminateCheckbox
+            {...{
+              checked: table.getIsAllRowsSelected(),
+              indeterminate: table.getIsSomeRowsSelected(),
+              onChange: table.getToggleAllRowsSelectedHandler(),
+            }}
+          />
         ),
         cell: ({row}) => (
-            <RowSelectionCheckboxContainer>
-              { (row.id === focusedRowId  || rowSelection.length > 0)
-                  && <IndeterminateCheckbox
-                      {...{
-                        checked: row.getIsSelected(),
-                        disabled: !row.getCanSelect(),
-                        indeterminate: row.getIsSomeSelected(),
-                        onChange: row.getToggleSelectedHandler(),
-                      }}
-                  />
-              }
-            </RowSelectionCheckboxContainer>
+          <RowSelectionCheckboxContainer>
+            {(row.id === focusedRowId || rowSelection.length > 0) && (
+              <IndeterminateCheckbox
+                {...{
+                  checked: row.getIsSelected(),
+                  disabled: !row.getCanSelect(),
+                  indeterminate: row.getIsSomeSelected(),
+                  onChange: row.getToggleSelectedHandler(),
+                }}
+              />
+            )}
+          </RowSelectionCheckboxContainer>
         ),
       },
       ...availableColumns,
@@ -170,12 +173,12 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     const selection: Array<TableRowSelection> = Object.keys(currentRowSelection).map((key: string): TableRowSelection => {
       return {
         rowId: key,
-        rowData: data[Number(key)]
+        rowData: data[Number(key)],
       }
     })
 
     setRowSelection(selection)
-  };
+  }
 
   const table: Table<T> = useReactTable({
     // https://tanstack.com/table/v8/docs/api/core/table#defaultcolumn
@@ -184,7 +187,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
       size: 0,
     },
     state: {
-      rowSelection: toRowSelectionObject(rowSelection)
+      rowSelection: toRowSelectionObject(rowSelection),
     },
     enableRowSelection,
     onRowSelectionChange: onRowSelectionChange,
@@ -211,80 +214,82 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
   }
 
   return (
-      <Container>
-        <div className="overflow-x-auto">
-          {enableResultCount && (
-              <ResultCountCaption>
-                {/* TODO this needs to look at pagination */}
-                {/* TODO the values need a different styling */}
-                {Localization.translate('result_count_label', {
-                  count: data.length,
-                  maxCount: data.length,
-                })}
-              </ResultCountCaption>
-          )}
-          {(enableFiltering || enableMostRecent || actions.length > 0) && (
-              <SSITableViewHeader
-                  actions={actions}
-                  enableFiltering={enableFiltering}
-                  enableMostRecent={enableMostRecent}
-                  {...(onDelete && { onDelete: onDeleteClicked })}
-              />
-          )}
-          <TableContainer>
-            <thead>
+    <Container>
+      <div className="overflow-x-auto">
+        {enableResultCount && (
+          <ResultCountCaption>
+            {/* TODO this needs to look at pagination */}
+            {/* TODO the values need a different styling */}
+            {Localization.translate('result_count_label', {
+              count: data.length,
+              maxCount: data.length,
+            })}
+          </ResultCountCaption>
+        )}
+        {(enableFiltering || enableMostRecent || actions.length > 0) && (
+          <SSITableViewHeader
+            actions={actions}
+            enableFiltering={enableFiltering}
+            enableMostRecent={enableMostRecent}
+            {...(onDelete && {onDelete: onDeleteClicked})}
+          />
+        )}
+        <TableContainer>
+          <thead>
             {table.getHeaderGroups().map((headerGroup: HeaderGroup<T>) => (
-                <RowContainer key={headerGroup.id}>
-                  {headerGroup.headers.map((header: Header<T, any>) => (
-                      <HeaderCellContainer
-                          key={header.id}
-                          colSpan={header.colSpan}
-                          style={{
-                            ...(header.column.columnDef.minSize && {minWidth: header.column.columnDef.minSize}),
-                            ...(header.column.columnDef.maxSize && {maxWidth: header.column.columnDef.maxSize}),
-                            ...(header.column.columnDef.size !== 0 && {width: header.column.columnDef.size}),
-                          }}>
-                        {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                        <div
-                            className={`resizer ${header.column.getIsResizing() ? 'isResizing' : ''}`}
-                            onMouseDown={header.getResizeHandler()}
-                            onTouchStart={header.getResizeHandler()}
-                            style={{
-                              transform:
-                                  columnResizeMode === 'onEnd' && header.column.getIsResizing()
-                                      ? `translateX(${table.getState().columnSizingInfo.deltaOffset}px)`
-                                      : '',
-                            }}
-                        />
-                      </HeaderCellContainer>
-                  ))}
-                </RowContainer>
+              <RowContainer key={headerGroup.id}>
+                {headerGroup.headers.map((header: Header<T, any>) => (
+                  <HeaderCellContainer
+                    key={header.id}
+                    colSpan={header.colSpan}
+                    style={{
+                      ...(header.column.columnDef.minSize && {minWidth: header.column.columnDef.minSize}),
+                      ...(header.column.columnDef.maxSize && {maxWidth: header.column.columnDef.maxSize}),
+                      ...(header.column.columnDef.size !== 0 && {width: header.column.columnDef.size}),
+                    }}>
+                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                    <div
+                      className={`resizer ${header.column.getIsResizing() ? 'isResizing' : ''}`}
+                      onMouseDown={header.getResizeHandler()}
+                      onTouchStart={header.getResizeHandler()}
+                      style={{
+                        transform:
+                          columnResizeMode === 'onEnd' && header.column.getIsResizing()
+                            ? `translateX(${table.getState().columnSizingInfo.deltaOffset}px)`
+                            : '',
+                      }}
+                    />
+                  </HeaderCellContainer>
+                ))}
+              </RowContainer>
             ))}
-            </thead>
-            <tbody>
+          </thead>
+          <tbody>
             {table.getRowModel().rows.map((row: Row<T>) => (
-                <RowContainer key={row.id} onClick={() => onRowClicked(row)}
-                              onMouseEnter={() => onFocusRow(row.id)}
-                              onMouseLeave={() => onFocusRow()}
-                              style={{...(row.getIsSelected() && { backgroundColor: selectionElementColors.selectedRow })}}
-                >
-                  {row.getVisibleCells().map((cell: Cell<T, any>) => (
-                      <CellContainer
-                          key={cell.id}
-                          style={{
-                            ...(cell.column.columnDef.minSize && {minWidth: cell.column.columnDef.minSize}),
-                            ...(cell.column.columnDef.maxSize && {maxWidth: cell.column.columnDef.maxSize}),
-                            ...(cell.column.columnDef.size !== 0 && {width: cell.column.columnDef.size}),
-                          }}>
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                      </CellContainer>
-                  ))}
-                </RowContainer>
+              <RowContainer
+                key={row.id}
+                onClick={() => onRowClicked(row)}
+                onMouseEnter={() => onFocusRow(row.id)}
+                onMouseLeave={() => onFocusRow()}
+                style={{...(row.getIsSelected() && {backgroundColor: selectionElementColors.selectedRow})}}>
+                {row.getVisibleCells().map((cell: Cell<T, any>) => (
+                  <CellContainer
+                    key={cell.id}
+                    style={{
+                      ...(cell.column.columnDef.minSize && {minWidth: cell.column.columnDef.minSize}),
+                      ...(cell.column.columnDef.maxSize && {maxWidth: cell.column.columnDef.maxSize}),
+                      ...(cell.column.columnDef.size !== 0 && {width: cell.column.columnDef.size}),
+                    }}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </CellContainer>
+                ))}
+              </RowContainer>
             ))}
-            </tbody>
-          </TableContainer>
-        </div>
-      </Container>
+          </tbody>
+        </TableContainer>
+      </div>
+      {pagination && <PaginationControls {...pagination} />}
+    </Container>
   )
 }
 

@@ -3,10 +3,7 @@ import {ButtonIcon, fontColors} from '@sphereon/ui-components.core'
 import SSIAddIcon from '../../assets/icons/SSIAddIcon'
 import SSIFilterIcon from '../../assets/icons/SSIFilterIcon'
 import SSIArrowDownIcon from '../../assets/icons/SSIArrowDownIcon'
-import {
-  SSIIconButtonContainerStyled as Container,
-  SSITextH3Styled as Caption
-} from '../../../styles'
+import {SSIIconButtonContainerStyled as Container, SSITextH3Styled as Caption} from '../../../styles'
 import MeatBallsIcon from '../../assets/icons/MeatBallsIcon'
 import DeleteIcon from '../../assets/icons/DeleteIcon'
 
@@ -21,10 +18,12 @@ type Props = {
 const SSIIconButton: FC<Props> = (props: Props): ReactElement => {
   const {caption, icon, onClick, disabled = false, iconColor = fontColors.dark} = props
 
-  return <Container onClick={onClick}>
-    {getIcon(icon, iconColor)}
-    {caption && <Caption>{caption}</Caption>}
-  </Container>
+  return (
+    <Container onClick={onClick}>
+      {getIcon(icon, iconColor)}
+      {caption && <Caption>{caption}</Caption>}
+    </Container>
+  )
 }
 
 const getIcon = (icon: ButtonIcon, color: string): JSX.Element => {
@@ -37,7 +36,7 @@ const getIcon = (icon: ButtonIcon, color: string): JSX.Element => {
       return <MeatBallsIcon color={color} />
     case ButtonIcon.DELETE:
       // FIXME we need to look at other sizes of icons
-      return <DeleteIcon color={color} width={15} height={16}/>
+      return <DeleteIcon color={color} width={15} height={16} />
     case ButtonIcon.FILTER:
       return <SSIFilterIcon color={color} />
     default:
