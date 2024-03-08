@@ -1,6 +1,5 @@
 import React, {FC, ReactElement, SyntheticEvent, useState} from 'react';
-import {Autocomplete, AutocompleteRenderInputParams, TextField} from '@mui/material';
-import {AutocompleteValue} from '@mui/base/useAutocomplete/useAutocomplete';
+import {Autocomplete, AutocompleteRenderInputParams, AutocompleteValue, TextField} from '@mui/material';
 import {materialCells} from '@jsonforms/material-renderers';
 import {JsonForms} from '@jsonforms/react';
 import {Localization} from '@sphereon/ui-components.core';

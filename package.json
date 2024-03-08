@@ -44,8 +44,7 @@
     "overrides": {
       "@types/react-native": "0.71.3",
       "@types/react": "~18.0.28",
-      "typescript": "4.9.5",
-      "@mui/system": "5.15.12"
+      "typescript": "4.9.5"
     }
   }
 }
