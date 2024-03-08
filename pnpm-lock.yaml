@@ -8,6 +8,7 @@ overrides:
   '@types/react-native': 0.71.3
   '@types/react': ~18.0.28
   typescript: 4.9.5
+  '@mui/system': 5.15.12
 
 importers:
 
@@ -99,7 +100,7 @@ importers:
         specifier: ^5.14.12
         version: 5.14.12(@types/styled-components@5.1.15)(styled-components@5.3.3)
       '@mui/system':
-        specifier: ^5.15.12
+        specifier: 5.15.12
         version: 5.15.12(@emotion/react@11.11.4)(@emotion/styled@11.11.0)(@types/react@18.0.28)(react@18.2.0)
       '@mui/x-date-pickers':
         specifier: ^6.19.5
