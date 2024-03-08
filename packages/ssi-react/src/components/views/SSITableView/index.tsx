@@ -47,7 +47,7 @@ type Props<T> = {
   enableResultCount?: boolean
   columnResizeMode?: ColumnResizeMode
   actions?: Array<Button>
-  paginationControlsProps?: PaginationControlsProps
+  pagination?: PaginationControlsProps
 }
 
 // TODO implement correct checkboxes from design
@@ -112,7 +112,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     actions = [],
     onRowClick,
     onDelete,
-    paginationControlsProps,
+    pagination,
   } = props
   const [rowSelection, setRowSelection] = React.useState<Array<TableRowSelection>>([])
   const [focusedRowId, setFocusedRowId] = React.useState<string | undefined>()
@@ -288,7 +288,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
           </tbody>
         </TableContainer>
       </div>
-      {paginationControlsProps && <PaginationControls {...paginationControlsProps} />}
+      {pagination && <PaginationControls {...pagination} />}
     </Container>
   )
 }
