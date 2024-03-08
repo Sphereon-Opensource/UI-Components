@@ -1,6 +1,7 @@
 import {CSSProperties, FC, ReactElement} from 'react'
 import {PaginationProps, Stack} from '@mui/material'
 import {GoToInputContainer, GoToInputStyled, PaginationContainerStyled, PaginationStyled} from '../../../../styles'
+import {Localization} from '@sphereon/ui-components.core'
 
 export type PaginationControlsProps = PaginationProps & {
   goToInputId?: string
@@ -15,7 +16,9 @@ const PaginationControls: FC<PaginationControlsProps> = (props: PaginationContro
         <PaginationStyled {...props} />
       </Stack>
       <GoToInputContainer>
-        Go to <GoToInputStyled id={goToInputId} onKeyDown={onKeyDown} /> page
+        {Localization.translate('table_pagination_input_caption_go_to')}
+        <GoToInputStyled id={goToInputId} onKeyDown={onKeyDown} />
+        {Localization.translate('table_pagination_input_caption_page')}
       </GoToInputContainer>
     </PaginationContainerStyled>
   )
