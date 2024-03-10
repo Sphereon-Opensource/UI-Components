@@ -31,7 +31,7 @@ const ComboBox = <T extends ComboBoxOption>(props: Props<T>): ReactElement => {
         isValidNewOption: () => true,
         onCreateOption: inlineOption.onCreate,
         createOptionPosition: 'last' as const,
-        formatCreateLabel: (inputValue: string) => `${inlineOption.caption}`,
+        formatCreateLabel: () => `${inlineOption.caption}`,
       }
     : {}
   return (

@@ -7,10 +7,11 @@ import {
     rankWith,
 } from '@jsonforms/core';
 import { withJsonFormsControlProps } from '@jsonforms/react';
-import { base64toFile, Localization } from '@sphereon/ui-components.core';
+import { Localization, parseBase64Uri } from '@sphereon/ui-components.core';
 import DragAndDropBox from '../../DragAndDropBox';
 import PersonPlaceholder from '../../../assets/placeholders/PersonPlaceholder';
 import FileSelection from '../../FileSelection';
+import {base64UriToFile} from '../../../../utils';
 import {
     PassportPhotoControlContainerStyled as Container,
     PassportPhotoControlDragAndDropBoxContainerStyled as DragAndDropBoxContainer,
@@ -27,17 +28,16 @@ type Props = {
 
 const PassportPhotoControl: FC<Props> = (props: Props): ReactElement => {
     const { data, handleChange, path } = props
-    const [image, setImage] = useState<PassportPhoto | undefined>(data && { file: base64toFile(data.base64, data.fileName, data.mimeType), base64: data.base64 });
+    const [image, setImage] = useState<PassportPhoto | undefined>(data && { file: base64UriToFile(data.base64Uri, data.fileName, data.mimeType), base64Uri: data.base64Uri });
 
     const onAddImage = async (file: File): Promise<void> => {
         const reader = new FileReader();
         reader.onload = (): void => {
             const result = reader.result;
             if (typeof result === 'string') {
-                const base64Parts = result.split(';base64,');
-                const mimeType = base64Parts[0].replace("data:", "")
-                setImage({ file, base64: result })
-                handleChange(path, { fileName: file.name, mimeType, base64: result})
+                const parsedBase64Uri = parseBase64Uri(result)
+                setImage({ file, base64Uri: result })
+                handleChange(path, { fileName: file.name, mimeType: parsedBase64Uri.mimeType, base64Uri: result})
             }
         };
         reader.readAsDataURL(file);
@@ -58,7 +58,7 @@ const PassportPhotoControl: FC<Props> = (props: Props): ReactElement => {
                 />
                 <PassportPhotoContainer>
                     { image
-                        ? <PassportPhotoImage src={image.base64} alt={Localization.translate('passport_photo_alt')} />
+                        ? <PassportPhotoImage src={image.base64Uri} alt={Localization.translate('passport_photo_alt')} />
                         : <PersonPlaceholder/>
                     }
                 </PassportPhotoContainer>

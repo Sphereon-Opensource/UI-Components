@@ -1,4 +1,5 @@
 import React, {CSSProperties, ReactElement} from 'react'
+import { getFileSizeDisplay, Localization } from '@sphereon/ui-components.core';
 import ComboBox from '../ComboBox';
 import DocumentIcon from '../../assets/icons/DocumentIcon';
 import ImageIcon from '../../assets/icons/ImageIcon';
@@ -17,6 +18,7 @@ import {
 } from '../../../styles';
 import {AssetFilePermission, FileSelectionFieldType, ValueSelection} from '../../../types'
 
+
 type Props = {
   file: File
   fileType?: FileSelectionFieldType
@@ -27,21 +29,9 @@ type Props = {
 }
 
 const filePermissions: Array<ValueSelection> = [
-  {label: 'Public', value: 'public'},
-  {label: 'Private', value: 'private'},
+  {label: Localization.translate('file_permission_public_label'), value: 'public'},
+  {label: Localization.translate('file_permission_private_label'), value: 'private'},
 ]
-
-const getFileSizeDisplay = (bytes: number): string => {
-  if (bytes < 1024) {
-    return `${bytes} B`
-  } else if (bytes <= 1024 * 1024) {
-    return `${(bytes / 1024).toFixed(1)} KB`
-  } else if (bytes <= 1024 * 1024 * 1024) {
-    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
-  } else {
-    return `${(bytes / (1024 * 1024 * 1024)).toFixed(1)} GB`
-  }
-}
 
 const FileSelection: React.FC<Props> = (props: Props): ReactElement => {
   const {

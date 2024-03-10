@@ -22,6 +22,7 @@ const DragAndDropBox: React.FC<Props> = (props: Props): ReactElement => {
   }
 
   const onChange = async (event: ChangeEvent<HTMLInputElement>): Promise<void> => {
+    // FIXME add support for multiple files
     const file: File | undefined = event.target.files?.[0]
     if (file) {
       await onChangeFile(file)

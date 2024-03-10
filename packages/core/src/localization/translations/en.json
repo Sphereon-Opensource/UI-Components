@@ -28,5 +28,7 @@
   "credential_issuance_wizard_credential_type_label": "Credential type",
   "credential_issuance_wizard_evidence_title": "Evidence",
   "credential_issuance_wizard_evidence_optional_title": "(optional)",
-  "credential_issuance_wizard_evidence_description": "Optionally, you can upload one or more documents or files that you want to attach to this credential."
+  "credential_issuance_wizard_evidence_description": "Optionally, you can upload one or more documents or files that you want to attach to this credential.",
+  "file_permission_public_label": "Public",
+  "file_permission_private_label": "Private"
 }

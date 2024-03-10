@@ -16,11 +16,11 @@ export enum FileSelectionFieldType {
 
 export type PassportPhoto = {
     file: File
-    base64: string
+    base64Uri: string
 }
 
 export type PassportPhotoControlData = {
     fileName: string
     mimeType: string
-    base64: string
+    base64Uri: string
 }

@@ -42,6 +42,7 @@ import {Row} from '@tanstack/react-table'
 export * from './styles/fonts'
 export * from './types'
 export * from './helpers'
+export * from './utils'
 
 export {
   SSICredentialCardView,
