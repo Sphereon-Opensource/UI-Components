@@ -13,6 +13,8 @@ export const getStatusTranslation = (status: LabelStatus): string => {
       return Localization.translate('credential_status_expired')
     case CredentialStatus.REVOKED:
       return Localization.translate('credential_status_revoked')
+    case CredentialStatus.DRAFT:
+      return Localization.translate('credential_status_draft')
     case WorkflowStatus.APPROVED:
       return Localization.translate('workflow_status_approved')
     case WorkflowStatus.ARCHIVED:
