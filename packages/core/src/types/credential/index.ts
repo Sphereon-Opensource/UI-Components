@@ -2,6 +2,7 @@ export enum CredentialStatus {
   VALID = 'valid',
   EXPIRED = 'expired',
   REVOKED = 'revoked',
+  DRAFT = 'draft'
 }
 
 export enum IssuerStatus {
@@ -10,12 +11,12 @@ export enum IssuerStatus {
 }
 
 export enum WorkflowStatus {
-  NEW = 'New',
-  APPROVED = 'Approved',
-  DECLINED = 'Declined',
-  PENDING = 'Pending',
-  DONE = 'Done',
-  ARCHIVED = 'Archived',
+  NEW = 'new',
+  APPROVED = 'approved',
+  DECLINED = 'declined',
+  PENDING = 'pending',
+  DONE = 'done',
+  ARCHIVED = 'archived',
 }
 
 export type LabelStatus = CredentialStatus | IssuerStatus | WorkflowStatus

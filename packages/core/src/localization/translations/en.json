@@ -6,6 +6,7 @@
   "credential_status_valid": "Valid",
   "credential_status_expired": "Expired",
   "credential_status_revoked": "Revoked",
+  "credential_status_draft": "Draft",
   "workflow_status_approved": "Approved",
   "workflow_status_archived": "Archived",
   "workflow_status_declined": "Declined",
