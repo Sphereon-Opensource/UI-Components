@@ -17,6 +17,18 @@
   "action_show_caption": "Show:",
   "result_count_label": "Showing {{count}} from {{maxCount}} results",
   "action_delete_label": "Delete",
-  "table_pagination_input_caption_go_to": "Go to ",
-  "table_pagination_input_caption_page": " page"
+  "table_pagination_input_caption_go_to": "Go to",
+  "table_pagination_input_caption_page": "page",
+  "drag_and_drop_upload_image_caption": "Click or drag to upload an image",
+  "drag_and_drop_upload_evidence_caption": "Click or drag to upload an evidence document",
+  "credential_attach_image_description": "This image will be attached to the credential.",
+  "credential_attach_evidence_description": "This document will be refer to the credential.",
+  "passport_photo_alt": "Passport Photo",
+  "credential_issuance_wizard_title": "Issue credential",
+  "credential_issuance_wizard_credential_type_label": "Credential type",
+  "credential_issuance_wizard_evidence_title": "Evidence",
+  "credential_issuance_wizard_evidence_optional_title": "(optional)",
+  "credential_issuance_wizard_evidence_description": "Optionally, you can upload one or more documents or files that you want to attach to this credential.",
+  "file_permission_public_label": "Public",
+  "file_permission_private_label": "Private"
 }

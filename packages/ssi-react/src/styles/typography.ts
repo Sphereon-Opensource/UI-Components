@@ -74,8 +74,13 @@ export const fontStyle: Record<FontStyle, CSSProperties> = {
     fontWeight: fontWeight[400],
     lineHeight: lineHeight[100],
   },
+  h7Regular: {
+    fontFamily: 'Poppins',
+    fontSize: fontSize[400],
+    fontWeight: fontWeight[400],
+    lineHeight: lineHeight[400],
+  },
   h7SemiBold: {
-    // TODO fix the order
     fontFamily: 'Poppins',
     fontSize: fontSize[400],
     fontWeight: fontWeight[600],

@@ -73,6 +73,14 @@ export const SSITextH6Css = css`
   height: auto;
 `
 
+export const SSITextH7RegularCss = css`
+  font-family: ${fontStyle.h7Regular.fontFamily};
+  font-size: ${fontStyle.h7Regular.fontSize}px;
+  font-weight: ${fontStyle.h7Regular.fontWeight};
+  line-height: ${fontStyle.h7Regular.lineHeight}px;
+  height: auto;
+`
+
 export const gradient100TextCss = css`
   background: ${gradientColors['100']};
   background-clip: text;

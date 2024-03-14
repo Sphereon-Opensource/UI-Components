@@ -25,6 +25,15 @@ import SSIActivityIndicator from './components/indicators/SSIActivityIndicator'
 import SSIHoverText from './components/fields/SSIHoverText'
 import ProgressStepIndicator from './components/indicators/ProgressStepIndicator'
 import StepMarker from './components/assets/markers/StepMarker'
+import DocumentIcon from './components/assets/icons/DocumentIcon'
+import CrossIcon from './components/assets/icons/CrossIcon'
+import ImageIcon from './components/assets/icons/ImageIcon'
+import FileSelection from './components/fields/FileSelection'
+import ComboBox from './components/fields/ComboBox'
+import DragAndDropBox from './components/fields/DragAndDropBox'
+import PersonPlaceholder from './components/assets/placeholders/PersonPlaceholder'
+import PassportPhotoControl, { passportPhotoControlTester } from './components/fields/JSONForms/PassportPhotoControl'
+import CredentialIssuanceWizardView from './components/views/CredentialIssuanceWizardView'
 import PaginationControls from './components/views/SSITableView/PaginationControls'
 import PaginationControlsProps from './components/views/SSITableView/PaginationControls'
 
@@ -33,6 +42,7 @@ import {Row} from '@tanstack/react-table'
 export * from './styles/fonts'
 export * from './types'
 export * from './helpers'
+export * from './utils'
 
 export {
   SSICredentialCardView,
@@ -65,4 +75,14 @@ export {
   PaginationControls,
   PaginationControlsProps,
   Row,
+  DocumentIcon,
+  CrossIcon,
+  ImageIcon,
+  FileSelection,
+  ComboBox,
+  DragAndDropBox,
+  PersonPlaceholder,
+  PassportPhotoControl,
+  passportPhotoControlTester,
+  CredentialIssuanceWizardView,
 }

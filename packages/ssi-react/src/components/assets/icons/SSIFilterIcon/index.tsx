@@ -9,7 +9,7 @@ type Props = {
 }
 
 const SSIFilterIcon: FC<Props> = (props: Props): ReactElement => {
-  const {height = 16, width = 18, color = fontColors.dark, style} = props
+  const {height = 16, width = 18, color = fontColors.dark, style = {}} = props
 
   return (
     <div style={{...style, width, height, display: 'flex'}}>

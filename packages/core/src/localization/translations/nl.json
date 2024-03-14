@@ -17,6 +17,19 @@
   "action_show_caption": "Toon:",
   "result_count_label": "Toon {{count}} van {{maxCount}} resultaten",
   "action_delete_label": "Verwijder",
-  "table_pagination_input_caption_go_to": "Ga naar ",
-  "table_pagination_input_caption_page": " pagina"
+  "table_pagination_input_caption_go_to": "Ga naar",
+  "table_pagination_input_caption_page": "pagina",
+  "action_delete_label": "Verwijder",
+  "drag_and_drop_upload_image_caption": "Klik of sleep om een afbeelding te uploaden",
+  "drag_and_drop_upload_evidence_caption": "Klik of sleep om een bewijsdocument te uploaden",
+  "credential_attach_image_description": "Deze afbeelding wordt aan de credential toegevoegd.",
+  "credential_attach_evidence_description": "Dit document verwijst naar de credential.",
+  "passport_photo_alt": "Pasfoto",
+  "credential_issuance_wizard_title": "Credential uitgeven",
+  "credential_issuance_wizard_credential_type_label": "Credential type",
+  "credential_issuance_wizard_evidence_title": "Bewijs",
+  "credential_issuance_wizard_evidence_optional_title": "(optioneel)",
+  "credential_issuance_wizard_evidence_description": "Optioneel kunt u een of meer documenten of bestanden uploaden die u aan deze credential wilt toevoegen.",
+  "file_permission_public_label": "Openbaar",
+  "file_permission_private_label": "Privaat"
 }

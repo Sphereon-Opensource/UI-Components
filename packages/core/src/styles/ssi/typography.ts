@@ -58,5 +58,6 @@ export type FontStyle =
   | 'h5Regular'
   | 'h5SemiBold'
   | 'h6'
+  | 'h7Regular'
   | 'h7SemiBold'
   | 'Regular64'

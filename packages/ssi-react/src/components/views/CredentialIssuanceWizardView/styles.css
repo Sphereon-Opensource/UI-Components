@@ -1,0 +1,87 @@
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #7276F7 !important;
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #7276F7 !important;
+}
+
+.MuiInputLabel-root.MuiFormLabel-root {
+    color: #303030 !important;
+}
+
+.MuiTypography-h6 {
+    color: #303030 !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+}
+
+.MuiGrid-container {
+    padding: 0 !important;
+}
+
+.MuiFormControl-root {
+    padding: 0 !important;
+
+}
+
+.MuiCardContent-root {
+    padding: 0 !important;
+}
+
+.MuiCardHeader-root {
+    padding: 0 !important;
+}
+
+.MuiPaper-root {
+    margin: 0 !important;
+    background-color: #FBFBFB !important;
+    box-shadow: none !important;
+}
+
+.MuiCardHeader-title {
+    font-family: Poppins, serif !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    margin-bottom: 10px !important;
+    color: #303030 !important;
+}
+
+.MuiGrid-root.MuiGrid-container.MuiGrid-direction-xs-column {
+    gap: 24px !important;
+}
+
+.MuiFormLabel-root.MuiInputLabel-root {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.MuiInputBase-root.MuiOutlinedInput-root .MuiInputBase-input {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.MuiInputBase-root.MuiOutlinedInput-root {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.MuiTypography-root {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.MuiDateCalendar-root {
+    background-color: #ECE6F0 !important;
+    border-radius: 16px !important;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPickersPopper-paper {
+    border-radius: 16px !important;
+}
+
+.MuiButtonBase-root.MuiPickersDay-root.Mui-selected.MuiPickersDay-dayWithMargin {
+    background-color: #7276F7 !important;
+}
+
+.MuiButtonBase-root.MuiPickersDay-root.MuiPickersDay-dayWithMargin:hover {
+    background-color: #B7B8D9 !important;
+}
