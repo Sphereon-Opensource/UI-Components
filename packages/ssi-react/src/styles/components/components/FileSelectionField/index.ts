@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {borderColors, fontColors} from '@sphereon/ui-components.core'
-import {SSITextH2SemiBoldDarkStyled, SSITextH7RegularStyled} from '../../../fonts';
+import {SSITextH2SemiBoldDarkStyled, SSITextH7RegularStyled} from '../../../fonts/index.js'
 
 export const FileSelectionFieldContainerStyled = styled.div`
   display: flex;

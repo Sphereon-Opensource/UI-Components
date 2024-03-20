@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import {SSITextH4LightStyled} from '../../../fonts'
-import {SSIFlexDirectionRowViewStyled} from '../../containers'
+import {SSITextH4LightStyled} from '../../../fonts/index.js'
+import {SSIFlexDirectionRowViewStyled} from '../../containers/index.js'
 
 export const SSICheckboxContainerStyled = styled(SSIFlexDirectionRowViewStyled)`
   align-items: center;

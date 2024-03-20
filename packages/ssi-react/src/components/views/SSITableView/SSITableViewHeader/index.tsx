@@ -1,8 +1,8 @@
 import {ButtonIcon, Localization, statusColors} from '@sphereon/ui-components.core'
 import React, {ReactElement} from 'react'
-import SSIIconButton from '../../../buttons/SSIIconButton'
-import DropDownList from '../../../lists/DropDownList'
-import SSIPrimaryButton from '../../../buttons/SSIPrimaryButton'
+import SSIIconButton from '../../../buttons/SSIIconButton/index.js'
+import DropDownList from '../../../lists/DropDownList/index.js'
+import SSIPrimaryButton from '../../../buttons/SSIPrimaryButton/index.js'
 import {
   SSITableViewHeaderActionsContainerStyled as ActionsContainer,
   SSITableViewHeaderContainerStyled as Container,
@@ -11,8 +11,8 @@ import {
   SSITableViewHeaderFilterContainerStyled as FilterContainer,
   SSITableViewHeaderShowOptionContainerStyled as ShowOptionContainer,
   TableViewHeaderStaticActionsContainerStyled as StaticActionsContainer,
-} from '../../../../styles'
-import {Button} from '../../../../types'
+} from '../../../../styles/index.js'
+import {Button} from '../../../../types/index.js'
 
 type Props = {
   enableFiltering?: boolean

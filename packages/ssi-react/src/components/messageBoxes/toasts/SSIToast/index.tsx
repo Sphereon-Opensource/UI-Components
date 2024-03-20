@@ -1,7 +1,7 @@
 import React, {FC, ReactElement} from 'react'
 import {ToastType} from '@sphereon/ui-components.core'
-import SSICheckmarkBadge from '../../../assets/badges/SSICheckmarkBadge'
-import SSIExclamationMarkBadge from '../../../assets/badges/SSIExclamationMarkBadge'
+import SSICheckmarkBadge from '../../../assets/badges/SSICheckmarkBadge/index.js'
+import SSIExclamationMarkBadge from '../../../assets/badges/SSIExclamationMarkBadge/index.js'
 import {
   SSIToastContainerStyled as Container,
   SSIToastMessageTextStyled as MessageText,
@@ -9,7 +9,7 @@ import {
   SSITextH2SemiBoldStyled as TitleText,
   SSIToastTitleContainerStyled as TitleContainer,
   SSIToastBadgeContainerStyled as ToastBadgeContainer,
-} from '../../../../styles'
+} from '../../../../styles/index.js'
 
 type Props = {
   type: ToastType

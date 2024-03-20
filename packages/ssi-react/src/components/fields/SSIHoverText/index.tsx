@@ -3,7 +3,7 @@ import {
   SSIHoverTextTextStyled as Text,
   SSIHoverTextContainerStyled as Container,
   SSIHoverTextTextHoverStyled as TextHover,
-} from '../../../styles/components'
+} from '../../../styles/components/index.js'
 
 export type Props = {
   text: string
