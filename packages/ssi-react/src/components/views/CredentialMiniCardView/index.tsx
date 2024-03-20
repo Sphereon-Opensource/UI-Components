@@ -15,7 +15,13 @@ export type CredentialMiniCardViewProps = {
 }
 
 const CredentialMiniCardView: FC<CredentialMiniCardViewProps> = (props: CredentialMiniCardViewProps): ReactElement => {
-  const {backgroundColor = credentialCardColors.default, backgroundImage, logo, logoColor, style} = props
+  const {
+      backgroundColor = credentialCardColors.default,
+      backgroundImage,
+      logo,
+      logoColor,
+      style
+  } = props
 
   return (
     <Container style={{...style, backgroundColor}}>

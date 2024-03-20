@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {SSIFlexDirectionRowViewStyled} from '../../containers'
-import {SSITextH2DarkStyled} from '../../../fonts'
+import {SSITextH2Styled} from '../../../fonts'
 import {backgroundColors} from '@sphereon/ui-components.core'
 
 export const DropDownListItemContainerStyled = styled(SSIFlexDirectionRowViewStyled)`
@@ -10,7 +10,7 @@ export const DropDownListItemContainerStyled = styled(SSIFlexDirectionRowViewSty
   padding: 10px 16px;
 `
 
-export const DropDownListItemCaptionContainerStyled = styled(SSITextH2DarkStyled)`
+export const DropDownListItemCaptionContainerStyled = styled(SSITextH2Styled)`
   flex: 1;
   margin-right: 8px;
 `

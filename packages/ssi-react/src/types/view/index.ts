@@ -5,7 +5,7 @@ export type CredentialFormInput = Pick<JsonFormsCore, 'data' | 'errors'>
 
 export type CredentialFormData = {
     data?: any
-    errors?: ErrorObject[];
+    errors?: ErrorObject[]
     evidence: Array<File>
 }
 

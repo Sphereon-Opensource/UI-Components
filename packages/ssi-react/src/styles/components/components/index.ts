@@ -24,4 +24,4 @@ export * from './DragAndDropBox'
 export * from './PassportPhotoControl'
 export * from './CredentialIssuanceWizardView'
 export * from './Pagination'
-
+export * from './CredentialViewItem'
