@@ -68,8 +68,7 @@ const ComboBox = <T extends ComboBoxOption>(props: Props<T>): ReactElement => {
         }),
         menu: (provided: CSSObjectWithLabel) => ({
           ...provided,
-          maxWidth: 455,
-          zIndex: 999, // Ensuring the dropdown menu has a higher z-index
+          maxWidth: 455
         }),
         option: (provided: CSSObjectWithLabel, state) => ({
           ...provided,

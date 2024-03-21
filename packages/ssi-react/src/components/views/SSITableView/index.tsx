@@ -106,7 +106,7 @@ const getCellFormatting = (type: TableCellType, value: any, row: Row<any>, optio
     case TableCellType.COMBOBOX: {
       const { defaultValue, onChange, selectOptions = [] } = (options as ComboboxCellOptions) ?? {}
       return <ComboBox<ValueSelection>
-          defaultValue={defaultValue} // TODO use value?
+          defaultValue={defaultValue}
           value={value}
           onChange={onChange}
           options={selectOptions}
