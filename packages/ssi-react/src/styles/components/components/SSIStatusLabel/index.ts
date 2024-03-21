@@ -7,6 +7,7 @@ export const SSIStatusLabelContainerStyled = styled(SSIFlexDirectionRowViewStyle
   border-radius: 9px;
   border: 1px solid #000;
   width: fit-content;
+  height: fit-content;
 `
 
 export const SSIStatusLabelStatusCaptionStyled = styled(SSITextH5LightStyled)`

@@ -8,7 +8,7 @@ type Props = {
 }
 
 const SSIAddIcon: FC<Props> = (props: Props): ReactElement => {
-  const {size = 16, color = fontColors.dark, style = {}} = props
+  const {size = 16, color = fontColors.dark, style} = props
 
   return (
     <div style={{...style, width: size, height: size, display: 'flex'}}>

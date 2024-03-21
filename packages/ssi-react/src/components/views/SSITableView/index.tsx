@@ -29,12 +29,25 @@ import {
   SSITableViewHeaderCellContainerStyled as HeaderCellContainer,
   SSITableViewLabelCellStyled as LabelCell,
   SSITableViewResultCountCaptionStyled as ResultCountCaption,
+  SSITableViewHeaderRowContainerStyled as HeaderRowContainer,
   SSITableViewRowContainerStyled as RowContainer,
   SSITableViewTableContainerStyled as TableContainer,
   TableViewRowSelectionCheckboxContainerStyled as RowSelectionCheckboxContainer,
 } from '../../../styles'
-import {Button, ColumnHeader, TableCellOptions, TableCellType, TableRowSelection} from '../../../types'
+import {
+  ActionsCellOptions,
+  Button,
+  ColumnHeader,
+  ComboboxCellOptions,
+  TableCellType,
+  TableRowSelection,
+  TextCellOptions,
+  ValueSelection,
+  TableCellOptions
+} from '../../../types'
 import PaginationControls, {PaginationControlsProps} from './PaginationControls'
+import ComboBox from "../../fields/ComboBox";
+import CredentialDetailsView from "../CredentialViewItem";
 
 type Props<T> = {
   data: Array<T>
@@ -42,6 +55,7 @@ type Props<T> = {
   onRowClick?: (data: Row<T>) => Promise<void>
   onDelete?: (rows: Array<T>) => Promise<void>
   enableRowSelection?: boolean
+  enableRowHover?: boolean
   enableFiltering?: boolean
   enableMostRecent?: boolean
   enableResultCount?: boolean
@@ -63,10 +77,10 @@ function IndeterminateCheckbox({indeterminate, className = '', ...rest}: {indete
   return <input type="checkbox" ref={ref} className={className + ' cursor-pointer'} {...rest} />
 }
 
-const getCellFormatting = (type: TableCellType, value: any, row: Row<any>, opts?: TableCellOptions): ReactElement => {
+const getCellFormatting = (type: TableCellType, value: any, row: Row<any>, options?: TableCellOptions): ReactElement => { // FIXME start giving value a type
   switch (type) {
     case TableCellType.TEXT:
-      const {truncationLength, enableHover = false} = opts ?? {}
+      const { truncationLength, enableHover = false } = (options as TextCellOptions) ?? {}
       return <SSIHoverText text={value} truncationLength={truncationLength} enableHover={enableHover} />
     case TableCellType.LABEL: {
       const labels = Array.isArray(value) ? value.map((label: LabelType) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
@@ -78,13 +92,25 @@ const getCellFormatting = (type: TableCellType, value: any, row: Row<any>, opts?
     case TableCellType.CREDENTIAL_CARD: {
       return <CredentialMiniCardView {...value} />
     }
-    case TableCellType.ACTION_GROUP: {
-      const {actionGroup = {actions: []}} = opts ?? {actions: []} // TODO shortcut this, just look for actions and use default in deconstruction
-      const actions = actionGroup.actions.map((action: Button) => ({
+    case TableCellType.CREDENTIAL_DETAILS: {
+      return <CredentialDetailsView {...value} style={{maxWidth: 261}} />
+    }
+    case TableCellType.ACTIONS: {
+      const { actions = [] } = (options as ActionsCellOptions) ?? {}
+      const buttons = actions.map((action: Button) => ({
         ...action,
         onClick: () => action.onClick(row),
       }))
-      return <DropDownList icon={ButtonIcon.MEATBALLS} buttons={actions} showBorder={true} />
+      return <DropDownList icon={ButtonIcon.MEATBALLS} buttons={buttons} showBorder={true} />
+    }
+    case TableCellType.COMBOBOX: {
+      const { defaultValue, onChange, selectOptions = [] } = (options as ComboboxCellOptions) ?? {}
+      return <ComboBox<ValueSelection>
+          defaultValue={defaultValue}
+          value={value}
+          onChange={onChange}
+          options={selectOptions}
+      />
     }
     default:
       return <div />
@@ -105,6 +131,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     columns,
     data,
     enableRowSelection = false,
+    enableRowHover = true,
     enableFiltering = false,
     enableMostRecent = false,
     enableResultCount = false,
@@ -113,6 +140,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     onRowClick,
     onDelete,
     pagination,
+
   } = props
   const [rowSelection, setRowSelection] = React.useState<Array<TableRowSelection>>([])
   const [focusedRowId, setFocusedRowId] = React.useState<string | undefined>()
@@ -123,10 +151,10 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     columnHelper.accessor(header.accessor, {
       id: header.accessor as string,
       header: header.label,
-      cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue(), info.row, header.opts),
-      minSize: header.opts?.columnMinWidth,
-      maxSize: header.opts?.columnMaxWidth,
-      size: header.opts?.columnWidth,
+      cell: (info: CellContext<T, any>) => getCellFormatting(header.type, info.getValue(), info.row, header.columnOptions?.cellOptions),
+      minSize: header.columnOptions?.columnMinWidth,
+      maxSize: header.columnOptions?.columnMaxWidth,
+      size: header.columnOptions?.columnWidth,
     }),
   )
   if (enableRowSelection) {
@@ -237,7 +265,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
         <TableContainer>
           <thead>
             {table.getHeaderGroups().map((headerGroup: HeaderGroup<T>) => (
-              <RowContainer key={headerGroup.id}>
+              <HeaderRowContainer key={headerGroup.id}>
                 {headerGroup.headers.map((header: Header<T, any>) => (
                   <HeaderCellContainer
                     key={header.id}
@@ -261,13 +289,14 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
                     />
                   </HeaderCellContainer>
                 ))}
-              </RowContainer>
+              </HeaderRowContainer>
             ))}
           </thead>
           <tbody>
             {table.getRowModel().rows.map((row: Row<T>) => (
               <RowContainer
                 key={row.id}
+                enableHover={enableRowHover}
                 onClick={() => onRowClicked(row)}
                 onMouseEnter={() => onFocusRow(row.id)}
                 onMouseLeave={() => onFocusRow()}

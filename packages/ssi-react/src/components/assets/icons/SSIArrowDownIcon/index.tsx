@@ -9,7 +9,7 @@ type Props = {
 }
 
 const SSIArrowDownIcon: FC<Props> = (props: Props): ReactElement => {
-  const {width = 16, height = 8, color = fontColors.dark, style = {}} = props
+  const {width = 16, height = 8, color = fontColors.dark, style} = props
 
   return (
     <div style={{...style, width, height, display: 'flex'}}>

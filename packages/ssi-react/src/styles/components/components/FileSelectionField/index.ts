@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {borderColors, fontColors} from '@sphereon/ui-components.core'
-import {SSITextH2SemiBoldDarkStyled, SSITextH7RegularStyled} from '../../../fonts';
+import {SSITextH2SemiBoldStyled, SSITextH7RegularStyled} from '../../../fonts';
 
 export const FileSelectionFieldContainerStyled = styled.div`
   display: flex;
@@ -57,7 +57,7 @@ export const FileSelectionFieldFileDataContainerStyled = styled.div`
   flex-direction: column;
 `
 
-export const FileSelectionFieldFileNameCaptionStyled = styled(SSITextH2SemiBoldDarkStyled)`
+export const FileSelectionFieldFileNameCaptionStyled = styled(SSITextH2SemiBoldStyled)`
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 350px;
