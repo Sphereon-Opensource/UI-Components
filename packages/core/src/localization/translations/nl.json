@@ -32,5 +32,7 @@
   "credential_issuance_wizard_evidence_description": "Optioneel kunt u een of meer documenten of bestanden uploaden die u aan deze credential wilt toevoegen.",
   "file_permission_public_label": "Openbaar",
   "file_permission_private_label": "Privaat",
-  "credentials_view_item_expires_on": "Vervalt op"
+  "credentials_view_item_expires_on": "Vervalt op",
+  "json_data_view_attribute_column_label": "Attribuut",
+  "json_data_view_value_column_label": "Waarde"
 }
