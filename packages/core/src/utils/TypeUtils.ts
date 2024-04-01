@@ -9,7 +9,7 @@ export const isBoolean = (value: unknown): boolean => {
     }
 }
 
-export const parseToBoolean = (value: unknown): boolean | null => { // TODO check what happens which wrong values
+export const parseToBoolean = (value: unknown): boolean | null => {
     if (typeof value === 'boolean') {
         return value
     } else if (typeof value === 'string') {
