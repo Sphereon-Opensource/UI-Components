@@ -18,8 +18,6 @@ export const parseToBoolean = (value: unknown): boolean | null => {
             return true
         } else if (lowercaseValue === 'false') {
             return false
-        } else {
-            return null
         }
     }
 
