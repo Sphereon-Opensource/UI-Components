@@ -37,6 +37,7 @@ import CredentialIssuanceWizardView from './components/views/CredentialIssuanceW
 import PaginationControls from './components/views/SSITableView/PaginationControls'
 import PaginationControlsProps from './components/views/SSITableView/PaginationControls'
 import CredentialViewItem from './components/views/CredentialViewItem'
+import JSONDataView from './components/views/JSONDataView'
 
 import {Row} from '@tanstack/react-table'
 
@@ -86,5 +87,6 @@ export {
   PassportPhotoControl,
   passportPhotoControlTester,
   CredentialIssuanceWizardView,
-  CredentialViewItem
+  CredentialViewItem,
+  JSONDataView
 }

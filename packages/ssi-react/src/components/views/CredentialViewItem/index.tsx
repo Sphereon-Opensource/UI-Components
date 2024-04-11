@@ -1,8 +1,15 @@
 import {CSSProperties, FC, ReactElement} from 'react'
-import {CredentialStatus, Localization, toLocalDateString, toLocalDateTimeString} from '@sphereon/ui-components.core'
+import {
+    CredentialStatus,
+    Localization,
+    toLocalDateString,
+    toLocalDateTimeString
+} from '@sphereon/ui-components.core'
 import SSIStatusLabel from '../../labels/SSIStatusLabel'
+import CredentialMiniCardView, {CredentialMiniCardViewProps} from '../CredentialMiniCardView';
 import {
     CredentialViewItemContainerStyled as Container,
+    CredentialViewItemDetailsContainerStyled as DetailsContainer,
     SSIFlexDirectionRowViewStyled as ContentRowContainer,
     CredentialViewItemTitleCaptionStyled as TitleCaption,
     SSITextH4Styled as IssuerCaption,
@@ -18,6 +25,8 @@ type Props = {
     issueDate: number
     expirationDate?: number
     showTime?: boolean
+    showCard?: boolean
+    credentialBranding?: CredentialMiniCardViewProps
     style?: CSSProperties
 }
 
@@ -27,6 +36,8 @@ const CredentialViewItem: FC<Props> = (props: Props): ReactElement => {
         credentialTitle,
         issuerName,
         showTime = false,
+        showCard = true,
+        credentialBranding,
         style
     } = props
 
@@ -40,19 +51,24 @@ const CredentialViewItem: FC<Props> = (props: Props): ReactElement => {
 
     return (
         <Container style={{...style}}>
-            <ContentRowContainer>
-                <div>
-                    <TitleCaption>{credentialTitle}</TitleCaption>
-                    <IssuerCaption>{issuerName}</IssuerCaption>
-                </div>
-                <StatusContainer>
-                    <SSIStatusLabel status={credentialStatus}/>
-                </StatusContainer>
-            </ContentRowContainer>
-            <ContentRowContainer>
-                <IssueDateCaption>{issueDate}</IssueDateCaption>
-                <ExpirationDateCaption>{expirationDate}</ExpirationDateCaption>
-            </ContentRowContainer>
+            { showCard &&
+                <CredentialMiniCardView {...credentialBranding}/>
+            }
+            <DetailsContainer>
+                <ContentRowContainer>
+                    <div>
+                        <TitleCaption>{credentialTitle}</TitleCaption>
+                        <IssuerCaption>{issuerName}</IssuerCaption>
+                    </div>
+                    <StatusContainer>
+                        <SSIStatusLabel status={credentialStatus}/>
+                    </StatusContainer>
+                </ContentRowContainer>
+                <ContentRowContainer>
+                    <IssueDateCaption>{issueDate}</IssueDateCaption>
+                    <ExpirationDateCaption>{expirationDate}</ExpirationDateCaption>
+                </ContentRowContainer>
+            </DetailsContainer>
         </Container>
     )
 }
