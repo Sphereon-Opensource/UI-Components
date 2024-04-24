@@ -38,6 +38,8 @@ import PaginationControls from './components/views/SSITableView/PaginationContro
 import PaginationControlsProps from './components/views/SSITableView/PaginationControls'
 import CredentialViewItem from './components/views/CredentialViewItem'
 import JSONDataView from './components/views/JSONDataView'
+import TextInputField from './components/fields/TextInputField'
+import WarningImage from './components/assets/images/WarningImage'
 
 import {Row} from '@tanstack/react-table'
 
@@ -88,5 +90,7 @@ export {
   passportPhotoControlTester,
   CredentialIssuanceWizardView,
   CredentialViewItem,
-  JSONDataView
+  JSONDataView,
+  TextInputField,
+  WarningImage
 }

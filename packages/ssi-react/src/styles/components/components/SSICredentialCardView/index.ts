@@ -9,6 +9,7 @@ export const SSICredentialCardViewContainerStyled = styled(SSIRoundedContainerSt
   display: flex;
   flex-direction: column;
   user-select: none;
+  flex-shrink: 0;
 `
 
 export const SSICredentialCardViewBackgroundImageStyled = styled(SSIFlexDirectionColumnViewStyled)`

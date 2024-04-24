@@ -63,13 +63,14 @@ export const gradientsColors: Record<HighLightGradient, GradientProperties> = {
   },
 }
 
-type Border = 'dark' | 'light' | 'lightGrey' | 'darkGrey'
+type Border = 'dark' | 'light' | 'lightGrey' | 'darkGrey' | 'purple'
 
 export const borderColors: Record<Border, string> = {
   dark: '#404D7A',
   light: '#E3E3E3',
   lightGrey: '#ACACAC',
   darkGrey: '#303030',
+  purple: '#7276F7'
 }
 
 type Profile = 100 | 200 | 300 | 400 | 500
