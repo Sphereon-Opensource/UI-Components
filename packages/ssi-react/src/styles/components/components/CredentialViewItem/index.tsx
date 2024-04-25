@@ -1,12 +1,19 @@
 import styled from 'styled-components'
-import {SSIFlexDirectionColumnViewStyled} from '../../containers'
+import {SSIFlexDirectionColumnViewStyled, SSIFlexDirectionRowViewStyled} from '../../containers'
 import {SSITextH3Styled, SSITextH5Styled} from '../../../fonts'
 
 // TODO use this version as the template for the port for the mobile version
-
 // FIXME when we port the mobile version look at how to handle the padding as this is in conflict with the web version
-export const CredentialViewItemContainerStyled = styled(SSIFlexDirectionColumnViewStyled)`
+export const CredentialViewItemContainerStyled = styled(SSIFlexDirectionRowViewStyled)`
+  padding: 18px 24px;
+  gap: 8px;
+  align-items: center;
+`
+
+// FIXME using min-width, but we should use max-width with flex, but for some reason it does not want to fill the available space that way
+export const CredentialViewItemDetailsContainerStyled = styled(SSIFlexDirectionColumnViewStyled)`
   gap: 6px;
+  min-width: 245px;
 `
 
 export const CredentialViewItemTitleCaptionStyled = styled(SSITextH3Styled)`

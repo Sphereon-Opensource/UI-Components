@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {SSITextH3Styled} from '../../../fonts';
 
 export const SSITabViewHeaderContainerStyled = styled.div`
   display: flex;
@@ -9,4 +10,9 @@ export const SSITabViewHeaderContainerStyled = styled.div`
 
 export const SSITabViewHeaderTitleContainerStyled = styled.div`
   cursor: pointer;
+  display: flex;
+`
+
+export const SSITabViewHeaderTitleCaptionStyled = styled(SSITextH3Styled)`
+  margin-top: auto;
 `

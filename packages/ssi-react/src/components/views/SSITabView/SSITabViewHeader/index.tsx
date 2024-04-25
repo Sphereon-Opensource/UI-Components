@@ -3,7 +3,7 @@ import {TabNavigationState, TabViewRoute} from '@sphereon/ui-components.core'
 import {
   SSITabViewHeaderContainerStyled as Container,
   SSITabViewHeaderTitleContainerStyled as TitleContainer,
-  SSITextH3Styled as TitleCaption,
+  SSITabViewHeaderTitleCaptionStyled as TitleCaption,
 } from '../../../../styles'
 
 type Props = {
