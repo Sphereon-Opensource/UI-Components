@@ -1,6 +1,6 @@
 import React, {FC, ReactElement} from 'react'
 import {fontColors, getInitials, profileColors} from '@sphereon/ui-components.core'
-import {SSIProfileIconContainerStyled as Container, SSITextH2Styled as ProfileIconText} from '../../../../styles'
+import {SSIProfileIconContainerStyled as Container, SSITextH2Styled as ProfileIconText} from '../../../../styles/index.js'
 
 type Props = {
   fullName: string

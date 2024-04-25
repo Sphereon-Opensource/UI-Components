@@ -1,6 +1,6 @@
 import React, {CSSProperties, FC, ReactElement} from 'react'
 import {calculateAspectRatio, ImageAttributes, logoColors} from '@sphereon/ui-components.core'
-import SSIPlaceholderLogo from '../SSIPlaceholderLogo'
+import SSIPlaceholderLogo from '../SSIPlaceholderLogo/index.js'
 
 type Props = {
   logo?: ImageAttributes

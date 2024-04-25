@@ -1,7 +1,7 @@
 import React, {CSSProperties, FC, ReactElement} from 'react'
 import {ButtonIcon, fontColors, OpacityStyleEnum} from '@sphereon/ui-components.core'
-import SSIAddIcon from '../../assets/icons/SSIAddIcon'
-import {SSIPrimaryButtonContainerStyled as Container, SSITextH3LightStyled as Caption} from '../../../styles'
+import SSIAddIcon from '../../assets/icons/SSIAddIcon/index.js'
+import {SSIPrimaryButtonContainerStyled as Container, SSITextH3LightStyled as Caption} from '../../../styles/index.js'
 
 type Props = {
   caption: string

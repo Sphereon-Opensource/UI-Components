@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import {alertColors} from '@sphereon/ui-components.core'
-import {SSIFlexDirectionRowViewStyled, SSIRoundedContainerStyled} from '../../containers'
-import {SSITextH4Styled} from '../../../fonts'
+import {SSIFlexDirectionRowViewStyled, SSIRoundedContainerStyled} from '../../containers/index.js'
+import {SSITextH4Styled} from '../../../fonts/index.js'
 
 export const SSIToastContainerStyled = styled(SSIRoundedContainerStyled)`
   //TODO we need better width, use a max width and use content to scale

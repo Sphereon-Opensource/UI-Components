@@ -1,4 +1,5 @@
 /// <reference types="@mui/system" /> // Do not remove as it will trigger: error TS2742: The inferred type of 'PaginationContainerStyled' cannot be named without a reference
+/// <reference types="@emotion/styled" /> // Do not remove as it will trigger: error TS2742: The inferred type of 'PaginationContainerStyled' cannot be named without a reference
 import {styled} from '@mui/material/styles'
 import {Pagination, paginationItemClasses} from '@mui/material'
 import {backgroundColors, borderColors, elementColors, fontColors} from '@sphereon/ui-components.core'

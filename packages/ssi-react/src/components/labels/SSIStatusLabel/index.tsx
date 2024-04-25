@@ -1,12 +1,12 @@
 import React, {CSSProperties, FC, ReactElement} from 'react'
 import {CredentialStatus, IssuerStatus, LabelStatus, statusColors, getStatusTranslation} from '@sphereon/ui-components.core'
-import SSICheckmarkBadge from '../../../components/assets/badges/SSICheckmarkBadge'
-import SSIExclamationMarkBadge from '../../../components/assets/badges/SSIExclamationMarkBadge'
+import SSICheckmarkBadge from '../../../components/assets/badges/SSICheckmarkBadge/index.js'
+import SSIExclamationMarkBadge from '../../../components/assets/badges/SSIExclamationMarkBadge/index.js'
 import {
   SSIStatusLabelBadgeContainer as BadgeContainer,
   SSIStatusLabelContainerStyled as Container,
   SSIStatusLabelStatusCaptionStyled as StatusCaption,
-} from '../../../styles'
+} from '../../../styles/index.js'
 
 type Props = {
   status: LabelStatus

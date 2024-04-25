@@ -4,7 +4,7 @@ import {
   SSITabViewHeaderContainerStyled as Container,
   SSITabViewHeaderTitleContainerStyled as TitleContainer,
   SSITabViewHeaderTitleCaptionStyled as TitleCaption,
-} from '../../../../styles'
+} from '../../../../styles/index.js'
 
 type Props = {
   navigationState: TabNavigationState

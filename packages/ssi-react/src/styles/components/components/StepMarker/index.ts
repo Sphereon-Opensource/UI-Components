@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {backgroundColors, elementColors} from '@sphereon/ui-components.core'
-import {gradientColors} from '../../../colors'
+import {gradientColors} from '../../../colors.js'
 
 export const StepMarkerActiveContainerStyled = styled.div`
   width: 50px;

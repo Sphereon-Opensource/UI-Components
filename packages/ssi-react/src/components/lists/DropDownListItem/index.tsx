@@ -3,8 +3,8 @@ import {
   DropDownListItemContainerStyled as Container,
   DropDownListItemIconContainerStyled as IconContainer,
   DropDownListItemCaptionContainerStyled as ListItemCaption,
-} from '../../../styles/components'
-import DeleteIcon from '../../assets/icons/DeleteIcon'
+} from '../../../styles/components/index.js'
+import DeleteIcon from '../../assets/icons/DeleteIcon/index.js'
 import {borderColors, ButtonIcon, fontColors} from '@sphereon/ui-components.core'
 
 type Props = {

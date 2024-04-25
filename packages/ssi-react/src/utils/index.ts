@@ -1,2 +1,2 @@
-export * from './FileUtils'
-export * from './ImageUtils'
+export * from './FileUtils.js'
+export * from './ImageUtils.js'

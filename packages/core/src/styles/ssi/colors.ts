@@ -107,7 +107,7 @@ export const elementColors: Record<Element, string> = {
   purple: '#7276F7',
   100: '#F25409',
   200: '#F78854',
-  300: '#8D9099'
+  300: '#8D9099',
 }
 
 type Button = 100

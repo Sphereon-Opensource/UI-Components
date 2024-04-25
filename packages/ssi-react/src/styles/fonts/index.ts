@@ -11,7 +11,7 @@ import {
   SSITextH5Css,
   SSITextH6Css,
   SSITextH7RegularCss,
-} from '../css'
+} from '../css/index.js'
 
 export const SSITextH1Styled = styled.div`
   ${SSITextH1Css};
