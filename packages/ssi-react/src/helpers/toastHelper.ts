@@ -1,7 +1,7 @@
 import {toast} from 'react-toastify'
 import {ToastCustomProps, ToastType} from '@sphereon/ui-components.core'
-import {toastConfig} from '../@config/toasts'
-import {ToastConfigParams} from '../types'
+import {toastConfig} from '../@config/toasts/index.js'
+import {ToastConfigParams} from '../types/index.js'
 
 export const showToast = async (type: ToastType, params: ToastConfigParams<ToastCustomProps>): Promise<void> => {
   const {title, message, onClick, props} = params

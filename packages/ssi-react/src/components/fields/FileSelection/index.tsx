@@ -1,9 +1,9 @@
 import React, {CSSProperties, ReactElement} from 'react'
-import { getFileSizeDisplay, Localization } from '@sphereon/ui-components.core';
-import ComboBox from '../ComboBox';
-import DocumentIcon from '../../assets/icons/DocumentIcon';
-import ImageIcon from '../../assets/icons/ImageIcon';
-import CrossIcon from '../../assets/icons/CrossIcon';
+import {getFileSizeDisplay, Localization} from '@sphereon/ui-components.core'
+import ComboBox from '../ComboBox/index.js'
+import DocumentIcon from '../../assets/icons/DocumentIcon/index.js'
+import ImageIcon from '../../assets/icons/ImageIcon/index.js'
+import CrossIcon from '../../assets/icons/CrossIcon/index.js'
 import {
   FileSelectionFieldContainerStyled as Container,
   FileSelectionFieldContentContainerStyled as ContentContainer,
@@ -14,10 +14,9 @@ import {
   FileSelectionFieldFileDataContainerStyled as FileDataContainer,
   FileSelectionFieldFileNameCaptionStyled as FileNameCaption,
   FileSelectionFieldFileSizeCaptionStyled as FileSizeCaption,
-  FileSelectionFieldPermissionSelectionContainerStyled as PermissionSelectionContainer
-} from '../../../styles';
-import {AssetFilePermission, FileSelectionFieldType, ValueSelection} from '../../../types'
-
+  FileSelectionFieldPermissionSelectionContainerStyled as PermissionSelectionContainer,
+} from '../../../styles/index.js'
+import {AssetFilePermission, FileSelectionFieldType, ValueSelection} from '../../../types/index.js'
 
 type Props = {
   file: File
@@ -34,14 +33,7 @@ const filePermissions: Array<ValueSelection> = [
 ]
 
 const FileSelection: React.FC<Props> = (props: Props): ReactElement => {
-  const {
-    file,
-    fileType = FileSelectionFieldType.FILE,
-    permission,
-    onPermissionChange,
-    onRemove,
-    style
-  } = props
+  const {file, fileType = FileSelectionFieldType.FILE, permission, onPermissionChange, onRemove, style} = props
 
   const onChange = async (selection: ValueSelection): Promise<void> => {
     if (onPermissionChange) {
@@ -52,45 +44,43 @@ const FileSelection: React.FC<Props> = (props: Props): ReactElement => {
   return (
     <Container style={style}>
       <ContentContainer>
-        <IconContainer>
-          { getIcon(fileType) }
-        </IconContainer>
+        <IconContainer>{getIcon(fileType)}</IconContainer>
         <FileDataContainer>
           <FileNameCaption>{file.name}</FileNameCaption>
           {file.size && <FileSizeCaption>{getFileSizeDisplay(file.size)}</FileSizeCaption>}
         </FileDataContainer>
         {permission && (
-            <PermissionSelectionContainer>
-              <ComboBox<ValueSelection>
-                  style={{width: 152, marginLeft: 'auto'}}
-                  defaultValue={filePermissions.find((selection: ValueSelection): boolean => selection.value === permission)}
-                  onChange={onChange}
-                  options={filePermissions}
-              />
-            </PermissionSelectionContainer>
+          <PermissionSelectionContainer>
+            <ComboBox<ValueSelection>
+              style={{width: 152, marginLeft: 'auto'}}
+              defaultValue={filePermissions.find((selection: ValueSelection): boolean => selection.value === permission)}
+              onChange={onChange}
+              options={filePermissions}
+            />
+          </PermissionSelectionContainer>
         )}
       </ContentContainer>
-      { onRemove &&
-          <RemoveContainer>
-            <RemoveButton onClick={onRemove}>
-              <RemoveButtonCircleIcon>
-                  <CrossIcon size={10}/>
-              </RemoveButtonCircleIcon>
-            </RemoveButton>
-          </RemoveContainer>
-      }
+      {onRemove && (
+        <RemoveContainer>
+          <RemoveButton onClick={onRemove}>
+            <RemoveButtonCircleIcon>
+              <CrossIcon size={10} />
+            </RemoveButtonCircleIcon>
+          </RemoveButton>
+        </RemoveContainer>
+      )}
     </Container>
   )
 }
 
 const getIcon = (fileType: FileSelectionFieldType): ReactElement => {
-  switch(fileType) {
+  switch (fileType) {
     case FileSelectionFieldType.FILE:
-      return <DocumentIcon/>
+      return <DocumentIcon />
     case FileSelectionFieldType.IMAGE:
-      return <ImageIcon/>
+      return <ImageIcon />
     default:
-      return <div/>
+      return <div />
   }
 }
 

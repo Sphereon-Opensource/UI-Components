@@ -1,6 +1,6 @@
 import React, {FC, ReactElement} from 'react'
 import {ToastPosition} from 'react-toastify'
-import {SSIToastContainerContainerStyled as Container} from '../../../../styles'
+import {SSIToastContainerContainerStyled as Container} from '../../../../styles/index.js'
 
 type Props = {
   autoHide?: boolean

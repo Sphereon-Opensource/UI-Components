@@ -1,10 +1,10 @@
 import React, {CSSProperties, FC, ReactElement} from 'react'
 import {credentialCardColors, ImageAttributes} from '@sphereon/ui-components.core'
-import SSILogo from '../../assets/logos/SSILogo'
+import SSILogo from '../../assets/logos/SSILogo/index.js'
 import {
   SSICredentialMiniCardViewContainerStyled as Container,
   SSICredentialMiniCardViewBackgroundImageStyled as BackgroundImage,
-} from '../../../styles'
+} from '../../../styles/index.js'
 
 export type CredentialMiniCardViewProps = {
   backgroundImage?: ImageAttributes

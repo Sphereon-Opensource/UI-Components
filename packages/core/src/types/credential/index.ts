@@ -2,7 +2,7 @@ export enum CredentialStatus {
   VALID = 'valid',
   EXPIRED = 'expired',
   REVOKED = 'revoked',
-  DRAFT = 'draft'
+  DRAFT = 'draft',
 }
 
 export enum IssuerStatus {
@@ -12,6 +12,7 @@ export enum IssuerStatus {
 
 export enum WorkflowStatus {
   NEW = 'new',
+  UNKNOWN = 'unknown',
   APPROVED = 'approved',
   DECLINED = 'declined',
   PENDING = 'pending',

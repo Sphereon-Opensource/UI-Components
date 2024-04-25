@@ -1,11 +1,11 @@
 import React, {FC, MouseEventHandler, ReactElement} from 'react'
 import {ButtonIcon, fontColors} from '@sphereon/ui-components.core'
-import SSIAddIcon from '../../assets/icons/SSIAddIcon'
-import SSIFilterIcon from '../../assets/icons/SSIFilterIcon'
-import SSIArrowDownIcon from '../../assets/icons/SSIArrowDownIcon'
-import {SSIIconButtonContainerStyled as Container, SSITextH3Styled as Caption} from '../../../styles'
-import MeatBallsIcon from '../../assets/icons/MeatBallsIcon'
-import DeleteIcon from '../../assets/icons/DeleteIcon'
+import SSIAddIcon from '../../assets/icons/SSIAddIcon/index.js'
+import SSIFilterIcon from '../../assets/icons/SSIFilterIcon/index.js'
+import SSIArrowDownIcon from '../../assets/icons/SSIArrowDownIcon/index.js'
+import {SSIIconButtonContainerStyled as Container, SSITextH3Styled as Caption} from '../../../styles/index.js'
+import MeatBallsIcon from '../../assets/icons/MeatBallsIcon/index.js'
+import DeleteIcon from '../../assets/icons/DeleteIcon/index.js'
 
 type Props = {
   icon: ButtonIcon

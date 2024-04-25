@@ -1,6 +1,6 @@
 import styled, {css} from 'styled-components'
 import {backgroundColors, borderColors, fontColors} from '@sphereon/ui-components.core'
-import {SSITextH2Css, SSITextH3Css} from '../../../css'
+import {SSITextH2Css, SSITextH3Css} from '../../../css/index.js'
 
 export const SSITableViewContainerStyled = styled.div`
   display: flex;

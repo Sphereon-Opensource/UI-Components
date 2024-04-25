@@ -1,7 +1,7 @@
 import React from 'react'
 import {ToastCustomProps, ToastType} from '@sphereon/ui-components.core'
-import SSIToast from '../../components/messageBoxes/toasts/SSIToast'
-import {ToastConfigParams} from '../../types'
+import SSIToast from '../../components/messageBoxes/toasts/SSIToast/index.js'
+import {ToastConfigParams} from '../../types/index.js'
 
 export const toastConfig = {
   ssiToastSuccess: (params: ToastConfigParams<ToastCustomProps>) => {

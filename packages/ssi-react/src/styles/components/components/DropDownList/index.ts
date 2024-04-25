@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {SSIFlexDirectionRowViewStyled} from '../../containers'
+import {SSIFlexDirectionRowViewStyled} from '../../containers/index.js'
 import {backgroundColors} from '@sphereon/ui-components.core'
 
 export const DropDownListContainerStyled = styled(SSIFlexDirectionRowViewStyled)`
