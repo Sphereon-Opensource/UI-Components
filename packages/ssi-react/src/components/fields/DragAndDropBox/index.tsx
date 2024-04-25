@@ -3,7 +3,7 @@ import {
   DragAndDropBoxContainerStyled as Container,
   DragAndDropBoxHiddenInputStyled as HiddenInput,
   DragAndDropBoxCaptionContainerStyled as CaptionContainer,
-  SSITextH2DarkStyled as Caption,
+  SSITextH2Styled as Caption,
   DragAndDropBoxDescriptionStyled as Description,
 } from '../../../styles/index.js'
 

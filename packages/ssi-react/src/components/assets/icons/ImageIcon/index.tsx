@@ -9,7 +9,7 @@ type Props = {
 }
 
 const ImageIcon: FC<Props> = (props: Props): ReactElement => {
-  const {width = 38, height = 30, color = fontColors.dark, style = {}} = props
+    const {width = 38, height = 30, color = fontColors.dark, style} = props
 
   return (
     <div style={{...style, width, height, display: 'flex'}}>

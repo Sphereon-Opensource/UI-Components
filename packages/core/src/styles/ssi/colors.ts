@@ -30,6 +30,7 @@ export const statusColors: Record<LabelStatus | 'error', string> = {
   revoked: '#EE5309',
   verified: '#00C249',
   unverified: '#FF9900',
+  unknown: '#FF9900',
   error: '#D74500',
   new: '#7276F7',
   approved: '#00C249',

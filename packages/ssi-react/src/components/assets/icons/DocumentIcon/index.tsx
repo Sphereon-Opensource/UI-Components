@@ -9,7 +9,7 @@ export type Props = {
 }
 
 const DocumentIcon: FC<Props> = (props: Props): ReactElement => {
-  const {width = 28, height = 38, color = fontColors.dark, style = {}} = props
+  const {width = 28, height = 38, color = fontColors.dark, style} = props
 
   return (
     <div style={{...style, width, height, display: 'flex'}}>

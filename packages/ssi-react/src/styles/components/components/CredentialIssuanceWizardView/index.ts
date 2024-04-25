@@ -1,6 +1,6 @@
 import styledComponents from 'styled-components'
 import {backgroundColors, borderColors, SSIRoundedEdgesCss} from '@sphereon/ui-components.core'
-import {SSITextH1SemiBoldDarkStyled, SSITextH2DarkStyled, SSITextH2SemiBoldDarkStyled} from '../../../fonts/index.js'
+import {SSITextH1SemiBoldStyled, SSITextH2Styled} from '../../../fonts/index.js'
 
 export const CredentialIssuanceWizardViewContainerStyled = styledComponents.div`
   display: flex;
@@ -21,7 +21,7 @@ export const CredentialIssuanceWizardViewCredentialTypeContainerStyled = styledC
   flex-grow: 1;
 `
 
-export const CredentialIssuanceWizardViewCredentialTypeTitleStyled = styledComponents(SSITextH1SemiBoldDarkStyled)`
+export const CredentialIssuanceWizardViewCredentialTypeTitleStyled = styledComponents(SSITextH1SemiBoldStyled)`
   text-align: left;
 `
 
@@ -53,7 +53,7 @@ export const CredentialIssuanceWizardViewEvidenceTitleContainerStyled = styledCo
   gap: 4px;
 `
 
-export const CredentialIssuanceWizardViewEvidenceTitleOptionalStyled = styledComponents(SSITextH2DarkStyled)`
+export const CredentialIssuanceWizardViewEvidenceTitleOptionalStyled = styledComponents(SSITextH2Styled)`
   font-style: italic;
 `
 

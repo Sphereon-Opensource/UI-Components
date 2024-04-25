@@ -9,7 +9,7 @@ type Props = {
 }
 
 const PersonPlaceholder: FC<Props> = (props: Props): ReactElement => {
-  const {width = 79, height = 77, color = elementColors[300], style = {}} = props
+  const {width = 79, height = 77, color = elementColors[300], style} = props
 
   return (
     <div style={{...style, width, height, display: 'flex'}}>

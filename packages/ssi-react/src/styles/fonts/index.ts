@@ -14,14 +14,12 @@ import {
 } from '../css/index.js'
 
 export const SSITextH1Styled = styled.div`
-  ${SSITextH1Css}
+  ${SSITextH1Css};
+  color: ${fontColors.dark};
 `
 
 export const SSITextH1SemiBoldStyled = styled.div`
-  ${SSITextH1SemiBoldCss}
-`
-
-export const SSITextH1SemiBoldDarkStyled = styled(SSITextH1SemiBoldStyled)`
+  ${SSITextH1SemiBoldCss};
   color: ${fontColors.dark};
 `
 
@@ -30,18 +28,12 @@ export const SSITextH1SemiBoldLightStyled = styled(SSITextH1SemiBoldStyled)`
 `
 
 export const SSITextH2Styled = styled.div`
-  ${SSITextH2Css}
-`
-
-export const SSITextH2DarkStyled = styled(SSITextH2Styled)`
+  ${SSITextH2Css};
   color: ${fontColors.dark};
 `
 
 export const SSITextH2SemiBoldStyled = styled.div`
-  ${SSITextH2SemiBoldStyledCss}
-`
-
-export const SSITextH2SemiBoldDarkStyled = styled(SSITextH2SemiBoldStyled)`
+  ${SSITextH2SemiBoldStyledCss};
   color: ${fontColors.dark};
 `
 
@@ -56,19 +48,17 @@ export const SSITextH3LightStyled = styled(SSITextH3Styled)`
 `
 
 export const SSITextH4Styled = styled.div`
-  ${SSITextH4Css}
+  ${SSITextH4Css};
+  color: ${fontColors.dark};
 `
 
 export const SSITextH4SemiBoldStyled = styled.div`
-  ${SSITextH4SemiBoldCss}
+  ${SSITextH4SemiBoldCss};
+  color: ${fontColors.dark};
 `
 
 export const SSITextH4LightStyled = styled(SSITextH4Styled)`
   color: ${fontColors.light};
-`
-
-export const SSITextH4DarkStyled = styled(SSITextH4Styled)`
-  color: ${fontColors.dark};
 `
 
 export const SSITextH4SemiBoldLightStyled = styled(SSITextH4SemiBoldStyled)`
@@ -76,7 +66,8 @@ export const SSITextH4SemiBoldLightStyled = styled(SSITextH4SemiBoldStyled)`
 `
 
 export const SSITextH5Styled = styled.div`
-  ${SSITextH5Css}
+  ${SSITextH5Css};
+  color: ${fontColors.dark};
 `
 
 export const SSITextH5LightStyled = styled(SSITextH5Styled)`
@@ -84,7 +75,8 @@ export const SSITextH5LightStyled = styled(SSITextH5Styled)`
 `
 
 export const SSITextH6Styled = styled.div`
-  ${SSITextH6Css}
+  ${SSITextH6Css};
+  color: ${fontColors.dark};
 `
 
 export const SSITextH6LightStyled = styled(SSITextH6Styled)`
@@ -92,5 +84,6 @@ export const SSITextH6LightStyled = styled(SSITextH6Styled)`
 `
 
 export const SSITextH7RegularStyled = styled.div`
-  ${SSITextH7RegularCss}
+  ${SSITextH7RegularCss};
+  color: ${fontColors.dark};
 `

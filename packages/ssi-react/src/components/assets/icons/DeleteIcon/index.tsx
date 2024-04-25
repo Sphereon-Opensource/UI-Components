@@ -9,7 +9,7 @@ type Props = {
 }
 
 const DeleteIcon: FC<Props> = (props: Props): ReactElement => {
-  const {width = 20, height = 21, color = fontColors.dark, style = {}} = props
+  const {width = 20, height = 21, color = fontColors.dark, style} = props
 
   return (
     <div style={{...style, width, height, display: 'flex'}}>

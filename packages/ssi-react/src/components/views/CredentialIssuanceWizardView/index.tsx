@@ -14,9 +14,9 @@ import {
   CredentialIssuanceWizardViewEvidenceContainerStyled as EvidenceContainer,
   CredentialIssuanceWizardViewEvidenceContentContainerStyled as EvidenceContentContainer,
   CredentialIssuanceWizardViewEvidenceTitleContainerStyled as EvidenceTitleContainer,
-  SSITextH2SemiBoldDarkStyled as EvidenceTitle,
+    SSITextH2SemiBoldStyled as EvidenceTitle,
   CredentialIssuanceWizardViewEvidenceTitleOptionalStyled as EvidenceTitleOptional,
-  SSITextH2DarkStyled as EvidenceDescription,
+  SSITextH2Styled as EvidenceDescription,
   CredentialIssuanceWizardViewEvidenceFilesContainerStyled as EvidenceFilesContainer,
 } from '../../../styles/index.js'
 

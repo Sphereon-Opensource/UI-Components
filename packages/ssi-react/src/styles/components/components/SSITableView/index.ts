@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import {backgroundColors, borderColors, fontColors} from '@sphereon/ui-components.core'
 import {SSITextH2Css, SSITextH3Css} from '../../../css/index.js'
 
@@ -21,14 +21,26 @@ export const SSITableViewTableContainerStyled = styled.table`
   background-color: ${backgroundColors.lightGrey};
 `
 
-export const SSITableViewRowContainerStyled = styled.tr`
+export const SSITableViewHeaderRowContainerStyled = styled.tr`
   border-bottom: 1px solid ${borderColors.lightGrey};
   background-color: ${backgroundColors.primaryLight};
-
-  &:hover {
-    background-color: #ececec;
-  }
 `
+
+export const SSITableViewRowContainerStyled = styled.tr<{ enableHover?: boolean }>`
+  background-color: ${backgroundColors.primaryLight};
+
+  &:not(:last-child) {
+    border-bottom: 1px solid ${borderColors.lightGrey};
+  }
+  
+  ${props =>
+      props.enableHover &&
+      css`
+        &:hover {
+          background-color: #ececec; // TODO
+        }
+      `}
+`;
 
 export const SSITableViewCellContainerStyled = styled.td`
   ${SSITextH3Css};

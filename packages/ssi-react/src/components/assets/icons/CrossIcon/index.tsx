@@ -8,7 +8,7 @@ type Props = {
 }
 
 const CrossIcon: FC<Props> = (props: Props): ReactElement => {
-  const {size = 12, color = fontColors.dark, style = {}} = props
+  const {size = 12, color = fontColors.dark, style} = props
 
   return (
     <div style={{...style, width: size, height: size, display: 'flex'}}>

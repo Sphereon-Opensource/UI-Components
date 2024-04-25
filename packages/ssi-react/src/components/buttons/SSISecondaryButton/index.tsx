@@ -13,7 +13,7 @@ type Props = {
 }
 
 const SSISecondaryButton: FC<Props> = (props: Props): ReactElement => {
-  const {caption, icon, onClick, disabled = false, style = {}} = props
+  const {caption, icon, onClick, disabled = false, style} = props
 
   const getIcon = (icon: ButtonIcon, color: string): JSX.Element => {
     switch (icon) {
