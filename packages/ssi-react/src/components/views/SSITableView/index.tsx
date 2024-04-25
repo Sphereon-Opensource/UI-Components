@@ -161,12 +161,15 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     availableColumns = [
       {
         id: 'select',
+        maxSize: 50,
+        size: 50,
         header: ({table}) => (
           <IndeterminateCheckbox
             {...{
               checked: table.getIsAllRowsSelected(),
               indeterminate: table.getIsSomeRowsSelected(),
               onChange: table.getToggleAllRowsSelectedHandler(),
+              columnMaxWidth: 50
             }}
           />
         ),
@@ -179,6 +182,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
                   disabled: !row.getCanSelect(),
                   indeterminate: row.getIsSomeSelected(),
                   onChange: row.getToggleSelectedHandler(),
+                  columnMaxWidth: 50
                 }}
               />
             )}

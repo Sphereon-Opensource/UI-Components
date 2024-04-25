@@ -12,6 +12,7 @@ export enum IssuerStatus {
 
 export enum WorkflowStatus {
   NEW = 'new',
+  UNKNOWN = 'unknown',
   APPROVED = 'approved',
   DECLINED = 'declined',
   PENDING = 'pending',
