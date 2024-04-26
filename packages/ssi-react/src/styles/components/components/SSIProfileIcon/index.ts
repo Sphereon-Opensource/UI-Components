@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 
 export const SSIProfileIconContainerStyled = styled.div`
   width: 38px;
