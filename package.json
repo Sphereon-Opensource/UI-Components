@@ -1,7 +1,7 @@
 {
   "name": "@sphereon/ui-components.workspace",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "Sphereon UI Components (Workspace)",
   "repository": "git@github.com:Sphereon-Opensource/UI-Components.git",
   "author": "Sphereon <dev@sphereon.com>",
