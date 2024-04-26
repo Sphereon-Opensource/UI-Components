@@ -1,7 +1,6 @@
 import {ButtonIcon, Localization, statusColors} from '@sphereon/ui-components.core'
 import React, {ReactElement} from 'react'
 import SSIIconButton from '../../../buttons/SSIIconButton/index.js'
-import DropDownList from '../../../lists/DropDownList/index.js'
 import SSIPrimaryButton from '../../../buttons/SSIPrimaryButton/index.js'
 import {
   SSITableViewHeaderActionsContainerStyled as ActionsContainer,

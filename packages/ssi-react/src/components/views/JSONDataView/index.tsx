@@ -10,9 +10,9 @@ import {
     Localization,
     parseToBoolean
 } from '@sphereon/ui-components.core';
-import SSICheckmarkBadge from '../../assets/badges/SSICheckmarkBadge';
-import SSIExclamationMarkBadge from '../../assets/badges/SSIExclamationMarkBadge';
-import {getImageSize} from '../../../utils';
+import SSICheckmarkBadge from '../../assets/badges/SSICheckmarkBadge/index.js';
+import SSIExclamationMarkBadge from '../../assets/badges/SSIExclamationMarkBadge/index.js';
+import {getImageSize} from '../../../utils/index.js';
 import {
     JSONDataViewContainerStyled as Container,
     JSONDataViewHeaderContainerStyled as HeaderContainer,
@@ -21,7 +21,7 @@ import {
     JSONDataViewDataImageValueStyled as ImageValue,
     JSONDataViewDataTextValueStyled as TextValue,
     JSONDataViewDataLabelStyled as Label
-} from '../../../styles';
+} from '../../../styles/index.js';
 
 // This component is still an early WIP. But for now it was mentioned not to focus on it too much
 

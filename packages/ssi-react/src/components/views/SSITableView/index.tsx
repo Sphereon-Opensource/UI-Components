@@ -46,8 +46,8 @@ import {
   TableCellOptions
 } from '../../../types/index.js'
 import PaginationControls, {PaginationControlsProps} from './PaginationControls/index.js'
-import ComboBox from "../../fields/ComboBox";
-import CredentialDetailsView from "../CredentialViewItem";
+import ComboBox from "../../fields/ComboBox/index.js";
+import CredentialDetailsView from "../CredentialViewItem/index.js";
 
 type Props<T> = {
   data: Array<T>

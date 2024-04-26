@@ -5,8 +5,8 @@ import {
     toLocalDateString,
     toLocalDateTimeString
 } from '@sphereon/ui-components.core'
-import SSIStatusLabel from '../../labels/SSIStatusLabel'
-import CredentialMiniCardView, {CredentialMiniCardViewProps} from '../CredentialMiniCardView';
+import SSIStatusLabel from '../../labels/SSIStatusLabel/index.js'
+import CredentialMiniCardView, {CredentialMiniCardViewProps} from '../CredentialMiniCardView/index.js';
 import {
     CredentialViewItemContainerStyled as Container,
     CredentialViewItemDetailsContainerStyled as DetailsContainer,
@@ -16,7 +16,7 @@ import {
     CredentialViewItemStatusContainerStyled as StatusContainer,
     SSITextH5Styled as IssueDateCaption,
     CredentialViewItemExpirationDateCaptionStyled as ExpirationDateCaption,
-} from '../../../styles';
+} from '../../../styles/index.js';
 
 type Props = {
     credentialTitle: string

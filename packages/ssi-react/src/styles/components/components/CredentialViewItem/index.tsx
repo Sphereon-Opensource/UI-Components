@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import {SSIFlexDirectionColumnViewStyled, SSIFlexDirectionRowViewStyled} from '../../containers'
-import {SSITextH3Styled, SSITextH5Styled} from '../../../fonts'
+import {SSIFlexDirectionColumnViewStyled, SSIFlexDirectionRowViewStyled} from '../../containers/index.js'
+import {SSITextH3Styled, SSITextH5Styled} from '../../../fonts/index.js'
 
 // TODO use this version as the template for the port for the mobile version
 // FIXME when we port the mobile version look at how to handle the padding as this is in conflict with the web version
