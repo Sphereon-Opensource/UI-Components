@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import {SSIRoundedContainerStyled} from '../../containers/index.js'
-import {gradientColors} from '../../../colors.js'
+import {SSIRoundedContainerStyled} from '../../containers'
+import {gradientColors} from '../../../colors'
 
 export const SSIPrimaryButtonContainerStyled = styled(SSIRoundedContainerStyled)`
   background: ${gradientColors['100']};

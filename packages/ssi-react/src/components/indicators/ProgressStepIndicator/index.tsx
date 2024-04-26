@@ -1,7 +1,7 @@
 import React, {CSSProperties, FC, ReactElement} from 'react'
 import {elementColors, fontColors} from '@sphereon/ui-components.core'
-import StepMarker from '../../assets/markers/StepMarker/index.js'
-import {gradientColors} from '../../../styles/colors.js'
+import StepMarker from '../../assets/markers/StepMarker'
+import {gradientColors} from '../../../styles/colors'
 import {
   ProgressStepIndicatorContainerStyled as Container,
   ProgressStepIndicatorContentGridContainerStyled as GridContainer,
@@ -11,8 +11,8 @@ import {
   ProgressStepIndicatorTitleTextStyled as TitleText,
   ProgressStepIndicatorDescriptionTextStyled as DescriptionText,
   ProgressStepIndicatorSpacerLineCellStyled as SpacerLineCell,
-} from '../../../styles/index.js'
-import {ProgressIndicatorStep, StepStatus} from '../../../types/index.js'
+} from '../../../styles'
+import {ProgressIndicatorStep, StepStatus} from '../../../types'
 
 type Props = {
   steps: Array<ProgressIndicatorStep>

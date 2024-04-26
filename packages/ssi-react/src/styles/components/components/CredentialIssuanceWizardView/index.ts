@@ -1,8 +1,8 @@
-import styledComponents from 'styled-components'
-import {backgroundColors, borderColors, SSIRoundedEdgesCss} from '@sphereon/ui-components.core'
-import {SSITextH1SemiBoldStyled, SSITextH2Styled} from '../../../fonts/index.js'
+import styled from 'styled-components'
+import {backgroundColors, borderColors, SSIRoundedEdgesCss} from "@sphereon/ui-components.core";
+import {SSITextH1SemiBoldStyled, SSITextH2Styled} from "../../../fonts";
 
-export const CredentialIssuanceWizardViewContainerStyled = styledComponents.div`
+export const CredentialIssuanceWizardViewContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 42px;
@@ -10,7 +10,7 @@ export const CredentialIssuanceWizardViewContainerStyled = styledComponents.div`
   height: fit-content;
 `
 
-export const CredentialIssuanceWizardViewCredentialTypeContainerStyled = styledComponents.div`
+export const CredentialIssuanceWizardViewCredentialTypeContainerStyled = styled.div`
   border: 1px solid ${borderColors.lightGrey};
   ${SSIRoundedEdgesCss};
   background-color: ${backgroundColors.primaryLight};
@@ -21,11 +21,11 @@ export const CredentialIssuanceWizardViewCredentialTypeContainerStyled = styledC
   flex-grow: 1;
 `
 
-export const CredentialIssuanceWizardViewCredentialTypeTitleStyled = styledComponents(SSITextH1SemiBoldStyled)`
+export const CredentialIssuanceWizardViewCredentialTypeTitleStyled = styled(SSITextH1SemiBoldStyled)`
   text-align: left;
 `
 
-export const CredentialIssuanceWizardViewFormContainerStyled = styledComponents.div`
+export const CredentialIssuanceWizardViewFormContainerStyled = styled.div`
   flex-grow: 1;
   border: 1px solid ${borderColors.lightGrey};
   background-color: ${backgroundColors.primaryLight};
@@ -33,7 +33,7 @@ export const CredentialIssuanceWizardViewFormContainerStyled = styledComponents.
   padding: 24px;
 `
 
-export const CredentialIssuanceWizardViewEvidenceContainerStyled = styledComponents.div`
+export const CredentialIssuanceWizardViewEvidenceContainerStyled = styled.div`
   flex-grow: 1;
   border: 1px solid ${borderColors.lightGrey};
   background-color: ${backgroundColors.primaryLight};
@@ -41,23 +41,23 @@ export const CredentialIssuanceWizardViewEvidenceContainerStyled = styledCompone
   padding: 24px;
 `
 
-export const CredentialIssuanceWizardViewEvidenceContentContainerStyled = styledComponents.div`
+export const CredentialIssuanceWizardViewEvidenceContentContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
 `
 
-export const CredentialIssuanceWizardViewEvidenceTitleContainerStyled = styledComponents.div`
-  display: flex;
+export const CredentialIssuanceWizardViewEvidenceTitleContainerStyled = styled.div`
+  display: flex; 
   flex-direction: row;
   gap: 4px;
 `
 
-export const CredentialIssuanceWizardViewEvidenceTitleOptionalStyled = styledComponents(SSITextH2Styled)`
+export const CredentialIssuanceWizardViewEvidenceTitleOptionalStyled = styled(SSITextH2Styled)`
   font-style: italic;
 `
 
-export const CredentialIssuanceWizardViewEvidenceFilesContainerStyled = styledComponents.div`
+export const CredentialIssuanceWizardViewEvidenceFilesContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;

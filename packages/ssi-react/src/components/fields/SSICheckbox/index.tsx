@@ -5,7 +5,7 @@ import {
   SSICheckboxLabelContainerStyled as LabelCaption,
   SSICheckboxSelectedContainerStyled as SelectedContainer,
   SSICheckboxUnselectedContainerStyled as UnselectedContainer,
-} from '../../../styles/components/index.js'
+} from '../../../styles/components'
 
 export interface IProps {
   onValueChange?: (isChecked: boolean) => Promise<void>

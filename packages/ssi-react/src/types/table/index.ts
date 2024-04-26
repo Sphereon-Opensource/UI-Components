@@ -1,6 +1,6 @@
 import {AccessorFn, DeepKeys} from '@tanstack/react-table'
-import {Button} from '../button/index.js'
-import {ValueSelection} from '../field/index.js';
+import {Button} from '../button'
+import {ValueSelection} from '../field';
 
 export enum TableCellType {
   TEXT = 'text',

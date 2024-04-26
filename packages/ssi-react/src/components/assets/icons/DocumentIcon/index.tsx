@@ -1,5 +1,5 @@
 import React, {CSSProperties, FC, ReactElement} from 'react'
-import {fontColors} from '@sphereon/ui-components.core'
+import {fontColors} from '@sphereon/ui-components.core';
 
 export type Props = {
   width?: number

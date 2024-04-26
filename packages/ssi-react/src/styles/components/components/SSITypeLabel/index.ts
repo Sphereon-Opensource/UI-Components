@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {SSIRoundedContainerStyled} from '../../containers/index.js'
+import {SSIRoundedContainerStyled} from '../../containers'
 import {fontColors} from '@sphereon/ui-components.core'
 
 export const SSITypeLabelContainerStyled = styled(SSIRoundedContainerStyled)`

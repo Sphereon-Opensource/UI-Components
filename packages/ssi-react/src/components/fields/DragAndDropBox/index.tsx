@@ -4,8 +4,8 @@ import {
   DragAndDropBoxHiddenInputStyled as HiddenInput,
   DragAndDropBoxCaptionContainerStyled as CaptionContainer,
   SSITextH2Styled as Caption,
-  DragAndDropBoxDescriptionStyled as Description,
-} from '../../../styles/index.js'
+  DragAndDropBoxDescriptionStyled as Description
+} from '../../../styles';
 
 type Props = {
   caption: string
@@ -45,8 +45,14 @@ const DragAndDropBox: React.FC<Props> = (props: Props): ReactElement => {
   }
 
   return (
-    <Container onClick={onSelect} onDrop={onDrop} onDragOver={onDragOver}>
-      <HiddenInput ref={inputFile} type="file" onChange={onChange} />
+    <Container onClick={onSelect}
+               onDrop={onDrop}
+               onDragOver={onDragOver}
+    >
+      <HiddenInput ref={inputFile}
+                   type='file'
+                   onChange={onChange}
+      />
       <CaptionContainer>
         <Caption>{caption}</Caption>
         <Description>{description}</Description>

@@ -29,18 +29,18 @@
   "dependencies": {
     "i18n-js": "^3.8.0",
     "lodash.memoize": "^4.1.2",
-    "styled-components": "^5.3.11"
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@types/i18n-js": "^3.8.4",
     "@types/lodash.memoize": "^4.1.7",
     "@types/node": "^20.4.0",
-    "@types/react": "~18.2.67",
-    "@types/styled-components": "^5.1.34",
+    "@types/react": "~18.0.14",
+    "@types/styled-components": "^5.1.15",
     "react": "18.2.0",
-    "typescript": "5.4.2"
+    "typescript": "4.9.5"
   },
   "peerDependencies": {
-    "react": ">= 18"
+    "react": ">= 16.8.0"
   }
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import {SSIFlexDirectionColumnViewStyled, SSIFlexDirectionRowViewStyled, SSIRoundedContainerStyled} from '../../containers/index.js'
-import {SSITextH4SemiBoldLightStyled, SSITextH5LightStyled} from '../../../fonts/index.js'
+import {SSIFlexDirectionColumnViewStyled, SSIFlexDirectionRowViewStyled, SSIRoundedContainerStyled} from '../../containers'
+import {SSITextH4SemiBoldLightStyled, SSITextH5LightStyled} from '../../../fonts'
 
 export const SSICredentialCardViewContainerStyled = styled(SSIRoundedContainerStyled)`
   width: 327px;

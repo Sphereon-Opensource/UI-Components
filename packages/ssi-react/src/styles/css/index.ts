@@ -1,6 +1,6 @@
 import {css} from 'styled-components'
-import {fontStyle} from '../typography.js'
-import {gradientColors} from '../colors.js'
+import {fontStyle} from '../typography'
+import {gradientColors} from '../colors'
 
 export const SSITextH1Css = css`
   font-family: ${fontStyle.h1Regular.fontFamily};
