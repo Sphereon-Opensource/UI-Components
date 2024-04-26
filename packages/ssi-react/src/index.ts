@@ -88,5 +88,5 @@ export {
   passportPhotoControlTester,
   CredentialIssuanceWizardView,
   CredentialViewItem,
-  JSONDataView
+  JSONDataView,
 }

@@ -23,14 +23,14 @@ export const CredentialViewItemTitleCaptionStyled = styled(SSITextH3Styled)`
   overflow: hidden;
   word-break: break-all;
   text-overflow: ellipsis;
-`;
+`
 
 export const CredentialViewItemStatusContainerStyled = styled.div`
   margin-top: 3px;
   margin-left: auto;
   padding-left: 9px;
-`;
+`
 
 export const CredentialViewItemExpirationDateCaptionStyled = styled(SSITextH5Styled)`
   margin-left: auto;
-`;
+`

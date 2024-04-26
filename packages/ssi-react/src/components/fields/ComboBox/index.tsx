@@ -25,14 +25,7 @@ type InlineOption = {
 }
 
 const ComboBox = <T extends ComboBoxOption>(props: Props<T>): ReactElement => {
-  const {
-      onChange,
-      noOptionsMessage,
-      placeholder,
-      defaultValue,
-      inlineOption,
-      options = []
-  } = props
+  const {onChange, noOptionsMessage, placeholder, defaultValue, inlineOption, options = []} = props
   const [value, setValue] = React.useState<T | undefined>(props.value)
 
   const creatableProps = inlineOption
@@ -46,8 +39,8 @@ const ComboBox = <T extends ComboBoxOption>(props: Props<T>): ReactElement => {
     : {}
 
   const onValueChange = async (newValue: any): Promise<void> => {
-      setValue(newValue)
-      await onChange?.(newValue)
+    setValue(newValue)
+    await onChange?.(newValue)
   }
 
   return (
@@ -68,7 +61,7 @@ const ComboBox = <T extends ComboBoxOption>(props: Props<T>): ReactElement => {
         }),
         menu: (provided: CSSObjectWithLabel) => ({
           ...provided,
-          maxWidth: 455
+          maxWidth: 455,
         }),
         option: (provided: CSSObjectWithLabel, state) => ({
           ...provided,

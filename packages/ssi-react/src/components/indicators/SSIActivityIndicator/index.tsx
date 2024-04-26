@@ -1,8 +1,7 @@
 import React, {FC} from 'react'
 
 import {elementColors} from '@sphereon/ui-components.core'
-// @ts-ignore
-import {Oval} from "react-loader-spinner";
+import {Oval} from 'react-loader-spinner'
 
 interface Props {
   size?: string | number
