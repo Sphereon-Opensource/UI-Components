@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 import {fontColors} from '@sphereon/ui-components.core'
 import {
   SSITextH1Css,

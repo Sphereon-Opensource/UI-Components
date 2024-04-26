@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 import {backgroundColors, borderColors, fontColors, SSIRoundedEdgesCss} from '@sphereon/ui-components.core'
 import {SSITextH2SemiBoldStyledCss, SSITextH5Css, SSITextH7SemiBoldCss} from '../../../css/index.js'
 

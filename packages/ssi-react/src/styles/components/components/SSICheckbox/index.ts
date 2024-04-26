@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 import {SSITextH4LightStyled} from '../../../fonts/index.js'
 import {SSIFlexDirectionRowViewStyled} from '../../containers/index.js'
 

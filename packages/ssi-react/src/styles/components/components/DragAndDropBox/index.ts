@@ -1,5 +1,5 @@
 import {backgroundColors, borderColors, fontColors} from '@sphereon/ui-components.core'
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 import {SSITextH7RegularStyled} from '../../../fonts/index.js'
 
 export const DragAndDropBoxContainerStyled = styled.div`

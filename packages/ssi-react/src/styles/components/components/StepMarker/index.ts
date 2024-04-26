@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 import {backgroundColors, elementColors} from '@sphereon/ui-components.core'
 import {gradientColors} from '../../../colors.js'
 

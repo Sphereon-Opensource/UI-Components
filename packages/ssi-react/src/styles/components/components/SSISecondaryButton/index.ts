@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 import {SSIRoundedContainerStyled} from '../../containers/index.js'
 import {SSITextH3Styled} from '../../../fonts/index.js'
 import {gradient100TextCss} from '../../../css/index.js'

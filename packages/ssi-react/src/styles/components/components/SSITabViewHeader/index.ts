@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 import {SSITextH3Styled} from '../../../fonts/index.js'
 
 export const SSITabViewHeaderContainerStyled = styled.div`

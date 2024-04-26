@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 import {SSIRoundedContainerStyled} from '../../containers/index.js'
 import {gradientColors} from '../../../colors.js'
 

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 
 export const SSIIconButtonContainerStyled = styled.div`
   gap: 8px;

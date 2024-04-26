@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 import {alertColors} from '@sphereon/ui-components.core'
 import {SSIFlexDirectionRowViewStyled, SSIRoundedContainerStyled} from '../../containers/index.js'
 import {SSITextH4Styled} from '../../../fonts/index.js'

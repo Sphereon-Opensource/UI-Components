@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 import {backgroundColors, borderColors} from '@sphereon/ui-components.core'
 
 export const PassportPhotoControlContainerStyled = styled.div`

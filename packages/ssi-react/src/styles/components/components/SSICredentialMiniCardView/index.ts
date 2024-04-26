@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 import {SSIFlexDirectionColumnViewStyled} from '../../containers/index.js'
 
 export const SSICredentialMiniCardViewContainerStyled = styled.div`

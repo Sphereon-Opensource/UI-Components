@@ -1,6 +1,10 @@
 import React, {FC} from 'react'
 
 import {elementColors} from '@sphereon/ui-components.core'
+/**
+ * SyntaxError: Named export 'Oval' not found. The requested module 'react-loader-spinner' is a CommonJS module, which may not support all module.exports as named exports.
+ * CommonJS modules can always be imported via the default export, for example using:
+ */
 import pkg from 'react-loader-spinner';
 const { Oval } = pkg;
 

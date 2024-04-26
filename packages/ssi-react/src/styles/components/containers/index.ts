@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 import {SSIRoundedEdgesCss} from '@sphereon/ui-components.core'
 
 export const SSIFlexDirectionRowViewStyled = styled.div`
