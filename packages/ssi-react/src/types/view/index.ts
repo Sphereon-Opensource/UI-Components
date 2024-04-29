@@ -13,4 +13,5 @@ export type CredentialFormSelectionType = {
     label: string
     schema?: JsonSchema
     uiSchema?: UISchemaElement
+    credentialType: Array<string>
 }
