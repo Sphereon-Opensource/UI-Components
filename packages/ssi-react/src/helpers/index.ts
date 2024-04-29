@@ -1,1 +1,1 @@
-export * from './toastHelper.js'
+export * from './toastHelper'

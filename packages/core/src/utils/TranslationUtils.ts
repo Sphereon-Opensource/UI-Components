@@ -27,7 +27,6 @@ export const getStatusTranslation = (status: LabelStatus): string => {
       return Localization.translate('workflow_status_new')
     case WorkflowStatus.PENDING:
       return Localization.translate('workflow_status_pending')
-    case WorkflowStatus.UNKNOWN:
     default:
       return Localization.translate('status_missing')
   }

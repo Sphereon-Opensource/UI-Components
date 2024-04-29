@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import {SSITextH4LightStyled} from '../../../fonts/index.js'
-import {SSIFlexDirectionRowViewStyled} from '../../containers/index.js'
+import {SSITextH2Styled} from '../../../fonts'
+import {SSIFlexDirectionRowViewStyled} from '../../containers'
 
 export const SSICheckboxContainerStyled = styled(SSIFlexDirectionRowViewStyled)`
   align-items: center;
@@ -24,7 +24,7 @@ export const SSICheckboxSelectedContainerStyled = styled.div`
 `
 
 // TODO this might be a solution for more text wrapping issues
-export const SSICheckboxLabelContainerStyled = styled(SSITextH4LightStyled)`
+export const SSICheckboxLabelContainerStyled = styled(SSITextH2Styled)`
   display: flex;
   flex-wrap: wrap;
 `

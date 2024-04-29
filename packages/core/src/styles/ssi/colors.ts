@@ -30,7 +30,6 @@ export const statusColors: Record<LabelStatus | 'error', string> = {
   revoked: '#EE5309',
   verified: '#00C249',
   unverified: '#FF9900',
-  unknown: '#FF9900',
   error: '#D74500',
   new: '#7276F7',
   approved: '#00C249',
@@ -64,13 +63,14 @@ export const gradientsColors: Record<HighLightGradient, GradientProperties> = {
   },
 }
 
-type Border = 'dark' | 'light' | 'lightGrey' | 'darkGrey'
+type Border = 'dark' | 'light' | 'lightGrey' | 'darkGrey' | 'purple'
 
 export const borderColors: Record<Border, string> = {
   dark: '#404D7A',
   light: '#E3E3E3',
   lightGrey: '#ACACAC',
   darkGrey: '#303030',
+  purple: '#7276F7'
 }
 
 type Profile = 100 | 200 | 300 | 400 | 500
@@ -107,7 +107,7 @@ export const elementColors: Record<Element, string> = {
   purple: '#7276F7',
   100: '#F25409',
   200: '#F78854',
-  300: '#8D9099',
+  300: '#8D9099'
 }
 
 type Button = 100

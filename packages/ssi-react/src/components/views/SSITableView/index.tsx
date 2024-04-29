@@ -17,12 +17,12 @@ import {
   Updater,
 } from '@tanstack/react-table'
 import {ButtonIcon, LabelStatus, LabelType, Localization, selectionElementColors} from '@sphereon/ui-components.core'
-import SSITableViewHeader from './SSITableViewHeader/index.js'
-import SSITypeLabel from '../../labels/SSITypeLabel/index.js'
-import SSIHoverText from '../../fields/SSIHoverText/index.js'
-import SSIStatusLabel from '../../labels/SSIStatusLabel/index.js'
-import CredentialMiniCardView from '../CredentialMiniCardView/index.js'
-import DropDownList from '../../lists/DropDownList/index.js'
+import SSITableViewHeader from './SSITableViewHeader'
+import SSITypeLabel from '../../labels/SSITypeLabel'
+import SSIHoverText from '../../fields/SSIHoverText'
+import SSIStatusLabel from '../../labels/SSIStatusLabel'
+import CredentialMiniCardView from '../CredentialMiniCardView'
+import DropDownList from '../../lists/DropDownList'
 import {
   SSITableViewCellContainerStyled as CellContainer,
   SSITableViewContainerStyled as Container,
@@ -33,7 +33,7 @@ import {
   SSITableViewRowContainerStyled as RowContainer,
   SSITableViewTableContainerStyled as TableContainer,
   TableViewRowSelectionCheckboxContainerStyled as RowSelectionCheckboxContainer,
-} from '../../../styles/index.js'
+} from '../../../styles'
 import {
   ActionsCellOptions,
   Button,
@@ -44,8 +44,8 @@ import {
   TextCellOptions,
   ValueSelection,
   TableCellOptions
-} from '../../../types/index.js'
-import PaginationControls, {PaginationControlsProps} from './PaginationControls/index.js'
+} from '../../../types'
+import PaginationControls, {PaginationControlsProps} from './PaginationControls'
 import ComboBox from "../../fields/ComboBox";
 import CredentialDetailsView from "../CredentialViewItem";
 
@@ -161,15 +161,12 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     availableColumns = [
       {
         id: 'select',
-        maxSize: 50,
-        size: 50,
         header: ({table}) => (
           <IndeterminateCheckbox
             {...{
               checked: table.getIsAllRowsSelected(),
               indeterminate: table.getIsSomeRowsSelected(),
               onChange: table.getToggleAllRowsSelectedHandler(),
-              columnMaxWidth: 50
             }}
           />
         ),
@@ -182,7 +179,6 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
                   disabled: !row.getCanSelect(),
                   indeterminate: row.getIsSomeSelected(),
                   onChange: row.getToggleSelectedHandler(),
-                  columnMaxWidth: 50
                 }}
               />
             )}
