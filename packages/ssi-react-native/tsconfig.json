@@ -8,7 +8,7 @@
     "module": "esnext",
     "lib": ["esnext"],
     "jsx": "react-native",
-    "moduleResolution": "bundler"
+    "moduleResolution": "nodenext"
   },
   "references": [
     {

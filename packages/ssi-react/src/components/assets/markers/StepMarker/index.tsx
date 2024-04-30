@@ -5,8 +5,8 @@ import {
   StepMarkerGradientContainerStyled as GradientContainer,
   SSITextH1SemiBoldLightStyled as StepNumberText,
   StepMarkerInactiveContainerStyled as InactiveContainer,
-} from '../../../../styles/index.js'
-import {StepStatus} from '../../../../types/index.js'
+} from '../../../../styles'
+import {StepStatus} from '../../../../types'
 
 type Props = {
   stepNumber: number

@@ -38,7 +38,8 @@ import PaginationControls from './components/views/SSITableView/PaginationContro
 import PaginationControlsProps from './components/views/SSITableView/PaginationControls/index.js'
 import CredentialViewItem from './components/views/CredentialViewItem/index.js'
 import JSONDataView from './components/views/JSONDataView/index.js'
-
+import TextInputField from './components/fields/TextInputField/index.js'
+import WarningImage from './components/assets/images/WarningImage/index.js'
 import {Row} from '@tanstack/react-table'
 
 export * from './styles/fonts/index.js'
@@ -89,4 +90,6 @@ export {
   CredentialIssuanceWizardView,
   CredentialViewItem,
   JSONDataView,
+  TextInputField,
+  WarningImage
 }

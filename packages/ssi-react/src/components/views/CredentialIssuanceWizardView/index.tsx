@@ -14,108 +14,115 @@ import {
   CredentialIssuanceWizardViewEvidenceContainerStyled as EvidenceContainer,
   CredentialIssuanceWizardViewEvidenceContentContainerStyled as EvidenceContentContainer,
   CredentialIssuanceWizardViewEvidenceTitleContainerStyled as EvidenceTitleContainer,
-  SSITextH2SemiBoldStyled as EvidenceTitle,
+    SSITextH2SemiBoldStyled as EvidenceTitle,
   CredentialIssuanceWizardViewEvidenceTitleOptionalStyled as EvidenceTitleOptional,
   SSITextH2Styled as EvidenceDescription,
-  CredentialIssuanceWizardViewEvidenceFilesContainerStyled as EvidenceFilesContainer,
-} from '../../../styles/index.js'
+    CredentialIssuanceWizardViewEvidenceFilesContainerStyled as EvidenceFilesContainer
+} from '../../../styles';
 
-import {CredentialFormData, CredentialFormInput, CredentialFormSelectionType} from '../../../types/index.js'
+import {CredentialFormData, CredentialFormInput, CredentialFormSelectionType} from '../../../types';
 
 type Props = {
-  credentialTypes: Array<CredentialFormSelectionType>
-  onSelectCredentialTypeChange?: (credentialType: CredentialFormSelectionType) => Promise<void>
-  onCredentialFormDataChange?: (credentialFormData: CredentialFormData) => Promise<void>
-  credentialData?: Record<any, any>
+    credentialTypes: Array<CredentialFormSelectionType>
+    onSelectCredentialTypeChange?: (credentialType: CredentialFormSelectionType) => Promise<void>
+    onCredentialFormDataChange?: (credentialFormData: CredentialFormData) => Promise<void>
+    credentialData?: Record<any, any>
 }
 
 const CredentialIssuanceWizardView: FC<Props> = (props: Props): ReactElement => {
-  const {credentialData, credentialTypes, onSelectCredentialTypeChange, onCredentialFormDataChange} = props
-  const [selectedCredentialType, setSelectedCredentialType] = useState<CredentialFormSelectionType | null>(null)
-  const [credentialInput, setCredentialInput] = useState<CredentialFormInput | null>(null) // TODO rename
-  const [evidence, setEvidence] = useState<Array<File>>([])
+    const { credentialData, credentialTypes, onSelectCredentialTypeChange, onCredentialFormDataChange } = props
+    const [selectedCredentialType, setSelectedCredentialType] = useState<CredentialFormSelectionType | null>(null);
+    const [credentialInput, setCredentialInput] = useState<CredentialFormInput | null>(null); // TODO rename
+    const [evidence, setEvidence] = useState<Array<File>>([]);
 
-  const onCredentialTypeChange = (event: SyntheticEvent, value: AutocompleteValue<any, any, any, any>): void => {
-    setCredentialInput(null)
-    setEvidence([])
-    setSelectedCredentialType(value)
-    onSelectCredentialTypeChange?.(value)
-  }
+    const onCredentialTypeChange = (event: SyntheticEvent, value: AutocompleteValue<any, any, any, any>): void => {
+        setCredentialInput(null)
+        setEvidence([]);
+        setSelectedCredentialType(value);
+        onSelectCredentialTypeChange?.(value)
+    };
 
-  const onCredentialFormInputChange = (state: CredentialFormInput): void => {
-    setCredentialInput(state)
-    onCredentialFormDataChange?.({...state, evidence})
-  }
+    const onCredentialFormInputChange = (state: CredentialFormInput): void => {
+        setCredentialInput(state)
+        onCredentialFormDataChange?.({ ...state, evidence })
+    };
 
-  const onAddEvidence = async (file: File): Promise<void> => {
-    // Cloning array to force rerender
-    const evidenceFiles = [...evidence, file]
-    setEvidence(evidenceFiles)
-    onCredentialFormDataChange?.({...credentialInput, evidence: evidenceFiles})
-  }
+    const onAddEvidence = async (file: File): Promise<void> => {
+        // Cloning array to force rerender
+        const evidenceFiles = [...evidence, file]
+        setEvidence(evidenceFiles)
+        onCredentialFormDataChange?.({ ...credentialInput, evidence: evidenceFiles })
+    }
 
-  const onRemoveEvidence = async (index: number): Promise<void> => {
-    evidence.splice(index, 1)
-    // Cloning array to force rerender
-    const evidenceFiles = [...evidence]
-    setEvidence(evidenceFiles)
-    onCredentialFormDataChange?.({...credentialInput, evidence: evidenceFiles})
-  }
+    const onRemoveEvidence = async (index: number): Promise<void> => {
+        evidence.splice(index, 1)
+        // Cloning array to force rerender
+        const evidenceFiles = [...evidence]
+        setEvidence(evidenceFiles)
+        onCredentialFormDataChange?.({ ...credentialInput, evidence: evidenceFiles })
+    }
 
-  const getEvidenceElements = (): Array<ReactElement> => {
-    return evidence.map((file: File, index: number) => (
-      <FileSelection key={index} file={file} onRemove={async (): Promise<void> => onRemoveEvidence(index)} />
-    ))
-  }
-
-  return (
-    <Container>
-      <CredentialTypeContainer>
-        <CredentialTypeTitle>{Localization.translate('credential_issuance_wizard_title')}</CredentialTypeTitle>
-        <Autocomplete
-          options={credentialTypes}
-          sx={{flexGrow: 1}}
-          renderInput={(params: AutocompleteRenderInputParams) => (
-            <TextField {...params} label={Localization.translate('credential_issuance_wizard_credential_type_label')} />
-          )}
-          onChange={onCredentialTypeChange}
-        />
-      </CredentialTypeContainer>
-      {selectedCredentialType && (
-        <>
-          <FormContainer>
-            <JsonForms
-              schema={selectedCredentialType.schema}
-              uischema={selectedCredentialType.uiSchema}
-              data={credentialData}
-              renderers={jsonFormsMaterialRenderers}
-              cells={materialCells}
-              onChange={onCredentialFormInputChange}
+    const getEvidenceElements = (): Array<ReactElement> => {
+        return evidence.map((file: File, index: number) =>
+            <FileSelection
+                key={index}
+                file={file}
+                onRemove={async (): Promise<void> => onRemoveEvidence(index)}
             />
-          </FormContainer>
-          <EvidenceContainer>
-            <EvidenceContentContainer>
-              <div>
-                <EvidenceTitleContainer>
-                  <EvidenceTitle>{Localization.translate('credential_issuance_wizard_evidence_title')}</EvidenceTitle>
-                  <EvidenceTitleOptional>{Localization.translate('credential_issuance_wizard_evidence_optional_title')}</EvidenceTitleOptional>
-                </EvidenceTitleContainer>
-                <EvidenceDescription>{Localization.translate('credential_issuance_wizard_evidence_description')}</EvidenceDescription>
-              </div>
-              <EvidenceFilesContainer>
-                <DragAndDropBox
-                  caption={Localization.translate('drag_and_drop_upload_evidence_caption')}
-                  description={Localization.translate('credential_attach_evidence_description')}
-                  onChangeFile={onAddEvidence}
+        )
+    }
+
+    return (
+        <Container>
+            <CredentialTypeContainer>
+                <CredentialTypeTitle>{Localization.translate('credential_issuance_wizard_title')}</CredentialTypeTitle>
+                <Autocomplete
+                    options={credentialTypes}
+                    sx={{ flexGrow: 1 }}
+                    renderInput={(params: AutocompleteRenderInputParams) =>
+                        <TextField
+                            {...params}
+                            label={Localization.translate('credential_issuance_wizard_credential_type_label')}
+                        />
+                    }
+                    onChange={onCredentialTypeChange}
                 />
-                {getEvidenceElements()}
-              </EvidenceFilesContainer>
-            </EvidenceContentContainer>
-          </EvidenceContainer>
-        </>
-      )}
-    </Container>
-  )
+            </CredentialTypeContainer>
+            {selectedCredentialType &&
+                <>
+                    <FormContainer>
+                        <JsonForms
+                            schema={selectedCredentialType.schema}
+                            uischema={selectedCredentialType.uiSchema}
+                            data={credentialData}
+                            renderers={jsonFormsMaterialRenderers}
+                            cells={materialCells}
+                            onChange={onCredentialFormInputChange}
+                        />
+                    </FormContainer>
+                    <EvidenceContainer>
+                        <EvidenceContentContainer>
+                            <div>
+                                <EvidenceTitleContainer>
+                                    <EvidenceTitle>{Localization.translate('credential_issuance_wizard_evidence_title')}</EvidenceTitle>
+                                    <EvidenceTitleOptional>{Localization.translate('credential_issuance_wizard_evidence_optional_title')}</EvidenceTitleOptional>
+                                </EvidenceTitleContainer>
+                                <EvidenceDescription>{Localization.translate('credential_issuance_wizard_evidence_description')}</EvidenceDescription>
+                            </div>
+                            <EvidenceFilesContainer>
+                                <DragAndDropBox
+                                    caption={Localization.translate('drag_and_drop_upload_evidence_caption')}
+                                    description={Localization.translate('credential_attach_evidence_description')}
+                                    onChangeFile={onAddEvidence}
+                                />
+                                { getEvidenceElements() }
+                            </EvidenceFilesContainer>
+                        </EvidenceContentContainer>
+                    </EvidenceContainer>
+                </>
+            }
+        </Container>
+    )
 }
 
-export default CredentialIssuanceWizardView
+export default CredentialIssuanceWizardView;

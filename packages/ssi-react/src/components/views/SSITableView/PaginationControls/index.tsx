@@ -1,6 +1,6 @@
 import {CSSProperties, FC, ReactElement} from 'react'
 import {PaginationProps, Stack} from '@mui/material'
-import {GoToInputContainer, GoToInputStyled, PaginationContainerStyled, PaginationStyled} from '../../../../styles/index.js'
+import {GoToInputContainer, GoToInputStyled, PaginationContainerStyled, PaginationStyled} from '../../../../styles'
 import {Localization} from '@sphereon/ui-components.core'
 
 export type PaginationControlsProps = PaginationProps & {

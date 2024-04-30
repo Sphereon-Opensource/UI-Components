@@ -1,11 +1,11 @@
-import React, {FC, ReactNode} from 'react'
+import React, {CSSProperties, FC, ReactNode} from 'react'
 import {OpacityStyleEnum, fontColors, selectionElementColors} from '@sphereon/ui-components.core'
 import {
   SSICheckboxContainerStyled as Container,
   SSICheckboxLabelContainerStyled as LabelCaption,
   SSICheckboxSelectedContainerStyled as SelectedContainer,
   SSICheckboxUnselectedContainerStyled as UnselectedContainer,
-} from '../../../styles/components/index.js'
+} from '../../../styles/components'
 
 export interface IProps {
   onValueChange?: (isChecked: boolean) => Promise<void>
@@ -19,6 +19,7 @@ export interface IProps {
   selectedColor?: string
   labelColor?: string
   checkmarkColor?: string
+  style?: CSSProperties
 }
 
 const SSICheckbox: FC<IProps> = (props: IProps): JSX.Element => {
@@ -31,6 +32,7 @@ const SSICheckbox: FC<IProps> = (props: IProps): JSX.Element => {
     selectedColor = selectionElementColors.primaryDark,
     labelColor = fontColors.light,
     checkmarkColor = fontColors.dark,
+    style
   } = props
   const [isChecked, setChecked] = React.useState(initialValue)
   const value = props.isChecked !== undefined ? props.isChecked : isChecked
@@ -50,7 +52,7 @@ const SSICheckbox: FC<IProps> = (props: IProps): JSX.Element => {
   }
 
   return (
-    <Container onClick={onValueChange} style={{...(disabled && {opacity: OpacityStyleEnum.DISABLED})}}>
+    <Container onClick={onValueChange} style={{...style, ...(disabled && {opacity: OpacityStyleEnum.DISABLED})}}>
       {value ? (
         <SelectedContainer style={{backgroundColor: selectedColor, border: `1px solid ${borderColor}`}} />
       ) : (

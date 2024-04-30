@@ -164,7 +164,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
               checked: table.getIsAllRowsSelected(),
               indeterminate: table.getIsSomeRowsSelected(),
               onChange: table.getToggleAllRowsSelectedHandler(),
-              columnMaxWidth: 50,
+              columnMaxWidth: 50
             }}
           />
         ),
@@ -177,7 +177,7 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
                   disabled: !row.getCanSelect(),
                   indeterminate: row.getIsSomeSelected(),
                   onChange: row.getToggleSelectedHandler(),
-                  columnMaxWidth: 50,
+                  columnMaxWidth: 50
                 }}
               />
             )}

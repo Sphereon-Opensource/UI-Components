@@ -1,7 +1,7 @@
 {
   "name": "@sphereon/ui-components.ssi-react-native",
   "private": false,
-  "version": "0.2.0-unstable.1",
+  "version": "0.1.2",
   "description": "SSI UI components for React-Native",
   "repository": "git@github.com:Sphereon-Opensource/UI-Components.git",
   "author": "Sphereon <dev@sphereon.com>",
@@ -34,8 +34,7 @@
     "expo-linear-gradient": "~12.7.2",
     "react-native-fast-image": "^8.6.3",
     "react-native-size-matters": "^0.4.0",
-    "react-native-svg": "14.1.0",
-    "styled-components": "^6.1.8"
+    "react-native-svg": "14.1.0"
   },
   "devDependencies": {
     "@types/react": "~18.2.67",
@@ -44,6 +43,7 @@
   },
   "peerDependencies": {
     "react": ">= 18",
-    "react-native": ">= 0.64.0"
+    "react-native": ">= 0.73.0",
+    "styled-components": "^6.1.8"
   }
 }

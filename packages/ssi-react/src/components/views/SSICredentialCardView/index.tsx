@@ -7,8 +7,8 @@ import {
   Localization,
   toLocalDateString,
 } from '@sphereon/ui-components.core'
-import SSILogo from '../../assets/logos/SSILogo/index.js'
-import SSIStatusLabel from '../../labels/SSIStatusLabel/index.js'
+import SSILogo from '../../assets/logos/SSILogo'
+import SSIStatusLabel from '../../labels/SSIStatusLabel'
 import {
   SSIAlphaContainerStyled as AlphaContainer,
   SSICredentialCardViewContainerStyled as Container,
@@ -28,7 +28,7 @@ import {
   SSITextH6LightStyled as PropertyValueText,
   SSICredentialCardViewHeaderTitleContainerStyled as TitleContainer,
   SSIFlexDirectionColumnViewStyled as PropertyContainer,
-} from '../../../styles/index.js'
+} from '../../../styles'
 
 type CardProperty = {
   name: string

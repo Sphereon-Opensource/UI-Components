@@ -2,14 +2,14 @@ import {styled} from 'styled-components'
 import {backgroundColors, borderColors} from '@sphereon/ui-components.core'
 
 export const PassportPhotoControlContainerStyled = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: flex; 
+  flex-direction: column; 
   gap: 12px;
 `
 
 export const PassportPhotoControlDragAndDropBoxContainerStyled = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: flex; 
+  flex-direction: row; 
   gap: 10px;
 `
 
@@ -27,5 +27,5 @@ export const PassportPhotoControlPassportPhotoContainerStyled = styled.div`
 
 export const PassportPhotoControlPassportPhotoImageStyled = styled.img`
   width: 100%;
-  height: auto;
+  height: auto
 `
