@@ -9,7 +9,6 @@ overrides:
   '@types/react': ~18.2.67
 
 importers:
-
   .:
     devDependencies:
       lerna:
@@ -194,7 +193,6 @@ importers:
         version: 4.9.5
 
 packages:
-
   /@ampproject/remapping@2.3.0:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
