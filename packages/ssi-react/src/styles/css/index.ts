@@ -1,5 +1,6 @@
 import {css} from 'styled-components'
 import {fontStyle} from '../typography'
+import {gradientColors} from '../colors'
 
 export const SSITextH1Css = css`
   font-family: ${fontStyle.h1Regular.fontFamily};
@@ -9,11 +10,26 @@ export const SSITextH1Css = css`
   height: auto;
 `
 
+export const SSITextH1SemiBoldCss = css`
+  font-family: ${fontStyle.h1SemiBold.fontFamily};
+  font-size: ${fontStyle.h1SemiBold.fontSize}px;
+  font-weight: ${fontStyle.h1SemiBold.fontWeight};
+  line-height: ${fontStyle.h1SemiBold.lineHeight}px;
+  height: auto;
+`
+
 export const SSITextH2Css = css`
   font-family: ${fontStyle.h2Regular.fontFamily};
   font-size: ${fontStyle.h2Regular.fontSize}px;
   font-weight: ${fontStyle.h2Regular.fontWeight};
   line-height: ${fontStyle.h2Regular.lineHeight}px;
+  height: auto;
+`
+export const SSITextH2SemiBoldStyledCss = css`
+  font-family: ${fontStyle.h2SemiBold.fontFamily};
+  font-size: ${fontStyle.h2SemiBold.fontSize}px;
+  font-weight: ${fontStyle.h2SemiBold.fontWeight};
+  line-height: ${fontStyle.h2SemiBold.lineHeight}px;
   height: auto;
 `
 
@@ -55,4 +71,27 @@ export const SSITextH6Css = css`
   font-weight: ${fontStyle.h6.fontWeight};
   line-height: ${fontStyle.h6.lineHeight}px;
   height: auto;
+`
+
+export const SSITextH7RegularCss = css`
+  font-family: ${fontStyle.h7Regular.fontFamily};
+  font-size: ${fontStyle.h7Regular.fontSize}px;
+  font-weight: ${fontStyle.h7Regular.fontWeight};
+  line-height: ${fontStyle.h7Regular.lineHeight}px;
+  height: auto;
+`
+
+export const SSITextH7SemiBoldCss = css`
+  font-family: ${fontStyle.h7SemiBold.fontFamily};
+  font-size: ${fontStyle.h7SemiBold.fontSize}px;
+  font-weight: ${fontStyle.h7SemiBold.fontWeight};
+  line-height: ${fontStyle.h7SemiBold.lineHeight}px;
+  height: auto;
+`
+
+export const gradient100TextCss = css`
+  background: ${gradientColors['100']};
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `

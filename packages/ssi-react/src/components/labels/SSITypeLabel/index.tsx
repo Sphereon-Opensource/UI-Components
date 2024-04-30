@@ -1,17 +1,17 @@
 import {FC, ReactElement} from 'react'
-import {LabelTypeEnum} from '../../../types'
-import {SSITypeLabelContainerStyled as Container} from '../../../styles/components'
-import {backgroundColors, gradientColors} from '@sphereon/ui-components.core'
+import {backgroundColors, LabelType} from '@sphereon/ui-components.core'
+import {SSITypeLabelContainerStyled as Container} from '../../../styles'
+import {gradientColors} from '../../../styles/colors'
 
-export type Props = {
-  type: LabelTypeEnum
+type Props = {
+  type: LabelType
 }
 
-const getBackground = (type: LabelTypeEnum): string => {
+const getBackground = (type: LabelType): string => {
   switch (type) {
-    case LabelTypeEnum.ISSUER:
+    case LabelType.ISSUER:
       return gradientColors['200']
-    case LabelTypeEnum.VERIFIER:
+    case LabelType.VERIFIER:
       return gradientColors['100']
     default:
       return backgroundColors.primaryLight

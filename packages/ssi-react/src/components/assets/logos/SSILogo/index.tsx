@@ -1,5 +1,5 @@
-import {calculateAspectRatio, ImageAttributes, logoColors} from '@sphereon/ui-components.core'
 import React, {CSSProperties, FC, ReactElement} from 'react'
+import {calculateAspectRatio, ImageAttributes, logoColors} from '@sphereon/ui-components.core'
 import SSIPlaceholderLogo from '../SSIPlaceholderLogo'
 
 type Props = {
@@ -16,7 +16,7 @@ const SSILogo: FC<Props> = (props: Props): ReactElement => {
     <div
       style={{
         ...style,
-        aspectRatio: logo?.dimensions && calculateAspectRatio(logo?.dimensions.width, logo?.dimensions.height),
+        ...(logo?.dimensions && {aspectRatio: calculateAspectRatio(logo?.dimensions.width, logo?.dimensions.height)}),
         height: size,
         background: `url(${logo.uri})`,
         backgroundSize: 'cover',

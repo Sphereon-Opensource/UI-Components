@@ -1,9 +1,8 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import {backgroundColors, borderColors, fontColors} from '@sphereon/ui-components.core'
 import {SSITextH2Css, SSITextH3Css} from '../../../css'
 
 export const SSITableViewContainerStyled = styled.div`
-  background-color: ${backgroundColors.lightGrey};
   display: flex;
   flex-grow: 1;
   flex-direction: column;
@@ -19,18 +18,37 @@ export const SSITableViewTableContainerStyled = styled.table`
   user-select: text;
   width: 100%;
   border-collapse: collapse;
+  background-color: ${backgroundColors.lightGrey};
 `
 
-export const SSITableViewRowContainerStyled = styled.tr`
+export const SSITableViewHeaderRowContainerStyled = styled.tr`
   border-bottom: 1px solid ${borderColors.lightGrey};
+  background-color: ${backgroundColors.primaryLight};
 `
+
+export const SSITableViewRowContainerStyled = styled.tr<{ enableHover?: boolean }>`
+  background-color: ${backgroundColors.primaryLight};
+
+  &:not(:last-child) {
+    border-bottom: 1px solid ${borderColors.lightGrey};
+  }
+  
+  ${props =>
+      props.enableHover &&
+      css`
+        &:hover {
+          background-color: #ececec; // TODO
+        }
+      `}
+`;
 
 export const SSITableViewCellContainerStyled = styled.td`
   ${SSITextH3Css};
   color: ${fontColors.dark};
-  background-color: ${backgroundColors.primaryLight};
   padding: 20px 16px 20px 16px;
   text-align: left;
+  //setting border-box makes padding be included in the width, otherwise content-box is used and then padding is excluded from the width
+  box-sizing: border-box;
 `
 
 export const SSITableViewHeaderCellContainerStyled = styled.th`
@@ -40,6 +58,18 @@ export const SSITableViewHeaderCellContainerStyled = styled.th`
   background-color: ${backgroundColors.primaryLight};
   color: ${fontColors.lightGrey};
   text-align: left;
+  //setting border-box makes padding be included in the width, otherwise content-box is used and then padding is excluded from the width
+  box-sizing: border-box;
+`
+
+export const SSITableViewResultCountCaptionStyled = styled.div`
+  ${SSITextH3Css};
+  margin-left: 24px;
+`
+
+export const TableViewRowSelectionCheckboxContainerStyled = styled.div`
+  width: 20px;
+  height: 20px;
 `
 
 // TODO implement the resizer for column resizing

@@ -28,22 +28,24 @@
     "access": "public"
   },
   "dependencies": {
-    "@react-native-community/blur": "^4.3.0",
+    "@react-native-community/blur": "^4.4.0",
+    "@react-native-masked-view/masked-view": "0.3.1",
     "@sphereon/ui-components.core": "workspace:*",
+    "expo-linear-gradient": "~12.7.2",
     "react-native-fast-image": "^8.6.3",
     "react-native-size-matters": "^0.4.0",
-    "react-native-svg": "13.4.0",
+    "react-native-svg": "14.1.0",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
-    "@types/react": "~18.0.14",
-    "@types/react-native": "0.71.3",
+    "@types/react": "~18.2.67",
+    "@types/react-native": "0.73.0",
     "@types/styled-components": "^5.1.15",
     "@types/styled-components-react-native": "^5.1.2",
     "typescript": "4.9.5"
   },
   "peerDependencies": {
-    "react": ">= 16.8.0",
-    "react-native": ">= 0.64.0"
+    "react": ">= 18",
+    "react-native": "~0.73.6"
   }
 }

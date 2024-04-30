@@ -3,5 +3,6 @@ import styled from 'styled-components'
 export const SSITabViewContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%
+  flex-grow: 1;
 `
+//  width: 100%;

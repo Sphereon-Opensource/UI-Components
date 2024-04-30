@@ -1,12 +1,12 @@
 import React, {ReactElement} from 'react'
-import {TabNavigationState, TabViewRoute} from '../../../../types'
+import {TabNavigationState, TabViewRoute} from '@sphereon/ui-components.core'
 import {
   SSITabViewHeaderContainerStyled as Container,
   SSITabViewHeaderTitleContainerStyled as TitleContainer,
-  SSITextH3Styled as TitleCaption,
-} from '../../../../styles/components'
+  SSITabViewHeaderTitleCaptionStyled as TitleCaption,
+} from '../../../../styles'
 
-export type Props = {
+type Props = {
   navigationState: TabNavigationState
   onIndexChange: (index: number) => void
 }

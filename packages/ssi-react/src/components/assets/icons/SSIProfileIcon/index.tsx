@@ -1,9 +1,8 @@
 import React, {FC, ReactElement} from 'react'
 import {fontColors, getInitials, profileColors} from '@sphereon/ui-components.core'
-import {SSIProfileIconContainerStyled as Container} from '../../../../styles/components/components/SSIProfileIcon'
-import {SSITextH2Styled as ProfileIconText} from '../../../../styles/components'
+import {SSIProfileIconContainerStyled as Container, SSITextH2Styled as ProfileIconText} from '../../../../styles'
 
-export type Props = {
+type Props = {
   fullName: string
   fontColor?: string
   backgroundColor?: string

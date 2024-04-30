@@ -1,6 +1,6 @@
-import {LabelStatus} from '../../types'
+import {GradientProperties, LabelStatus} from '../../types'
 
-type BackgroundColor = 'primaryDark' | 'secondaryDark' | 'primaryLight' | 'secondaryLight' | 'lightGrey'
+type BackgroundColor = 'primaryDark' | 'secondaryDark' | 'primaryLight' | 'secondaryLight' | 'lightGrey' | 'orange'
 
 export const backgroundColors: Record<BackgroundColor, string> = {
   primaryDark: '#202537',
@@ -8,6 +8,7 @@ export const backgroundColors: Record<BackgroundColor, string> = {
   primaryLight: '#FBFBFB',
   secondaryLight: '#E3E3FF',
   lightGrey: '#E3E3E3',
+  orange: '#D74500',
 }
 
 // TODO WAL-303 add support for randomized colors to avoid getting the same color multiple times
@@ -30,6 +31,13 @@ export const statusColors: Record<LabelStatus | 'error', string> = {
   verified: '#00C249',
   unverified: '#FF9900',
   error: '#D74500',
+  new: '#7276F7',
+  approved: '#00C249',
+  pending: '#0B81FF',
+  archived: '#B3B3B3',
+  declined: '#D74500',
+  done: '#00C249',
+  draft: '#0B81FF',
 }
 
 type FontColor = 'dark' | 'light' | 'secondaryButton' | 'greyedOut' | 'lightGrey'
@@ -42,19 +50,27 @@ export const fontColors: Record<FontColor, string> = {
   lightGrey: '#8D9099',
 }
 
-type Gradient = 100 | 200
+type HighLightGradient = 100 | 200
 
-export const gradientColors: Record<Gradient, string> = {
-  100: 'linear-gradient(135deg, #7276f7 0%, #7c40e8 100%)', // purple
-  200: 'linear-gradient(135deg, #F90 0%, #EE5309 100%)', // orange
+export const gradientsColors: Record<HighLightGradient, GradientProperties> = {
+  100: {
+    primaryColor: '#7276F7',
+    secondaryColor: '#7C40E8',
+  },
+  200: {
+    primaryColor: '#FF9900',
+    secondaryColor: '#EE5309',
+  },
 }
 
-type Border = 'dark' | 'light' | 'lightGrey'
+type Border = 'dark' | 'light' | 'lightGrey' | 'darkGrey' | 'purple'
 
 export const borderColors: Record<Border, string> = {
   dark: '#404D7A',
   light: '#E3E3E3',
   lightGrey: '#ACACAC',
+  darkGrey: '#303030',
+  purple: '#7276F7'
 }
 
 type Profile = 100 | 200 | 300 | 400 | 500
@@ -65,4 +81,37 @@ export const profileColors: Record<Profile, string> = {
   300: '#5BDED3',
   400: '#0B81FF',
   500: '#BD2DFF',
+}
+
+type Alerts = 'primaryLight' | 'secondaryLight'
+
+export const alertColors: Record<Alerts, string> = {
+  primaryLight: '#FBFBFB',
+  secondaryLight: '#EBEBEB',
+}
+
+type SelectionElement = 'primaryDark' | 'primaryBorderDark' | 'selectedRow'
+
+export const selectionElementColors: Record<SelectionElement, string> = {
+  primaryDark: '#0B81FF',
+  primaryBorderDark: '#FBFBFB',
+  selectedRow: '#B7B8D9',
+}
+
+// FIXME all numbers
+type Element = 'blue' | 'lightGrey' | 'purple' | 100 | 200 | 300
+
+export const elementColors: Record<Element, string> = {
+  blue: '#0B81FF',
+  lightGrey: '#C4C4C4',
+  purple: '#7276F7',
+  100: '#F25409',
+  200: '#F78854',
+  300: '#8D9099'
+}
+
+type Button = 100
+
+export const buttonColors: Record<Button, string> = {
+  100: '#8B1900',
 }

@@ -74,11 +74,23 @@ export const fontStyle: Record<FontStyle, CSSProperties> = {
     fontWeight: fontWeight[400],
     lineHeight: lineHeight[100],
   },
+  h7Regular: {
+    fontFamily: 'Poppins',
+    fontSize: fontSize[400],
+    fontWeight: fontWeight[400],
+    lineHeight: lineHeight[400],
+  },
   h7SemiBold: {
-    // TODO fix the order
     fontFamily: 'Poppins',
     fontSize: fontSize[400],
     fontWeight: fontWeight[600],
     lineHeight: lineHeight[400],
+  },
+  Regular64: {
+    // TODO fix the order
+    fontFamily: 'Poppins', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
+    fontSize: fontSize[64],
+    fontWeight: fontWeight[600],
+    lineHeight: lineHeight[64],
   },
 }
