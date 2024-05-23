@@ -8,4 +8,7 @@ export type ImageAttributes = {
   uri?: string
   alt?: string
   dimensions?: ImageSize
+  style?: {
+    height?: number
+  }
 }
