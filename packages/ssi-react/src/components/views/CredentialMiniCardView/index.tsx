@@ -30,7 +30,7 @@ const CredentialMiniCardView: FC<CredentialMiniCardViewProps> = (props: Credenti
           // FIXME Putting backgroundSize here as for some reason putting this on the styled component does not work
           ...(backgroundImage?.uri && {background: `url(${backgroundImage.uri})`, backgroundSize: 'cover'}),
         }}>
-        {(!backgroundImage || logo) && <SSILogo logo={logo} color={logoColor} />}
+        {(!backgroundImage || logo) && <SSILogo logo={logo} color={logoColor} size={logo?.style?.height}/>}
       </BackgroundImage>
     </Container>
   )
