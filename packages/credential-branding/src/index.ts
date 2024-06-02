@@ -9,7 +9,7 @@ import {getIssuerLogo, isImageAddress} from './utils/ImageUtils'
 import {CredentialDetailsRow, CredentialSummary, ISelectAppLocaleBrandingArgs} from './types'
 import {getCredentialStatus} from './utils/MappingUtils'
 import {IImagePreloader} from './services/IPreloadImage'
-import {ReactNativeImagePreloader} from './services/ReactNativeImagePreloader'
+/*import {ReactNativeImagePreloader} from './services/ReactNativeImagePreloader'*/
 import {WebImagePreloader} from './services/WebImagePreloader'
 
 function findCorrelationIdName(correlationId: string, contacts: Party[]): string {
@@ -195,7 +195,8 @@ export const selectAppLocaleBranding = async (
   let imagePreloader: IImagePreloader
 
   if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
-    imagePreloader = new ReactNativeImagePreloader()
+    throw new Error('Not implemented')
+    //imagePreloader = new ReactNativeImagePreloader()
   } else {
     imagePreloader = new WebImagePreloader()
   }
