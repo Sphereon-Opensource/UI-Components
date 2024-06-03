@@ -5,12 +5,9 @@ import {IBasicCredentialLocaleBranding, IBasicIssuerLocaleBranding, Identity, Pa
 import {ICredential} from '@sphereon/ssi-types'
 import {CredentialStatus, EPOCH_MILLISECONDS, Localization} from '@sphereon/ui-components.core'
 import {downloadImage, getImageDimensions} from '@sphereon/ssi-sdk.core'
-import {getIssuerLogo, isImageAddress} from '../utils/ImageUtils'
 import {CredentialDetailsRow, CredentialSummary, ISelectAppLocaleBrandingArgs} from '../types'
-import {IImagePreloader} from '../services/IPreloadImage'
-/*import {ReactNativeImagePreloader} from './services/ReactNativeImagePreloader'*/
-import {WebImagePreloader} from '../services/WebImagePreloader'
-import {getCredentialStatus} from '../utils/MappingUtils'
+import {IImagePreloader, ReactNativeImagePreloader, WebImagePreloader} from '../services'
+import {getCredentialStatus, getIssuerLogo, isImageAddress} from '../utils'
 
 function findCorrelationIdName(correlationId: string, contacts: Party[]): string {
   const contact = contacts.find((contact: Party) =>
@@ -195,8 +192,7 @@ export const selectAppLocaleBranding = async (
   let imagePreloader: IImagePreloader
 
   if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
-    throw new Error('Not implemented')
-    //imagePreloader = new ReactNativeImagePreloader()
+    imagePreloader = new ReactNativeImagePreloader()
   } else {
     imagePreloader = new WebImagePreloader()
   }
