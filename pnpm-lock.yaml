@@ -68,14 +68,14 @@ importers:
   packages/credential-branding:
     dependencies:
       '@sphereon/ssi-sdk.core':
-        specifier: ^0.23.4
-        version: 0.23.4
+        specifier: 0.23.5-unstable.74+9c3c2083
+        version: 0.23.5-unstable.74
       '@sphereon/ssi-sdk.data-store':
-        specifier: 0.23.4
-        version: 0.23.4
+        specifier: 0.23.5-unstable.74+9c3c2083
+        version: 0.23.5-unstable.74
       '@sphereon/ssi-types':
-        specifier: ^0.23.4
-        version: 0.23.4
+        specifier: 0.23.5-unstable.74+9c3c2083
+        version: 0.23.5-unstable.74
       '@sphereon/ui-components.core':
         specifier: workspace:*
         version: link:../core
@@ -88,12 +88,6 @@ importers:
       i18n-js:
         specifier: ^3.8.0
         version: 3.9.2
-      lodash.memoize:
-        specifier: ^4.1.2
-        version: 4.1.2
-      styled-components:
-        specifier: ^5.3.3
-        version: 5.3.11(@babel/core@7.24.6)(react-dom@18.3.1)(react-is@18.3.1)(react@18.2.0)
       uuid:
         specifier: ^9.0.1
         version: 9.0.1
@@ -101,18 +95,12 @@ importers:
       '@types/i18n-js':
         specifier: ^3.8.4
         version: 3.8.9
-      '@types/lodash.memoize':
-        specifier: ^4.1.7
-        version: 4.1.9
       '@types/node':
         specifier: ^20.4.0
         version: 20.13.0
       '@types/react':
         specifier: ~18.2.67
         version: 18.2.79
-      '@types/styled-components':
-        specifier: ^5.1.15
-        version: 5.1.34
       '@types/uuid':
         specifier: ^9.0.8
         version: 9.0.8
@@ -3998,10 +3986,10 @@ packages:
     dependencies:
       '@sinonjs/commons': 3.0.1
 
-  /@sphereon/ssi-sdk.core@0.23.4:
-    resolution: {integrity: sha512-ZyamuxoEhFtTbmK39/xvFvdbrSrXGaYwpXELcVmYRYIF+sXfaferoyYGVupA0H0J/ZUMLQRCdDKERWgZe/GBoA==}
+  /@sphereon/ssi-sdk.core@0.23.5-unstable.74:
+    resolution: {integrity: sha512-72cXck5q03N0skXMgJ1DBntwCxyvoUJ1NKo8CrMawL8HWqA8lwe82Akp/y3tnB8UU8rnK7x3xpOCWOfiUIkfIQ==}
     dependencies:
-      '@sphereon/ssi-types': 0.23.4
+      '@sphereon/ssi-types': 0.23.5-unstable.74
       '@veramo/core': 4.2.0
       cross-fetch: 3.1.8
       debug: 4.3.5(supports-color@5.5.0)
@@ -4012,11 +4000,11 @@ packages:
       - supports-color
     dev: false
 
-  /@sphereon/ssi-sdk.data-store@0.23.4:
-    resolution: {integrity: sha512-Pw2cxEdfRSqQ+EVzGuwMJi4VcQ0hTror+d4yt9q+2l7gBafQt74tWRF9RNpX8YNo/l3zc95/PC9R+H+aAGMO0A==}
+  /@sphereon/ssi-sdk.data-store@0.23.5-unstable.74:
+    resolution: {integrity: sha512-n7gtXR4txvKXRylRPBQLB4R3O0rkyTnB6clvliXOQKtbp74jg5Hq7Bf1eheDWJRN21Egv0pjr9w8NSmQT0jXrg==}
     dependencies:
-      '@sphereon/ssi-sdk.core': 0.23.4
-      '@sphereon/ssi-types': 0.23.4
+      '@sphereon/ssi-sdk.core': 0.23.5-unstable.74
+      '@sphereon/ssi-types': 0.23.5-unstable.74
       '@veramo/core': 4.2.0
       '@veramo/utils': 4.2.0
       class-validator: 0.14.1
@@ -4044,8 +4032,8 @@ packages:
       - typeorm-aurora-data-api-driver
     dev: false
 
-  /@sphereon/ssi-types@0.23.4:
-    resolution: {integrity: sha512-1lM2yfOEhpcYYBxm/12KYY4n3ZSahVf5rFqGdterQkMJMthwr20HqTjw3+VK5p7IVf+86DyBoZJyS4V9tSsoCA==}
+  /@sphereon/ssi-types@0.23.5-unstable.74:
+    resolution: {integrity: sha512-72M8Fzqy2EGIfqz6iFzgN/nxCjDY/Ji9vYsN6feNZeHUaijkUH3O39ccy3hha6hllDNp7NnV2yJhP/jDZalllA==}
     dependencies:
       '@sd-jwt/decode': 0.6.1
       jwt-decode: 3.1.2
@@ -5923,7 +5911,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       globby: 11.1.0
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       is-glob: 4.0.3
       is-path-cwd: 2.2.0
       is-path-inside: 3.0.3
@@ -8078,7 +8066,7 @@ packages:
     dependencies:
       universalify: 2.0.1
     optionalDependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
 
   /jsonparse@1.3.1:
     resolution: {integrity: sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==}
@@ -8363,7 +8351,7 @@ packages:
     resolution: {integrity: sha512-Kx8hMakjX03tiGTLAIdJ+lL0htKnXjEZN6hk/tozf/WOuYGdZBJrZ+rCJRbVCugsjB3jMLn9746NsQIf5VjBMw==}
     engines: {node: '>=4'}
     dependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       parse-json: 4.0.0
       pify: 3.0.0
       strip-bom: 3.0.0
@@ -12393,7 +12381,7 @@ packages:
   /write-file-atomic@2.4.3:
     resolution: {integrity: sha512-GaETH5wwsX+GcnzhPgKcKjJ6M2Cq3/iZp1WyY/X1CSqrW+jVNM9Y7D8EC2sM4ZG/V8wZlSniJnCKWPmBYAucRQ==}
     dependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       imurmurhash: 0.1.4
       signal-exit: 3.0.7
 
