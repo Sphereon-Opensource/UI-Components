@@ -59,7 +59,6 @@ const toCredentialDetailsRow = async (object: Record<string, any>, subject?: Par
       // });
       rows = rows.concat(await toCredentialDetailsRow(value, subject, issuer))
     } else {
-      console.log(`==>${key}:${value}`)
       if (key === '0' || value === undefined) {
         continue
       }
@@ -70,7 +69,6 @@ const toCredentialDetailsRow = async (object: Record<string, any>, subject?: Par
       }
 
       if (value.startsWith('did:')) {
-        console.log(`did: ${value}`)
         const contacts: Party[] = [...(issuer ? [issuer] : []), ...(subject ? [subject] : [])]
 
         value = findCorrelationIdName(value, contacts)
