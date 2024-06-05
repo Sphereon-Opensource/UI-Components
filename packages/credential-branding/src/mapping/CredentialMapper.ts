@@ -190,7 +190,8 @@ export const selectAppLocaleBranding = async (
   let imagePreloader: IImagePreloader
 
   if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
-    //TODO: bring back the react-native related code
+    //TODO: CWALL-243 bring back the react-native related code
+
     imagePreloader = new ReactNativeImagePreloader()
   } else {
     imagePreloader = new WebImagePreloader()
