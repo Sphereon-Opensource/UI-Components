@@ -1,11 +1,8 @@
 import React, {FC, ReactElement, SyntheticEvent, useState} from 'react';
 import {Autocomplete, AutocompleteRenderInputParams, AutocompleteValue, TextField} from '@mui/material';
-import {materialCells} from '@jsonforms/material-renderers';
-import {JsonForms} from '@jsonforms/react';
 import {Localization} from '@sphereon/ui-components.core';
 import FileSelection from '../../fields/FileSelection';
 import DragAndDropBox from '../../fields/DragAndDropBox';
-import {jsonFormsMaterialRenderers} from '../../../renders/jsonFormsRenders';
 import {
     CredentialIssuanceWizardViewContainerStyled as Container,
     CredentialIssuanceWizardViewCredentialTypeContainerStyled as CredentialTypeContainer,
@@ -20,7 +17,8 @@ import {
     CredentialIssuanceWizardViewEvidenceFilesContainerStyled as EvidenceFilesContainer
 } from '../../../styles';
 
-import {CredentialFormData, CredentialFormInput, CredentialFormSelectionType} from '../../../types';
+import {CredentialFormData, JSONFormState, CredentialFormSelectionType} from '../../../types';
+import FormView from "../FormView";
 
 type Props = {
     credentialTypes: Array<CredentialFormSelectionType>
@@ -32,7 +30,7 @@ type Props = {
 const CredentialIssuanceWizardView: FC<Props> = (props: Props): ReactElement => {
     const { credentialData, credentialTypes, onSelectCredentialTypeChange, onCredentialFormDataChange } = props
     const [selectedCredentialType, setSelectedCredentialType] = useState<CredentialFormSelectionType | null>(null);
-    const [credentialInput, setCredentialInput] = useState<CredentialFormInput | null>(null); // TODO rename
+    const [credentialInput, setCredentialInput] = useState<JSONFormState | null>(null);
     const [evidence, setEvidence] = useState<Array<File>>([]);
 
     const onCredentialTypeChange = (event: SyntheticEvent, value: AutocompleteValue<any, any, any, any>): void => {
@@ -42,7 +40,7 @@ const CredentialIssuanceWizardView: FC<Props> = (props: Props): ReactElement => 
         onSelectCredentialTypeChange?.(value)
     };
 
-    const onCredentialFormInputChange = (state: CredentialFormInput): void => {
+    const onCredentialFormInputChange = async (state: JSONFormState): Promise<void> => {
         setCredentialInput(state)
         onCredentialFormDataChange?.({ ...state, evidence })
     };
@@ -91,21 +89,21 @@ const CredentialIssuanceWizardView: FC<Props> = (props: Props): ReactElement => 
             {selectedCredentialType &&
                 <>
                     <FormContainer>
-                        <JsonForms
-                            schema={selectedCredentialType.schema}
-                            uischema={selectedCredentialType.uiSchema}
-                            data={credentialData}
-                            renderers={jsonFormsMaterialRenderers}
-                            cells={materialCells}
-                            onChange={onCredentialFormInputChange}
-                        />
+                        {(selectedCredentialType.schema && selectedCredentialType.uiSchema) &&
+                            <FormView
+                                schema={selectedCredentialType.schema}
+                                uiSchema={selectedCredentialType.uiSchema}
+                                data={credentialData}
+                                onFormStateChange={onCredentialFormInputChange}
+                            />
+                        }
                     </FormContainer>
                     <EvidenceContainer>
                         <EvidenceContentContainer>
                             <div>
                                 <EvidenceTitleContainer>
                                     <EvidenceTitle>{Localization.translate('credential_issuance_wizard_evidence_title')}</EvidenceTitle>
-                                    <EvidenceTitleOptional>{Localization.translate('credential_issuance_wizard_evidence_optional_title')}</EvidenceTitleOptional>
+                                    <EvidenceTitleOptional>{Localization.translate('optional_label')}</EvidenceTitleOptional>
                                 </EvidenceTitleContainer>
                                 <EvidenceDescription>{Localization.translate('credential_issuance_wizard_evidence_description')}</EvidenceDescription>
                             </div>

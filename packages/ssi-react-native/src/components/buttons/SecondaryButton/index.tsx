@@ -44,7 +44,9 @@ const SecondaryButton: FC<Props> = (props: Props): JSX.Element => {
       <MaskedView
         maskElement={
           <MaskContainer>
-            <ButtonCaption>{caption}</ButtonCaption>
+            {caption &&
+                <ButtonCaption>{caption}</ButtonCaption>
+            }
           </MaskContainer>
         }>
         <LinearGradient style={style} colors={borderColors}>

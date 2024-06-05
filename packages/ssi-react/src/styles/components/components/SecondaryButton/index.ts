@@ -3,15 +3,16 @@ import {SSIRoundedContainerStyled} from '../../containers'
 import {SSITextH3Styled} from '../../../fonts'
 import {gradient100TextCss} from '../../../css'
 
-export const SSISecondaryButtonContainerStyled = styled(SSIRoundedContainerStyled)`
+export const SecondaryButtonContainerStyled = styled(SSIRoundedContainerStyled)`
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  padding: 9px 6px 9px 6px;
+  padding: 9px;
   cursor: pointer;
+  width: 180px;
 
   &::before {
     content: '';
@@ -29,6 +30,6 @@ export const SSISecondaryButtonContainerStyled = styled(SSIRoundedContainerStyle
   }
 `
 
-export const SSISecondaryButtonCaptionStyled = styled(SSITextH3Styled)`
+export const SecondaryButtonCaptionStyled = styled(SSITextH3Styled)` // FIXME H3 vs H2 mobile
   ${gradient100TextCss}
 `

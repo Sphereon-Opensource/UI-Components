@@ -11,15 +11,15 @@ import SSIAddIcon from './components/assets/icons/SSIAddIcon'
 import SSIFilterIcon from './components/assets/icons/SSIFilterIcon'
 import SSIArrowDownIcon from './components/assets/icons/SSIArrowDownIcon'
 import SSITypeLabel from './components/labels/SSITypeLabel'
-import SSIIconButton from './components/buttons/SSIIconButton'
-import SSIPrimaryButton from './components/buttons/SSIPrimaryButton'
+import IconButton from './components/buttons/IconButton'
+import PrimaryButton from './components/buttons/PrimaryButton'
 import DropDownList from './components/lists/DropDownList'
 import SSITableView from './components/views/SSITableView'
 import SSITableViewHeader from './components/views/SSITableView/SSITableViewHeader'
 import SSITabView from './components/views/SSITabView'
 import SSITabViewHeader from './components/views/SSITabView/SSITabViewHeader'
 import SSIProfileIcon from './components/assets/icons/SSIProfileIcon'
-import SSISecondaryButton from './components/buttons/SSISecondaryButton'
+import SecondaryButton from './components/buttons/SecondaryButton'
 import SSICheckbox from './components/fields/SSICheckbox'
 import SSIActivityIndicator from './components/indicators/SSIActivityIndicator'
 import SSIHoverText from './components/fields/SSIHoverText'
@@ -40,6 +40,7 @@ import CredentialViewItem from './components/views/CredentialViewItem'
 import JSONDataView from './components/views/JSONDataView'
 import TextInputField from './components/fields/TextInputField'
 import WarningImage from './components/assets/images/WarningImage'
+import FormView from './components/views/FormView'
 
 import {Row} from '@tanstack/react-table'
 
@@ -61,9 +62,9 @@ export {
   SSIFilterIcon,
   SSIArrowDownIcon,
   SSITypeLabel,
-  SSIIconButton,
-  SSIPrimaryButton,
-  SSISecondaryButton,
+  IconButton,
+  PrimaryButton,
+  SecondaryButton,
   DropDownList,
   SSITableView,
   SSITableViewHeader,
@@ -92,5 +93,6 @@ export {
   CredentialViewItem,
   JSONDataView,
   TextInputField,
-  WarningImage
+  WarningImage,
+  FormView
 }
