@@ -6,12 +6,7 @@
     border-color: #7276F7 !important;
 }
 
-.MuiInputLabel-root.MuiFormLabel-root {
-    color: #303030 !important;
-}
-
 .MuiTypography-h6 {
-    color: #303030 !important;
     font-size: 16px !important;
     font-style: normal !important;
     font-weight: 600 !important;
@@ -38,6 +33,7 @@
     margin: 0 !important;
     background-color: #FBFBFB !important;
     box-shadow: none !important;
+    border-radius: 4px !important;
 }
 
 .MuiCardHeader-title {
@@ -46,7 +42,6 @@
     font-style: normal !important;
     font-weight: 400 !important;
     margin-bottom: 10px !important;
-    color: #303030 !important;
 }
 
 .MuiGrid-root.MuiGrid-container.MuiGrid-direction-xs-column {
@@ -67,6 +62,7 @@
 
 .MuiTypography-root {
     font-family: 'Poppins', sans-serif !important;
+    color: #303030 !important;
 }
 
 .MuiDateCalendar-root {
@@ -84,4 +80,26 @@
 
 .MuiButtonBase-root.MuiPickersDay-root.MuiPickersDay-dayWithMargin:hover {
     background-color: #B7B8D9 !important;
+}
+
+.base-Popper-root {
+    border-radius: 4px !important;
+}
+
+.MuiFormGroup-root.MuiFormGroup-row {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-gap: 10px !important;
+}
+
+.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-true:empty {
+    display: none !important;
+}
+
+textarea.MuiInputBase-input.MuiInputBase-inputMultiline {
+    min-height: 112px !important;
+}
+
+.MuiTabs-scroller.MuiTabs-fixed {
+    margin-bottom: 12px !important;
 }

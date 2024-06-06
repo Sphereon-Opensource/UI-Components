@@ -14,4 +14,6 @@ export const SecondaryButtonMaskContainerStyled = styled.View`
 export const SecondaryButtonLinearGradientStyled = styled(SSILinearGradientStyled)`
   align-items: center;
   justify-content: center;
+  padding: 9px;
+  width: 180px;
 `

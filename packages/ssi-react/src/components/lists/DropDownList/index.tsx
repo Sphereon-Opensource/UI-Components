@@ -1,7 +1,7 @@
 import React, {FC, useState, useRef, useEffect} from 'react'
 import {borderColors, ButtonIcon} from '@sphereon/ui-components.core'
 import DropDownListItem from '../DropDownListItem'
-import SSIIconButton from '../../buttons/SSIIconButton'
+import IconButton from '../../buttons/IconButton'
 import {
   DropDownListContainerStyled as Container,
   DropDownContainerStyled as DropDownContainer,
@@ -56,7 +56,7 @@ const DropDownList: FC<Props> = (props: Props): JSX.Element => {
   return (
     <Container ref={dropdownRef}>
       <ListButton>
-        <SSIIconButton icon={icon} onClick={onMore} />
+        <IconButton icon={icon} onClick={onMore} />
       </ListButton>
       {showActionsMenu && (
         <DropDownContainer style={{...(showBorder && {borderWidth: 2, borderColor: borderColors.lightGrey, borderStyle: 'solid'})}}>
