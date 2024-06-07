@@ -28,11 +28,11 @@
   "credential_issuance_wizard_title": "Issue credential",
   "credential_issuance_wizard_credential_type_label": "Credential type",
   "credential_issuance_wizard_evidence_title": "Evidence",
-  "credential_issuance_wizard_evidence_optional_title": "(optional)",
   "credential_issuance_wizard_evidence_description": "Optionally, you can upload one or more documents or files that you want to attach to this credential.",
   "file_permission_public_label": "Public",
   "file_permission_private_label": "Private",
   "credentials_view_item_expires_on": "Expires on",
   "json_data_view_attribute_column_label": "Attribute",
-  "json_data_view_value_column_label": "Value"
+  "json_data_view_value_column_label": "Value",
+  "optional_label": "(optional)"
 }

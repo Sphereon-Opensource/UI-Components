@@ -1,32 +1,44 @@
-import React, {FC, MouseEventHandler, ReactElement} from 'react'
-import {ButtonIcon, fontColors} from '@sphereon/ui-components.core'
+import React, {FC, MouseEventHandler, ReactElement, MouseEvent} from 'react'
+import {ButtonIcon, fontColors, OpacityStyleEnum} from '@sphereon/ui-components.core'
 import SSIAddIcon from '../../assets/icons/SSIAddIcon'
 import SSIFilterIcon from '../../assets/icons/SSIFilterIcon'
 import SSIArrowDownIcon from '../../assets/icons/SSIArrowDownIcon'
-import {SSIIconButtonContainerStyled as Container, SSITextH3Styled as Caption} from '../../../styles'
 import MeatBallsIcon from '../../assets/icons/MeatBallsIcon'
 import DeleteIcon from '../../assets/icons/DeleteIcon'
+import {IconButtonContainerStyled as Container, SSITextH3Styled as Caption} from '../../../styles'
 
 type Props = {
   icon: ButtonIcon
   caption?: string
   onClick: MouseEventHandler
-  disabled?: boolean // TODO implement styling
+  disabled?: boolean | (() => boolean)
   iconColor?: string
 }
 
-const SSIIconButton: FC<Props> = (props: Props): ReactElement => {
-  const {caption, icon, onClick, disabled = false, iconColor = fontColors.dark} = props
+const IconButton: FC<Props> = (props: Props): ReactElement => {
+  const {caption, icon, iconColor = fontColors.dark} = props
+  const disabled: boolean = typeof props.disabled === 'function' ? props.disabled() : props.disabled ?? false
+
+  const onClick = async (event: MouseEvent): Promise<void> => {
+    if (!disabled) {
+      props.onClick(event)
+    }
+  }
 
   return (
-    <Container onClick={onClick}>
+    <Container
+        style={{
+          ...(disabled && {opacity: OpacityStyleEnum.DISABLED}),
+        }}
+        onClick={onClick}
+    >
       {getIcon(icon, iconColor)}
       {caption && <Caption>{caption}</Caption>}
     </Container>
   )
 }
 
-const getIcon = (icon: ButtonIcon, color: string): JSX.Element => {
+const getIcon = (icon: ButtonIcon, color: string): ReactElement => {
   switch (icon) {
     case ButtonIcon.ADD:
       return <SSIAddIcon color={color} />
@@ -44,4 +56,4 @@ const getIcon = (icon: ButtonIcon, color: string): JSX.Element => {
   }
 }
 
-export default SSIIconButton
+export default IconButton

@@ -1,5 +1,5 @@
 import React, {CSSProperties, FC, ReactElement} from 'react'
-import {elementColors, fontColors} from '@sphereon/ui-components.core'
+import {elementColors, fontColors, Localization} from '@sphereon/ui-components.core'
 import StepMarker from '../../assets/markers/StepMarker'
 import {gradientColors} from '../../../styles/colors'
 import {
@@ -10,6 +10,7 @@ import {
   ProgressStepIndicatorStepTextCellStyled as StepTextCell,
   ProgressStepIndicatorTitleTextStyled as TitleText,
   ProgressStepIndicatorDescriptionTextStyled as DescriptionText,
+  ProgressStepIndicatorOptionalTextStyled as OptionalText,
   ProgressStepIndicatorSpacerLineCellStyled as SpacerLineCell,
 } from '../../../styles'
 import {ProgressIndicatorStep, StepStatus} from '../../../types'
@@ -21,6 +22,7 @@ type Props = {
 }
 
 const getStepRowElement = (stepNumber: number, status: StepStatus, step: ProgressIndicatorStep, maxSteps: number) => {
+  const { title, description, required = true } = step
   // we calculate the row, because we are also adding rows for spacing between the step items
   const gridRowNumber: number = stepNumber * 2 - 1
 
@@ -40,7 +42,7 @@ const getStepRowElement = (stepNumber: number, status: StepStatus, step: Progres
         )}
       </StepMarkerCell>
       <StepTextCell style={{gridRow: gridRowNumber}}>
-        {step.title && (
+        {title && (
           <TitleText
             style={{
               ...(status === StepStatus.CURRENT && {
@@ -53,12 +55,19 @@ const getStepRowElement = (stepNumber: number, status: StepStatus, step: Progres
               ...(status === StepStatus.COMPLETED && {color: fontColors.dark}),
               ...(status === StepStatus.NEXT && {color: fontColors.lightGrey}),
             }}>
-            {step.title}
+            <div>
+              {title}
+            </div>
+            {!required &&
+                <OptionalText>
+                  {Localization.translate('optional_label')}
+                </OptionalText>
+            }
           </TitleText>
         )}
-        {step.description && (
+        {description && (
           <DescriptionText style={{...((status === StepStatus.CURRENT || status === StepStatus.COMPLETED) && {color: fontColors.dark})}}>
-            {step.description}
+            {description}
           </DescriptionText>
         )}
       </StepTextCell>
