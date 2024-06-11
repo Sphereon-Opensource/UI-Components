@@ -6,6 +6,7 @@ import SSIArrowDownIcon from '../../assets/icons/SSIArrowDownIcon'
 import MeatBallsIcon from '../../assets/icons/MeatBallsIcon'
 import DeleteIcon from '../../assets/icons/DeleteIcon'
 import {IconButtonContainerStyled as Container, SSITextH3Styled as Caption} from '../../../styles'
+import {PencilIcon} from '../../../index'
 
 type Props = {
   icon: ButtonIcon
@@ -46,9 +47,10 @@ const getIcon = (icon: ButtonIcon, color: string): ReactElement => {
       return <SSIArrowDownIcon color={color} />
     case ButtonIcon.MEATBALLS:
       return <MeatBallsIcon color={color} />
+    case ButtonIcon.EDIT:
+      return <PencilIcon color={color} />
     case ButtonIcon.DELETE:
-      // FIXME we need to look at other sizes of icons
-      return <DeleteIcon color={color} width={15} height={16} />
+      return <DeleteIcon color={color} />
     case ButtonIcon.FILTER:
       return <SSIFilterIcon color={color} />
     default:
