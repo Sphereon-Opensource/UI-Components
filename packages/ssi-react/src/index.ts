@@ -1,8 +1,7 @@
 import SSIToastContainer from './components/messageBoxes/toasts/SSIToastContainer'
 import SSIStatusLabel from './components/labels/SSIStatusLabel'
 import SSICredentialCardView from './components/views/SSICredentialCardView'
-import CredentialMiniCardView from './components/views/CredentialMiniCardView'
-import {CredentialMiniCardViewProps} from './components/views/CredentialMiniCardView'
+import CredentialMiniCardView, {CredentialMiniCardViewProps} from './components/views/CredentialMiniCardView'
 import SSICheckmarkBadge from './components/assets/badges/SSICheckmarkBadge'
 import SSIExclamationMarkBadge from './components/assets/badges/SSIExclamationMarkBadge'
 import SSIPlaceholderLogo from './components/assets/logos/SSIPlaceholderLogo'
@@ -28,11 +27,13 @@ import StepMarker from './components/assets/markers/StepMarker'
 import DocumentIcon from './components/assets/icons/DocumentIcon'
 import CrossIcon from './components/assets/icons/CrossIcon'
 import ImageIcon from './components/assets/icons/ImageIcon'
+import MeatBallsIcon from './components/assets/icons/MeatBallsIcon'
+import PencilIcon from './components/assets/icons/PencilIcon'
 import FileSelection from './components/fields/FileSelection'
 import ComboBox from './components/fields/ComboBox'
 import DragAndDropBox from './components/fields/DragAndDropBox'
 import PersonPlaceholder from './components/assets/placeholders/PersonPlaceholder'
-import PassportPhotoControl, { passportPhotoControlTester } from './components/fields/JSONForms/PassportPhotoControl'
+import PassportPhotoControl, {passportPhotoControlTester} from './components/fields/JSONForms/PassportPhotoControl'
 import CredentialIssuanceWizardView from './components/views/CredentialIssuanceWizardView'
 import PaginationControls from './components/views/SSITableView/PaginationControls'
 import PaginationControlsProps from './components/views/SSITableView/PaginationControls'
@@ -83,6 +84,8 @@ export {
   DocumentIcon,
   CrossIcon,
   ImageIcon,
+  MeatBallsIcon,
+  PencilIcon,
   FileSelection,
   ComboBox,
   DragAndDropBox,
@@ -94,5 +97,5 @@ export {
   JSONDataView,
   TextInputField,
   WarningImage,
-  FormView
+  FormView,
 }
