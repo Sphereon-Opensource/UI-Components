@@ -6,7 +6,8 @@ import SSIArrowDownIcon from '../../assets/icons/SSIArrowDownIcon'
 import MeatBallsIcon from '../../assets/icons/MeatBallsIcon'
 import DeleteIcon from '../../assets/icons/DeleteIcon'
 import {IconButtonContainerStyled as Container, SSITextH3Styled as Caption} from '../../../styles'
-import {PencilIcon} from '../../../index'
+import {PencilIcon, ViewIcon} from '../../../index'
+import CopyIcon from '../../assets/icons/CopyIcon'
 
 type Props = {
   icon: ButtonIcon
@@ -49,10 +50,14 @@ const getIcon = (icon: ButtonIcon, color: string): ReactElement => {
       return <MeatBallsIcon color={color} />
     case ButtonIcon.EDIT:
       return <PencilIcon color={color} />
+    case ButtonIcon.COPY:
+      return <CopyIcon color={color} />
     case ButtonIcon.DELETE:
       return <DeleteIcon color={color} />
     case ButtonIcon.FILTER:
       return <SSIFilterIcon color={color} />
+    case ButtonIcon.VIEW:
+      return <ViewIcon color={color} />
     default:
       return <div />
   }
