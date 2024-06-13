@@ -1,11 +1,11 @@
 import React, {FC} from 'react'
 import {
+  DropDownListItemCaptionContainerStyled as ListItemCaption,
   DropDownListItemContainerStyled as Container,
   DropDownListItemIconContainerStyled as IconContainer,
-  DropDownListItemCaptionContainerStyled as ListItemCaption,
 } from '../../../styles/components'
-import DeleteIcon from '../../assets/icons/DeleteIcon'
 import {borderColors, ButtonIcon, fontColors} from '@sphereon/ui-components.core'
+import {getIcon} from '../../../helpers/iconHelper'
 
 type Props = {
   label: string
@@ -19,15 +19,6 @@ type Props = {
 
 const DropDownListItem: FC<Props> = (props: Props): JSX.Element => {
   const {disabled, label, icon, showBorder = false, fontColor = fontColors.dark, borderColor = borderColors.light, onClick} = props
-  const getIcon = (icon: ButtonIcon): JSX.Element => {
-    switch (icon) {
-      case ButtonIcon.DELETE:
-        return <DeleteIcon color={fontColors.dark} />
-      default:
-        return <div />
-    }
-  }
-
   const onContainerClick = async (event: React.MouseEvent<HTMLDivElement, MouseEvent>): Promise<void> => {
     event.stopPropagation()
     if (onClick) {
