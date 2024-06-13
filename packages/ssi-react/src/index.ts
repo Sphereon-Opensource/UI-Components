@@ -30,6 +30,8 @@ import ImageIcon from './components/assets/icons/ImageIcon'
 import MeatBallsIcon from './components/assets/icons/MeatBallsIcon'
 import PencilIcon from './components/assets/icons/PencilIcon'
 import ViewIcon from './components/assets/icons/ViewIcon'
+import CopyIcon from './components/assets/icons/CopyIcon'
+import DeleteIcon from './components/assets/icons/DeleteIcon'
 import FileSelection from './components/fields/FileSelection'
 import ComboBox from './components/fields/ComboBox'
 import DragAndDropBox from './components/fields/DragAndDropBox'
@@ -88,6 +90,8 @@ export {
   MeatBallsIcon,
   PencilIcon,
   ViewIcon,
+  CopyIcon,
+  DeleteIcon,
   FileSelection,
   ComboBox,
   DragAndDropBox,
