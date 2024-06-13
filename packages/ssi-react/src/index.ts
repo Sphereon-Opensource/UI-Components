@@ -29,6 +29,7 @@ import CrossIcon from './components/assets/icons/CrossIcon'
 import ImageIcon from './components/assets/icons/ImageIcon'
 import MeatBallsIcon from './components/assets/icons/MeatBallsIcon'
 import PencilIcon from './components/assets/icons/PencilIcon'
+import ViewIcon from './components/assets/icons/ViewIcon'
 import FileSelection from './components/fields/FileSelection'
 import ComboBox from './components/fields/ComboBox'
 import DragAndDropBox from './components/fields/DragAndDropBox'
@@ -86,6 +87,7 @@ export {
   ImageIcon,
   MeatBallsIcon,
   PencilIcon,
+  ViewIcon,
   FileSelection,
   ComboBox,
   DragAndDropBox,
