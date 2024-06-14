@@ -1,11 +1,11 @@
 import React, {FC} from 'react'
+import {borderColors, ButtonIcon, fontColors} from '@sphereon/ui-components.core'
+import {getIcon} from '../../../utils'
 import {
   DropDownListItemCaptionContainerStyled as ListItemCaption,
   DropDownListItemContainerStyled as Container,
   DropDownListItemIconContainerStyled as IconContainer,
 } from '../../../styles/components'
-import {borderColors, ButtonIcon, fontColors} from '@sphereon/ui-components.core'
-import {getIcon} from '../../../helpers/iconHelper'
 
 type Props = {
   label: string

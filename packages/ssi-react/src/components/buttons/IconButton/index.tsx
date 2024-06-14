@@ -1,7 +1,7 @@
 import React, {FC, MouseEvent, MouseEventHandler, ReactElement} from 'react'
 import {ButtonIcon, fontColors, OpacityStyleEnum} from '@sphereon/ui-components.core'
+import {getIcon} from '../../../utils'
 import {IconButtonContainerStyled as Container, SSITextH3Styled as Caption} from '../../../styles'
-import {getIcon} from '../../../helpers/iconHelper'
 
 type Props = {
   icon: ButtonIcon

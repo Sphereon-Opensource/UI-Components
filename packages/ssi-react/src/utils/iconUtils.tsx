@@ -1,14 +1,13 @@
-import {ButtonIcon, fontColors} from '@sphereon/ui-components.core'
 import React, {ReactElement} from 'react'
+import {ButtonIcon, fontColors} from '@sphereon/ui-components.core'
 import SSIAddIcon from '../components/assets/icons/SSIAddIcon'
 import SSIArrowDownIcon from '../components/assets/icons/SSIArrowDownIcon'
 import MeatBallsIcon from '../components/assets/icons/MeatBallsIcon'
-import {FileSelectionFieldType, PencilIcon, ViewIcon} from '../index'
 import CopyIcon from '../components/assets/icons/CopyIcon'
 import DeleteIcon from '../components/assets/icons/DeleteIcon'
 import SSIFilterIcon from '../components/assets/icons/SSIFilterIcon'
-import DocumentIcon from '../components/assets/icons/DocumentIcon'
-import ImageIcon from '../components/assets/icons/ImageIcon'
+import PencilIcon from '../components/assets/icons/PencilIcon'
+import ViewIcon from '../components/assets/icons/ViewIcon'
 
 export const getIcon = (icon: ButtonIcon, color: string = fontColors.dark): ReactElement => {
   switch (icon) {
