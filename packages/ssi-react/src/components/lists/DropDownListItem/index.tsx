@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, {FC, ReactElement} from 'react'
 import {borderColors, ButtonIcon, fontColors} from '@sphereon/ui-components.core'
 import {getIcon} from '../../../utils'
 import {
@@ -17,7 +17,7 @@ type Props = {
   borderColor?: string
 }
 
-const DropDownListItem: FC<Props> = (props: Props): JSX.Element => {
+const DropDownListItem: FC<Props> = (props: Props): ReactElement => {
   const {disabled, label, icon, showBorder = false, fontColor = fontColors.dark, borderColor = borderColors.light, onClick} = props
   const onContainerClick = async (event: React.MouseEvent<HTMLDivElement, MouseEvent>): Promise<void> => {
     event.stopPropagation()
