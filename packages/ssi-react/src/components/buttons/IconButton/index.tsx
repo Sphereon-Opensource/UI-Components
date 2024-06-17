@@ -1,10 +1,6 @@
-import React, {FC, MouseEventHandler, ReactElement, MouseEvent} from 'react'
+import React, {FC, MouseEvent, MouseEventHandler, ReactElement} from 'react'
 import {ButtonIcon, fontColors, OpacityStyleEnum} from '@sphereon/ui-components.core'
-import SSIAddIcon from '../../assets/icons/SSIAddIcon'
-import SSIFilterIcon from '../../assets/icons/SSIFilterIcon'
-import SSIArrowDownIcon from '../../assets/icons/SSIArrowDownIcon'
-import MeatBallsIcon from '../../assets/icons/MeatBallsIcon'
-import DeleteIcon from '../../assets/icons/DeleteIcon'
+import {getIcon} from '../../../utils'
 import {IconButtonContainerStyled as Container, SSITextH3Styled as Caption} from '../../../styles'
 
 type Props = {
@@ -38,22 +34,5 @@ const IconButton: FC<Props> = (props: Props): ReactElement => {
   )
 }
 
-const getIcon = (icon: ButtonIcon, color: string): ReactElement => {
-  switch (icon) {
-    case ButtonIcon.ADD:
-      return <SSIAddIcon color={color} />
-    case ButtonIcon.ARROW_DOWN:
-      return <SSIArrowDownIcon color={color} />
-    case ButtonIcon.MEATBALLS:
-      return <MeatBallsIcon color={color} />
-    case ButtonIcon.DELETE:
-      // FIXME we need to look at other sizes of icons
-      return <DeleteIcon color={color} width={15} height={16} />
-    case ButtonIcon.FILTER:
-      return <SSIFilterIcon color={color} />
-    default:
-      return <div />
-  }
-}
 
 export default IconButton
