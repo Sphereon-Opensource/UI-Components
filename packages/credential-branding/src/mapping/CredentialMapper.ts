@@ -188,12 +188,11 @@ export const selectAppLocaleBranding = async (
 
   const logo: string | undefined = localeBranding?.logo?.dataUri || localeBranding?.logo?.uri
   let imagePreloader: IImagePreloader
-
   if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
-    //TODO: CWALL-243 bring back the react-native related code
-
+    const {ReactNativeImagePreloader} = await import('../services/ReactNativeImagePreloader')
     imagePreloader = new ReactNativeImagePreloader()
   } else {
+    const {WebImagePreloader} = await import('../services/WebImagePreloader')
     imagePreloader = new WebImagePreloader()
   }
   if (logo) {
@@ -205,7 +204,7 @@ export const selectAppLocaleBranding = async (
   const backgroundImage: string | undefined = localeBranding?.background?.image?.dataUri || localeBranding?.background?.image?.uri
   if (backgroundImage) {
     imagePreloader.preload([{uri: backgroundImage}]).catch((): void => {
-      //ignore
+      // ignore
     })
   }
 
