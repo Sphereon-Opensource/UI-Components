@@ -1,8 +1,8 @@
 {
-  "name": "@sphereon/ui-components.credential-branding",
+  "name": "@sphereon/ui-components.credential-mapper",
   "private": false,
   "version": "0.2.0",
-  "description": "SSI UI components credential Branding",
+  "description": "SSI UI components credential mapper",
   "repository": "git@github.com:Sphereon-Opensource/UI-Components.git",
   "author": "Sphereon <dev@sphereon.com>",
   "license": "Apache-2.0",

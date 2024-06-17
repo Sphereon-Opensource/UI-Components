@@ -2,7 +2,7 @@
 <h1 align="center">
   <br>
   <a href="https://www.sphereon.com"><img src="https://sphereon.com/content/themes/sphereon/assets/img/logo.svg" alt="Sphereon" width="400"></a>
-  <br>UI Components Credential Branding (Typescript) 
+  <br>UI Components Credential Mapper (Typescript) 
   <br>
 </h1>
 
@@ -17,5 +17,5 @@ pnpm build
 ### Installation
 
 ```shell
-pnpm install @sphereon/ui-components.credential-branding
+pnpm install @sphereon/ui-components.credential-mapper
 ```
