@@ -6,7 +6,7 @@ import {ICredential} from '@sphereon/ssi-types'
 import {CredentialStatus, EPOCH_MILLISECONDS, Localization} from '@sphereon/ui-components.core'
 import {downloadImage, getImageDimensions} from '@sphereon/ssi-sdk.core'
 import {CredentialDetailsRow, CredentialSummary, ISelectAppLocaleBrandingArgs} from '../types'
-import {IImagePreloader, ReactNativeImagePreloader, WebImagePreloader} from '../services'
+import {IImagePreloader} from '../services'
 import {getCredentialStatus, getIssuerLogo, isImageAddress} from '../utils'
 
 function findCorrelationIdName(correlationId: string, contacts: Party[]): string {
