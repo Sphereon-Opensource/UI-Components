@@ -188,7 +188,7 @@ export const selectAppLocaleBranding = async (
 
   const logo: string | undefined = localeBranding?.logo?.dataUri || localeBranding?.logo?.uri
   let imagePreloader: IImagePreloader
-  if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
+  if (typeof window === 'undefined') {
     const {ReactNativeImagePreloader} = await import('../services/ReactNativeImagePreloader')
     imagePreloader = new ReactNativeImagePreloader()
   } else {
