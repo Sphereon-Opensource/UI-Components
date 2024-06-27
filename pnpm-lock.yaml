@@ -65,7 +65,7 @@ importers:
         specifier: 4.9.5
         version: 4.9.5
 
-  packages/credential-representation:
+  packages/credential-mapper:
     dependencies:
       '@sphereon/ssi-sdk.core':
         specifier: 0.26.1-next.6
