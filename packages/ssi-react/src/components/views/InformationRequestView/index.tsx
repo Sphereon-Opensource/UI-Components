@@ -6,13 +6,15 @@ import {
   InformationRequestViewCardTitle as CardTitle,
   InformationRequestViewContainerStyled as Container,
   InformationRequestViewContentContainerStyled as ContentContainer,
-  InformationRequestViewDescriptionStyled,
-  InformationRequestViewRPCardContainerStyled as RPCardContainer,
+  InformationRequestViewDescriptionStyled as Description,
   InformationRequestViewFormContainerStyled as FormContainer,
-  InformationRequestViewFormTitleStyled as FormTitle,
+  InformationRequestViewFormContainerStyled as PurposeContainer,
+  InformationRequestViewHeaderContainerStyled as HeaderContainer,
   InformationRequestViewLogoContainerStyled as LogoContainer,
-  InformationRequestViewPurposeContainerStyled as PurposeContainer,
-  InformationRequestViewPurposeTitleStyled as PurposeTitle,
+  InformationRequestViewRPCardContainerStyled as RPCardContainer,
+  InformationRequestViewTitleStyled as HeaderTitle,
+  InformationRequestViewParagraphStyled as PurposeTitle,
+  InformationRequestViewParagraphStyled as FormTitle,
 } from '../../../styles/components'
 import SSIStatusLabel from '../../labels/SSIStatusLabel'
 import SSILogo from '../../assets/logos/SSILogo'
@@ -41,24 +43,30 @@ const InformationRequestView: FC<Props> = (args: Props): ReactElement => {
   return (
     <Container>
       <ContentContainer>
+        <HeaderContainer>
+          <HeaderTitle>{Localization.translate('information_request_title')}</HeaderTitle>
+          <Description>{Localization.translate('information_request_header_description', {
+            partyName: relyingPartyName,
+          })}</Description>
+        </HeaderContainer>
         <PurposeContainer>
-          <PurposeTitle>{Localization.translate('information_request_title')}</PurposeTitle>
-          <InformationRequestViewDescriptionStyled>{purpose}</InformationRequestViewDescriptionStyled>
+          <PurposeTitle>{Localization.translate('information_request_purpose_label')}</PurposeTitle>
+          <Description>{purpose}</Description>
         </PurposeContainer>
         <FormContainer>
           <FormTitle>{Localization.translate('information_request_form_label')}</FormTitle>
-          <InformationRequestViewDescriptionStyled>{Localization.translate('information_request_interacting_with', {
+          <Description>{Localization.translate('information_request_interacting_with', {
             partyName: relyingPartyName,
           })}
-          </InformationRequestViewDescriptionStyled>
+          </Description>
 
           <RPCardContainer>
             <LogoContainer>
               <SSILogo logo={logo} color={textColor ?? '#000'} />
             </LogoContainer>
             <CardTextContainer>
-              <CardTitle>{Localization.translate('information_request_relying_party_name_label')}</CardTitle>
-              <CardSubtitle>{relyingPartyName}</CardSubtitle>
+              <CardTitle>{relyingPartyName}</CardTitle>
+              <CardSubtitle>Verifier</CardSubtitle>
               {uri && (
                 <CardSubtitle>{uri}</CardSubtitle>
               )

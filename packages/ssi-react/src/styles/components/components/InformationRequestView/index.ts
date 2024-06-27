@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {SSITextH1Styled, SSITextH2Styled, SSITextH4Styled} from '../../../fonts'
+import {SSITextH1Styled, SSITextH2Styled, SSITextH3Styled, SSITextH4Styled} from '../../../fonts'
 
 export const InformationRequestViewContainerStyled = styled.div`
     display: flex;
@@ -15,19 +15,33 @@ export const InformationRequestViewContentContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
+    margin-right: auto;
 `
 
-export const InformationRequestViewPurposeContainerStyled = styled.div`
+export const InformationRequestViewHeaderContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 8px;
 `
+export const InformationRequestViewPurposeContainerStyled = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fafafa;`
 
-export const InformationRequestViewPurposeTitleStyled = styled(SSITextH1Styled)`
+export const InformationRequestViewTitleStyled = styled(SSITextH1Styled)`
     text-align: left;
+    font-weight: bold;
 `
 
-export const InformationRequestViewDescriptionStyled = styled(SSITextH2Styled)`
+export const InformationRequestViewParagraphStyled = styled(SSITextH2Styled)`
+    text-align: left;
+    font-weight: bold;
+`
+export const InformationRequestViewDescriptionStyled = styled(SSITextH3Styled)`
     text-align: left;
     font-weight: normal;
 `
