@@ -65,17 +65,17 @@ importers:
         specifier: 4.9.5
         version: 4.9.5
 
-  packages/credential-mapper:
+  packages/credential-representation:
     dependencies:
       '@sphereon/ssi-sdk.core':
-        specifier: 0.26.0
-        version: 0.26.0
+        specifier: 0.26.1-next.6
+        version: 0.26.1-next.6
       '@sphereon/ssi-sdk.data-store':
-        specifier: 0.26.0
-        version: 0.26.0
+        specifier: 0.26.1-next.6
+        version: 0.26.1-next.6
       '@sphereon/ssi-types':
-        specifier: 0.26.0
-        version: 0.26.0
+        specifier: 0.26.1-next.6
+        version: 0.26.1-next.6
       '@sphereon/ui-components.core':
         specifier: workspace:*
         version: link:../core
@@ -4024,10 +4024,10 @@ packages:
       uint8arrays: 3.1.1
     dev: false
 
-  /@sphereon/ssi-sdk.core@0.26.0:
-    resolution: {integrity: sha512-H5/JLnf6+YsPNWribe6Meyi+sM+vmLoOyGeZGHoNVkxj7rsnw81kA47PUUbzTbxWwRgBQqt1c5Kz8cL+TZr8Bg==}
+  /@sphereon/ssi-sdk.core@0.26.1-next.6:
+    resolution: {integrity: sha512-npoYxhBRZl2WYH28fCH3veLxMgBGI8RU2MlRQmSMGEf109vznr5th7pEjElnwP0w5/KCOwQHufA2BnoQvNghmQ==}
     dependencies:
-      '@sphereon/ssi-types': 0.26.0
+      '@sphereon/ssi-types': 0.26.1-next.6
       '@veramo/core': 4.2.0
       cross-fetch: 3.1.8
       debug: 4.3.5(supports-color@5.5.0)
@@ -4038,12 +4038,12 @@ packages:
       - supports-color
     dev: false
 
-  /@sphereon/ssi-sdk.data-store@0.26.0:
-    resolution: {integrity: sha512-QVr1TCSo0NUtnz3S9FZzcqkwNYGB/iISCtJPj9/thGsIxFDvuErRrF/xc6Cl8EncjkWZvffuZyWxQeoSPjQ8BQ==}
+  /@sphereon/ssi-sdk.data-store@0.26.1-next.6:
+    resolution: {integrity: sha512-m5tP2YlRFsaia6xcU3IW5vvZBk/B9z84T/tsSB+nni8DdTYq20LjkyGcD254cbbdtgAl8hR/bWXxbbppVGgNxg==}
     dependencies:
       '@sphereon/pex': 3.3.3
-      '@sphereon/ssi-sdk.core': 0.26.0
-      '@sphereon/ssi-types': 0.26.0
+      '@sphereon/ssi-sdk.core': 0.26.1-next.6
+      '@sphereon/ssi-types': 0.26.1-next.6
       '@veramo/core': 4.2.0
       '@veramo/utils': 4.2.0
       blakejs: 1.2.1
@@ -4079,8 +4079,8 @@ packages:
       jwt-decode: 3.1.2
     dev: false
 
-  /@sphereon/ssi-types@0.26.0:
-    resolution: {integrity: sha512-r4JQIN7rnPunEv0HvCFC1ZCc9qlWcegYvhJbMJqSvyFE6VhmT5NNdH9jNV9QetgMa0yo5r3k+TnHNv3nH58Dmg==}
+  /@sphereon/ssi-types@0.26.1-next.6:
+    resolution: {integrity: sha512-YloKFKuUfx7JOyxJPig6YLPJ04owQpbaF0WWOfu5MB+EFJIgSrl3GLO391/FZh8MYxTHh9+QpkpAxfVLXFpJ2A==}
     dependencies:
       '@sd-jwt/decode': 0.6.1
       debug: 4.3.5(supports-color@5.5.0)

@@ -1,8 +1,8 @@
 {
-  "name": "@sphereon/ui-components.credential-mapper",
+  "name": "@sphereon/ui-components.credential-representation",
   "private": false,
   "version": "0.2.0",
-  "description": "SSI UI components credential mapper",
+  "description": "SSI UI components credential representation",
   "repository": "git@github.com:Sphereon-Opensource/UI-Components.git",
   "author": "Sphereon <dev@sphereon.com>",
   "license": "Apache-2.0",
@@ -10,6 +10,7 @@
     "Frontend",
     "User interface",
     "Self-sovereign identity (SSI)",
+    "Credential representation",
     "Credential branding"
   ],
   "scripts": {
@@ -28,9 +29,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@sphereon/ssi-sdk.core": "0.26.0",
-    "@sphereon/ssi-sdk.data-store": "0.26.0",
-    "@sphereon/ssi-types": "0.26.0",
+    "@sphereon/ssi-sdk.core": "0.26.1-next.6",
+    "@sphereon/ssi-sdk.data-store": "0.26.1-next.6",
+    "@sphereon/ssi-types": "0.26.1-next.6",
     "@sphereon/ui-components.core": "workspace:*",
     "@veramo/core": "4.2.0",
     "@veramo/utils": "4.2.0",
