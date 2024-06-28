@@ -6,7 +6,6 @@ import {
   InformationRequestViewCardTitle as CardTitle,
   InformationRequestViewContainerStyled as Container,
   InformationRequestViewContentContainerStyled as ContentContainer,
-  InformationRequestViewDescriptionStyled as Description,
   InformationRequestViewFormContainerStyled as FormContainer,
   InformationRequestViewFormContainerStyled as PurposeContainer,
   InformationRequestViewHeaderContainerStyled as HeaderContainer,
@@ -15,6 +14,7 @@ import {
   InformationRequestViewTitleStyled as HeaderTitle,
   InformationRequestViewParagraphStyled as PurposeTitle,
   InformationRequestViewParagraphStyled as FormTitle,
+  InformationRequestViewDescriptionStyled as Description,
 } from '../../../styles/components'
 import SSIStatusLabel from '../../labels/SSIStatusLabel'
 import SSILogo from '../../assets/logos/SSILogo'

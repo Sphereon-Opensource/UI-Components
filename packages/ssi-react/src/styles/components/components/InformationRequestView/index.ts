@@ -5,8 +5,6 @@ export const InformationRequestViewContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
-    width: 100%;
-    max-width: 800px;
     margin: 0 auto;
     padding: 24px;
 `
@@ -15,6 +13,7 @@ export const InformationRequestViewContentContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
+    width: 500px; /* FIXME */
     margin-right: auto;
 `
 
@@ -30,7 +29,7 @@ export const InformationRequestViewPurposeContainerStyled = styled.div`
     padding: 16px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    background-color: #fafafa;`
+    background-color: #fbfbfb;`
 
 export const InformationRequestViewTitleStyled = styled(SSITextH1Styled)`
     text-align: left;
@@ -46,6 +45,11 @@ export const InformationRequestViewDescriptionStyled = styled(SSITextH3Styled)`
     font-weight: normal;
 `
 
+export const InformationRequestViewSubSectionStyled = styled(SSITextH3Styled)`
+    text-align: left;
+    font-weight: bold;
+`
+
 export const InformationRequestViewFormContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
@@ -53,7 +57,7 @@ export const InformationRequestViewFormContainerStyled = styled.div`
     padding: 16px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    background-color: #fafafa;
+    background-color: #fbfbfb;
 `
 
 export const InformationRequestViewFormTitleStyled = styled(SSITextH2Styled)`
