@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-A UI Core package for shared logic / styling and localization between components related to Credential Branding
+A UI Core package for shared logic between components related to Credential Branding
 
 ### Build
 
