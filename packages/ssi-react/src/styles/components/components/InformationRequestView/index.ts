@@ -17,6 +17,7 @@ export const InformationRequestViewContentContainerStyled = styled.div`
     margin-right: auto;
 `
 
+
 export const InformationRequestViewHeaderContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
