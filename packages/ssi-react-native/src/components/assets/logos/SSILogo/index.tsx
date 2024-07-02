@@ -15,12 +15,19 @@ const SSILogo: FC<Props> = (props: Props): ReactElement => {
   const {logo, color = logoColors.default, size = 32, style} = props
 
   const source: Source | ImageRequireSource = {...logo, priority: FastImage.priority.high}
+
+  const aspectRatio = logo?.dimensions ? calculateAspectRatio(logo.dimensions.width, logo.dimensions.height) : 1
+
+  const calculatedHeight = size
+  const calculatedWidth = size * aspectRatio
+
   return logo ? (
     <FastImage
       style={{
         ...(style as ImageStyle),
-        ...(logo?.dimensions && {aspectRatio: calculateAspectRatio(logo?.dimensions.width, logo?.dimensions.height)}),
-        height: size,
+        height: calculatedHeight,
+        width: calculatedWidth > size ? size : calculatedWidth,
+        maxWidth: size,
       }}
       resizeMode={FastImage.resizeMode.contain}
       source={source}
