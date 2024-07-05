@@ -146,7 +146,7 @@ export const toCredentialSummary = async (
       : verifiableCredential.issuer?.name ?? verifiableCredential.issuer?.id
 
   let issuerAlias: string | undefined = undefined
-  if (typeof verifiableCredential?.issuer === 'object' && verifiableCredential.issuer?.name) {
+  if (typeof verifiableCredential?.issuer === 'object' && issuerName) {
     // if the name is part of the VC itself, always use that
     // todo: Probably still wise to allow a user to override it
     issuerAlias = issuerName
