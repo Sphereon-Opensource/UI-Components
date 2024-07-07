@@ -140,16 +140,16 @@ export const toCredentialSummary = async (
   const localeBranding: IBasicCredentialLocaleBranding | undefined = await selectAppLocaleBranding({localeBranding: branding})
   const logo: string | undefined = getIssuerLogo(verifiableCredential, localeBranding)
   const url = typeof verifiableCredential.issuer !== 'string' ? verifiableCredential.issuer.url : undefined
-  const name: string =
+  const issuerName: string =
     typeof verifiableCredential.issuer === 'string'
       ? verifiableCredential.issuer
       : verifiableCredential.issuer?.name ?? verifiableCredential.issuer?.id
 
   let issuerAlias: string | undefined = undefined
-  if (typeof verifiableCredential?.issuer === 'object' && verifiableCredential.issuer?.name) {
+  if (typeof verifiableCredential?.issuer === 'object' && issuerName) {
     // if the name is part of the VC itself, always use that
     // todo: Probably still wise to allow a user to override it
-    issuerAlias = verifiableCredential.issuer.name
+    issuerAlias = issuerName
   }
   if (!issuerAlias && issuer) {
     issuerAlias = issuer.contact.displayName
@@ -167,7 +167,7 @@ export const toCredentialSummary = async (
     properties,
     branding: localeBranding,
     issuer: {
-      name,
+      name: issuerName,
       alias: issuerAlias ? (issuerAlias.length > 50 ? `${issuerAlias.substring(0, 50)}...` : issuerAlias) : '',
       image: logo,
       url,
