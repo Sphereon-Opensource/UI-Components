@@ -7,7 +7,7 @@ export type Props = {
 }
 
 const WarningImage: FC<Props> = (props: Props): JSX.Element => {
-  const {height = 162, width = 233, style} = props;
+  const {height = 162, width = 233, style} = props
 
   return (
     <div style={{...style, height, width}}>
@@ -95,7 +95,7 @@ const WarningImage: FC<Props> = (props: Props): JSX.Element => {
         </defs>
       </svg>
     </div>
-  );
-};
+  )
+}
 
 export default WarningImage

@@ -43,11 +43,11 @@ import {
   TableRowSelection,
   TextCellOptions,
   ValueSelection,
-  TableCellOptions
+  TableCellOptions,
 } from '../../../types'
 import PaginationControls, {PaginationControlsProps} from './PaginationControls'
-import ComboBox from "../../fields/ComboBox";
-import CredentialDetailsView from "../CredentialViewItem";
+import ComboBox from '../../fields/ComboBox'
+import CredentialDetailsView from '../CredentialViewItem'
 
 type Props<T> = {
   data: Array<T>
@@ -77,10 +77,11 @@ function IndeterminateCheckbox({indeterminate, className = '', ...rest}: {indete
   return <input type="checkbox" ref={ref} className={className + ' cursor-pointer'} {...rest} />
 }
 
-const getCellFormatting = (type: TableCellType, value: any, row: Row<any>, options?: TableCellOptions): ReactElement => { // FIXME start giving value a type
+const getCellFormatting = (type: TableCellType, value: any, row: Row<any>, options?: TableCellOptions): ReactElement => {
+  // FIXME start giving value a type
   switch (type) {
     case TableCellType.TEXT:
-      const { truncationLength, enableHover = false } = (options as TextCellOptions) ?? {}
+      const {truncationLength, enableHover = false} = (options as TextCellOptions) ?? {}
       return <SSIHoverText text={value} truncationLength={truncationLength} enableHover={enableHover} />
     case TableCellType.LABEL: {
       const labels = Array.isArray(value) ? value.map((label: LabelType) => <SSITypeLabel type={label} />) : <SSITypeLabel type={value} />
@@ -96,7 +97,7 @@ const getCellFormatting = (type: TableCellType, value: any, row: Row<any>, optio
       return <CredentialDetailsView {...value} style={{maxWidth: 261}} />
     }
     case TableCellType.ACTIONS: {
-      const { actions = [] } = (options as ActionsCellOptions) ?? {}
+      const {actions = []} = (options as ActionsCellOptions) ?? {}
       const buttons = actions.map((action: Button) => ({
         ...action,
         onClick: () => action.onClick(row),
@@ -104,13 +105,8 @@ const getCellFormatting = (type: TableCellType, value: any, row: Row<any>, optio
       return <DropDownList icon={ButtonIcon.MEATBALLS} buttons={buttons} showBorder={true} />
     }
     case TableCellType.COMBOBOX: {
-      const { defaultValue, onChange, selectOptions = [] } = (options as ComboboxCellOptions) ?? {}
-      return <ComboBox<ValueSelection>
-          defaultValue={defaultValue}
-          value={value}
-          onChange={onChange}
-          options={selectOptions}
-      />
+      const {defaultValue, onChange, selectOptions = []} = (options as ComboboxCellOptions) ?? {}
+      return <ComboBox<ValueSelection> defaultValue={defaultValue} value={value} onChange={onChange} options={selectOptions} />
     }
     default:
       return <div />
@@ -140,7 +136,6 @@ const SSITableView = <T extends {}>(props: Props<T>): ReactElement => {
     onRowClick,
     onDelete,
     pagination,
-
   } = props
   const [rowSelection, setRowSelection] = React.useState<Array<TableRowSelection>>([])
   const [focusedRowId, setFocusedRowId] = React.useState<string | undefined>()

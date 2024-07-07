@@ -22,7 +22,7 @@ type Props = {
 }
 
 const getStepRowElement = (stepNumber: number, status: StepStatus, step: ProgressIndicatorStep, maxSteps: number) => {
-  const { title, description, required = true } = step
+  const {title, description, required = true} = step
   // we calculate the row, because we are also adding rows for spacing between the step items
   const gridRowNumber: number = stepNumber * 2 - 1
 
@@ -55,14 +55,8 @@ const getStepRowElement = (stepNumber: number, status: StepStatus, step: Progres
               ...(status === StepStatus.COMPLETED && {color: fontColors.dark}),
               ...(status === StepStatus.NEXT && {color: fontColors.lightGrey}),
             }}>
-            <div>
-              {title}
-            </div>
-            {!required &&
-                <OptionalText>
-                  {Localization.translate('optional_label')}
-                </OptionalText>
-            }
+            <div>{title}</div>
+            {!required && <OptionalText>{Localization.translate('optional_label')}</OptionalText>}
           </TitleText>
         )}
         {description && (

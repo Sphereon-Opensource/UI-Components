@@ -70,7 +70,7 @@ export const borderColors: Record<Border, string> = {
   light: '#E3E3E3',
   lightGrey: '#ACACAC',
   darkGrey: '#303030',
-  purple: '#7276F7'
+  purple: '#7276F7',
 }
 
 type Profile = 100 | 200 | 300 | 400 | 500
@@ -107,7 +107,7 @@ export const elementColors: Record<Element, string> = {
   purple: '#7276F7',
   100: '#F25409',
   200: '#F78854',
-  300: '#8D9099'
+  300: '#8D9099',
 }
 
 type Button = 100

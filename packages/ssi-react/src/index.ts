@@ -45,6 +45,7 @@ import JSONDataView from './components/views/JSONDataView'
 import TextInputField from './components/fields/TextInputField'
 import WarningImage from './components/assets/images/WarningImage'
 import FormView from './components/views/FormView'
+import InformationRequestView from './components/views/InformationRequestView'
 
 import {Row} from '@tanstack/react-table'
 
@@ -104,4 +105,5 @@ export {
   TextInputField,
   WarningImage,
   FormView,
+  InformationRequestView,
 }

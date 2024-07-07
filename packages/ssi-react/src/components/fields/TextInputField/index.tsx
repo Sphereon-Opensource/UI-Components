@@ -1,9 +1,5 @@
 import React, {ChangeEvent, CSSProperties, FC, ReactElement, useState} from 'react'
-import {
-  TextFieldInputContainerStyled as Container,
-  TextFieldInputInputStyled as Input,
-  SSITextH2Styled as Label
-} from '../../../styles'
+import {TextFieldInputContainerStyled as Container, TextFieldInputInputStyled as Input, SSITextH2Styled as Label} from '../../../styles'
 
 type Props = {
   initialValue?: string
@@ -16,35 +12,26 @@ type Props = {
 }
 
 const TextInputField: FC<Props> = (props: Props): ReactElement => {
-  const {
-    initialValue,
-    label,
-    placeholder,
-    maxLength,
-    onChangeValue,
-    style,
-  } = props
-  const [value, setValue] = React.useState(initialValue);
-  const [isFocused, setIsFocused] = useState(false);
+  const {initialValue, label, placeholder, maxLength, onChangeValue, style} = props
+  const [value, setValue] = React.useState(initialValue)
+  const [isFocused, setIsFocused] = useState(false)
 
   const onChange = async (event: ChangeEvent<HTMLInputElement>): Promise<void> => {
-    setValue(event.target.value);
+    setValue(event.target.value)
     await onChangeValue?.(event.target.value)
   }
 
   const onFocus = (): void => {
     setIsFocused(true)
-  };
+  }
 
   const onBlur = (): void => {
     setIsFocused(false)
-  };
+  }
 
   return (
     <Container style={{...style}}>
-      {label &&
-          <Label>{label}</Label>
-      }
+      {label && <Label>{label}</Label>}
       <Input
         onChange={onChange}
         value={value}

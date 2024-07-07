@@ -1,14 +1,7 @@
 import styled from 'styled-components'
-import {
-    backgroundColors,
-    borderColors,
-    elementColors,
-    fontColors,
-    fontSize,
-    fontWeight
-} from '@sphereon/ui-components.core'
+import {backgroundColors, borderColors, elementColors, fontColors, fontSize, fontWeight} from '@sphereon/ui-components.core'
 import {SSITextH1SemiBoldStyled, SSITextH3Styled} from '../../../fonts'
-import {SSITextH2Css} from "../../../css";
+import {SSITextH2Css} from '../../../css'
 
 export const ProgressStepIndicatorContainerStyled = styled.div`
   background-color: ${backgroundColors.primaryLight};
@@ -51,7 +44,7 @@ export const ProgressStepIndicatorSpacerLineCellStyled = styled.div`
 
 export const ProgressStepIndicatorTitleTextStyled = styled(SSITextH1SemiBoldStyled)`
   word-break: break-word;
-  
+
   display: flex;
   flex-direction: row;
   gap: 4px;
