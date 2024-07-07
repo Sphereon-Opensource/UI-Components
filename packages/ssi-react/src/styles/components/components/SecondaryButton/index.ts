@@ -30,6 +30,7 @@ export const SecondaryButtonContainerStyled = styled(SSIRoundedContainerStyled)`
   }
 `
 
-export const SecondaryButtonCaptionStyled = styled(SSITextH3Styled)` // FIXME H3 vs H2 mobile
+export const SecondaryButtonCaptionStyled = styled(SSITextH3Styled)`
+  // FIXME H3 vs H2 mobile
   ${gradient100TextCss}
 `

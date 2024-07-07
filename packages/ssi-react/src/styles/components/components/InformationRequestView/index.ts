@@ -2,73 +2,73 @@ import styled from 'styled-components'
 import {SSITextH1Styled, SSITextH2Styled, SSITextH3Styled, SSITextH4Styled} from '../../../fonts'
 
 export const InformationRequestViewContainerStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    margin: 0 auto;
-    padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0 auto;
+  padding: 24px;
 `
 
 export const InformationRequestViewContentContainerStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    width: 500px; /* FIXME */
-    margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 500px; /* FIXME */
+  margin-right: auto;
 `
-
 
 export const InformationRequestViewHeaderContainerStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `
 export const InformationRequestViewPurposeContainerStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 16px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    background-color: #fbfbfb;`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fbfbfb;
+`
 
 export const InformationRequestViewTitleStyled = styled(SSITextH1Styled)`
-    text-align: left;
-    font-weight: bold;
+  text-align: left;
+  font-weight: bold;
 `
 
 export const InformationRequestViewParagraphStyled = styled(SSITextH2Styled)`
-    text-align: left;
-    font-weight: bold;
+  text-align: left;
+  font-weight: bold;
 `
 export const InformationRequestViewDescriptionStyled = styled(SSITextH3Styled)`
-    text-align: left;
-    font-weight: normal;
+  text-align: left;
+  font-weight: normal;
 `
 
 export const InformationRequestViewSubSectionStyled = styled(SSITextH3Styled)`
-    text-align: left;
-    font-weight: bold;
+  text-align: left;
+  font-weight: bold;
 `
 
 export const InformationRequestViewFormContainerStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 16px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    background-color: #fbfbfb;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fbfbfb;
 `
 
 export const InformationRequestViewFormTitleStyled = styled(SSITextH2Styled)`
-    text-align: left;
+  text-align: left;
 `
 
 export const InformationRequestViewFormDetailsContainerStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `
 
 export const InformationRequestViewLogoContainerStyled = styled.div`
@@ -84,18 +84,17 @@ export const InformationRequestViewRPCardContainerStyled = styled.div`
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   background-color: #ffffff;
-`;
-
+`
 
 export const InformationRequestViewCardTextContainer = styled.div`
   flex-grow: 1;
-`;
+`
 
 export const InformationRequestViewCardTitle = styled(SSITextH4Styled)`
   font-weight: bold;
-`;
+`
 
 export const InformationRequestViewCardSubtitle = styled(SSITextH4Styled)`
   font-weight: normal;
   color: #555;
-`;
+`
