@@ -27,11 +27,10 @@ const IconButton: FC<Props> = (props: Props): ReactElement => {
 
   return (
     <Container
-        style={{
-          ...(disabled && {opacity: OpacityStyleEnum.DISABLED}),
-        }}
-        onClick={onClick}
-    >
+      style={{
+        ...(disabled && {opacity: OpacityStyleEnum.DISABLED}),
+      }}
+      onClick={onClick}>
       {getIcon(icon, iconColor)}
       {caption && <Caption>{caption}</Caption>}
     </Container>

@@ -1,10 +1,10 @@
 import {VerifiableCredential} from '@veramo/core'
 import {CredentialSummary} from '../types'
 import {IBasicCredentialLocaleBranding} from '@sphereon/ssi-sdk.data-store'
-import {IS_IMAGE_URI_REGEX, IS_IMAGE_URL_REGEX} from '@sphereon/ui-components.core'
+import {IS_IMAGE_URI_REGEX, IS_IMAGE_FILE_EXTENSION_REGEX} from '@sphereon/ui-components.core'
 
 export const isImageAddress = async (value: string): Promise<boolean> => {
-  return IS_IMAGE_URI_REGEX.test(value) || IS_IMAGE_URL_REGEX.test(value)
+  return IS_IMAGE_URI_REGEX.test(value) || IS_IMAGE_FILE_EXTENSION_REGEX.test(value)
 }
 
 export function getIssuerLogo(verifiableCredential: VerifiableCredential | CredentialSummary, localeBranding?: IBasicCredentialLocaleBranding) {

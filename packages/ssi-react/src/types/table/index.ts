@@ -1,6 +1,6 @@
 import {AccessorFn, DeepKeys} from '@tanstack/react-table'
 import {Button} from '../button'
-import {ValueSelection} from '../field';
+import {ValueSelection} from '../field'
 
 export enum TableCellType {
   TEXT = 'text',
@@ -13,10 +13,10 @@ export enum TableCellType {
 }
 
 export type ColumnHeader<T> = {
-  accessor: AccessorFn<T> | DeepKeys<T>;
-  type: TableCellType;
-  label?: string;
-  columnOptions?: TableColumnOptions;
+  accessor: AccessorFn<T> | DeepKeys<T>
+  type: TableCellType
+  label?: string
+  columnOptions?: TableColumnOptions
 }
 
 export type TableColumnOptions = {

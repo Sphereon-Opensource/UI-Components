@@ -1,4 +1,4 @@
-import {base64UriValidationRegex} from '../regexes';
+import {base64UriValidationRegex} from '../regexes'
 
 export const calculateAspectRatio = (width: number, height: number): number => {
   return width / height

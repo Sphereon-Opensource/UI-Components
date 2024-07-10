@@ -4,4 +4,4 @@ export const base64UriValidationRegex = /^data:image\/[a-zA-Z]+;base64,[A-Za-z0-
 
 export const IS_IMAGE_URI_REGEX = /^data:image\/(png|jpg|jpeg|bmp|gif|webp);base64,/
 
-export const IS_IMAGE_URL_REGEX = /\.(jpg|jpeg|png|gif|bmp|webp)$/i
+export const IS_IMAGE_FILE_EXTENSION_REGEX = /\.(jpg|jpeg|png|gif|bmp|webp)$/i

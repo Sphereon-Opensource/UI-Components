@@ -41,14 +41,7 @@ const SecondaryButton: FC<Props> = (props: Props): JSX.Element => {
       style={{
         ...(disabled && {opacity: OpacityStyleEnum.DISABLED}),
       }}>
-      <MaskedView
-        maskElement={
-          <MaskContainer>
-            {caption &&
-                <ButtonCaption>{caption}</ButtonCaption>
-            }
-          </MaskContainer>
-        }>
+      <MaskedView maskElement={<MaskContainer>{caption && <ButtonCaption>{caption}</ButtonCaption>}</MaskContainer>}>
         <LinearGradient style={style} colors={borderColors}>
           <ButtonCaption style={{color: captionColor}}>{caption}</ButtonCaption>
         </LinearGradient>

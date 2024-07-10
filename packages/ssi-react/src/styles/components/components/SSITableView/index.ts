@@ -26,21 +26,21 @@ export const SSITableViewHeaderRowContainerStyled = styled.tr`
   background-color: ${backgroundColors.primaryLight};
 `
 
-export const SSITableViewRowContainerStyled = styled.tr<{ enableHover?: boolean }>`
+export const SSITableViewRowContainerStyled = styled.tr<{enableHover?: boolean}>`
   background-color: ${backgroundColors.primaryLight};
 
   &:not(:last-child) {
     border-bottom: 1px solid ${borderColors.lightGrey};
   }
-  
+
   ${props =>
-      props.enableHover &&
-      css`
-        &:hover {
-          background-color: #ececec; // TODO
-        }
-      `}
-`;
+    props.enableHover &&
+    css`
+      &:hover {
+        background-color: #ececec; // TODO
+      }
+    `}
+`
 
 export const SSITableViewCellContainerStyled = styled.td`
   ${SSITextH3Css};

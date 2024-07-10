@@ -32,7 +32,7 @@ const SSICheckbox: FC<IProps> = (props: IProps): JSX.Element => {
     selectedColor = selectionElementColors.primaryDark,
     labelColor = fontColors.light,
     checkmarkColor = fontColors.dark,
-    style
+    style,
   } = props
   const [isChecked, setChecked] = React.useState(initialValue)
   const value = props.isChecked !== undefined ? props.isChecked : isChecked

@@ -2,7 +2,7 @@ export enum CredentialStatus {
   VALID = 'valid',
   EXPIRED = 'expired',
   REVOKED = 'revoked',
-  DRAFT = 'draft'
+  DRAFT = 'draft',
 }
 
 export enum IssuerStatus {

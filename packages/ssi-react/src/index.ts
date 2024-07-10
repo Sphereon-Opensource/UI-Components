@@ -32,7 +32,7 @@ import FileSelection from './components/fields/FileSelection'
 import ComboBox from './components/fields/ComboBox'
 import DragAndDropBox from './components/fields/DragAndDropBox'
 import PersonPlaceholder from './components/assets/placeholders/PersonPlaceholder'
-import PassportPhotoControl, { passportPhotoControlTester } from './components/fields/JSONForms/PassportPhotoControl'
+import PassportPhotoControl, {passportPhotoControlTester} from './components/fields/JSONForms/PassportPhotoControl'
 import CredentialIssuanceWizardView from './components/views/CredentialIssuanceWizardView'
 import PaginationControls from './components/views/SSITableView/PaginationControls'
 import PaginationControlsProps from './components/views/SSITableView/PaginationControls'
@@ -94,5 +94,5 @@ export {
   JSONDataView,
   TextInputField,
   WarningImage,
-  FormView
+  FormView,
 }
