@@ -2,7 +2,7 @@
   "name": "@sphereon/ui-components.workspace",
   "private": true,
   "version": "0.1.0",
-  "description": "Sphereon UI Components (Workspace)",
+  "description": "Sphereon UI Components (Workspace) for React and React-Native",
   "repository": "git@github.com:Sphereon-Opensource/UI-Components.git",
   "author": "Sphereon <dev@sphereon.com>",
   "license": "Apache-2.0",
