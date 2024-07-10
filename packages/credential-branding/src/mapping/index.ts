@@ -1,1 +1,1 @@
-export * from './CredentialMapper'
+export * from './CredentialDetails'
