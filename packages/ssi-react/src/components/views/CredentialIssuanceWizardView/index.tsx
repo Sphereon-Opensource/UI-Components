@@ -49,7 +49,7 @@ const CredentialIssuanceWizardView: FC<Props> = (props: Props): ReactElement => 
     // Cloning array to force rerender
     const evidenceFiles = [...evidence, file]
     setEvidence(evidenceFiles)
-    onCredentialFormDataChange?.({...credentialInput, evidence: evidenceFiles})
+    onCredentialFormDataChange?.({...credentialInput, evidence: evidenceFiles, data: {...(credentialInput?.data ?? {})}})
   }
 
   const onRemoveEvidence = async (index: number): Promise<void> => {
@@ -57,7 +57,7 @@ const CredentialIssuanceWizardView: FC<Props> = (props: Props): ReactElement => 
     // Cloning array to force rerender
     const evidenceFiles = [...evidence]
     setEvidence(evidenceFiles)
-    onCredentialFormDataChange?.({...credentialInput, evidence: evidenceFiles})
+    onCredentialFormDataChange?.({...credentialInput, evidence: evidenceFiles, data: {...(credentialInput?.data ?? {})}})
   }
 
   const getEvidenceElements = (): Array<ReactElement> => {
