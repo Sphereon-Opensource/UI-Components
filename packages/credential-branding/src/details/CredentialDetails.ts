@@ -3,29 +3,21 @@ import {UniqueVerifiableCredential, VerifiableCredential} from '@veramo/core'
 import {asArray, computeEntryHash} from '@veramo/utils'
 import {IBasicCredentialLocaleBranding, IBasicIssuerLocaleBranding, Identity, Party} from '@sphereon/ssi-sdk.data-store'
 import {ICredential} from '@sphereon/ssi-types'
-import {CredentialStatus, EPOCH_MILLISECONDS, Localization} from '@sphereon/ui-components.core'
+import {EPOCH_MILLISECONDS, Localization} from '@sphereon/ui-components.core'
 import {downloadImage, getImageDimensions} from '@sphereon/ssi-sdk.core'
 import {CredentialDetailsRow, CredentialSummary, ISelectAppLocaleBrandingArgs} from '../types'
 import {IImagePreloader} from '../services'
 import {getCredentialStatus, getIssuerLogo, isImageAddress} from '../utils'
-import {locale} from 'i18n-js'
 
-function findCorrelationIdName(correlationId: string, contacts: Party[]): string {
-  const contact = contacts.find((contact: Party) =>
-    contact.identities.some((identity: Identity): boolean => identity.identifier.correlationId === correlationId),
-  )
-
-  if (contact) {
-    return contact.contact.displayName
+function findCorrelationIdName(correlationId: string, parties: Party[], activeUser?: Party): string {
+  let allParties = parties
+  if (activeUser) {
+    parties.push(activeUser)
   }
-
-  // TODO: bring this back. This checks if the activeUser has the matching correlationId.
-  /*if (activeUser && activeUser.identifiers.some((identifier: IUserIdentifier): boolean => identifier.did === correlationId)) {
-      return `${activeUser.firstName} ${activeUser.lastName}`;
-    }*/
-
-  // Return the correlationId itself if no match is found
-  return correlationId
+  return (
+    allParties.find((contact: Party) => contact.identities.some((identity: Identity): boolean => identity.identifier.correlationId === correlationId))
+      ?.contact.displayName ?? correlationId
+  )
 }
 
 const toCredentialDetailsRow = async (object: Record<string, any>, subject?: Party, issuer?: Party): Promise<CredentialDetailsRow[]> => {
@@ -103,7 +95,7 @@ export const toNonPersistedCredentialSummary = (
   return toCredentialSummary(
     {
       verifiableCredential: verifiableCredential as VerifiableCredential,
-      hash: verifiableCredential.id ?? computeEntryHash(verifiableCredential as VerifiableCredential),
+      hash: computeEntryHash(verifiableCredential as VerifiableCredential),
     },
     branding,
     issuer,
