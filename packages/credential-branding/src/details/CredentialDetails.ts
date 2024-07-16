@@ -175,7 +175,7 @@ const getTermsOfUse = ({
   return termsOfUse.map((tou: any) => {
     const {type, id, ...rest} = tou
     return {
-      type: id,
+      [type]: id,
       ...rest,
     }
   })

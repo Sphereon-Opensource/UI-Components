@@ -45,7 +45,9 @@ const JSONDataView: FC<Props> = (props: Props): ReactElement => {
     const processedData: Record<string, any> = {}
     await Promise.all(
       Object.entries(data).map(async ([key, value]: [string, any]): Promise<void> => {
-        if (typeof value === 'object' && value !== null) {
+        if (value === null || value === undefined) {
+          return undefined
+        } else if (typeof value === 'object') {
           processedData[key] = await preprocessData(value)
         } else if (typeof value === 'string' && isBase64ImageUri(value)) {
           const base64Uri = value
@@ -65,7 +67,7 @@ const JSONDataView: FC<Props> = (props: Props): ReactElement => {
       }),
     )
 
-    return processedData
+    return processedData.filter((val: any) => !!val)
   }
 
   useEffect((): void => {
