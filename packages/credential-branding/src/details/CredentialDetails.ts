@@ -1,6 +1,6 @@
 import {v4 as uuidv4} from 'uuid'
 import {UniqueVerifiableCredential, VerifiableCredential} from '@veramo/core'
-import {computeEntryHash} from '@veramo/utils'
+import {asArray, computeEntryHash} from '@veramo/utils'
 import {IBasicCredentialLocaleBranding, IBasicIssuerLocaleBranding, Identity, Party} from '@sphereon/ssi-sdk.data-store'
 import {ICredential} from '@sphereon/ssi-types'
 import {CredentialStatus, EPOCH_MILLISECONDS, Localization} from '@sphereon/ui-components.core'
@@ -8,6 +8,7 @@ import {downloadImage, getImageDimensions} from '@sphereon/ssi-sdk.core'
 import {CredentialDetailsRow, CredentialSummary, ISelectAppLocaleBrandingArgs} from '../types'
 import {IImagePreloader} from '../services'
 import {getCredentialStatus, getIssuerLogo, isImageAddress} from '../utils'
+import {locale} from 'i18n-js'
 
 function findCorrelationIdName(correlationId: string, contacts: Party[]): string {
   const contact = contacts.find((contact: Party) =>
@@ -20,8 +21,8 @@ function findCorrelationIdName(correlationId: string, contacts: Party[]): string
 
   // TODO: bring this back. This checks if the activeUser has the matching correlationId.
   /*if (activeUser && activeUser.identifiers.some((identifier: IUserIdentifier): boolean => identifier.did === correlationId)) {
-    return `${activeUser.firstName} ${activeUser.lastName}`;
-  }*/
+      return `${activeUser.firstName} ${activeUser.lastName}`;
+    }*/
 
   // Return the correlationId itself if no match is found
   return correlationId
@@ -110,6 +111,83 @@ export const toNonPersistedCredentialSummary = (
   )
 }
 
+export const getDate = (...dates: (number | string | undefined)[]): number | undefined => {
+  const date = dates.find(date => !!date)
+  if (!date) {
+    return
+  } else if (typeof date === 'number') {
+    return date
+  }
+  return Math.round(new Date(date + '').valueOf() / EPOCH_MILLISECONDS)
+}
+
+export const getCredentialDisplayName = ({
+  verifiableCredential,
+  localeBranding,
+}: {
+  verifiableCredential: VerifiableCredential
+  localeBranding?: IBasicCredentialLocaleBranding
+}): string => {
+  let title: string | undefined = localeBranding?.alias ?? verifiableCredential.name ?? (!verifiableCredential.type ? 'unknown' : undefined)
+
+  if (verifiableCredential.type) {
+    const types = asArray(verifiableCredential.type).filter(val => val !== 'VerifiableCredential')
+    if (types.length === 1) {
+      title = types[0]
+    } else if (types.length > 1) {
+      title = types.join(', ')
+    }
+  }
+  if (!title) {
+    title = 'Credential'
+  }
+  return title
+}
+
+export const getCredentialIssuerNameAndAlias = ({
+  verifiableCredential,
+  issuer,
+}: {
+  verifiableCredential: VerifiableCredential
+  issuer?: Party
+}): {issuerAlias: string; issuerName: string} => {
+  const issuerName: string =
+    typeof verifiableCredential.issuer === 'string'
+      ? verifiableCredential.issuer
+      : verifiableCredential.issuer?.name ?? verifiableCredential.issuer?.id
+
+  let issuerAlias: string | undefined = undefined
+  if (typeof verifiableCredential?.issuer === 'object') {
+    // if the name is part of the VC itself, always use that
+    // todo: Probably still wise to allow a user to override it
+    issuerAlias = verifiableCredential.issuer.name ?? verifiableCredential.issuer.id
+  }
+  if (!issuerAlias && issuer) {
+    issuerAlias = issuer.contact.displayName
+  }
+  if (!issuerAlias) {
+    issuerAlias = issuerName
+  }
+  return {issuerName, issuerAlias}
+}
+
+const getTermsOfUse = ({
+  verifiableCredential,
+}: {
+  verifiableCredential: VerifiableCredential
+}): undefined | Array<Record<string, any> & {type?: string}> => {
+  if (!verifiableCredential.termsOfUse) {
+    return
+  }
+  const termsOfUse = asArray(verifiableCredential.termsOfUse)
+  return termsOfUse.map((tou: any) => {
+    const {type, id, ...rest} = tou
+    return {
+      type: id,
+      ...rest,
+    }
+  })
+}
 /**
  * Map persisted (Unique) VCs to the summaries we display
  * @param hash The hash of the unique verifiable credential
@@ -124,48 +202,26 @@ export const toCredentialSummary = async (
   issuer?: Party,
   subject?: Party,
 ): Promise<CredentialSummary> => {
-  const expirationDate: number = verifiableCredential.expirationDate
-    ? new Date(verifiableCredential.expirationDate).valueOf() / EPOCH_MILLISECONDS
-    : 0
-  const issueDate: number = new Date(verifiableCredential.issuanceDate).valueOf() / EPOCH_MILLISECONDS
-  const credentialStatus: CredentialStatus = getCredentialStatus(verifiableCredential)
-  const title = verifiableCredential.name
-    ? verifiableCredential.name
-    : !verifiableCredential.type
-    ? 'unknown'
-    : typeof verifiableCredential.type === 'string'
-    ? verifiableCredential.type
-    : verifiableCredential.type.filter((value: string): boolean => value !== 'VerifiableCredential')[0]
-  const properties: Array<CredentialDetailsRow> = await toCredentialDetailsRow(verifiableCredential.credentialSubject, subject, issuer)
-  const localeBranding: IBasicCredentialLocaleBranding | undefined = await selectAppLocaleBranding({localeBranding: branding})
-  const logo: string | undefined = getIssuerLogo(verifiableCredential, localeBranding)
+  const expirationDate = getDate(verifiableCredential.expirationDate, verifiableCredential.validTo, verifiableCredential.exp) ?? 0
+  const issueDate = getDate(verifiableCredential.expirationDate, verifiableCredential.validFrom, verifiableCredential.nbf)!
+  const localeBranding = await selectAppLocaleBranding({localeBranding: branding})
+  const credentialStatus = getCredentialStatus(verifiableCredential)
+  const title = getCredentialDisplayName({verifiableCredential, localeBranding})
+  const properties = await toCredentialDetailsRow(verifiableCredential.credentialSubject, subject, issuer)
+  const logo = getIssuerLogo(verifiableCredential, localeBranding)
   const url = typeof verifiableCredential.issuer !== 'string' ? verifiableCredential.issuer.url : undefined
-  const issuerName: string =
-    typeof verifiableCredential.issuer === 'string'
-      ? verifiableCredential.issuer
-      : verifiableCredential.issuer?.name ?? verifiableCredential.issuer?.id
-
-  let issuerAlias: string | undefined = undefined
-  if (typeof verifiableCredential?.issuer === 'object' && issuerName) {
-    // if the name is part of the VC itself, always use that
-    // todo: Probably still wise to allow a user to override it
-    issuerAlias = issuerName
-  }
-  if (!issuerAlias && issuer) {
-    issuerAlias = issuer.contact.displayName
-  }
-  if (!issuerAlias) {
-    throw Error(`Could not deduce issuer alias`)
-  }
+  const {issuerName, issuerAlias} = getCredentialIssuerNameAndAlias({verifiableCredential, issuer})
+  const termsOfUse = getTermsOfUse({verifiableCredential})
   return {
     hash,
     id: verifiableCredential.id,
-    title: localeBranding?.alias || title,
+    title,
     credentialStatus,
     issueDate,
     expirationDate,
     properties,
     branding: localeBranding,
+    termsOfUse,
     issuer: {
       name: issuerName,
       alias: issuerAlias ? (issuerAlias.length > 50 ? `${issuerAlias.substring(0, 50)}...` : issuerAlias) : '',

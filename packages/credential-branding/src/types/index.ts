@@ -10,6 +10,7 @@ export type CredentialSummary = {
   issueDate: number
   expirationDate: number
   properties: CredentialDetailsRow[]
+  termsOfUse?: Array<Record<string, any> & {type?: string}>
   branding?: IBasicCredentialLocaleBranding
 }
 
