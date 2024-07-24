@@ -104,7 +104,7 @@ export const toNonPersistedCredentialSummary = (
 }
 
 export const getDate = (...dates: (number | string | undefined)[]): number | undefined => {
-  const date = dates.find(date => !!date)
+  const date = dates.find(date => date !== null && date !== undefined)
   if (!date) {
     return
   } else if (typeof date === 'number') {
@@ -146,13 +146,13 @@ export const getCredentialIssuerNameAndAlias = ({
   const issuerName: string =
     typeof verifiableCredential.issuer === 'string'
       ? verifiableCredential.issuer
-      : verifiableCredential.issuer?.name ?? verifiableCredential.issuer?.id
+      : verifiableCredential.issuer?.id
 
   let issuerAlias: string | undefined = undefined
   if (typeof verifiableCredential?.issuer === 'object') {
     // if the name is part of the VC itself, always use that
     // todo: Probably still wise to allow a user to override it
-    issuerAlias = verifiableCredential.issuer.name ?? verifiableCredential.issuer.id
+    issuerAlias = verifiableCredential.issuer.name
   }
   if (!issuerAlias && issuer) {
     issuerAlias = issuer.contact.displayName
@@ -195,11 +195,11 @@ export const toCredentialSummary = async (
   subject?: Party,
 ): Promise<CredentialSummary> => {
   const expirationDate = getDate(verifiableCredential.expirationDate, verifiableCredential.validTo, verifiableCredential.exp) ?? 0
-  const issueDate = getDate(verifiableCredential.expirationDate, verifiableCredential.validFrom, verifiableCredential.nbf)!
+  const issueDate = getDate(verifiableCredential.issuanceDate, verifiableCredential.validFrom, verifiableCredential.nbf, verifiableCredential.iat)!
   const localeBranding = await selectAppLocaleBranding({localeBranding: branding})
   const credentialStatus = getCredentialStatus(verifiableCredential)
   const title = getCredentialDisplayName({verifiableCredential, localeBranding})
-  const properties = await toCredentialDetailsRow(verifiableCredential.credentialSubject, subject, issuer)
+  const properties = await toCredentialDetailsRow(verifiableCredential.vc.credentialSubject ?? verifiableCredential.credentialSubject, subject, issuer)
   const logo = getIssuerLogo(verifiableCredential, localeBranding)
   const url = typeof verifiableCredential.issuer !== 'string' ? verifiableCredential.issuer.url : undefined
   const {issuerName, issuerAlias} = getCredentialIssuerNameAndAlias({verifiableCredential, issuer})
