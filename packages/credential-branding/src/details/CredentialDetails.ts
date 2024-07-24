@@ -199,7 +199,7 @@ export const toCredentialSummary = async (
   const localeBranding = await selectAppLocaleBranding({localeBranding: branding})
   const credentialStatus = getCredentialStatus(verifiableCredential)
   const title = getCredentialDisplayName({verifiableCredential, localeBranding})
-  const properties = await toCredentialDetailsRow(verifiableCredential.vc.credentialSubject ?? verifiableCredential.credentialSubject, subject, issuer)
+  const properties = await toCredentialDetailsRow({...verifiableCredential.vc?.credentialSubject, ...verifiableCredential.credentialSubject}, subject, issuer)
   const logo = getIssuerLogo(verifiableCredential, localeBranding)
   const url = typeof verifiableCredential.issuer !== 'string' ? verifiableCredential.issuer.url : undefined
   const {issuerName, issuerAlias} = getCredentialIssuerNameAndAlias({verifiableCredential, issuer})
