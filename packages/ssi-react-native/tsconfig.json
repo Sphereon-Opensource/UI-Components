@@ -1,14 +1,17 @@
 {
-  "extends": "../tsconfig-base.json",
+  "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist",
-    "declarationDir": "dist",
-    "target": "esnext",
-    "module": "esnext",
-    "lib": ["esnext"],
-    "jsx": "react-native",
-    "moduleResolution": "nodenext"
+    // Only values not in expo/tsconfig.base
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "module": "commonjs" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */,
+    "strict": true /* Enable all strict type-checking options. */,
+    "baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
+    "allowSyntheticDefaultImports": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
+    "removeComments": true /* Removes all comments. */,
+    "strictPropertyInitialization": false /* Disables the need to initialize every property */,
+    "allowJs": true
   },
   "references": [
     {

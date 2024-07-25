@@ -28,9 +28,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@sphereon/ssi-sdk.core": "0.27.1-unstable.11",
-    "@sphereon/ssi-sdk.data-store": "0.27.1-unstable.11",
-    "@sphereon/ssi-types": "0.27.1-unstable.11",
+    "@sphereon/ssi-sdk.core": "^0.28.0",
+    "@sphereon/ssi-sdk.data-store": "^0.28.0",
+    "@sphereon/ssi-types": "^0.28.0",
     "@sphereon/ui-components.core": "workspace:*",
     "@veramo/core": "4.2.0",
     "@veramo/utils": "4.2.0",
@@ -40,7 +40,7 @@
   "devDependencies": {
     "@types/i18n-js": "^3.8.4",
     "@types/node": "^20.4.0",
-    "@types/react": "~18.2.67",
+    "@types/react": "~18.2.79",
     "@types/uuid": "^9.0.8",
     "react": "18.2.0",
     "typescript": "4.9.5"
