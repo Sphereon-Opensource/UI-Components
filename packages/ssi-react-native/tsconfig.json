@@ -2,16 +2,23 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     // Only values not in expo/tsconfig.base
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "noEmit": false,
+    "declaration": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "skipLibCheck": true,
+    "strictPropertyInitialization": false,
+    "composite": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "declarationDir": "dist",
     "module": "commonjs" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */,
-    "strict": true /* Enable all strict type-checking options. */,
-    "baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
-    "allowSyntheticDefaultImports": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
-    "removeComments": true /* Removes all comments. */,
-    "strictPropertyInitialization": false /* Disables the need to initialize every property */,
-    "allowJs": true
   },
   "references": [
     {
