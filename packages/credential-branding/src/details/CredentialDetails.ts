@@ -2,12 +2,11 @@ import {v4 as uuidv4} from 'uuid'
 import {VerifiableCredential} from '@veramo/core'
 import {asArray, computeEntryHash} from '@veramo/utils'
 import {IBasicCredentialLocaleBranding, IBasicIssuerLocaleBranding, Identity, Party} from '@sphereon/ssi-sdk.data-store'
-import {EPOCH_MILLISECONDS, Localization, orElseThrow} from '@sphereon/ui-components.core'
+import {EPOCH_MILLISECONDS, Localization} from '@sphereon/ui-components.core'
 import {downloadImage, getImageDimensions} from '@sphereon/ssi-sdk.core'
 import {CredentialDetailsRow, CredentialSummary, ISelectAppLocaleBrandingArgs} from '../types'
 import {IImagePreloader} from '../services'
 import {getCredentialStatus, getIssuerLogo, isImageAddress} from '../utils'
-import {UniqueDigitalCredential} from '@sphereon/ssi-sdk.credential-store'
 import {ICredential} from '@sphereon/ssi-types'
 
 function findCorrelationIdName(correlationId: string, parties: Party[], activeUser?: Party): string {
