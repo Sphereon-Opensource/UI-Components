@@ -68,16 +68,13 @@ importers:
   packages/credential-branding:
     dependencies:
       '@sphereon/ssi-sdk.core':
-        specifier: 00.28.1-next.39
+        specifier: 0.28.1-next.39
         version: 0.28.1-next.39
-      '@sphereon/ssi-sdk.credential-store':
-        specifier: 00.28.1-next.39
-        version: 0.28.1-next.39(msrcrypto@1.5.8)
       '@sphereon/ssi-sdk.data-store':
-        specifier: 00.28.1-next.39
+        specifier: 0.28.1-next.39
         version: 0.28.1-next.39(msrcrypto@1.5.8)
       '@sphereon/ssi-types':
-        specifier: 00.28.1-next.39
+        specifier: 0.28.1-next.39
         version: 0.28.1-next.39
       '@sphereon/ui-components.core':
         specifier: workspace:*
@@ -4191,25 +4188,6 @@ packages:
     resolution: {integrity: sha512-pGlp+wplneE1+Lk3U48/2htYKTbONMeG5/x7vhO6AnPUOsnOXeJdftPrBYWVSzz/JH5GJptAc6+pAyYE1zMu4Q==}
     dev: false
 
-  /@sphereon/pex@3.3.3:
-    resolution: {integrity: sha512-CXwdEcMTUh2z/5AriBn3OuShEG06l2tgiIr7qDJthnkez8DQ3sZo2vr4NEQWKKAL+DeAWAI4FryQGO4KuK7yfg==}
-    engines: {node: '>=18'}
-    requiresBuild: true
-    dependencies:
-      '@astronautlabs/jsonpath': 1.1.2
-      '@sd-jwt/decode': 0.6.1
-      '@sd-jwt/present': 0.6.1
-      '@sd-jwt/types': 0.6.1
-      '@sphereon/pex-models': 2.2.4
-      '@sphereon/ssi-types': 0.22.0
-      ajv: 8.16.0
-      ajv-formats: 2.1.1(ajv@8.16.0)
-      jwt-decode: 3.1.2
-      nanoid: 3.3.7
-      string.prototype.matchall: 4.0.11
-      uint8arrays: 3.1.1
-    dev: false
-
   /@sphereon/pex@4.0.1:
     resolution: {integrity: sha512-3XnX/YJpxR8ueMO+qZLcn14dYFE4OHqi3i1qMLwPo/7jFFLrTb70uDG1++D+MqS7YTwYQbMtJA9KzzWcKTEg4w==}
     engines: {node: '>=18'}
@@ -4307,43 +4285,6 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
-    dev: false
-
-  /@sphereon/ssi-sdk.credential-store@0.28.1-next.39(msrcrypto@1.5.8):
-    resolution: {integrity: sha512-KbIJKv0IOE7bos7KczRw1cAlfits0KICVJsBrcVEpkPCcE0WmP3NSNi990/LJV22I2k4anGaLGvqljDmCao+jw==}
-    dependencies:
-      '@sphereon/pex': 3.3.3
-      '@sphereon/pex-models': 2.2.4
-      '@sphereon/ssi-sdk.data-store': 0.28.1-next.39(msrcrypto@1.5.8)
-      cross-fetch: 3.1.8
-      debug: 4.3.5(supports-color@5.5.0)
-      typeorm: 0.3.20
-      uuid: 10.0.0
-    transitivePeerDependencies:
-      - '@google-cloud/spanner'
-      - '@sap/hana-client'
-      - better-sqlite3
-      - encoding
-      - expo
-      - expo-crypto
-      - hdb-pool
-      - ioredis
-      - mongodb
-      - msrcrypt
-      - msrcrypto
-      - mssql
-      - mysql2
-      - oracledb
-      - pg
-      - pg-native
-      - pg-query-stream
-      - react-native-securerandom
-      - redis
-      - sql.js
-      - sqlite3
-      - supports-color
-      - ts-node
-      - typeorm-aurora-data-api-driver
     dev: false
 
   /@sphereon/ssi-sdk.data-store@0.28.1-next.39(msrcrypto@1.5.8):
@@ -12921,11 +12862,6 @@ packages:
   /utils-merge@1.0.1:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
-
-  /uuid@10.0.0:
-    resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
-    hasBin: true
-    dev: false
 
   /uuid@7.0.3:
     resolution: {integrity: sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==}

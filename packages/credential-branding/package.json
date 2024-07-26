@@ -28,10 +28,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@sphereon/ssi-sdk.core": "00.28.1-next.39",
-    "@sphereon/ssi-sdk.credential-store": "00.28.1-next.39",
-    "@sphereon/ssi-sdk.data-store": "00.28.1-next.39",
-    "@sphereon/ssi-types": "00.28.1-next.39",
+    "@sphereon/ssi-sdk.core": "0.28.1-next.39",
+    "@sphereon/ssi-sdk.data-store": "0.28.1-next.39",
+    "@sphereon/ssi-types": "0.28.1-next.39",
     "@sphereon/ui-components.core": "workspace:*",
     "@veramo/core": "4.2.0",
     "@veramo/utils": "4.2.0",

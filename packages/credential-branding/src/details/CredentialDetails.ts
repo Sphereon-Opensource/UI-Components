@@ -90,7 +90,7 @@ const toCredentialDetailsRow = async (object: Record<string, any>, subject?: Par
 
 /**
  * To be used whenever we need to show a credential summary on VCs we have not persisted
- * @param digitalCredential
+ * @param verifiableCredential
  * @param branding The branding for the credential
  * @param issuer Optional contact for issuer name
  * @param subject Optional contact for subject name
