@@ -1,13 +1,13 @@
 import {v4 as uuidv4} from 'uuid'
-import {UniqueVerifiableCredential, VerifiableCredential} from '@veramo/core'
+import {VerifiableCredential} from '@veramo/core'
 import {asArray, computeEntryHash} from '@veramo/utils'
 import {IBasicCredentialLocaleBranding, IBasicIssuerLocaleBranding, Identity, Party} from '@sphereon/ssi-sdk.data-store'
-import {ICredential} from '@sphereon/ssi-types'
 import {EPOCH_MILLISECONDS, Localization} from '@sphereon/ui-components.core'
 import {downloadImage, getImageDimensions} from '@sphereon/ssi-sdk.core'
 import {CredentialDetailsRow, CredentialSummary, ISelectAppLocaleBrandingArgs} from '../types'
 import {IImagePreloader} from '../services'
 import {getCredentialStatus, getIssuerLogo, isImageAddress} from '../utils'
+import {ICredential} from '@sphereon/ssi-types'
 
 function findCorrelationIdName(correlationId: string, parties: Party[], activeUser?: Party): string {
   let allParties = parties
@@ -18,6 +18,15 @@ function findCorrelationIdName(correlationId: string, parties: Party[], activeUs
     allParties.find((contact: Party) => contact.identities.some((identity: Identity): boolean => identity.identifier.correlationId === correlationId))
       ?.contact.displayName ?? correlationId
   )
+}
+
+const getImageSize = async (image: string) => {
+  const downloadedImage = await downloadImage(image)
+  let imageSize: {width: number; height: number} | undefined = undefined
+  if (await isImageAddress(image) && downloadedImage) {
+    imageSize = await getImageDimensions(downloadedImage.base64Content)
+  }
+  return imageSize
 }
 
 const toCredentialDetailsRow = async (object: Record<string, any>, subject?: Party, issuer?: Party): Promise<CredentialDetailsRow[]> => {
@@ -31,7 +40,7 @@ const toCredentialDetailsRow = async (object: Record<string, any>, subject?: Par
         id: uuidv4(),
         label: 'image',
         value: image,
-        imageSize: (await isImageAddress(image)) ? await getImageDimensions((await downloadImage(image)).base64Content) : undefined,
+        imageSize:  await getImageSize(image)
       })
       continue
     } else if (key === 'type') {
@@ -71,7 +80,7 @@ const toCredentialDetailsRow = async (object: Record<string, any>, subject?: Par
         id: uuidv4(),
         label, // TODO Human readable mapping
         value,
-        imageSize: (await isImageAddress(value)) ? await getImageDimensions((await downloadImage(value)).base64Content) : undefined,
+        imageSize: await getImageSize(value),
       })
     }
   }
@@ -93,10 +102,8 @@ export const toNonPersistedCredentialSummary = (
   subject?: Party,
 ): Promise<CredentialSummary> => {
   return toCredentialSummary(
-    {
-      verifiableCredential: verifiableCredential as VerifiableCredential,
-      hash: computeEntryHash(verifiableCredential as VerifiableCredential),
-    },
+    verifiableCredential as VerifiableCredential,
+    computeEntryHash(verifiableCredential as VerifiableCredential),
     branding,
     issuer,
     subject,
@@ -189,7 +196,8 @@ const getTermsOfUse = ({
  * @param subject Optional contact for subject name
  */
 export const toCredentialSummary = async (
-  {hash, verifiableCredential}: UniqueVerifiableCredential,
+  verifiableCredential: VerifiableCredential,
+  hash: string,
   branding?: Array<IBasicCredentialLocaleBranding>,
   issuer?: Party,
   subject?: Party,
