@@ -68,14 +68,17 @@ importers:
   packages/credential-branding:
     dependencies:
       '@sphereon/ssi-sdk.core':
-        specifier: 0.27.1-unstable.11
-        version: 0.27.1-unstable.11
+        specifier: 00.28.1-next.39
+        version: 0.28.1-next.39
+      '@sphereon/ssi-sdk.credential-store':
+        specifier: 00.28.1-next.39
+        version: 0.28.1-next.39(msrcrypto@1.5.8)
       '@sphereon/ssi-sdk.data-store':
-        specifier: 0.27.1-unstable.11
-        version: 0.27.1-unstable.11(msrcrypto@1.5.8)
+        specifier: 00.28.1-next.39
+        version: 0.28.1-next.39(msrcrypto@1.5.8)
       '@sphereon/ssi-types':
-        specifier: 0.27.1-unstable.11
-        version: 0.27.1-unstable.11
+        specifier: 00.28.1-next.39
+        version: 0.28.1-next.39
       '@sphereon/ui-components.core':
         specifier: workspace:*
         version: link:../core
@@ -4207,14 +4210,33 @@ packages:
       uint8arrays: 3.1.1
     dev: false
 
-  /@sphereon/ssi-sdk-ext.did-utils@0.22.0(msrcrypto@1.5.8):
-    resolution: {integrity: sha512-nFjfO4p99DgU5+bLlnocstmiUY07IF9Fh3YLHOEoeL4CD6zgHa+0fUJ67TtggwRUF+vTc9P4cQca4N3wSfr0uQ==}
+  /@sphereon/pex@4.0.1:
+    resolution: {integrity: sha512-3XnX/YJpxR8ueMO+qZLcn14dYFE4OHqi3i1qMLwPo/7jFFLrTb70uDG1++D+MqS7YTwYQbMtJA9KzzWcKTEg4w==}
+    engines: {node: '>=18'}
+    requiresBuild: true
+    dependencies:
+      '@astronautlabs/jsonpath': 1.1.2
+      '@sd-jwt/decode': 0.6.1
+      '@sd-jwt/present': 0.6.1
+      '@sd-jwt/types': 0.6.1
+      '@sphereon/pex-models': 2.2.4
+      '@sphereon/ssi-types': 0.22.0
+      ajv: 8.16.0
+      ajv-formats: 2.1.1(ajv@8.16.0)
+      jwt-decode: 3.1.2
+      nanoid: 3.3.7
+      string.prototype.matchall: 4.0.11
+      uint8arrays: 3.1.1
+    dev: false
+
+  /@sphereon/ssi-sdk-ext.did-utils@0.23.1-next.5(msrcrypto@1.5.8):
+    resolution: {integrity: sha512-BHeCfh/qewhs+YixqEpf9cq4T0egz1ymLX5OuCZY5GrRdmkMrt5ODB3evMnMh96niVL/8vFfihlzB+huYOTWFw==}
     dependencies:
       '@ethersproject/networks': 5.7.1
       '@ethersproject/transactions': 5.7.0
       '@sphereon/did-uni-client': 0.6.3
-      '@sphereon/ssi-sdk-ext.key-utils': 0.22.0(msrcrypto@1.5.8)
-      '@sphereon/ssi-sdk.core': 0.25.0
+      '@sphereon/ssi-sdk-ext.key-utils': 0.23.1-next.5(msrcrypto@1.5.8)
+      '@sphereon/ssi-sdk.core': 0.27.0
       '@stablelib/ed25519': 1.0.3
       '@veramo/core': 4.2.0
       '@veramo/utils': 4.2.0
@@ -4232,8 +4254,8 @@ packages:
       - supports-color
     dev: false
 
-  /@sphereon/ssi-sdk-ext.key-utils@0.22.0(msrcrypto@1.5.8):
-    resolution: {integrity: sha512-g2H/X12JcD1Sqi0/L8JxeFRrr+dYMs2C2X0TGiAUtN2k3JyZptlBSZgiDF8UZgRn+dAyiIOmcnEQEkVi2rS7sQ==}
+  /@sphereon/ssi-sdk-ext.key-utils@0.23.1-next.5(msrcrypto@1.5.8):
+    resolution: {integrity: sha512-vMPStdruDJ8bQmC82oznQRA90ac60eaMJ7tggzYO9+oX6aNKq3wkL+Cu9bVkdLIU85TDMX5/e7Jffay/xau4KA==}
     dependencies:
       '@ethersproject/random': 5.7.0
       '@sphereon/isomorphic-webcrypto': 2.4.1-unstable.0(msrcrypto@1.5.8)
@@ -4259,10 +4281,10 @@ packages:
       - supports-color
     dev: false
 
-  /@sphereon/ssi-sdk.core@0.25.0:
-    resolution: {integrity: sha512-Hh66CaTz5XVpMm8NNzBlryC+oEDfIIICxXBC/aTEGIVHpXbUpo4l+iF5rXwJxec4F7i+hvQl2N2TjNP7yU0nxg==}
+  /@sphereon/ssi-sdk.core@0.27.0:
+    resolution: {integrity: sha512-1VdBbdHSSdab8RJLrFiLUIcVjKF/X+HLJWdVZt1Viq77aK/p453bwBfyYXDTRJ9NuwH+sJHzklE2im+mHfYzgA==}
     dependencies:
-      '@sphereon/ssi-types': 0.25.0
+      '@sphereon/ssi-types': 0.27.0
       '@veramo/core': 4.2.0
       cross-fetch: 3.1.8
       debug: 4.3.5(supports-color@5.5.0)
@@ -4273,10 +4295,10 @@ packages:
       - supports-color
     dev: false
 
-  /@sphereon/ssi-sdk.core@0.27.1-unstable.11:
-    resolution: {integrity: sha512-uZlrUvO8PV+ciA2iMBhg2bVtWY7Z1pzLwfl5IKGH1hp6oTPzd/ukGAAqp15R4ZLJMLPEUVoSeaK3PF2Uq4E1gw==}
+  /@sphereon/ssi-sdk.core@0.28.1-next.39:
+    resolution: {integrity: sha512-bNYiBRXzfhc00b8JbILX6Dwco45+MG5XeFeW7g+7NaG7Wbl1VRc+ZlCa4oB/azZtXEabbFOWp1YfYuumqE+mig==}
     dependencies:
-      '@sphereon/ssi-types': 0.27.1-unstable.11
+      '@sphereon/ssi-types': 0.28.1-next.39
       '@veramo/core': 4.2.0
       cross-fetch: 3.1.8
       debug: 4.3.5(supports-color@5.5.0)
@@ -4287,13 +4309,50 @@ packages:
       - supports-color
     dev: false
 
-  /@sphereon/ssi-sdk.data-store@0.27.1-unstable.11(msrcrypto@1.5.8):
-    resolution: {integrity: sha512-GE2cVrvfKiB+teETP9odZzT1RQcA0EmQ31GCJ94lAchMynOSSr3wo1mQzzW82nfbXSUdBnLl7Q6MQrQYX+6+FA==}
+  /@sphereon/ssi-sdk.credential-store@0.28.1-next.39(msrcrypto@1.5.8):
+    resolution: {integrity: sha512-KbIJKv0IOE7bos7KczRw1cAlfits0KICVJsBrcVEpkPCcE0WmP3NSNi990/LJV22I2k4anGaLGvqljDmCao+jw==}
     dependencies:
       '@sphereon/pex': 3.3.3
-      '@sphereon/ssi-sdk-ext.did-utils': 0.22.0(msrcrypto@1.5.8)
-      '@sphereon/ssi-sdk.core': 0.27.1-unstable.11
-      '@sphereon/ssi-types': 0.27.1-unstable.11
+      '@sphereon/pex-models': 2.2.4
+      '@sphereon/ssi-sdk.data-store': 0.28.1-next.39(msrcrypto@1.5.8)
+      cross-fetch: 3.1.8
+      debug: 4.3.5(supports-color@5.5.0)
+      typeorm: 0.3.20
+      uuid: 10.0.0
+    transitivePeerDependencies:
+      - '@google-cloud/spanner'
+      - '@sap/hana-client'
+      - better-sqlite3
+      - encoding
+      - expo
+      - expo-crypto
+      - hdb-pool
+      - ioredis
+      - mongodb
+      - msrcrypt
+      - msrcrypto
+      - mssql
+      - mysql2
+      - oracledb
+      - pg
+      - pg-native
+      - pg-query-stream
+      - react-native-securerandom
+      - redis
+      - sql.js
+      - sqlite3
+      - supports-color
+      - ts-node
+      - typeorm-aurora-data-api-driver
+    dev: false
+
+  /@sphereon/ssi-sdk.data-store@0.28.1-next.39(msrcrypto@1.5.8):
+    resolution: {integrity: sha512-um04UH4oep0bP/73k2h4NTO6NgpX9xlMEjMxc0DhSPM/EadWUhA3JlP7W4AC8IuCGkHBX79t0ilXUzCGVEvokw==}
+    dependencies:
+      '@sphereon/pex': 4.0.1
+      '@sphereon/ssi-sdk-ext.did-utils': 0.23.1-next.5(msrcrypto@1.5.8)
+      '@sphereon/ssi-sdk.core': 0.28.1-next.39
+      '@sphereon/ssi-types': 0.28.1-next.39
       '@veramo/core': 4.2.0
       '@veramo/utils': 4.2.0
       blakejs: 1.2.1
@@ -4334,8 +4393,8 @@ packages:
       jwt-decode: 3.1.2
     dev: false
 
-  /@sphereon/ssi-types@0.25.0:
-    resolution: {integrity: sha512-MecJaXkKtrFzjRDgY+VgrJITALmTAeFW9L3VPikwSynwAfGZTtzquR7MMntCp103Oa4+zkjaE8sUxWHFCusuww==}
+  /@sphereon/ssi-types@0.27.0:
+    resolution: {integrity: sha512-u9x85H0Dr53ArqdtMdNiEDZcR1sr6g6yaiKo+nYVPnPpNfjaL1RvAEcRfigZoK6zP50bQEkCjrxVplxQNF8Mvg==}
     dependencies:
       '@sd-jwt/decode': 0.6.1
       debug: 4.3.5(supports-color@5.5.0)
@@ -4345,8 +4404,8 @@ packages:
       - supports-color
     dev: false
 
-  /@sphereon/ssi-types@0.27.1-unstable.11:
-    resolution: {integrity: sha512-QYT3cNFUH/Nh+aeoxVppGbaFncX+5JAA9Mxe0btQhBc0EoDqoKrSmr0nljsuZm6cqouw1GEBHp10nY8Ddwevhg==}
+  /@sphereon/ssi-types@0.28.1-next.39:
+    resolution: {integrity: sha512-CWcONhcd3eFyqSro8yEpgawIwvl5ochTTqOfv5+YbDvxSER4iw4h/HZNhOh8DY/5iviCKjBM0KDQr+xsI4+HqA==}
     dependencies:
       '@sd-jwt/decode': 0.6.1
       debug: 4.3.5(supports-color@5.5.0)
@@ -12862,6 +12921,11 @@ packages:
   /utils-merge@1.0.1:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
+
+  /uuid@10.0.0:
+    resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
+    hasBin: true
+    dev: false
 
   /uuid@7.0.3:
     resolution: {integrity: sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==}

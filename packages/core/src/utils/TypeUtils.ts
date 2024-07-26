@@ -23,3 +23,7 @@ export const parseToBoolean = (value: unknown): boolean | null => {
 
   return null
 }
+
+export const orElseThrow = (errorMessage: string): never => {
+  throw new Error(errorMessage)
+}
