@@ -21,7 +21,7 @@ function findCorrelationIdName(correlationId: string, parties: Party[], activeUs
     parties.push(activeUser)
   }
   return (
-    allParties.find((contact: Party) => contact.identities.some((identity: Identity): boolean => identity.identifier.correlationId === correlationId))
+    allParties?.find((contact: Party) => contact.identities.some((identity: Identity): boolean => identity.identifier.correlationId === correlationId))
       ?.contact.displayName ?? correlationId
   )
 }
@@ -119,7 +119,7 @@ export const toNonPersistedCredentialSummary = (
 }
 
 export const getDate = (...dates: (number | string | undefined)[]): number | undefined => {
-  const date = dates.find(date => date !== null && date !== undefined)
+  const date = dates?.find(date => date !== null && date !== undefined)
   if (!date) {
     return
   } else if (typeof date === 'number') {
