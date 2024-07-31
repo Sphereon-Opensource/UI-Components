@@ -1,7 +1,13 @@
 import {v4 as uuidv4} from 'uuid'
 import {VerifiableCredential} from '@veramo/core'
 import {asArray, computeEntryHash} from '@veramo/utils'
-import {IBasicCredentialLocaleBranding, IBasicIssuerLocaleBranding, Identity, Party} from '@sphereon/ssi-sdk.data-store'
+import {
+  CredentialRole,
+  IBasicCredentialLocaleBranding,
+  IBasicIssuerLocaleBranding,
+  Identity,
+  Party,
+} from '@sphereon/ssi-sdk.data-store'
 import {EPOCH_MILLISECONDS, Localization} from '@sphereon/ui-components.core'
 import {downloadImage, getImageDimensions} from '@sphereon/ssi-sdk.core'
 import {CredentialDetailsRow, CredentialSummary, ISelectAppLocaleBrandingArgs} from '../types'
@@ -15,7 +21,7 @@ function findCorrelationIdName(correlationId: string, parties: Party[], activeUs
     parties.push(activeUser)
   }
   return (
-    allParties.find((contact: Party) => contact.identities.some((identity: Identity): boolean => identity.identifier.correlationId === correlationId))
+    allParties?.find((contact: Party) => contact.identities.some((identity: Identity): boolean => identity.identifier.correlationId === correlationId))
       ?.contact.displayName ?? correlationId
   )
 }
@@ -97,6 +103,7 @@ const toCredentialDetailsRow = async (object: Record<string, any>, subject?: Par
  */
 export const toNonPersistedCredentialSummary = (
   verifiableCredential: ICredential | VerifiableCredential,
+  credentialRole: CredentialRole,
   branding?: Array<IBasicCredentialLocaleBranding>,
   issuer?: Party,
   subject?: Party,
@@ -104,6 +111,7 @@ export const toNonPersistedCredentialSummary = (
   return toCredentialSummary(
     verifiableCredential as VerifiableCredential,
     computeEntryHash(verifiableCredential as VerifiableCredential),
+    credentialRole,
     branding,
     issuer,
     subject,
@@ -111,7 +119,7 @@ export const toNonPersistedCredentialSummary = (
 }
 
 export const getDate = (...dates: (number | string | undefined)[]): number | undefined => {
-  const date = dates.find(date => date !== null && date !== undefined)
+  const date = dates?.find(date => date !== null && date !== undefined)
   if (!date) {
     return
   } else if (typeof date === 'number') {
@@ -198,6 +206,7 @@ const getTermsOfUse = ({
 export const toCredentialSummary = async (
   verifiableCredential: VerifiableCredential,
   hash: string,
+  credentialRole: CredentialRole,
   branding?: Array<IBasicCredentialLocaleBranding>,
   issuer?: Party,
   subject?: Party,
@@ -217,6 +226,7 @@ export const toCredentialSummary = async (
     id: verifiableCredential.id,
     title,
     credentialStatus,
+    credentialRole,
     issueDate,
     expirationDate,
     properties,
