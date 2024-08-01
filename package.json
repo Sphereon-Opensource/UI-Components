@@ -42,8 +42,10 @@
   },
   "pnpm": {
     "overrides": {
-      "@types/react-native": "0.73.0",
-      "@types/react": "~18.2.67"
+      "@types/react": "~18.2.79",
+      "styled-components": "^6.1.12",
+      "@sphereon/ssi-sdk.core": "0.29.0",
+      "@sphereon/ssi-types": "0.29.0"
     }
   }
 }

@@ -44,25 +44,27 @@ const JSONDataView: FC<Props> = (props: Props): ReactElement => {
 
     const processedData: Record<string, any> = {}
     await Promise.all(
-      Object.entries(data).filter(([_key, value]) => !!value).map(async ([key, value]: [string, any]): Promise<void> => {
-        if (typeof value === 'object') {
-          processedData[key] = await preprocessData(value)
-        } else if (typeof value === 'string' && isBase64ImageUri(value)) {
-          const base64Uri = value
-          const dimensions = await getImageSize(base64Uri)
+      Object.entries(data)
+        .filter(([_key, value]) => !!value)
+        .map(async ([key, value]: [string, any]): Promise<void> => {
+          if (typeof value === 'object') {
+            processedData[key] = await preprocessData(value)
+          } else if (typeof value === 'string' && isBase64ImageUri(value)) {
+            const base64Uri = value
+            const dimensions = await getImageSize(base64Uri)
 
-          processedData[key] = {
-            uri: base64Uri,
-            dimensions: {
-              height: dimensions.height,
-              width: dimensions.width,
-              aspectRatio: calculateAspectRatio(dimensions.width, dimensions.height),
-            },
+            processedData[key] = {
+              uri: base64Uri,
+              dimensions: {
+                height: dimensions.height,
+                width: dimensions.width,
+                aspectRatio: calculateAspectRatio(dimensions.width, dimensions.height),
+              },
+            }
+          } else {
+            processedData[key] = value
           }
-        } else {
-          processedData[key] = value
-        }
-      }),
+        }),
     )
     return processedData
   }
