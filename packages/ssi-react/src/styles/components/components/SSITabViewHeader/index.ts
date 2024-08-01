@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {SSITextH3Styled} from '../../../fonts';
+import {SSITextH3Styled} from '../../../fonts'
 
 export const SSITabViewHeaderContainerStyled = styled.div`
   display: flex;

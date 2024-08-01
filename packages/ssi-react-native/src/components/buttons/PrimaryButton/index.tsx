@@ -3,7 +3,7 @@ import {ColorValue, PressableProps, ViewStyle} from 'react-native'
 import {fontColors, gradientsColors, OpacityStyleEnum} from '@sphereon/ui-components.core'
 import {
   SSITouchableOpacityButtonFlexRowStyled as Button,
-  SSITextH2LightStyled as ButtonCaption,
+  SSITextH2LightStyled as Caption,
   SSIRoundedCenteredLinearGradientStyled as LinearGradient,
 } from '../../../styles'
 
@@ -40,7 +40,7 @@ const PrimaryButton: FC<Props> = (props: Props): JSX.Element => {
         ...(disabled && {opacity: OpacityStyleEnum.DISABLED}),
       }}>
       <LinearGradient style={{...style}} colors={backgroundColors}>
-        <ButtonCaption style={{color: captionColor}}>{caption}</ButtonCaption>
+        <Caption style={{color: captionColor}}>{caption}</Caption>
       </LinearGradient>
     </Button>
   )

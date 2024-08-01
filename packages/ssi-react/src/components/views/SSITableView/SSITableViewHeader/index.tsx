@@ -1,8 +1,8 @@
 import {ButtonIcon, Localization, statusColors} from '@sphereon/ui-components.core'
 import React, {ReactElement} from 'react'
-import SSIIconButton from '../../../buttons/SSIIconButton'
+import IconButton from '../../../buttons/IconButton'
 import DropDownList from '../../../lists/DropDownList'
-import SSIPrimaryButton from '../../../buttons/SSIPrimaryButton'
+import PrimaryButton from '../../../buttons/PrimaryButton'
 import {
   SSITableViewHeaderActionsContainerStyled as ActionsContainer,
   SSITableViewHeaderContainerStyled as Container,
@@ -32,7 +32,7 @@ const SSITableViewHeader: React.FC<Props> = (props: Props): ReactElement => {
     <Container>
       <StaticActionsContainer>
         {onDelete && (
-          <SSIIconButton
+          <IconButton
             caption={Localization.translate('action_delete_label')}
             icon={ButtonIcon.DELETE}
             iconColor={statusColors.error}
@@ -44,7 +44,7 @@ const SSITableViewHeader: React.FC<Props> = (props: Props): ReactElement => {
         <ActionsContainer>
           {enableFiltering && (
             <FilterContainer>
-              <SSIIconButton icon={ButtonIcon.FILTER} onClick={async (): Promise<void> => console.log('add filter clicked')} />
+              <IconButton icon={ButtonIcon.FILTER} onClick={async (): Promise<void> => console.log('add filter clicked')} />
               <FilterCaption>{Localization.translate('action_filter_caption')}</FilterCaption>
             </FilterContainer>
           )}
@@ -54,7 +54,7 @@ const SSITableViewHeader: React.FC<Props> = (props: Props): ReactElement => {
             </ShowOptionContainer>
           )}*/}
           {actions.map((action: Button, index: number) => (
-            <SSIPrimaryButton key={index} caption={action.caption} onClick={action.onClick} icon={action.icon} />
+            <PrimaryButton key={index} caption={action.caption} onClick={action.onClick} icon={action.icon} />
           ))}
         </ActionsContainer>
       </ContentContainer>

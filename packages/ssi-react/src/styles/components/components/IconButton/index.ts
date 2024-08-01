@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SSIIconButtonContainerStyled = styled.div`
+export const IconButtonContainerStyled = styled.div`
   gap: 8px;
   height: 32px;
   min-width: 32px;

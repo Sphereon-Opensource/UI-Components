@@ -1,8 +1,7 @@
 import SSIToastContainer from './components/messageBoxes/toasts/SSIToastContainer'
 import SSIStatusLabel from './components/labels/SSIStatusLabel'
 import SSICredentialCardView from './components/views/SSICredentialCardView'
-import CredentialMiniCardView from './components/views/CredentialMiniCardView'
-import {CredentialMiniCardViewProps} from './components/views/CredentialMiniCardView'
+import CredentialMiniCardView, {CredentialMiniCardViewProps} from './components/views/CredentialMiniCardView'
 import SSICheckmarkBadge from './components/assets/badges/SSICheckmarkBadge'
 import SSIExclamationMarkBadge from './components/assets/badges/SSIExclamationMarkBadge'
 import SSIPlaceholderLogo from './components/assets/logos/SSIPlaceholderLogo'
@@ -11,15 +10,15 @@ import SSIAddIcon from './components/assets/icons/SSIAddIcon'
 import SSIFilterIcon from './components/assets/icons/SSIFilterIcon'
 import SSIArrowDownIcon from './components/assets/icons/SSIArrowDownIcon'
 import SSITypeLabel from './components/labels/SSITypeLabel'
-import SSIIconButton from './components/buttons/SSIIconButton'
-import SSIPrimaryButton from './components/buttons/SSIPrimaryButton'
+import IconButton from './components/buttons/IconButton'
+import PrimaryButton from './components/buttons/PrimaryButton'
 import DropDownList from './components/lists/DropDownList'
 import SSITableView from './components/views/SSITableView'
 import SSITableViewHeader from './components/views/SSITableView/SSITableViewHeader'
 import SSITabView from './components/views/SSITabView'
 import SSITabViewHeader from './components/views/SSITabView/SSITabViewHeader'
 import SSIProfileIcon from './components/assets/icons/SSIProfileIcon'
-import SSISecondaryButton from './components/buttons/SSISecondaryButton'
+import SecondaryButton from './components/buttons/SecondaryButton'
 import SSICheckbox from './components/fields/SSICheckbox'
 import SSIActivityIndicator from './components/indicators/SSIActivityIndicator'
 import SSIHoverText from './components/fields/SSIHoverText'
@@ -28,11 +27,16 @@ import StepMarker from './components/assets/markers/StepMarker'
 import DocumentIcon from './components/assets/icons/DocumentIcon'
 import CrossIcon from './components/assets/icons/CrossIcon'
 import ImageIcon from './components/assets/icons/ImageIcon'
+import MeatBallsIcon from './components/assets/icons/MeatBallsIcon'
+import PencilIcon from './components/assets/icons/PencilIcon'
+import ViewIcon from './components/assets/icons/ViewIcon'
+import CopyIcon from './components/assets/icons/CopyIcon'
+import DeleteIcon from './components/assets/icons/DeleteIcon'
 import FileSelection from './components/fields/FileSelection'
 import ComboBox from './components/fields/ComboBox'
 import DragAndDropBox from './components/fields/DragAndDropBox'
 import PersonPlaceholder from './components/assets/placeholders/PersonPlaceholder'
-import PassportPhotoControl, { passportPhotoControlTester } from './components/fields/JSONForms/PassportPhotoControl'
+import PassportPhotoControl, {passportPhotoControlTester} from './components/fields/JSONForms/PassportPhotoControl'
 import CredentialIssuanceWizardView from './components/views/CredentialIssuanceWizardView'
 import PaginationControls from './components/views/SSITableView/PaginationControls'
 import PaginationControlsProps from './components/views/SSITableView/PaginationControls'
@@ -40,6 +44,8 @@ import CredentialViewItem from './components/views/CredentialViewItem'
 import JSONDataView from './components/views/JSONDataView'
 import TextInputField from './components/fields/TextInputField'
 import WarningImage from './components/assets/images/WarningImage'
+import FormView from './components/views/FormView'
+import InformationRequestView from './components/views/InformationRequestView'
 
 import {Row} from '@tanstack/react-table'
 
@@ -61,9 +67,9 @@ export {
   SSIFilterIcon,
   SSIArrowDownIcon,
   SSITypeLabel,
-  SSIIconButton,
-  SSIPrimaryButton,
-  SSISecondaryButton,
+  IconButton,
+  PrimaryButton,
+  SecondaryButton,
   DropDownList,
   SSITableView,
   SSITableViewHeader,
@@ -82,6 +88,11 @@ export {
   DocumentIcon,
   CrossIcon,
   ImageIcon,
+  MeatBallsIcon,
+  PencilIcon,
+  ViewIcon,
+  CopyIcon,
+  DeleteIcon,
   FileSelection,
   ComboBox,
   DragAndDropBox,
@@ -92,5 +103,7 @@ export {
   CredentialViewItem,
   JSONDataView,
   TextInputField,
-  WarningImage
+  WarningImage,
+  FormView,
+  InformationRequestView,
 }

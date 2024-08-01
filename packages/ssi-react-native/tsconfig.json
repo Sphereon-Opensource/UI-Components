@@ -1,14 +1,24 @@
 {
-  "extends": "../tsconfig-base.json",
+  "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    // Only values not in expo/tsconfig.base
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "noEmit": false,
+    "declaration": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "composite": true,
     "rootDir": "src",
     "outDir": "dist",
     "declarationDir": "dist",
-    "target": "esnext",
-    "module": "esnext",
-    "lib": ["esnext"],
-    "jsx": "react-native",
-    "moduleResolution": "nodenext"
+    "module": "commonjs" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
   },
   "references": [
     {

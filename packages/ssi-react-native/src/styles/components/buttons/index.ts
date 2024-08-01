@@ -9,4 +9,6 @@ export const SSITouchableOpacityButtonFlexRowStyled = styled(TouchableOpacity)`
 export const SSIRoundedCenteredLinearGradientStyled = styled(SSIRoundedLinearGradient)`
   align-items: center;
   justify-content: center;
+  padding: 9px;
+  width: 180px;
 `

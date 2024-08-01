@@ -1,17 +1,14 @@
-import {JsonFormsCore, JsonSchema, UISchemaElement} from '@jsonforms/core';
-import {ErrorObject} from 'ajv';
+import {JsonFormsCore, JsonSchema, UISchemaElement} from '@jsonforms/core'
 
-export type CredentialFormInput = Pick<JsonFormsCore, 'data' | 'errors'>
+export type JSONFormState<DataType = any> = Pick<JsonFormsCore, 'errors'> & {data: DataType}
 
-export type CredentialFormData = {
-    data?: any
-    errors?: ErrorObject[]
-    evidence: Array<File>
+export type CredentialFormData = JSONFormState<Record<any, any>> & {
+  evidence: Array<File>
 }
 
 export type CredentialFormSelectionType = {
-    label: string
-    schema?: JsonSchema
-    uiSchema?: UISchemaElement
-    credentialType: Array<string>
+  label: string
+  schema?: JsonSchema
+  uiSchema?: UISchemaElement
+  credentialType: Array<string>
 }

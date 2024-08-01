@@ -1,6 +1,7 @@
 export type ProgressIndicatorStep = {
   title?: string
   description?: string
+  required?: boolean
 }
 
 export enum StepStatus {

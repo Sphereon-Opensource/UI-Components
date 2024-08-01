@@ -1,4 +1,17 @@
 {
   "files": [],
-  "references": [{"path": "core"}, {"path": "ssi-react"}, {"path": "ssi-react-native"}]
+  "references": [
+    {
+      "path": "core"
+    },
+    {
+      "path": "credential-branding"
+    },
+    {
+      "path": "ssi-react"
+    },
+    {
+      "path": "ssi-react-native"
+    }
+  ]
 }

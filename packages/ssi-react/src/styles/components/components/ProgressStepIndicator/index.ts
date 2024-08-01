@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import {backgroundColors, borderColors, elementColors, fontColors} from '@sphereon/ui-components.core'
+import {backgroundColors, borderColors, elementColors, fontColors, fontSize, fontWeight} from '@sphereon/ui-components.core'
 import {SSITextH1SemiBoldStyled, SSITextH3Styled} from '../../../fonts'
+import {SSITextH2Css} from '../../../css'
 
 export const ProgressStepIndicatorContainerStyled = styled.div`
   background-color: ${backgroundColors.primaryLight};
@@ -43,11 +44,22 @@ export const ProgressStepIndicatorSpacerLineCellStyled = styled.div`
 
 export const ProgressStepIndicatorTitleTextStyled = styled(SSITextH1SemiBoldStyled)`
   word-break: break-word;
+
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
 `
 
 export const ProgressStepIndicatorDescriptionTextStyled = styled(SSITextH3Styled)`
   word-break: break-word;
   color: ${fontColors.lightGrey};
+`
+
+// FIXME line-height working differently
+export const ProgressStepIndicatorOptionalTextStyled = styled.div`
+  ${SSITextH2Css};
+  line-height: unset;
+  font-style: italic;
 `
 
 export const ProgressStepIndicatorStepLineStyled = styled.div`
