@@ -1,5 +1,5 @@
 import {CredentialStatus, ImageSize, IssuerStatus} from '@sphereon/ui-components.core'
-import {IBasicCredentialLocaleBranding, IBasicIssuerLocaleBranding} from '@sphereon/ssi-sdk.data-store'
+import {CredentialRole, IBasicCredentialLocaleBranding, IBasicIssuerLocaleBranding} from '@sphereon/ssi-sdk.data-store'
 
 export type CredentialSummary = {
   hash: string
@@ -7,6 +7,7 @@ export type CredentialSummary = {
   title: string
   issuer: IssuerSummary
   credentialStatus: CredentialStatus
+  credentialRole: CredentialRole
   issueDate: number
   expirationDate: number
   properties: CredentialDetailsRow[]
