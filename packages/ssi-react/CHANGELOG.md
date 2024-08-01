@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/Sphereon-Opensource/UI-Components/compare/v0.2.0...v0.3.0) (2024-08-01)
+
+### Bug Fixes
+
+- filename ([77e19ab](https://github.com/Sphereon-Opensource/UI-Components/commit/77e19abcc0279bd493c0a14c7313f5a5b9d9b8ad))
+
+### Features
+
+- Add more json form options, and make data typed ([4d42999](https://github.com/Sphereon-Opensource/UI-Components/commit/4d42999bd78f2b42370302f1a1ad1aa9b762d33c))
+- Added pencil icon ([fe3642a](https://github.com/Sphereon-Opensource/UI-Components/commit/fe3642ad564aa14221ac0f9420813cac197f1ba8))
+- added ViewIcon & CopyIcon ([b64bc39](https://github.com/Sphereon-Opensource/UI-Components/commit/b64bc39f2979e1c9075053c430f28dd25d12c990))
+- Improvements to credential json view ([4ab33de](https://github.com/Sphereon-Opensource/UI-Components/commit/4ab33de23ad70def6090cfdfbc5039f1852f6581))
+- Improvements to credential json view ([ed8f4d9](https://github.com/Sphereon-Opensource/UI-Components/commit/ed8f4d92f564f5bca2a80e328ec34afd71576c42))
+- refactor work and small formView additions ([0c3e560](https://github.com/Sphereon-Opensource/UI-Components/commit/0c3e560dd1878d1aa7a6074a7d2838816569a296))
+- update to rn 0.74 and latest styled components ([4f37b20](https://github.com/Sphereon-Opensource/UI-Components/commit/4f37b208cf3a2e90a109d7e76b174a2ed674b466))
+
 # [0.2.0](https://github.com/Sphereon-Opensource/UI-Components/compare/v0.1.2...v0.2.0) (2024-04-30)
 
 ### Bug Fixes

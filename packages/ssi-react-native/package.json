@@ -1,7 +1,7 @@
 {
   "name": "@sphereon/ui-components.ssi-react-native",
   "private": false,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "SSI UI components for React-Native",
   "repository": "git@github.com:Sphereon-Opensource/UI-Components.git",
   "author": "Sphereon <dev@sphereon.com>",
@@ -38,8 +38,8 @@
     "styled-components": "^6.1.12"
   },
   "devDependencies": {
-    "expo": "^51.0.22",
     "@types/react": "~18.2.79",
+    "expo": "^51.0.22",
     "typescript": "~5.3.3"
   },
   "peerDependencies": {

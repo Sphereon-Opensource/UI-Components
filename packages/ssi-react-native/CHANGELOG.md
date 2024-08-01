@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/Sphereon-Opensource/UI-Components/compare/v0.2.0...v0.3.0) (2024-08-01)
+
+### Bug Fixes
+
+- removed default value for logo's aspect ratio. added logic for using both maxHeight and maxWidth parameter for long or wide logo's ([6cb50a1](https://github.com/Sphereon-Opensource/UI-Components/commit/6cb50a157b9339ce3bd221b0d9c9bdb52411c306))
+- updated logo component for showing long logos ([5b23976](https://github.com/Sphereon-Opensource/UI-Components/commit/5b2397677779f1ab13907aee5bda1384bb526120))
+
+### Features
+
+- refactor work and small formView additions ([0c3e560](https://github.com/Sphereon-Opensource/UI-Components/commit/0c3e560dd1878d1aa7a6074a7d2838816569a296))
+- update to rn 0.74 and latest styled components ([4f37b20](https://github.com/Sphereon-Opensource/UI-Components/commit/4f37b208cf3a2e90a109d7e76b174a2ed674b466))
+
 # [0.2.0](https://github.com/Sphereon-Opensource/UI-Components/compare/v0.1.2...v0.2.0) (2024-04-30)
 
 ### Features
