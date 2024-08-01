@@ -24,13 +24,21 @@ function findCorrelationIdName(correlationId: string, parties: Party[], activeUs
 const getImageSize = async (image: string) => {
   const downloadedImage = await downloadImage(image)
   let imageSize: {width: number; height: number} | undefined = undefined
-  if ((await isImageAddress(image)) && downloadedImage) {
+  if (downloadedImage && (await isImageAddress(image))) {
     imageSize = await getImageDimensions(downloadedImage.base64Content)
   }
   return imageSize
 }
 
-const toCredentialDetailsRow = async (object: Record<string, any>, subject?: Party, issuer?: Party): Promise<CredentialDetailsRow[]> => {
+const toCredentialDetailsRow = async ({
+  object,
+  subject,
+  issuer,
+}: {
+  object: Record<string, any>
+  subject?: Party
+  issuer?: Party
+}): Promise<CredentialDetailsRow[]> => {
   let rows: CredentialDetailsRow[] = []
   // eslint-disable-next-line prefer-const
   for (let [key, value] of Object.entries(object)) {
@@ -60,7 +68,7 @@ const toCredentialDetailsRow = async (object: Record<string, any>, subject?: Par
       //   label: key,
       //   value: undefined,
       // });
-      rows = rows.concat(await toCredentialDetailsRow(value, subject, issuer))
+      rows = rows.concat(await toCredentialDetailsRow({object: value, subject, issuer}))
     } else {
       if (key === '0' || value === undefined) {
         continue
@@ -77,11 +85,13 @@ const toCredentialDetailsRow = async (object: Record<string, any>, subject?: Par
         value = findCorrelationIdName(value, contacts)
       }
 
+      const imageSize = (await isImageAddress(value)) ? await getImageSize(value) : undefined
+
       rows.push({
         id: uuidv4(),
         label, // TODO Human readable mapping
         value,
-        imageSize: await getImageSize(value),
+        imageSize,
       })
     }
   }
@@ -223,11 +233,11 @@ export const toCredentialSummary = async ({
   const localeBranding = await selectAppLocaleBranding({localeBranding: branding})
   const credentialStatus = getCredentialStatus(verifiableCredential)
   const title = getCredentialDisplayName({verifiableCredential, localeBranding})
-  const properties = await toCredentialDetailsRow(
-    {...verifiableCredential.vc?.credentialSubject, ...verifiableCredential.credentialSubject},
+  const properties = await toCredentialDetailsRow({
+    object: {...verifiableCredential.vc?.credentialSubject, ...verifiableCredential.credentialSubject},
     subject,
     issuer,
-  )
+  })
   const logo = getIssuerLogo(verifiableCredential, localeBranding)
   const url = typeof verifiableCredential.issuer !== 'string' ? verifiableCredential.issuer.url : undefined
   const {issuerName, issuerAlias} = getCredentialIssuerNameAndAlias({verifiableCredential, issuer})
