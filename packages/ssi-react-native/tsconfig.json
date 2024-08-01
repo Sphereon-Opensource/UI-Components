@@ -18,7 +18,7 @@
     "rootDir": "src",
     "outDir": "dist",
     "declarationDir": "dist",
-    "module": "commonjs" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */,
+    "module": "commonjs" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
   },
   "references": [
     {

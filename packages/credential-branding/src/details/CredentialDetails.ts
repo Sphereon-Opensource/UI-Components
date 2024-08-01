@@ -1,13 +1,7 @@
 import {v4 as uuidv4} from 'uuid'
 import {VerifiableCredential} from '@veramo/core'
 import {asArray, computeEntryHash} from '@veramo/utils'
-import {
-  CredentialRole,
-  IBasicCredentialLocaleBranding,
-  IBasicIssuerLocaleBranding,
-  Identity,
-  Party,
-} from '@sphereon/ssi-sdk.data-store'
+import {CredentialRole, IBasicCredentialLocaleBranding, IBasicIssuerLocaleBranding, Identity, Party} from '@sphereon/ssi-sdk.data-store'
 import {EPOCH_MILLISECONDS, Localization} from '@sphereon/ui-components.core'
 import {downloadImage, getImageDimensions} from '@sphereon/ssi-sdk.core'
 import {CredentialDetailsRow, CredentialSummary, ISelectAppLocaleBrandingArgs} from '../types'
@@ -21,15 +15,16 @@ function findCorrelationIdName(correlationId: string, parties: Party[], activeUs
     parties.push(activeUser)
   }
   return (
-    allParties?.find((contact: Party) => contact.identities.some((identity: Identity): boolean => identity.identifier.correlationId === correlationId))
-      ?.contact.displayName ?? correlationId
+    allParties?.find((contact: Party) =>
+      contact.identities.some((identity: Identity): boolean => identity.identifier.correlationId === correlationId),
+    )?.contact.displayName ?? correlationId
   )
 }
 
 const getImageSize = async (image: string) => {
   const downloadedImage = await downloadImage(image)
   let imageSize: {width: number; height: number} | undefined = undefined
-  if (await isImageAddress(image) && downloadedImage) {
+  if ((await isImageAddress(image)) && downloadedImage) {
     imageSize = await getImageDimensions(downloadedImage.base64Content)
   }
   return imageSize
@@ -46,7 +41,7 @@ const toCredentialDetailsRow = async (object: Record<string, any>, subject?: Par
         id: uuidv4(),
         label: 'image',
         value: image,
-        imageSize:  await getImageSize(image)
+        imageSize: await getImageSize(image),
       })
       continue
     } else if (key === 'type') {
@@ -97,25 +92,32 @@ const toCredentialDetailsRow = async (object: Record<string, any>, subject?: Par
 /**
  * To be used whenever we need to show a credential summary on VCs we have not persisted
  * @param verifiableCredential
+ * @param credentialRole
  * @param branding The branding for the credential
  * @param issuer Optional contact for issuer name
  * @param subject Optional contact for subject name
  */
-export const toNonPersistedCredentialSummary = (
-  verifiableCredential: ICredential | VerifiableCredential,
-  credentialRole: CredentialRole,
-  branding?: Array<IBasicCredentialLocaleBranding>,
-  issuer?: Party,
-  subject?: Party,
-): Promise<CredentialSummary> => {
-  return toCredentialSummary(
-    verifiableCredential as VerifiableCredential,
-    computeEntryHash(verifiableCredential as VerifiableCredential),
+export const toNonPersistedCredentialSummary = ({
+  verifiableCredential,
+  credentialRole,
+  branding,
+  issuer,
+  subject,
+}: {
+  verifiableCredential: ICredential | VerifiableCredential
+  credentialRole: CredentialRole
+  branding?: Array<IBasicCredentialLocaleBranding>
+  issuer?: Party
+  subject?: Party
+}): Promise<CredentialSummary> => {
+  return toCredentialSummary({
+    verifiableCredential: verifiableCredential as VerifiableCredential,
+    hash: computeEntryHash(verifiableCredential as VerifiableCredential),
     credentialRole,
     branding,
     issuer,
     subject,
-  )
+  })
 }
 
 export const getDate = (...dates: (number | string | undefined)[]): number | undefined => {
@@ -196,18 +198,26 @@ const getTermsOfUse = ({
  * Map persisted (Unique) VCs to the summaries we display
  * @param hash The hash of the unique verifiable credential
  * @param verifiableCredential The VC itself
+ * @param credentialRole
  * @param branding The branding for the credential
  * @param issuer Optional contact for issuer name
  * @param subject Optional contact for subject name
  */
-export const toCredentialSummary = async (
-  verifiableCredential: VerifiableCredential,
-  hash: string,
-  credentialRole: CredentialRole,
-  branding?: Array<IBasicCredentialLocaleBranding>,
-  issuer?: Party,
-  subject?: Party,
-): Promise<CredentialSummary> => {
+export const toCredentialSummary = async ({
+  verifiableCredential,
+  hash,
+  credentialRole,
+  branding,
+  issuer,
+  subject,
+}: {
+  verifiableCredential: VerifiableCredential
+  hash: string
+  credentialRole: CredentialRole
+  branding?: Array<IBasicCredentialLocaleBranding>
+  issuer?: Party
+  subject?: Party
+}): Promise<CredentialSummary> => {
   const expirationDate = getDate(verifiableCredential.expirationDate, verifiableCredential.validTo, verifiableCredential.exp) ?? 0
   const issueDate = getDate(verifiableCredential.issuanceDate, verifiableCredential.validFrom, verifiableCredential.nbf, verifiableCredential.iat)!
   const localeBranding = await selectAppLocaleBranding({localeBranding: branding})

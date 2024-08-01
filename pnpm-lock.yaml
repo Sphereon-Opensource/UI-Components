@@ -62,14 +62,14 @@ importers:
   packages/credential-branding:
     dependencies:
       '@sphereon/ssi-sdk.core':
-        specifier: ^0.28.0
-        version: 0.28.0
+        specifier: 0.28.1-next.39
+        version: 0.28.1-next.39
       '@sphereon/ssi-sdk.data-store':
-        specifier: ^0.28.0
-        version: 0.28.0(msrcrypto@1.5.8)
+        specifier: 0.28.1-next.39
+        version: 0.28.1-next.39(msrcrypto@1.5.8)
       '@sphereon/ssi-types':
-        specifier: ^0.28.0
-        version: 0.28.0
+        specifier: 0.28.1-next.39
+        version: 0.28.1-next.39
       '@sphereon/ui-components.core':
         specifier: workspace:*
         version: link:../core
@@ -3307,7 +3307,7 @@ packages:
       '@octokit/request-error': 3.0.3
       '@octokit/types': 9.3.2
       is-plain-object: 5.0.0
-      node-fetch: 2.6.7
+      node-fetch: 2.7.0
       universal-user-agent: 6.0.1
     transitivePeerDependencies:
       - encoding
@@ -4060,13 +4060,13 @@ packages:
       uint8arrays: 3.1.1
     dev: false
 
-  /@sphereon/ssi-sdk-ext.did-utils@0.23.0(msrcrypto@1.5.8):
-    resolution: {integrity: sha512-VHqqgyE7cUJbmR/9sYPqdlqY9pAchFXYv7Z2fczlXW96a/maz/rXVLwmg/LlFb764Sx1CDgoXGcuN1KryZ1L9g==}
+  /@sphereon/ssi-sdk-ext.did-utils@0.23.1-next.5(msrcrypto@1.5.8):
+    resolution: {integrity: sha512-BHeCfh/qewhs+YixqEpf9cq4T0egz1ymLX5OuCZY5GrRdmkMrt5ODB3evMnMh96niVL/8vFfihlzB+huYOTWFw==}
     dependencies:
       '@ethersproject/networks': 5.7.1
       '@ethersproject/transactions': 5.7.0
       '@sphereon/did-uni-client': 0.6.3
-      '@sphereon/ssi-sdk-ext.key-utils': 0.23.0(msrcrypto@1.5.8)
+      '@sphereon/ssi-sdk-ext.key-utils': 0.23.1-next.5(msrcrypto@1.5.8)
       '@sphereon/ssi-sdk.core': 0.27.0
       '@stablelib/ed25519': 1.0.3
       '@veramo/core': 4.2.0
@@ -4085,8 +4085,8 @@ packages:
       - supports-color
     dev: false
 
-  /@sphereon/ssi-sdk-ext.key-utils@0.23.0(msrcrypto@1.5.8):
-    resolution: {integrity: sha512-BfULXvQmcUrBq2DqYxJHKnEoB2d5icu3TJ9GP2aP1WybSULTjL96Wv5r7QKgktcodKaL+F+oQ7r8sC9qBl1exw==}
+  /@sphereon/ssi-sdk-ext.key-utils@0.23.1-next.5(msrcrypto@1.5.8):
+    resolution: {integrity: sha512-vMPStdruDJ8bQmC82oznQRA90ac60eaMJ7tggzYO9+oX6aNKq3wkL+Cu9bVkdLIU85TDMX5/e7Jffay/xau4KA==}
     dependencies:
       '@ethersproject/random': 5.7.0
       '@sphereon/isomorphic-webcrypto': 2.4.1-unstable.0(msrcrypto@1.5.8)
@@ -4126,10 +4126,10 @@ packages:
       - supports-color
     dev: false
 
-  /@sphereon/ssi-sdk.core@0.28.0:
-    resolution: {integrity: sha512-hB/rWxV1zZXgtYOfmHu8T/YCCFGRYfuvY58paAWbZk4WbQ7/sPRTO9DdcgSjS+tVZ1kI0/ebOi9zeuBa/OmhIA==}
+  /@sphereon/ssi-sdk.core@0.28.1-next.39:
+    resolution: {integrity: sha512-bNYiBRXzfhc00b8JbILX6Dwco45+MG5XeFeW7g+7NaG7Wbl1VRc+ZlCa4oB/azZtXEabbFOWp1YfYuumqE+mig==}
     dependencies:
-      '@sphereon/ssi-types': 0.28.0
+      '@sphereon/ssi-types': 0.28.1-next.39
       '@veramo/core': 4.2.0
       cross-fetch: 3.1.8
       debug: 4.3.5
@@ -4140,13 +4140,13 @@ packages:
       - supports-color
     dev: false
 
-  /@sphereon/ssi-sdk.data-store@0.28.0(msrcrypto@1.5.8):
-    resolution: {integrity: sha512-GYVS8vVt+5Bgrgtg4EFJbWWaAfZXJgerarbeAHxb92Av+RLk7QsIZeJAvDZY/v4U7/NrUe3YqIPW0TZmcMkZ2w==}
+  /@sphereon/ssi-sdk.data-store@0.28.1-next.39(msrcrypto@1.5.8):
+    resolution: {integrity: sha512-um04UH4oep0bP/73k2h4NTO6NgpX9xlMEjMxc0DhSPM/EadWUhA3JlP7W4AC8IuCGkHBX79t0ilXUzCGVEvokw==}
     dependencies:
       '@sphereon/pex': 4.0.1
-      '@sphereon/ssi-sdk-ext.did-utils': 0.23.0(msrcrypto@1.5.8)
-      '@sphereon/ssi-sdk.core': 0.28.0
-      '@sphereon/ssi-types': 0.28.0
+      '@sphereon/ssi-sdk-ext.did-utils': 0.23.1-next.5(msrcrypto@1.5.8)
+      '@sphereon/ssi-sdk.core': 0.28.1-next.39
+      '@sphereon/ssi-types': 0.28.1-next.39
       '@veramo/core': 4.2.0
       '@veramo/utils': 4.2.0
       blakejs: 1.2.1
@@ -4198,8 +4198,8 @@ packages:
       - supports-color
     dev: false
 
-  /@sphereon/ssi-types@0.28.0:
-    resolution: {integrity: sha512-NkTkrsBoQUZzJutlk5XD3snBxL9kfsxKdQvBbGUEaUDOiW8siTNUoJuQFeA+bI0eJY99up95bmMKdJeDc1VDfg==}
+  /@sphereon/ssi-types@0.28.1-next.39:
+    resolution: {integrity: sha512-CWcONhcd3eFyqSro8yEpgawIwvl5ochTTqOfv5+YbDvxSER4iw4h/HZNhOh8DY/5iviCKjBM0KDQr+xsI4+HqA==}
     dependencies:
       '@sd-jwt/decode': 0.6.1
       debug: 4.3.5
@@ -6143,7 +6143,7 @@ packages:
       did-resolver: 4.1.0
       elliptic: 6.5.6
       js-sha3: 0.8.0
-      multiformats: 9.7.1
+      multiformats: 9.9.0
       uint8arrays: 3.1.1
     dev: false
 
