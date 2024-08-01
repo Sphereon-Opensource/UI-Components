@@ -44,8 +44,8 @@
     "overrides": {
       "@types/react": "~18.2.79",
       "styled-components": "^6.1.12",
-      "@sphereon/ssi-sdk.core": "0.28.1-unstable.58",
-      "@sphereon/ssi-types": "0.28.1-unstable.58"
+      "@sphereon/ssi-sdk.core": "0.29.0",
+      "@sphereon/ssi-types": "0.29.0"
     }
   }
 }

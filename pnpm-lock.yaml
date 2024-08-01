@@ -7,8 +7,8 @@ settings:
 overrides:
   '@types/react': ~18.2.79
   styled-components: ^6.1.12
-  '@sphereon/ssi-sdk.core': 0.28.1-unstable.58
-  '@sphereon/ssi-types': 0.28.1-unstable.58
+  '@sphereon/ssi-sdk.core': 0.29.0
+  '@sphereon/ssi-types': 0.29.0
 
 importers:
 
@@ -64,14 +64,14 @@ importers:
   packages/credential-branding:
     dependencies:
       '@sphereon/ssi-sdk.core':
-        specifier: 0.28.1-unstable.58
-        version: 0.28.1-unstable.58
+        specifier: 0.29.0
+        version: 0.29.0
       '@sphereon/ssi-sdk.data-store':
-        specifier: 0.28.1-unstable.58
-        version: 0.28.1-unstable.58
+        specifier: 0.29.0
+        version: 0.29.0
       '@sphereon/ssi-types':
-        specifier: 0.28.1-unstable.58
-        version: 0.28.1-unstable.58
+        specifier: 0.29.0
+        version: 0.29.0
       '@sphereon/ui-components.core':
         specifier: workspace:*
         version: link:../core
@@ -3993,7 +3993,7 @@ packages:
       '@sd-jwt/present': 0.6.1
       '@sd-jwt/types': 0.6.1
       '@sphereon/pex-models': 2.2.4
-      '@sphereon/ssi-types': 0.28.1-unstable.58
+      '@sphereon/ssi-types': 0.29.0
       ajv: 8.17.1
       ajv-formats: 2.1.1(ajv@8.17.1)
       jwt-decode: 3.1.2
@@ -4004,14 +4004,14 @@ packages:
       - supports-color
     dev: false
 
-  /@sphereon/ssi-sdk-ext.did-utils@0.23.1-next.43:
-    resolution: {integrity: sha512-vViKRSij8unTgZADedXgwTZzTppfvg0xacEWK9OFjzkiqq5uYOEE8tux8AnJ+xMLDYHZRvaJXpCPBfGQRTphQA==}
+  /@sphereon/ssi-sdk-ext.did-utils@0.24.0:
+    resolution: {integrity: sha512-asevnEBumeUZEk+zcjzFf+70OD1RTk+83jAlDU54cJukj35ZX6HYq+qmcwIqXRMG9rk8om8rT7R5I7UqpQkhkg==}
     dependencies:
       '@ethersproject/networks': 5.7.1
       '@ethersproject/transactions': 5.7.0
       '@sphereon/did-uni-client': 0.6.3
-      '@sphereon/ssi-sdk-ext.key-utils': 0.23.1-next.43
-      '@sphereon/ssi-sdk.core': 0.28.1-unstable.58
+      '@sphereon/ssi-sdk-ext.key-utils': 0.24.0
+      '@sphereon/ssi-sdk.core': 0.29.0
       '@stablelib/ed25519': 1.0.3
       '@veramo/core': 4.2.0
       '@veramo/utils': 4.2.0
@@ -4024,8 +4024,8 @@ packages:
       - supports-color
     dev: false
 
-  /@sphereon/ssi-sdk-ext.key-utils@0.23.1-next.43:
-    resolution: {integrity: sha512-lSWddzW70QoqxD61i949VWuKXgpMk/+6euC4BmaSqMiLN66ItS647BgXPNJCPh/jULAgRtUc33Sq7IwHbZ9dHw==}
+  /@sphereon/ssi-sdk-ext.key-utils@0.24.0:
+    resolution: {integrity: sha512-69A7H5H/CSPHJnsoN6ICP4oluJunjMi5ia7okk6b2GZ6FEbj6JAcOavO6eznUrqPyhwg71+Es/TkuFCtQ1JydA==}
     dependencies:
       '@ethersproject/random': 5.7.0
       '@stablelib/ed25519': 1.0.3
@@ -4045,8 +4045,8 @@ packages:
       - supports-color
     dev: false
 
-  /@sphereon/ssi-sdk.agent-config@0.28.1-unstable.58:
-    resolution: {integrity: sha512-JO8PBBqaGfQtlYSsvTXj5u9UyQkjCm1UiolR8u+P0beb7xjrZOcjzHlz3PFFysE+OLm1SC0ZHWMPG77J2QBakg==}
+  /@sphereon/ssi-sdk.agent-config@0.29.0:
+    resolution: {integrity: sha512-l5I/YhgZ/wzLjHOeNZHzNXI7pMvif/QHDyKh9AmAmqR/BbMggpn75wE4AM0MimxQ6JvXCY+8Jg9/7hW/Qtfp2Q==}
     dependencies:
       '@veramo/core': 4.2.0
       debug: 4.3.5
@@ -4075,10 +4075,10 @@ packages:
       - typeorm-aurora-data-api-driver
     dev: false
 
-  /@sphereon/ssi-sdk.core@0.28.1-unstable.58:
-    resolution: {integrity: sha512-2r5QlNCEpE/AiRUZyv4g8+lNQWTNIgXsMqVM6T3XZDtAv+FzOmQRRUTKCAcnw7UM6g3h6qn6xitz8fkVLaAzPw==}
+  /@sphereon/ssi-sdk.core@0.29.0:
+    resolution: {integrity: sha512-kYCGQccSnbcnANAqYO8fcBXb1eoETN+YSATIciWaGLhMerETiMYjuu5anD+G2rn+HQaM9y9EE3qqmQ6I2HtEDw==}
     dependencies:
-      '@sphereon/ssi-types': 0.28.1-unstable.58
+      '@sphereon/ssi-types': 0.29.0
       '@veramo/core': 4.2.0
       cross-fetch: 3.1.8
       debug: 4.3.5
@@ -4089,14 +4089,14 @@ packages:
       - supports-color
     dev: false
 
-  /@sphereon/ssi-sdk.data-store@0.28.1-unstable.58:
-    resolution: {integrity: sha512-N3OqP4Ws3lienqoEkNmxuJ2OFNDYlG/0fv+euL8+/+B4TO09ePDEthqfoC7uVuHy5TBYvmK7QmpGJ/sWGM83Ew==}
+  /@sphereon/ssi-sdk.data-store@0.29.0:
+    resolution: {integrity: sha512-DFNruh5FcTFvI9wgap+9gOKtVUVE/i1LV02tlk5bpTOX6V+NiRJxh2zkMkiNJ4dsWWPN1vOpgpPr7SDnc/7+6g==}
     dependencies:
       '@sphereon/pex': 4.0.1
-      '@sphereon/ssi-sdk-ext.did-utils': 0.23.1-next.43
-      '@sphereon/ssi-sdk.agent-config': 0.28.1-unstable.58
-      '@sphereon/ssi-sdk.core': 0.28.1-unstable.58
-      '@sphereon/ssi-types': 0.28.1-unstable.58
+      '@sphereon/ssi-sdk-ext.did-utils': 0.24.0
+      '@sphereon/ssi-sdk.agent-config': 0.29.0
+      '@sphereon/ssi-sdk.core': 0.29.0
+      '@sphereon/ssi-types': 0.29.0
       '@veramo/core': 4.2.0
       '@veramo/utils': 4.2.0
       blakejs: 1.2.1
@@ -4125,8 +4125,8 @@ packages:
       - typeorm-aurora-data-api-driver
     dev: false
 
-  /@sphereon/ssi-types@0.28.1-unstable.58:
-    resolution: {integrity: sha512-HXtuj9EW1w3MudWINFOeiFG4O0eOEyu2ikbK7YyMv/AXYW2cWsMvmHDmH9D2jZnekRn6LjEfDkqTO4D1KuXKZQ==}
+  /@sphereon/ssi-types@0.29.0:
+    resolution: {integrity: sha512-fq4rx5UBRlfCRTqY0jKu4Fr5PKwWi20/FDVeceQrnk9QMnAnDPh4XhasVx5A1RYgCWrxdcgQiVsykUH7Uy2gVA==}
     dependencies:
       '@sd-jwt/decode': 0.6.1
       debug: 4.3.5
