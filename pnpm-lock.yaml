@@ -11,7 +11,6 @@ overrides:
   '@sphereon/ssi-types': 0.29.0
 
 importers:
-
   .:
     devDependencies:
       lerna:
@@ -227,7 +226,6 @@ importers:
         version: 5.3.3
 
 packages:
-
   /@ampproject/remapping@2.3.0:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}

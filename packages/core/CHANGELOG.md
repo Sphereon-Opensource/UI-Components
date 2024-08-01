@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/Sphereon-Opensource/UI-Components/compare/v0.2.0...v0.3.0) (2024-08-01)
+
+### Features
+
+- added credential-branding module ([d12a4c2](https://github.com/Sphereon-Opensource/UI-Components/commit/d12a4c254bdac07b82d9944b954d3a87063b8a22))
+- refactor work and small formView additions ([0c3e560](https://github.com/Sphereon-Opensource/UI-Components/commit/0c3e560dd1878d1aa7a6074a7d2838816569a296))
+- update to rn 0.74 and latest styled components ([4f37b20](https://github.com/Sphereon-Opensource/UI-Components/commit/4f37b208cf3a2e90a109d7e76b174a2ed674b466))
+
 # [0.2.0](https://github.com/Sphereon-Opensource/UI-Components/compare/v0.1.2...v0.2.0) (2024-04-30)
 
 ### Bug Fixes
