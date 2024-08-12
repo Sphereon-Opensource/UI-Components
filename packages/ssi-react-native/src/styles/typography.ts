@@ -82,13 +82,13 @@ export const fontStyle: Record<FontStyle, TextStyle> = {
     lineHeight: lineHeight[200],
   },
   h6: {
-    fontFamily: 'Poppins', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
+    fontFamily: 'Poppins-Regular', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
     fontSize: fontSize[100],
     fontWeight: fontWeight[400],
     lineHeight: lineHeight[100],
   },
   h7Regular: {
-    fontFamily: 'Poppins',
+    fontFamily: 'Poppins-Regular',
     fontSize: fontSize[400],
     fontWeight: fontWeight[400],
     lineHeight: lineHeight[400],
@@ -102,7 +102,7 @@ export const fontStyle: Record<FontStyle, TextStyle> = {
   },
   Regular64: {
     // TODO fix the order
-    fontFamily: 'Poppins', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
+    fontFamily: 'Poppins-Regular', // TODO fix solution for just having Poppins as font family and using font weight (which is now baked into the font family)
     fontSize: fontSize[64],
     fontWeight: fontWeight[600],
     lineHeight: lineHeight[64],
