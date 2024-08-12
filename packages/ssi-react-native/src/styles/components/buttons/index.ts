@@ -10,5 +10,6 @@ export const SSIRoundedCenteredLinearGradientStyled = styled(SSIRoundedLinearGra
   align-items: center;
   justify-content: center;
   padding: 9px;
-  width: 180px;
+  flex: 1;
+  height: 42px;
 `

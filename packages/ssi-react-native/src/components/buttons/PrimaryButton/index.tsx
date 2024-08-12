@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, {FC, ReactElement} from 'react'
 import {ColorValue, PressableProps, ViewStyle} from 'react-native'
 import {fontColors, gradientsColors, OpacityStyleEnum} from '@sphereon/ui-components.core'
 import {
@@ -16,7 +16,7 @@ export interface Props extends Omit<PressableProps, 'disabled'> {
   style?: ViewStyle
 }
 
-const PrimaryButton: FC<Props> = (props: Props): JSX.Element => {
+const PrimaryButton: FC<Props> = (props: Props): ReactElement => {
   const {
     captionColor = fontColors.light,
     backgroundColors = [gradientsColors['100'].secondaryColor, gradientsColors['100'].primaryColor],
