@@ -1,12 +1,12 @@
-import React, {FC} from 'react'
+import React, {FC, ReactElement} from 'react'
 import {ColorValue, PressableProps, ViewStyle} from 'react-native'
-import MaskedView from '@react-native-masked-view/masked-view'
 import {fontColors, gradientsColors, OpacityStyleEnum} from '@sphereon/ui-components.core'
 import {
   SSITouchableOpacityButtonFlexRowStyled as Button,
   SSITextH2SecondaryButtonStyled as ButtonCaption,
   SecondaryButtonLinearGradientStyled as LinearGradient,
   SecondaryButtonMaskContainerStyled as MaskContainer,
+  SecondaryButtonMaskedViewStyled as MaskedView
 } from '../../../styles'
 
 export interface Props extends Omit<PressableProps, 'disabled'> {
@@ -18,7 +18,7 @@ export interface Props extends Omit<PressableProps, 'disabled'> {
   style?: ViewStyle
 }
 
-const SecondaryButton: FC<Props> = (props: Props): JSX.Element => {
+const SecondaryButton: FC<Props> = (props: Props): ReactElement => {
   const {
     caption,
     captionColor = fontColors.secondaryButton,
@@ -41,8 +41,8 @@ const SecondaryButton: FC<Props> = (props: Props): JSX.Element => {
       style={{
         ...(disabled && {opacity: OpacityStyleEnum.DISABLED}),
       }}>
-      <MaskedView maskElement={<MaskContainer>{caption && <ButtonCaption>{caption}</ButtonCaption>}</MaskContainer>}>
-        <LinearGradient style={style} colors={borderColors}>
+      <MaskedView style={{...style}} maskElement={<MaskContainer style={{...style}}>{caption && <ButtonCaption>{caption}</ButtonCaption>}</MaskContainer>}>
+        <LinearGradient style={{...style}} colors={borderColors}>
           <ButtonCaption style={{color: captionColor}}>{caption}</ButtonCaption>
         </LinearGradient>
       </MaskedView>
