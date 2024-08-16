@@ -11,6 +11,7 @@ overrides:
   '@sphereon/ssi-types': 0.29.0
 
 importers:
+
   .:
     devDependencies:
       lerna:
@@ -141,6 +142,9 @@ importers:
       '@mui/x-date-pickers':
         specifier: ^6.19.5
         version: 6.20.2(@emotion/react@11.13.0)(@emotion/styled@11.13.0)(@mui/material@5.16.5)(@mui/system@5.16.5)(@types/react@18.2.79)(dayjs@1.10.7)(react-dom@18.3.1)(react@18.2.0)
+      '@sphereon/ssi-sdk.data-store':
+        specifier: 0.29.1-next.47
+        version: 0.29.1-next.47
       '@sphereon/ui-components.core':
         specifier: workspace:*
         version: link:../core
@@ -226,6 +230,7 @@ importers:
         version: 5.3.3
 
 packages:
+
   /@ampproject/remapping@2.3.0:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
@@ -2480,7 +2485,7 @@ packages:
     resolution: {integrity: sha512-QyKIWEnKQFnYu2ey+SAAm1A5xjzJLJJj3bhIZd3QKyXKKjaJ0hlxam/OsWSltxTNbcyH1jRJjC6Cxv31usv0Ag==}
     engines: {node: ^14.17.0 || >=16.0.0}
     dependencies:
-      chalk: 4.1.0
+      chalk: 4.1.2
       execa: 5.0.0
       strong-log-transformer: 2.1.0
     dev: true
@@ -4022,8 +4027,49 @@ packages:
       - supports-color
     dev: false
 
+  /@sphereon/ssi-sdk-ext.did-utils@0.24.1-next.3:
+    resolution: {integrity: sha512-1pGipPdvspuP53gdDgie5jEgou0UOdWjIssOvD/mbWMeAfGR3CE3Q0uYvxWMYqYIRyXQWKb3uNH09FyCqq/bQA==}
+    dependencies:
+      '@ethersproject/networks': 5.7.1
+      '@ethersproject/transactions': 5.7.0
+      '@sphereon/did-uni-client': 0.6.3
+      '@sphereon/ssi-sdk-ext.key-utils': 0.24.1-next.3
+      '@sphereon/ssi-sdk.core': 0.29.0
+      '@stablelib/ed25519': 1.0.3
+      '@veramo/core': 4.2.0
+      '@veramo/utils': 4.2.0
+      did-jwt: 6.11.6
+      did-resolver: 4.1.0
+      elliptic: 6.5.6
+      uint8arrays: 3.1.1
+    transitivePeerDependencies:
+      - encoding
+      - supports-color
+    dev: false
+
   /@sphereon/ssi-sdk-ext.key-utils@0.24.0:
     resolution: {integrity: sha512-69A7H5H/CSPHJnsoN6ICP4oluJunjMi5ia7okk6b2GZ6FEbj6JAcOavO6eznUrqPyhwg71+Es/TkuFCtQ1JydA==}
+    dependencies:
+      '@ethersproject/random': 5.7.0
+      '@stablelib/ed25519': 1.0.3
+      '@stablelib/sha256': 1.0.1
+      '@stablelib/sha512': 1.0.1
+      '@veramo/core': 4.2.0
+      base64url: 3.0.1
+      debug: 4.3.5
+      did-resolver: 4.1.0
+      elliptic: 6.5.6
+      lodash.isplainobject: 4.0.6
+      multiformats: 9.9.0
+      uint8arrays: 3.1.1
+      varint: 6.0.0
+      web-encoding: 1.1.5
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /@sphereon/ssi-sdk-ext.key-utils@0.24.1-next.3:
+    resolution: {integrity: sha512-OHdRptbfPcH0N7jijNkGr/JGc+BJKEXUCa80iFDRzKzsswxm8ZmeMwXIaboBMPkESyZ/cggppBIaBLo3c9mbpA==}
     dependencies:
       '@ethersproject/random': 5.7.0
       '@stablelib/ed25519': 1.0.3
@@ -4073,6 +4119,36 @@ packages:
       - typeorm-aurora-data-api-driver
     dev: false
 
+  /@sphereon/ssi-sdk.agent-config@0.29.1-next.47:
+    resolution: {integrity: sha512-EIYLMyHmxFxz/NXAB70XC9mvjVj5G1lpPg5SKxDkBM5CCH36JEozNf26u+yeGHxQkG2bUkZFK01PBd3VgAQ1hg==}
+    dependencies:
+      '@veramo/core': 4.2.0
+      debug: 4.3.5
+      jsonpointer: 5.0.1
+      typeorm: 0.3.20
+      url-parse: 1.5.10
+      yaml: 2.5.0
+    transitivePeerDependencies:
+      - '@google-cloud/spanner'
+      - '@sap/hana-client'
+      - better-sqlite3
+      - hdb-pool
+      - ioredis
+      - mongodb
+      - mssql
+      - mysql2
+      - oracledb
+      - pg
+      - pg-native
+      - pg-query-stream
+      - redis
+      - sql.js
+      - sqlite3
+      - supports-color
+      - ts-node
+      - typeorm-aurora-data-api-driver
+    dev: false
+
   /@sphereon/ssi-sdk.core@0.29.0:
     resolution: {integrity: sha512-kYCGQccSnbcnANAqYO8fcBXb1eoETN+YSATIciWaGLhMerETiMYjuu5anD+G2rn+HQaM9y9EE3qqmQ6I2HtEDw==}
     dependencies:
@@ -4093,6 +4169,42 @@ packages:
       '@sphereon/pex': 4.0.1
       '@sphereon/ssi-sdk-ext.did-utils': 0.24.0
       '@sphereon/ssi-sdk.agent-config': 0.29.0
+      '@sphereon/ssi-sdk.core': 0.29.0
+      '@sphereon/ssi-types': 0.29.0
+      '@veramo/core': 4.2.0
+      '@veramo/utils': 4.2.0
+      blakejs: 1.2.1
+      class-validator: 0.14.1
+      debug: 4.3.5
+      typeorm: 0.3.20
+    transitivePeerDependencies:
+      - '@google-cloud/spanner'
+      - '@sap/hana-client'
+      - better-sqlite3
+      - encoding
+      - hdb-pool
+      - ioredis
+      - mongodb
+      - mssql
+      - mysql2
+      - oracledb
+      - pg
+      - pg-native
+      - pg-query-stream
+      - redis
+      - sql.js
+      - sqlite3
+      - supports-color
+      - ts-node
+      - typeorm-aurora-data-api-driver
+    dev: false
+
+  /@sphereon/ssi-sdk.data-store@0.29.1-next.47:
+    resolution: {integrity: sha512-+KdG68Zh9V9gMAu+ClMVaCzMe6jvN/nn6PMUTsj8Ym6in0dldmsxmMAOjN44qNWYBPsb3sTcfwZ8VR9DnSONlg==}
+    dependencies:
+      '@sphereon/pex': 4.0.1
+      '@sphereon/ssi-sdk-ext.did-utils': 0.24.1-next.3
+      '@sphereon/ssi-sdk.agent-config': 0.29.1-next.47
       '@sphereon/ssi-sdk.core': 0.29.0
       '@sphereon/ssi-types': 0.29.0
       '@veramo/core': 4.2.0
@@ -7051,7 +7163,7 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.5
+      minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
     dev: true
@@ -7877,7 +7989,7 @@ packages:
     hasBin: true
     dependencies:
       async: 3.2.5
-      chalk: 4.1.0
+      chalk: 4.1.2
       filelist: 1.0.4
       minimatch: 3.1.2
     dev: true
@@ -9698,7 +9810,7 @@ packages:
       '@yarnpkg/parsers': 3.0.0-rc.46
       '@zkochan/js-yaml': 0.0.6
       axios: 1.7.2
-      chalk: 4.1.0
+      chalk: 4.1.2
       cli-cursor: 3.1.0
       cli-spinners: 2.6.1
       cliui: 7.0.4
