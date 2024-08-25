@@ -61,7 +61,7 @@ const toCredentialDetailsRow = async ({
       continue
     }
 
-    if (typeof value !== 'string') {
+    if (typeof value !== 'string' && value !== undefined) {
       // FIXME disabled this to not show keys of objects
       // rows.push({
       //   id: uuidv4(),
