@@ -40,8 +40,14 @@ const toCredentialDetailsRow = async ({
   issuer?: Party
 }): Promise<CredentialDetailsRow[]> => {
   let rows: CredentialDetailsRow[] = []
-  // eslint-disable-next-line prefer-const
+  if (!object) {
+    return rows
+  }
+
   for (let [key, value] of Object.entries(object)) {
+    if (!key) {
+      continue
+    }
     // TODO fix hacking together the image
     if (key.toLowerCase().includes('image')) {
       const image: string = typeof value === 'string' ? value : value.id
@@ -61,7 +67,7 @@ const toCredentialDetailsRow = async ({
       continue
     }
 
-    if (typeof value !== 'string' && value !== undefined) {
+    if (typeof value !== 'string' && value !== null && value !== undefined) {
       // FIXME disabled this to not show keys of objects
       // rows.push({
       //   id: uuidv4(),
@@ -70,7 +76,7 @@ const toCredentialDetailsRow = async ({
       // });
       rows = rows.concat(await toCredentialDetailsRow({object: value, subject, issuer}))
     } else {
-      if (key === '0' || value === undefined) {
+      if (key === '0' || value === undefined || value === null) {
         continue
       }
 
