@@ -245,7 +245,7 @@ export const toCredentialSummary = async ({
     issuer,
   })
   const logo = getIssuerLogo(verifiableCredential, localeBranding)
-  const url = typeof verifiableCredential.issuer !== 'string' ? verifiableCredential.issuer.url : undefined
+  const url = verifiableCredential.issuer && typeof verifiableCredential.issuer !== 'string' ? verifiableCredential.issuer.url : undefined
   const {issuerName, issuerAlias} = getCredentialIssuerNameAndAlias({verifiableCredential, issuer})
   const termsOfUse = getTermsOfUse({verifiableCredential})
   return {
