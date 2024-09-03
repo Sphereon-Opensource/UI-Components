@@ -1,4 +1,5 @@
-import {toNonPersistedCredentialSummary} from "../details";
+import {CredentialRole} from '@sphereon/ssi-sdk.data-store';
+import {toNonPersistedCredentialSummary} from '../details';
 
 const uniformSdJwt = {
     "type": [
@@ -54,9 +55,8 @@ const uniformSdJwt = {
 
 
 describe('Credential summary', () => {
-    it('should process SD-JWT', async () => {
-        // @ts-ignore
-        const result = await toNonPersistedCredentialSummary({verifiableCredential: uniformSdJwt, credentialRole: "HOLDER"})
+    it('should process SD-JWT', async (): Promise<void> => {
+        const result = await toNonPersistedCredentialSummary({verifiableCredential: uniformSdJwt, credentialRole: CredentialRole.HOLDER})
 
         console.log(JSON.stringify(result, null, 2))
         expect(result.properties.length).toEqual(13)
