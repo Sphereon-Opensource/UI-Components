@@ -67,7 +67,7 @@ const toCredentialDetailsRow = async ({
       continue
     }
 
-    if (typeof value !== 'string' && value !== null && value !== undefined) {
+    if (typeof value === 'object' && value !== null && value !== undefined) {
       // FIXME disabled this to not show keys of objects
       // rows.push({
       //   id: uuidv4(),
@@ -81,11 +81,11 @@ const toCredentialDetailsRow = async ({
       }
 
       let label: string = key
-      if (key === 'id' && value.startsWith('did:')) {
+      if (key === 'id' && typeof value === 'string' && value.startsWith('did:')) {
         label = 'subject'
       }
 
-      if (value.startsWith('did:')) {
+      if (typeof value === 'string' && value.startsWith('did:')) {
         const contacts: Party[] = [...(issuer ? [issuer] : []), ...(subject ? [subject] : [])]
 
         value = findCorrelationIdName(value, contacts)

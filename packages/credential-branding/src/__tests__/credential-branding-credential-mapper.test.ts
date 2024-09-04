@@ -20,6 +20,7 @@ const credential = {
             given_name_birth: 'Martin',
             birth_place: 'Nieuwdorp The Netherlands',
             sex: 1,
+            is_human: true,
             nationality: 'NL',
             expiry_date: '01-09-2027',
             issuance_date: '05-10-2013',
@@ -61,4 +62,21 @@ describe('Credential summary', () => {
         expect(result.properties).toBeDefined()
         expect(result.properties.find((property) => property.label === 'age_in_years')).toBeUndefined()
     })
+
+    it('should show number values', async (): Promise<void> => {
+        const result = await toNonPersistedCredentialSummary({verifiableCredential: credential, credentialRole: CredentialRole.HOLDER})
+
+        expect(result).toBeDefined()
+        expect(result.properties).toBeDefined()
+        expect(result.properties.find((property) => property.label === 'age_birth_year')?.value).toEqual(1979)
+    })
+
+    it('should show boolean values', async (): Promise<void> => {
+        const result = await toNonPersistedCredentialSummary({verifiableCredential: credential, credentialRole: CredentialRole.HOLDER})
+
+        expect(result).toBeDefined()
+        expect(result.properties).toBeDefined()
+        expect(result.properties.find((property) => property.label === 'is_human')?.value).toEqual(true)
+    })
+
 })
