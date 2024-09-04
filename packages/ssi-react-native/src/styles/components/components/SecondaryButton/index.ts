@@ -7,6 +7,7 @@ export const SecondaryButtonMaskContainerStyled = styled.View`
   ${SSIRoundedEdgesCss};
   background-color: transparent;
   flex: 1;
+  flex-direction: column;
   border-width: 1px;
   align-items: center;
   justify-content: center;
@@ -18,10 +19,12 @@ export const SecondaryButtonLinearGradientStyled = styled(SSILinearGradientStyle
   justify-content: center;
   padding: 9px;
   flex: 1;
+  flex-direction: column;
   height: 42px;
 `
 
 export const SecondaryButtonMaskedViewStyled = styled(MaskedView)`
   flex: 1;
+  flex-direction: column;
   height: 42px;
 `
