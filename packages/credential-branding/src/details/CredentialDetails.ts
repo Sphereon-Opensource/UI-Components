@@ -2,8 +2,8 @@ import {v4 as uuidv4} from 'uuid'
 import {VerifiableCredential} from '@veramo/core'
 import {asArray, computeEntryHash} from '@veramo/utils'
 import {CredentialRole, IBasicCredentialLocaleBranding, IBasicIssuerLocaleBranding, Identity, Party} from '@sphereon/ssi-sdk.data-store'
-import {EPOCH_MILLISECONDS, Localization} from '@sphereon/ui-components.core'
-import {downloadImage, getImageDimensions} from '@sphereon/ssi-sdk.core'
+import {EPOCH_MILLISECONDS, IS_IMAGE_URI_REGEX, Localization} from '@sphereon/ui-components.core'
+import {downloadImage, getImageDimensions, IImageDimensions} from '@sphereon/ssi-sdk.core'
 import {CredentialDetailsRow, CredentialSummary, ISelectAppLocaleBrandingArgs} from '../types'
 import {IImagePreloader} from '../services'
 import {getCredentialStatus, getIssuerLogo, isImageAddress} from '../utils'
@@ -21,13 +21,20 @@ function findCorrelationIdName(correlationId: string, parties: Party[], activeUs
   )
 }
 
-const getImageSize = async (image: string) => {
-  const downloadedImage = await downloadImage(image)
-  let imageSize: {width: number; height: number} | undefined = undefined
-  if (downloadedImage && (await isImageAddress(image))) {
-    imageSize = await getImageDimensions(downloadedImage.base64Content)
+const getImageSize = async (image: string): Promise<IImageDimensions | undefined> => {
+  // FIXME we need to start fixing some image detection as the isImageAddress supports local files
+  if (!await isImageAddress(image)) {
+    return
   }
-  return imageSize
+
+  if (image.startsWith('http://') && !image.startsWith('https://')) {
+    const downloadedImage = await downloadImage(image)
+    if (downloadedImage) {
+      return getImageDimensions(downloadedImage.base64Content)
+    }
+  } else if (IS_IMAGE_URI_REGEX.test(image)) {
+    return getImageDimensions(image.split('base64,')[1])
+  }
 }
 
 const toCredentialDetailsRow = async ({
@@ -48,17 +55,8 @@ const toCredentialDetailsRow = async ({
     if (!key) {
       continue
     }
-    // TODO fix hacking together the image
-    if (key.toLowerCase().includes('image')) {
-      const image: string = typeof value === 'string' ? value : value.id
-      rows.push({
-        id: uuidv4(),
-        label: 'image',
-        value: image,
-        imageSize: await getImageSize(image),
-      })
-      continue
-    } else if (key === 'type') {
+
+    if (key === 'type') {
       rows.push({
         id: uuidv4(),
         label: key,
@@ -67,7 +65,7 @@ const toCredentialDetailsRow = async ({
       continue
     }
 
-    if (typeof value !== 'string' && value !== null && value !== undefined) {
+    if (typeof value === 'object' && value !== null && value !== undefined) {
       // FIXME disabled this to not show keys of objects
       // rows.push({
       //   id: uuidv4(),
@@ -81,11 +79,11 @@ const toCredentialDetailsRow = async ({
       }
 
       let label: string = key
-      if (key === 'id' && value.startsWith('did:')) {
+      if (key === 'id' && typeof value === 'string' && value.startsWith('did:')) {
         label = 'subject'
       }
 
-      if (value.startsWith('did:')) {
+      if (typeof value === 'string' && value.startsWith('did:')) {
         const contacts: Party[] = [...(issuer ? [issuer] : []), ...(subject ? [subject] : [])]
 
         value = findCorrelationIdName(value, contacts)
