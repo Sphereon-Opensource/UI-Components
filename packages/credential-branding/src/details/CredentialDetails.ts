@@ -16,7 +16,7 @@ function findCorrelationIdName(correlationId: string, parties: Party[], activeUs
   }
   return (
     allParties?.find((contact: Party) =>
-      contact.identities.some((identity: Identity): boolean => identity.identifier.correlationId === correlationId),
+      contact.identities?.some((identity: Identity): boolean => identity.identifier.correlationId === correlationId),
     )?.contact.displayName ?? correlationId
   )
 }
