@@ -37,7 +37,7 @@ const getImageSize = async (image: string): Promise<IImageDimensions | undefined
   }
 }
 
-const toCredentialDetailsRow = async ({
+export const toCredentialDetailsRow = async ({
   object,
   subject,
   issuer,
