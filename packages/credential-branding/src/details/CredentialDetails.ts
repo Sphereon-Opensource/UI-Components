@@ -153,7 +153,7 @@ export const getCredentialDisplayName = ({
 }): string => {
   let title: string | undefined = localeBranding?.alias ?? verifiableCredential.name ?? (!verifiableCredential.type ? 'unknown' : undefined)
 
-  if (verifiableCredential.type) {
+  if (!title && verifiableCredential.type) {
     const types = asArray(verifiableCredential.type).filter(val => val !== 'VerifiableCredential')
     if (types.length === 1) {
       title = types[0]
