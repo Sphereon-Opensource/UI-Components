@@ -129,3 +129,15 @@ export const SSITextH7Styled = styled.Text`
 export const SSITextH7LightStyled = styled(SSITextH7Styled)`
   color: ${fontColors.light};
 `
+
+export const SSITextH7SemiBoldStyled = styled.Text`
+  font-family: ${fontStyle.h7SemiBold.fontFamily};
+  font-size: ${fontStyle.h7SemiBold.fontSize}px;
+  font-weight: ${fontStyle.h7SemiBold.fontWeight};
+  line-height: ${fontStyle.h7SemiBold.lineHeight}px;
+  height: auto;
+`
+
+export const SSITextH7SemiBoldLightStyled = styled(SSITextH7SemiBoldStyled)`
+  color: ${fontColors.light};
+`
