@@ -29,6 +29,7 @@ export type CredentialDetailsRow = {
   isEditable?: boolean
   status?: LabelStatus
   imageSize?: ImageSize
+  onPress?: () => Promise<void> // FIXME rethink how we going to handle values we want to be able to edit. maybe based on onPress we can show the icon and we do not need isEditable
 }
 
 export type LabelStatus = CredentialStatus | IssuerStatus
