@@ -12,7 +12,7 @@ import {materialCells} from '@jsonforms/material-renderers'
 import {jsonFormsMaterialRenderers} from '../../../renders/jsonFormsRenders'
 import {JSONFormState} from '../../../types'
 import Ajv from 'ajv'
-import {DateFormat, formatDateToISO} from '../../../helpers/date/DateHelper'
+import {DateFormat, formatDateToISO} from '../../../helpers'
 
 type Props<DataType = Record<any, any>> = {
   schema: JsonSchema
