@@ -1,5 +1,5 @@
 import React, {FC, ReactElement} from 'react'
-import {ColorValue, PressableProps, ViewStyle} from 'react-native'
+import {ColorValue, PressableProps, TouchableOpacityProps, ViewStyle} from 'react-native'
 import {fontColors, gradientsColors, OpacityStyleEnum} from '@sphereon/ui-components.core'
 import {
   SSITouchableOpacityButtonFlexRowStyled as Button,
@@ -9,7 +9,7 @@ import {
   SecondaryButtonMaskedViewStyled as MaskedView
 } from '../../../styles'
 
-export interface Props extends Omit<PressableProps, 'disabled'> {
+export interface Props extends Omit<TouchableOpacityProps, 'disabled'> {
   caption: string
   onPress: () => void
   disabled?: boolean | (() => boolean)
@@ -25,6 +25,7 @@ const SecondaryButton: FC<Props> = (props: Props): ReactElement => {
     borderColors = [gradientsColors['100'].secondaryColor, gradientsColors['100'].primaryColor],
     onPress,
     style,
+    ...rest
   } = props
   const disabled: boolean = typeof props.disabled === 'function' ? props.disabled() : props.disabled ?? false
 
@@ -35,6 +36,7 @@ const SecondaryButton: FC<Props> = (props: Props): ReactElement => {
 
   return (
     <Button
+      {...rest}
       onPress={onPress}
       disabled={disabled}
       activeOpacity={OpacityStyleEnum.DISABLED}
