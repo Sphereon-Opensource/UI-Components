@@ -1,5 +1,5 @@
 import React, {FC, ReactElement} from 'react'
-import {ColorValue, PressableProps, TouchableOpacityProps, ViewStyle} from 'react-native'
+import {ColorValue, TouchableOpacityProps, ViewStyle} from 'react-native'
 import {fontColors, gradientsColors, OpacityStyleEnum} from '@sphereon/ui-components.core'
 import {
   SSITouchableOpacityButtonFlexRowStyled as Button,
