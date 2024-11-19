@@ -41,7 +41,7 @@
     "@mui/system": "^5.15.12",
     "@mui/x-date-pickers": "^6.19.5",
     "@sphereon/ui-components.core": "workspace:*",
-    "@sphereon/ssi-sdk.data-store": "0.29.1-next.47",
+    "@sphereon/ssi-sdk.data-store": "0.30.2-next.273",
     "@tanstack/react-table": "^8.9.3",
     "react-json-tree": "^0.18.0",
     "react-loader-spinner": "5.4.5",
