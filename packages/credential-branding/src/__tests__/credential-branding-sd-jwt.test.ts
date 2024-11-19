@@ -59,6 +59,6 @@ describe('Credential summary', () => {
         const result = await toNonPersistedCredentialSummary({verifiableCredential: uniformSdJwt, credentialRole: CredentialRole.HOLDER})
 
         console.log(JSON.stringify(result, null, 2))
-        expect(result.properties.length).toEqual(13)
+        expect(result.properties.length).toEqual(19)
     })
 })
