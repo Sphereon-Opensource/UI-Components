@@ -6,17 +6,17 @@ import {backgroundColors} from '@sphereon/ui-components.core'
 export const DropDownListItemContainerStyled = styled(SSIFlexDirectionRowViewStyled)`
   flex-direction: row;
   align-items: center;
-  background-color: ${backgroundColors.primaryLight}
+  background-color: ${backgroundColors.primaryLight};
   padding: 10px 16px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: ${backgroundColors.lightGrey}
+    background-color: ${backgroundColors.lightGrey};
   }
 
   &:active {
-    background-color: ${backgroundColors.secondaryLight}
+    background-color: ${backgroundColors.secondaryLight};
   }
 `
 
