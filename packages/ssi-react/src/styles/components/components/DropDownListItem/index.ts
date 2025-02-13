@@ -20,6 +20,7 @@ export const DropDownListItemContainerStyled = styled(SSIFlexDirectionRowViewSty
   }
 `
 
+
 export const DropDownListItemCaptionContainerStyled = styled(SSITextH2Styled)`
     flex: 1;
     margin-right: 8px;
