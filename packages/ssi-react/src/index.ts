@@ -107,5 +107,5 @@ export {
   WarningImage,
   FormView,
   InformationRequestView,
-  ContactViewItem
+  ContactViewItem,
 }

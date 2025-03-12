@@ -14,7 +14,7 @@ export const formatDate = (dateString?: string, format: DateFormat = 'date-time'
   }
 
   const formatOptions: Intl.DateTimeFormatOptions = {
-    timeZone: userDateTimeOpts.timeZone
+    timeZone: userDateTimeOpts.timeZone,
   }
 
   if (format === 'date-time') {
@@ -26,12 +26,8 @@ export const formatDate = (dateString?: string, format: DateFormat = 'date-time'
     formatOptions.timeStyle = 'short'
   }
 
-  return new Intl.DateTimeFormat(
-    userDateTimeOpts.locale,
-    formatOptions
-  ).format(date)
+  return new Intl.DateTimeFormat(userDateTimeOpts.locale, formatOptions).format(date)
 }
-
 
 export const formatDateToISO = (dateString?: string, format: DateFormat = 'date-time'): string => {
   if (!dateString) {
@@ -47,9 +43,9 @@ export const formatDateToISO = (dateString?: string, format: DateFormat = 'date-
   const isoString = date.toISOString()
 
   if (format === 'date-time') {
-    return isoString.slice(0, 19).replace('T', ' ')  // YYYY-MM-DD HH:mm:ss
+    return isoString.slice(0, 19).replace('T', ' ') // YYYY-MM-DD HH:mm:ss
   } else if (format === 'date') {
-    return isoString.slice(0, 10)  // YYYY-MM-DD
+    return isoString.slice(0, 10) // YYYY-MM-DD
   } else {
     return isoString.slice(11, 19) // HH:mm:ss
   }

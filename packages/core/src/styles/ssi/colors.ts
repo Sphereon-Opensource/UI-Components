@@ -8,7 +8,7 @@ export const backgroundColors: Record<BackgroundColor, string> = {
   primaryLight: '#FBFBFB',
   secondaryLight: '#E3E3FF',
   lightGrey: '#E3E3E3',
-  orange: '#D74500'
+  orange: '#D74500',
 }
 
 // TODO WAL-303 add support for randomized colors to avoid getting the same color multiple times

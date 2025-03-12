@@ -15,7 +15,7 @@ import {
   ISelectAppLocaleBrandingArgs,
   ToCredentialDetailsRowArgs,
   ToCredentialSummaryArgs,
-  ToNonPersistedCredentialSummaryArgs
+  ToNonPersistedCredentialSummaryArgs,
 } from '../types'
 
 function findCorrelationIdName(correlationId: string, parties: Party[], activeUser?: Party): string {
@@ -32,7 +32,7 @@ function findCorrelationIdName(correlationId: string, parties: Party[], activeUs
 
 const getImageSize = async (image: string): Promise<IImageDimensions | undefined> => {
   // FIXME we need to start fixing some image detection as the isImageAddress supports local files
-  if (!await isImageAddress(image)) {
+  if (!(await isImageAddress(image))) {
     return
   }
 
@@ -47,7 +47,7 @@ const getImageSize = async (image: string): Promise<IImageDimensions | undefined
 }
 
 export const toCredentialDetailsRow = async (args: ToCredentialDetailsRowArgs): Promise<CredentialDetailsRow[]> => {
-  const {object, subject, issuer, branding, parentKey = '' } = args
+  const {object, subject, issuer, branding, parentKey = ''} = args
 
   let rows: CredentialDetailsRow[] = []
   if (!object) {
@@ -81,7 +81,7 @@ export const toCredentialDetailsRow = async (args: ToCredentialDetailsRowArgs): 
         continue
       }
 
-      let label: string = branding?.find((claim) => claim.key === (parentKey ? `${parentKey}.${key}` : key))?.name ?? key
+      let label: string = branding?.find(claim => claim.key === (parentKey ? `${parentKey}.${key}` : key))?.name ?? key
       if (key === 'id' && typeof value === 'string' && value.startsWith('did:')) {
         label = 'subject'
       }
@@ -115,13 +115,7 @@ export const toCredentialDetailsRow = async (args: ToCredentialDetailsRowArgs): 
  * @param subject Optional contact for subject name
  */
 export const toNonPersistedCredentialSummary = (args: ToNonPersistedCredentialSummaryArgs): Promise<CredentialSummary> => {
-  const {
-    verifiableCredential,
-    credentialRole,
-    branding,
-    issuer,
-    subject,
-  } = args
+  const {verifiableCredential, credentialRole, branding, issuer, subject} = args
 
   return toCredentialSummary({
     verifiableCredential: verifiableCredential as VerifiableCredential,
@@ -144,10 +138,7 @@ export const getDate = (...dates: (number | string | undefined)[]): number | und
 }
 
 export const getCredentialDisplayName = (args: GetCredentialDisplayNameArgs): string => {
-  const {
-    verifiableCredential,
-    localeBranding,
-  } = args
+  const {verifiableCredential, localeBranding} = args
 
   let title: string | undefined = localeBranding?.alias ?? verifiableCredential.name ?? (!verifiableCredential.type ? 'unknown' : undefined)
 
@@ -166,10 +157,7 @@ export const getCredentialDisplayName = (args: GetCredentialDisplayNameArgs): st
 }
 
 export const getCredentialIssuerNameAndAlias = (args: GetCredentialIssuerNameAndAliasArgs): {issuerAlias: string; issuerName: string} => {
-  const {
-    verifiableCredential,
-    issuer,
-  } = args
+  const {verifiableCredential, issuer} = args
 
   const issuerName: string = typeof verifiableCredential.issuer === 'string' ? verifiableCredential.issuer : verifiableCredential.issuer?.id
 
@@ -189,7 +177,7 @@ export const getCredentialIssuerNameAndAlias = (args: GetCredentialIssuerNameAnd
 }
 
 const getTermsOfUse = (args: GetTermsOfUseArgs): undefined | Array<Record<string, any> & {type?: string}> => {
-  const { verifiableCredential } = args
+  const {verifiableCredential} = args
 
   if (!verifiableCredential.termsOfUse) {
     return
@@ -215,14 +203,7 @@ const getTermsOfUse = (args: GetTermsOfUseArgs): undefined | Array<Record<string
  * @param subject Optional contact for subject name
  */
 export const toCredentialSummary = async (args: ToCredentialSummaryArgs): Promise<CredentialSummary> => {
-  const {
-    verifiableCredential,
-    hash,
-    credentialRole,
-    branding,
-    issuer,
-    subject
-  } = args
+  const {verifiableCredential, hash, credentialRole, branding, issuer, subject} = args
 
   const expirationDate = getDate(verifiableCredential.expirationDate, verifiableCredential.validTo, verifiableCredential.exp) ?? 0
   const issueDate = getDate(verifiableCredential.issuanceDate, verifiableCredential.validFrom, verifiableCredential.nbf, verifiableCredential.iat)!
@@ -233,7 +214,7 @@ export const toCredentialSummary = async (args: ToCredentialSummaryArgs): Promis
     object: {...verifiableCredential.vc?.credentialSubject, ...verifiableCredential.credentialSubject},
     subject,
     issuer,
-    branding: localeBranding?.claims
+    branding: localeBranding?.claims,
   })
   const logo = getIssuerLogo(verifiableCredential, localeBranding)
   const url = verifiableCredential.issuer && typeof verifiableCredential.issuer !== 'string' ? verifiableCredential.issuer.url : undefined
@@ -259,7 +240,9 @@ export const toCredentialSummary = async (args: ToCredentialSummaryArgs): Promis
   }
 }
 
-export const selectAppLocaleBranding = async (args: ISelectAppLocaleBrandingArgs): Promise<IBasicCredentialLocaleBranding | IBasicIssuerLocaleBranding | undefined> => {
+export const selectAppLocaleBranding = async (
+  args: ISelectAppLocaleBrandingArgs,
+): Promise<IBasicCredentialLocaleBranding | IBasicIssuerLocaleBranding | undefined> => {
   // We need to retrieve the locale of the app and select a matching branding or fallback on a branding without a locale
   // We search for a first match that starts with the app locale
   const appLocale: string = Localization.getLocale()

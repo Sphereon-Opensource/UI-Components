@@ -6,7 +6,7 @@ import {
   SSITextH2SecondaryButtonStyled as ButtonCaption,
   SecondaryButtonLinearGradientStyled as LinearGradient,
   SecondaryButtonMaskContainerStyled as MaskContainer,
-  SecondaryButtonMaskedViewStyled as MaskedView
+  SecondaryButtonMaskedViewStyled as MaskedView,
 } from '../../../styles'
 
 export interface Props extends Omit<TouchableOpacityProps, 'disabled'> {
@@ -43,7 +43,9 @@ const SecondaryButton: FC<Props> = (props: Props): ReactElement => {
       style={{
         ...(disabled && {opacity: OpacityStyleEnum.DISABLED}),
       }}>
-      <MaskedView style={{...style}} maskElement={<MaskContainer style={{...style}}>{caption && <ButtonCaption>{caption}</ButtonCaption>}</MaskContainer>}>
+      <MaskedView
+        style={{...style}}
+        maskElement={<MaskContainer style={{...style}}>{caption && <ButtonCaption>{caption}</ButtonCaption>}</MaskContainer>}>
         <LinearGradient style={{...style}} colors={borderColors}>
           <ButtonCaption style={{color: captionColor}}>{caption}</ButtonCaption>
         </LinearGradient>

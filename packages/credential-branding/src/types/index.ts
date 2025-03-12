@@ -1,18 +1,8 @@
 import {CredentialStatus, ImageSize, IssuerStatus} from '@sphereon/ui-components.core'
-import {
-  CredentialRole, IBasicCredentialClaim,
-  IBasicCredentialLocaleBranding,
-  IBasicIssuerLocaleBranding,
-  Party
-} from '@sphereon/ssi-sdk.data-store'
-import {
-  getCredentialDisplayName,
-  getCredentialIssuerNameAndAlias,
-  toCredentialSummary,
-  toNonPersistedCredentialSummary
-} from '../details';
-import {ICredential} from '@sphereon/ssi-types';
-import {VerifiableCredential} from '@veramo/core';
+import {CredentialRole, IBasicCredentialClaim, IBasicCredentialLocaleBranding, IBasicIssuerLocaleBranding, Party} from '@sphereon/ssi-sdk.data-store'
+import {getCredentialDisplayName, getCredentialIssuerNameAndAlias, toCredentialSummary, toNonPersistedCredentialSummary} from '../details'
+import {ICredential} from '@sphereon/ssi-types'
+import {VerifiableCredential} from '@veramo/core'
 
 export type CredentialSummary = {
   hash: string
