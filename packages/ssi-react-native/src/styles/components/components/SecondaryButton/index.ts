@@ -1,3 +1,4 @@
+// @ts-ignore
 import styled from 'styled-components/native'
 import MaskedView from '@react-native-masked-view/masked-view'
 import {SSIRoundedEdgesCss} from '@sphereon/ui-components.core'

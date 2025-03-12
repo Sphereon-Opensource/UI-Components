@@ -1,3 +1,4 @@
+// @ts-ignore
 import styled from 'styled-components/native'
 import {fontColors} from '@sphereon/ui-components.core'
 import {fontStyle} from '../typography'

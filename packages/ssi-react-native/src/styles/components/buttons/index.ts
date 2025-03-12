@@ -1,4 +1,5 @@
 import {TouchableOpacity} from 'react-native'
+// @ts-ignore
 import styled from 'styled-components/native'
 import {SSIRoundedLinearGradient} from '../../gradients'
 

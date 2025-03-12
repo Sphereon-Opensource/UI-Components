@@ -47,10 +47,13 @@
   },
   "pnpm": {
     "overrides": {
-      "@types/react": "~18.2.79",
-      "styled-components": "^6.1.12",
-      "@sphereon/ssi-sdk.core": "0.30.2-next.273",
-      "@sphereon/ssi-types": "0.30.2-next.273"
+      "@types/react": "18.3.12",
+      "react-dom": "npm:react-dom@18.3.1",
+      "react": "npm:react@18.3.1",
+      "react-is": "npm:react-is@18.3.1",
+      "styled-components": "^6.1.15",
+      "@sphereon/ssi-sdk.core": "^0.32",
+      "@sphereon/ssi-types": "^0.32"
     }
   }
 }
