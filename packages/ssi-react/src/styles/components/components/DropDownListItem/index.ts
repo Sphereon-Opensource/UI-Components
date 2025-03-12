@@ -8,11 +8,22 @@ export const DropDownListItemContainerStyled = styled(SSIFlexDirectionRowViewSty
   align-items: center;
   background-color: ${backgroundColors.primaryLight};
   padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: ${backgroundColors.lightGrey};
+  }
+
+  &:active {
+    background-color: ${backgroundColors.secondaryLight};
+  }
 `
 
+
 export const DropDownListItemCaptionContainerStyled = styled(SSITextH2Styled)`
-  flex: 1;
-  margin-right: 8px;
+    flex: 1;
+    margin-right: 8px;
 `
 
 export const DropDownListItemIconContainerStyled = styled.div`
