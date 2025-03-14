@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/Sphereon-Opensource/UI-Components/compare/v0.3.0...v0.4.0) (2025-03-14)
+
+### Bug Fixes
+
+- button styling react-native ([ecdfa7b](https://github.com/Sphereon-Opensource/UI-Components/commit/ecdfa7b14ecae95e787bc67e0c1d03c28883e83e))
+
+### Features
+
+- added additional fonts for react-native ([b53ec67](https://github.com/Sphereon-Opensource/UI-Components/commit/b53ec67277270f79d4c73a6d103750b279cabf8a))
+- added additional props to buttons ([de64411](https://github.com/Sphereon-Opensource/UI-Components/commit/de644112daa3a46ef04b3d08c6645fafd4e3c81a))
+- added issuer credential subject branding support ([6e07a0a](https://github.com/Sphereon-Opensource/UI-Components/commit/6e07a0a9a37b71c54bf30905f8b1f9b90e41a0c2))
+
 # [0.3.0](https://github.com/Sphereon-Opensource/UI-Components/compare/v0.2.0...v0.3.0) (2024-08-01)
 
 ### Bug Fixes

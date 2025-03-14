@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/Sphereon-Opensource/UI-Components/compare/v0.3.0...v0.4.0) (2025-03-14)
+
+### Bug Fixes
+
+- button styling react-native ([ecdfa7b](https://github.com/Sphereon-Opensource/UI-Components/commit/ecdfa7b14ecae95e787bc67e0c1d03c28883e83e))
+- credential details improvements ([8306b26](https://github.com/Sphereon-Opensource/UI-Components/commit/8306b26d8922e867a44be31cd4a76838efecebb6))
+- Fix for undefined value in credential details summary ([01eb911](https://github.com/Sphereon-Opensource/UI-Components/commit/01eb9113b05f0114dfd629ddb8e05aa0fc5d84d5))
+- fixed image size detection for base64 images ([a83d5f0](https://github.com/Sphereon-Opensource/UI-Components/commit/a83d5f09209403b80922c098cb599772ea43d3f1))
+- show other values in rows besides strings ([bf47228](https://github.com/Sphereon-Opensource/UI-Components/commit/bf47228365727ffbc83c5d1b60c284888269b67e))
+- use correlation id when party has no identities for finding name ([f82cbc4](https://github.com/Sphereon-Opensource/UI-Components/commit/f82cbc46532006a5d434c48d638c19a77c924760))
+
+### Features
+
+- added additional fonts for react-native ([b53ec67](https://github.com/Sphereon-Opensource/UI-Components/commit/b53ec67277270f79d4c73a6d103750b279cabf8a))
+- added additional props to buttons ([de64411](https://github.com/Sphereon-Opensource/UI-Components/commit/de644112daa3a46ef04b3d08c6645fafd4e3c81a))
+- added contact view item for react ([14fb900](https://github.com/Sphereon-Opensource/UI-Components/commit/14fb900e9a7fffa91ed70500402d470afa5aa5b3))
+- added issuer credential subject branding support ([6e07a0a](https://github.com/Sphereon-Opensource/UI-Components/commit/6e07a0a9a37b71c54bf30905f8b1f9b90e41a0c2))
+- added null value test for credential mapper ([fb835e0](https://github.com/Sphereon-Opensource/UI-Components/commit/fb835e048a1ec835972588c9fd4c3eab398d3654))
+
 # [0.3.0](https://github.com/Sphereon-Opensource/UI-Components/compare/v0.2.0...v0.3.0) (2024-08-01)
 
 ### Bug Fixes
