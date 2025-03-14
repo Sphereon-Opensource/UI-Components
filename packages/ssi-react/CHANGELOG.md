@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/Sphereon-Opensource/UI-Components/compare/v0.3.0...v0.4.0) (2025-03-14)
+
+### Features
+
+- added contact view item for react ([14fb900](https://github.com/Sphereon-Opensource/UI-Components/commit/14fb900e9a7fffa91ed70500402d470afa5aa5b3))
+
 # [0.3.0](https://github.com/Sphereon-Opensource/UI-Components/compare/v0.2.0...v0.3.0) (2024-08-01)
 
 ### Bug Fixes
