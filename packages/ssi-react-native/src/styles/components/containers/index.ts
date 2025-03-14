@@ -1,4 +1,5 @@
 import {BlurView} from '@react-native-community/blur'
+// @ts-ignore
 import styled from 'styled-components/native'
 
 import {SSIRoundedEdgesCss} from '@sphereon/ui-components.core'

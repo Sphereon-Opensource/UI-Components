@@ -1,6 +1,19 @@
+// @ts-ignore
 import styled from 'styled-components/native'
 import {fontColors} from '@sphereon/ui-components.core'
 import {fontStyle} from '../typography'
+
+export const SSITextH1SemiBoldStyled = styled.Text`
+  font-family: ${fontStyle.h1SemiBold.fontFamily};
+  font-size: ${fontStyle.h1SemiBold.fontSize}px;
+  font-weight: ${fontStyle.h1SemiBold.fontWeight};
+  line-height: ${fontStyle.h1SemiBold.lineHeight}px;
+  height: auto;
+`
+
+export const SSITextH1SemiBoldLightStyled = styled(SSITextH1SemiBoldStyled)`
+  color: ${fontColors.light};
+`
 
 export const SSITextH2Styled = styled.Text`
   font-family: ${fontStyle.h2Regular.fontFamily};
@@ -14,8 +27,40 @@ export const SSITextH2LightStyled = styled(SSITextH2Styled)`
   color: ${fontColors.light};
 `
 
+export const SSITextH2SemiBoldStyled = styled.Text`
+  font-family: ${fontStyle.h2SemiBold.fontFamily};
+  font-size: ${fontStyle.h2SemiBold.fontSize}px;
+  font-weight: ${fontStyle.h2SemiBold.fontWeight};
+  line-height: ${fontStyle.h2SemiBold.lineHeight}px;
+  height: auto;
+`
+
+export const SSITextH2SemiBoldLightStyled = styled(SSITextH2SemiBoldStyled)`
+  color: ${fontColors.light};
+`
+
 export const SSITextH2SecondaryButtonStyled = styled(SSITextH2Styled)`
   color: ${fontColors.secondaryButton};
+`
+
+export const SSITextH3Styled = styled.Text`
+  font-family: ${fontStyle.h3Regular.fontFamily};
+  font-size: ${fontStyle.h3Regular.fontSize}px;
+  font-weight: ${fontStyle.h3Regular.fontWeight};
+  line-height: ${fontStyle.h3Regular.lineHeight}px;
+  height: auto;
+`
+
+export const SSITextH3LightStyled = styled(SSITextH3Styled)`
+  color: ${fontColors.light};
+`
+
+export const SSITextH3SemiBoldStyled = styled.Text`
+  font-family: ${fontStyle.h3SemiBold.fontFamily};
+  font-size: ${fontStyle.h3SemiBold.fontSize}px;
+  font-weight: ${fontStyle.h3SemiBold.fontWeight};
+  line-height: ${fontStyle.h3SemiBold.lineHeight}px;
+  height: auto;
 `
 
 export const SSITextH4Styled = styled.Text`
@@ -72,4 +117,28 @@ export const Text64Styled = styled.Text`
   font-weight: ${fontStyle.Regular64.fontWeight};
   line-height: ${fontStyle.Regular64.lineHeight}px;
   height: auto;
+`
+
+export const SSITextH7Styled = styled.Text`
+  font-family: ${fontStyle.h7Regular.fontFamily};
+  font-size: ${fontStyle.h7Regular.fontSize}px;
+  font-weight: ${fontStyle.h7Regular.fontWeight};
+  line-height: ${fontStyle.h7Regular.lineHeight}px;
+  height: auto;
+`
+
+export const SSITextH7LightStyled = styled(SSITextH7Styled)`
+  color: ${fontColors.light};
+`
+
+export const SSITextH7SemiBoldStyled = styled.Text`
+  font-family: ${fontStyle.h7SemiBold.fontFamily};
+  font-size: ${fontStyle.h7SemiBold.fontSize}px;
+  font-weight: ${fontStyle.h7SemiBold.fontWeight};
+  line-height: ${fontStyle.h7SemiBold.lineHeight}px;
+  height: auto;
+`
+
+export const SSITextH7SemiBoldLightStyled = styled(SSITextH7SemiBoldStyled)`
+  color: ${fontColors.light};
 `

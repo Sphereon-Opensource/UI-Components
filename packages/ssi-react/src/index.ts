@@ -46,6 +46,7 @@ import TextInputField from './components/fields/TextInputField'
 import WarningImage from './components/assets/images/WarningImage'
 import FormView from './components/views/FormView'
 import InformationRequestView from './components/views/InformationRequestView'
+import ContactViewItem from './components/views/ContactViewItem'
 
 import {Row} from '@tanstack/react-table'
 
@@ -106,4 +107,5 @@ export {
   WarningImage,
   FormView,
   InformationRequestView,
+  ContactViewItem,
 }

@@ -1,7 +1,7 @@
 {
   "name": "@sphereon/ui-components.ssi-react",
   "private": false,
-  "version": "0.3.0",
+  "version": "0.3.4",
   "description": "SSI UI components for React",
   "repository": "git@github.com:Sphereon-Opensource/UI-Components.git",
   "author": "Sphereon <dev@sphereon.com>",
@@ -41,6 +41,7 @@
     "@mui/system": "^5.15.12",
     "@mui/x-date-pickers": "^6.19.5",
     "@sphereon/ui-components.core": "workspace:*",
+    "@sphereon/ssi-sdk.data-store": "^0.33",
     "@tanstack/react-table": "^8.9.3",
     "react-json-tree": "^0.18.0",
     "react-loader-spinner": "5.4.5",
@@ -50,7 +51,7 @@
     "uint8arrays": "^3.1.1"
   },
   "devDependencies": {
-    "@types/react": "~18.2.67",
+    "@types/react": "~18.3.18",
     "ajv": "^8.12.0",
     "cpy-cli": "^5.0.0",
     "typescript": "4.9.5"

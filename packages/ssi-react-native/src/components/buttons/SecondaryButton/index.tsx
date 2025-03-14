@@ -1,15 +1,15 @@
-import React, {FC} from 'react'
-import {ColorValue, PressableProps, ViewStyle} from 'react-native'
-import MaskedView from '@react-native-masked-view/masked-view'
+import React, {FC, ReactElement} from 'react'
+import {ColorValue, TouchableOpacityProps, ViewStyle} from 'react-native'
 import {fontColors, gradientsColors, OpacityStyleEnum} from '@sphereon/ui-components.core'
 import {
   SSITouchableOpacityButtonFlexRowStyled as Button,
   SSITextH2SecondaryButtonStyled as ButtonCaption,
   SecondaryButtonLinearGradientStyled as LinearGradient,
   SecondaryButtonMaskContainerStyled as MaskContainer,
+  SecondaryButtonMaskedViewStyled as MaskedView,
 } from '../../../styles'
 
-export interface Props extends Omit<PressableProps, 'disabled'> {
+export interface Props extends Omit<TouchableOpacityProps, 'disabled'> {
   caption: string
   onPress: () => void
   disabled?: boolean | (() => boolean)
@@ -18,13 +18,14 @@ export interface Props extends Omit<PressableProps, 'disabled'> {
   style?: ViewStyle
 }
 
-const SecondaryButton: FC<Props> = (props: Props): JSX.Element => {
+const SecondaryButton: FC<Props> = (props: Props): ReactElement => {
   const {
     caption,
     captionColor = fontColors.secondaryButton,
     borderColors = [gradientsColors['100'].secondaryColor, gradientsColors['100'].primaryColor],
     onPress,
     style,
+    ...rest
   } = props
   const disabled: boolean = typeof props.disabled === 'function' ? props.disabled() : props.disabled ?? false
 
@@ -35,14 +36,17 @@ const SecondaryButton: FC<Props> = (props: Props): JSX.Element => {
 
   return (
     <Button
+      {...rest}
       onPress={onPress}
       disabled={disabled}
       activeOpacity={OpacityStyleEnum.DISABLED}
       style={{
         ...(disabled && {opacity: OpacityStyleEnum.DISABLED}),
       }}>
-      <MaskedView maskElement={<MaskContainer>{caption && <ButtonCaption>{caption}</ButtonCaption>}</MaskContainer>}>
-        <LinearGradient style={style} colors={borderColors}>
+      <MaskedView
+        style={{...style}}
+        maskElement={<MaskContainer style={{...style}}>{caption && <ButtonCaption>{caption}</ButtonCaption>}</MaskContainer>}>
+        <LinearGradient style={{...style}} colors={borderColors}>
           <ButtonCaption style={{color: captionColor}}>{caption}</ButtonCaption>
         </LinearGradient>
       </MaskedView>

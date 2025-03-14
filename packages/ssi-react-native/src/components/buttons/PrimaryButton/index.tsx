@@ -1,5 +1,5 @@
-import React, {FC} from 'react'
-import {ColorValue, PressableProps, ViewStyle} from 'react-native'
+import React, {FC, ReactElement} from 'react'
+import {ColorValue, TouchableOpacityProps, ViewStyle} from 'react-native'
 import {fontColors, gradientsColors, OpacityStyleEnum} from '@sphereon/ui-components.core'
 import {
   SSITouchableOpacityButtonFlexRowStyled as Button,
@@ -7,7 +7,7 @@ import {
   SSIRoundedCenteredLinearGradientStyled as LinearGradient,
 } from '../../../styles'
 
-export interface Props extends Omit<PressableProps, 'disabled'> {
+export interface Props extends Omit<TouchableOpacityProps, 'disabled'> {
   caption: string
   onPress: () => void
   disabled?: boolean | (() => boolean)
@@ -16,13 +16,14 @@ export interface Props extends Omit<PressableProps, 'disabled'> {
   style?: ViewStyle
 }
 
-const PrimaryButton: FC<Props> = (props: Props): JSX.Element => {
+const PrimaryButton: FC<Props> = (props: Props): ReactElement => {
   const {
     captionColor = fontColors.light,
     backgroundColors = [gradientsColors['100'].secondaryColor, gradientsColors['100'].primaryColor],
     onPress,
     style,
     caption,
+    ...rest
   } = props
   const disabled: boolean = typeof props.disabled === 'function' ? props.disabled() : props.disabled ?? false
 
@@ -33,6 +34,7 @@ const PrimaryButton: FC<Props> = (props: Props): JSX.Element => {
 
   return (
     <Button
+      {...rest}
       onPress={onPress}
       disabled={disabled}
       activeOpacity={OpacityStyleEnum.DISABLED}

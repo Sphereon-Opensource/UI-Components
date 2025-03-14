@@ -1,4 +1,5 @@
 import {TouchableOpacity} from 'react-native'
+// @ts-ignore
 import styled from 'styled-components/native'
 import {SSIRoundedLinearGradient} from '../../gradients'
 
@@ -10,5 +11,7 @@ export const SSIRoundedCenteredLinearGradientStyled = styled(SSIRoundedLinearGra
   align-items: center;
   justify-content: center;
   padding: 9px;
-  width: 180px;
+  flex: 1;
+  flex-direction: column;
+  height: 42px;
 `

@@ -20,7 +20,7 @@ export const toLocalDateString = (date: number): string => {
   return new Date(formatDate(date)).toLocaleDateString(Localization.getLocale(), DATE_FORMAT_OPTIONS)
 }
 
-const formatDate = (date: number): number => {
+export const formatDate = (date: number): number => {
   let epoch: number = date
   epoch = removeFractionalPart(epoch)
   if (!isEpochMilli(epoch)) {
@@ -42,7 +42,7 @@ const isEpochMilli = (date: number): boolean => {
 }
 
 const removeFractionalPart = (date: number): number => {
-  if (date.toString().includes('.')) {
+  if (date.toString().indexOf('.') >= 0) {
     return Number(date.toString().split('.')[0])
   }
 

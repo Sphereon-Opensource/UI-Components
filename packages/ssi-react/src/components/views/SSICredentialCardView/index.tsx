@@ -47,6 +47,7 @@ type CardBody = {
 }
 
 type CardFooter = {
+  showExpirationDate?: boolean
   expirationDate?: number
   credentialStatus?: CredentialStatus
 }
@@ -68,7 +69,7 @@ const SSICredentialCardView: FC<Props> = (props: Props): ReactElement => {
   const {header, body, footer} = props
   const {credentialTitle, credentialSubtitle, logo} = props.header ?? {}
   const {issuerName, properties} = props.body ?? {}
-  const {credentialStatus, expirationDate} = props.footer ?? {}
+  const {credentialStatus, expirationDate, showExpirationDate = true} = props.footer ?? {}
   const {backgroundColor = credentialCardColors.default, backgroundImage, textColor = backgroundColors.primaryLight} = props.display ?? {}
 
   const getPropertyElementsFrom = (properties: Array<CardProperty>): Array<ReactElement> => {
@@ -123,11 +124,13 @@ const SSICredentialCardView: FC<Props> = (props: Props): ReactElement => {
           )}
           {footer && (
             <FooterContainer>
-              <ExpirationDateText style={{color: textColor}}>
-                {expirationDate
-                  ? `${Localization.translate('credential_card_expires_message')} ${toLocalDateString(expirationDate)}`
-                  : Localization.translate('credential_status_never_expires_date_label')}
-              </ExpirationDateText>
+              {showExpirationDate && (
+                <ExpirationDateText style={{color: textColor}}>
+                  {expirationDate
+                    ? `${Localization.translate('credential_card_expires_message')} ${toLocalDateString(expirationDate)}`
+                    : Localization.translate('credential_status_never_expires_date_label')}
+                </ExpirationDateText>
+              )}
               {credentialStatus && (
                 <StatusContainer>{credentialStatus && <SSIStatusLabel status={credentialStatus} color={textColor} />}</StatusContainer>
               )}

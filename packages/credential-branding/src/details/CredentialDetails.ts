@@ -1,13 +1,22 @@
 import {v4 as uuidv4} from 'uuid'
 import {VerifiableCredential} from '@veramo/core'
 import {asArray, computeEntryHash} from '@veramo/utils'
-import {CredentialRole, IBasicCredentialLocaleBranding, IBasicIssuerLocaleBranding, Identity, Party} from '@sphereon/ssi-sdk.data-store'
-import {EPOCH_MILLISECONDS, Localization} from '@sphereon/ui-components.core'
-import {downloadImage, getImageDimensions} from '@sphereon/ssi-sdk.core'
-import {CredentialDetailsRow, CredentialSummary, ISelectAppLocaleBrandingArgs} from '../types'
+import {IBasicCredentialLocaleBranding, IBasicIssuerLocaleBranding, Identity, Party} from '@sphereon/ssi-sdk.data-store'
+import {EPOCH_MILLISECONDS, IS_IMAGE_URI_REGEX, Localization} from '@sphereon/ui-components.core'
+import {downloadImage, getImageDimensions, IImageDimensions} from '@sphereon/ssi-sdk.core'
 import {IImagePreloader} from '../services'
 import {getCredentialStatus, getIssuerLogo, isImageAddress} from '../utils'
-import {ICredential} from '@sphereon/ssi-types'
+import {
+  CredentialDetailsRow,
+  CredentialSummary,
+  GetCredentialDisplayNameArgs,
+  GetCredentialIssuerNameAndAliasArgs,
+  GetTermsOfUseArgs,
+  ISelectAppLocaleBrandingArgs,
+  ToCredentialDetailsRowArgs,
+  ToCredentialSummaryArgs,
+  ToNonPersistedCredentialSummaryArgs,
+} from '../types'
 
 function findCorrelationIdName(correlationId: string, parties: Party[], activeUser?: Party): string {
   let allParties = parties
@@ -16,43 +25,41 @@ function findCorrelationIdName(correlationId: string, parties: Party[], activeUs
   }
   return (
     allParties?.find((contact: Party) =>
-      contact.identities.some((identity: Identity): boolean => identity.identifier.correlationId === correlationId),
+      contact.identities?.some((identity: Identity): boolean => identity.identifier.correlationId === correlationId),
     )?.contact.displayName ?? correlationId
   )
 }
 
-const getImageSize = async (image: string) => {
-  const downloadedImage = await downloadImage(image)
-  let imageSize: {width: number; height: number} | undefined = undefined
-  if (downloadedImage && (await isImageAddress(image))) {
-    imageSize = await getImageDimensions(downloadedImage.base64Content)
+const getImageSize = async (image: string): Promise<IImageDimensions | undefined> => {
+  // FIXME we need to start fixing some image detection as the isImageAddress supports local files
+  if (!(await isImageAddress(image))) {
+    return
   }
-  return imageSize
+
+  if (image.startsWith('http://') && !image.startsWith('https://')) {
+    const downloadedImage = await downloadImage(image)
+    if (downloadedImage) {
+      return getImageDimensions(downloadedImage.base64Content)
+    }
+  } else if (IS_IMAGE_URI_REGEX.test(image)) {
+    return getImageDimensions(image.split('base64,')[1])
+  }
 }
 
-const toCredentialDetailsRow = async ({
-  object,
-  subject,
-  issuer,
-}: {
-  object: Record<string, any>
-  subject?: Party
-  issuer?: Party
-}): Promise<CredentialDetailsRow[]> => {
+export const toCredentialDetailsRow = async (args: ToCredentialDetailsRowArgs): Promise<CredentialDetailsRow[]> => {
+  const {object, subject, issuer, branding, parentKey = ''} = args
+
   let rows: CredentialDetailsRow[] = []
-  // eslint-disable-next-line prefer-const
+  if (!object) {
+    return rows
+  }
+
   for (let [key, value] of Object.entries(object)) {
-    // TODO fix hacking together the image
-    if (key.toLowerCase().includes('image')) {
-      const image: string = typeof value === 'string' ? value : value.id
-      rows.push({
-        id: uuidv4(),
-        label: 'image',
-        value: image,
-        imageSize: await getImageSize(image),
-      })
+    if (!key) {
       continue
-    } else if (key === 'type') {
+    }
+
+    if (key === 'type') {
       rows.push({
         id: uuidv4(),
         label: key,
@@ -61,25 +68,25 @@ const toCredentialDetailsRow = async ({
       continue
     }
 
-    if (typeof value !== 'string') {
+    if (typeof value === 'object' && value !== null && value !== undefined) {
       // FIXME disabled this to not show keys of objects
       // rows.push({
       //   id: uuidv4(),
       //   label: key,
       //   value: undefined,
       // });
-      rows = rows.concat(await toCredentialDetailsRow({object: value, subject, issuer}))
+      rows = rows.concat(await toCredentialDetailsRow({object: value, subject, issuer, branding, parentKey: parentKey ? `${parentKey}.${key}` : key}))
     } else {
-      if (key === '0' || value === undefined) {
+      if (key === '0' || value === undefined || value === null) {
         continue
       }
 
-      let label: string = key
-      if (key === 'id' && value.startsWith('did:')) {
+      let label: string = branding?.find(claim => claim.key === (parentKey ? `${parentKey}.${key}` : key))?.name ?? key
+      if (key === 'id' && typeof value === 'string' && value.startsWith('did:')) {
         label = 'subject'
       }
 
-      if (value.startsWith('did:')) {
+      if (typeof value === 'string' && value.startsWith('did:')) {
         const contacts: Party[] = [...(issuer ? [issuer] : []), ...(subject ? [subject] : [])]
 
         value = findCorrelationIdName(value, contacts)
@@ -107,19 +114,9 @@ const toCredentialDetailsRow = async ({
  * @param issuer Optional contact for issuer name
  * @param subject Optional contact for subject name
  */
-export const toNonPersistedCredentialSummary = ({
-  verifiableCredential,
-  credentialRole,
-  branding,
-  issuer,
-  subject,
-}: {
-  verifiableCredential: ICredential | VerifiableCredential
-  credentialRole: CredentialRole
-  branding?: Array<IBasicCredentialLocaleBranding>
-  issuer?: Party
-  subject?: Party
-}): Promise<CredentialSummary> => {
+export const toNonPersistedCredentialSummary = (args: ToNonPersistedCredentialSummaryArgs): Promise<CredentialSummary> => {
+  const {verifiableCredential, credentialRole, branding, issuer, subject} = args
+
   return toCredentialSummary({
     verifiableCredential: verifiableCredential as VerifiableCredential,
     hash: computeEntryHash(verifiableCredential as VerifiableCredential),
@@ -140,13 +137,9 @@ export const getDate = (...dates: (number | string | undefined)[]): number | und
   return Math.round(new Date(date + '').valueOf() / EPOCH_MILLISECONDS)
 }
 
-export const getCredentialDisplayName = ({
-  verifiableCredential,
-  localeBranding,
-}: {
-  verifiableCredential: VerifiableCredential
-  localeBranding?: IBasicCredentialLocaleBranding
-}): string => {
+export const getCredentialDisplayName = (args: GetCredentialDisplayNameArgs): string => {
+  const {verifiableCredential, localeBranding} = args
+
   let title: string | undefined = localeBranding?.alias ?? verifiableCredential.name ?? (!verifiableCredential.type ? 'unknown' : undefined)
 
   if (verifiableCredential.type) {
@@ -163,13 +156,9 @@ export const getCredentialDisplayName = ({
   return title
 }
 
-export const getCredentialIssuerNameAndAlias = ({
-  verifiableCredential,
-  issuer,
-}: {
-  verifiableCredential: VerifiableCredential
-  issuer?: Party
-}): {issuerAlias: string; issuerName: string} => {
+export const getCredentialIssuerNameAndAlias = (args: GetCredentialIssuerNameAndAliasArgs): {issuerAlias: string; issuerName: string} => {
+  const {verifiableCredential, issuer} = args
+
   const issuerName: string = typeof verifiableCredential.issuer === 'string' ? verifiableCredential.issuer : verifiableCredential.issuer?.id
 
   let issuerAlias: string | undefined = undefined
@@ -187,14 +176,13 @@ export const getCredentialIssuerNameAndAlias = ({
   return {issuerName, issuerAlias}
 }
 
-const getTermsOfUse = ({
-  verifiableCredential,
-}: {
-  verifiableCredential: VerifiableCredential
-}): undefined | Array<Record<string, any> & {type?: string}> => {
+const getTermsOfUse = (args: GetTermsOfUseArgs): undefined | Array<Record<string, any> & {type?: string}> => {
+  const {verifiableCredential} = args
+
   if (!verifiableCredential.termsOfUse) {
     return
   }
+
   const termsOfUse = asArray(verifiableCredential.termsOfUse)
   return termsOfUse.map((tou: any) => {
     const {type, id, ...rest} = tou
@@ -204,6 +192,7 @@ const getTermsOfUse = ({
     }
   })
 }
+
 /**
  * Map persisted (Unique) VCs to the summaries we display
  * @param hash The hash of the unique verifiable credential
@@ -213,33 +202,22 @@ const getTermsOfUse = ({
  * @param issuer Optional contact for issuer name
  * @param subject Optional contact for subject name
  */
-export const toCredentialSummary = async ({
-  verifiableCredential,
-  hash,
-  credentialRole,
-  branding,
-  issuer,
-  subject,
-}: {
-  verifiableCredential: VerifiableCredential
-  hash: string
-  credentialRole: CredentialRole
-  branding?: Array<IBasicCredentialLocaleBranding>
-  issuer?: Party
-  subject?: Party
-}): Promise<CredentialSummary> => {
+export const toCredentialSummary = async (args: ToCredentialSummaryArgs): Promise<CredentialSummary> => {
+  const {verifiableCredential, hash, credentialRole, branding, issuer, subject} = args
+
   const expirationDate = getDate(verifiableCredential.expirationDate, verifiableCredential.validTo, verifiableCredential.exp) ?? 0
   const issueDate = getDate(verifiableCredential.issuanceDate, verifiableCredential.validFrom, verifiableCredential.nbf, verifiableCredential.iat)!
-  const localeBranding = await selectAppLocaleBranding({localeBranding: branding})
+  const localeBranding: IBasicCredentialLocaleBranding | undefined = await selectAppLocaleBranding({localeBranding: branding})
   const credentialStatus = getCredentialStatus(verifiableCredential)
   const title = getCredentialDisplayName({verifiableCredential, localeBranding})
   const properties = await toCredentialDetailsRow({
     object: {...verifiableCredential.vc?.credentialSubject, ...verifiableCredential.credentialSubject},
     subject,
     issuer,
+    branding: localeBranding?.claims,
   })
   const logo = getIssuerLogo(verifiableCredential, localeBranding)
-  const url = typeof verifiableCredential.issuer !== 'string' ? verifiableCredential.issuer.url : undefined
+  const url = verifiableCredential.issuer && typeof verifiableCredential.issuer !== 'string' ? verifiableCredential.issuer.url : undefined
   const {issuerName, issuerAlias} = getCredentialIssuerNameAndAlias({verifiableCredential, issuer})
   const termsOfUse = getTermsOfUse({verifiableCredential})
   return {
